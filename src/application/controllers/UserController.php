@@ -7,7 +7,7 @@ class UserController extends CI_Controller
     {
         parent::__construct();
         $this->load->model('UserModel');
-        $this->load->model('loginModel');
+        $this->load->model('LoginModel');
 
         if ($this->session->userdata('username') == null) {
             redirect('login');
@@ -67,7 +67,7 @@ class UserController extends CI_Controller
             $update = [
                 'bukti_bayar' => $this->upload->data()['file_name']
             ];
-            $this->loginModel->update_data($where, $update);
+            $this->LoginModel->update_data($where, $update);
 
             redirect('user/upload');
         }
