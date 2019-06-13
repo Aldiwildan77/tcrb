@@ -6,7 +6,7 @@ class UserController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('userModel');
+        $this->load->model('UserModel');
         $this->load->model('loginModel');
 
         if ($this->session->userdata('username') == null) {
@@ -17,7 +17,7 @@ class UserController extends CI_Controller
     public function index()
     {
         $data['title'] = 'User';
-        $data['user'] = $this->userModel->getDataUser([
+        $data['user'] = $this->UserModel->getDataUser([
             'username' => $this->session->userdata['username']
         ]);
         $this->load->view('templates/header', $data);
@@ -76,7 +76,7 @@ class UserController extends CI_Controller
     public function edit()
     {
         $data['title'] = 'Edit profile';
-        $data['user'] = $this->userModel->getDataUser([
+        $data['user'] = $this->UserModel->getDataUser([
             'username' => $this->session->userdata['username']
         ]);
         $this->load->view('templates/header', $data);

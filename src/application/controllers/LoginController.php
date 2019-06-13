@@ -6,18 +6,18 @@ class LoginController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('loginModel');
+        $this->load->model('LoginModel');
 
         if ($this->session->userdata('username') != null) {
             redirect('user');
         }
 
         date_default_timezone_set("Asia/Jakarta");
-        $time1 = date('d/m/Y'); 
+        $time1 = date('d/m/Y');
         $time2 = '16/07/2019';
-        if($time1 < $time2){ // Tanggal sekarang belum melewati tanggal yang telah ditentukan
+        if ($time1 < $time2) { // Tanggal sekarang belum melewati tanggal yang telah ditentukan
             redirect(base_url());
-        }    
+        }
     }
 
     public function index()
@@ -36,9 +36,9 @@ class LoginController extends CI_Controller
                 'user' => $input,
                 'password' => $password
             ];
-            if ($this->loginModel->login($data)) {
-                $data = $this->loginModel->login($data);
-                if ($this->loginModel->checkStatusAktif(['id' => $data['id']])) {
+            if ($this->LoginModel->login($data)) {
+                $data = $this->LoginModel->login($data);
+                if ($this->LoginModel->checkStatusAktif(['id' => $data['id']])) {
                     $array = [
                         'id' => $data['id'],
                         'username' => $data['username'],
@@ -93,7 +93,7 @@ class LoginController extends CI_Controller
                 'kode_aktivasi' => $kode_aktivasi
             ];
 
-            $this->loginModel->insertData($data);
+            $this->LoginModel->insertData($data);
 
             if ($this->sendActivationEmail($username)) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
@@ -116,25 +116,14 @@ class LoginController extends CI_Controller
             'username' => $username
         ];
 
-        $config = [
-            'protocol'  => 'smtp',
-            'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_user' => 'no.reply.tcrb@gmail.com',
-            'smtp_pass' => 'apayaenaknya123',
-            'smtp_port' => 465,
-            'mailtype'  => 'html',
-            'charset'   => 'utf-8',
-            'newline'   => "\r\n"
-        ];
-
         $dataUser = $this->userModel->getDataUser($data);
         $data['username'] = $dataUser['username'];
         $data['email'] = $dataUser['email'];
         $data['link'] = base_url('activate/' . $dataUser['kode_aktivasi']);
         $msg = $this->load->view('templates/activation_email', $data, true);
 
-        $this->load->library('email', $config);
-        $this->email->from('no.reply.tcrb@gmail.com', 'Turnamen Catur Raja Brawijaya');
+        $this->load->library('email', $this->recoveryConfig());
+        $this->email->from($this->recoveryConfig()['smtp_user'], 'Turnamen Catur Raja Brawijaya');
         $this->email->to($dataUser['email']);
         $this->email->subject('Account Activation');
         $this->email->message($msg);
@@ -147,8 +136,8 @@ class LoginController extends CI_Controller
         $data = [
             'kode_aktivasi' => $kodeAktivasi
         ];
-        if ($this->loginModel->checkActivationCode($data)) {
-            if ($this->loginModel->checkStatusAktif($data)) {
+        if ($this->LoginModel->checkActivationCode($data)) {
+            if ($this->LoginModel->checkStatusAktif($data)) {
                 $this->session->set_flashdata('message', '<div class="alert alert-info" role="alert">
                 Your account is already activated.
                 </div>');
@@ -157,7 +146,7 @@ class LoginController extends CI_Controller
                 $update = [
                     'status_aktif' => 1
                 ];
-                $this->loginModel->updateData($data, $update);
+                $this->LoginModel->updateData($data, $update);
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Your account has been activated. You can login now.
                 </div>');
@@ -178,7 +167,7 @@ class LoginController extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $input = $this->input->post('input');
-            $dataUser = $this->loginModel->recovery($input);
+            $dataUser = $this->LoginModel->recovery($input);
             if ($dataUser) {
                 if ($this->sendRecoveryEmail($dataUser)) {
                     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
@@ -199,29 +188,36 @@ class LoginController extends CI_Controller
         }
     }
 
-
-    public function sendRecoveryEmail($dataUser)
+    private function recoveryConfig()
     {
-        $recoveryCode = md5('resettcrbbcc' . $dataUser['password']);
-        $this->loginModel->setRecoveryCode($recoveryCode);
+        include_once('../helpers/Email.php');
+        $mail = new Email();
 
         $config = [
             'protocol'  => 'smtp',
-            'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_user' => 'no.reply.tcrb@gmail.com',
-            'smtp_pass' => 'apayaenaknya123',
+            'smtp_host' => $mail->getHost(),
+            'smtp_user' => $mail->getUser(),
+            'smtp_pass' => $mail->getPassword(),
             'smtp_port' => 465,
             'mailtype'  => 'html',
             'charset'   => 'utf-8',
             'newline'   => "\r\n"
         ];
 
+        return $config;
+    }
+
+    public function sendRecoveryEmail($dataUser)
+    {
+        $recoveryCode = md5('resettcrbbcc' . $dataUser['password']);
+        $this->LoginModel->setRecoveryCode($recoveryCode);
+
         $data['username'] = $dataUser['username'];
         $data['link'] = base_url('recovery/reset/' . $recoveryCode);
         $msg = $this->load->view('templates/recovery_email', $data, true);
 
-        $this->load->library('email', $config);
-        $this->email->from('no.reply.tcrb@gmail.com', 'Turnamen Catur Raja Brawijaya');
+        $this->load->library('email', $this->recoveryConfig());
+        $this->email->from($this->recoveryConfig()['smtp_user'], 'Turnamen Catur Raja Brawijaya');
         $this->email->to($dataUser['email']);
         $this->email->subject('Recovery Account');
         $this->email->message($msg);
@@ -231,7 +227,7 @@ class LoginController extends CI_Controller
     public function reset($code)
     {
         if ($code != null) {
-            $dataUser = $this->loginModel->verifyRecoveryCode($code);
+            $dataUser = $this->LoginModel->verifyRecoveryCode($code);
             if ($dataUser != null) {
                 $this->form_validation->set_rules('password', 'Password', 'trim|required');
                 $this->form_validation->set_rules('passconf', 'Repeat password', 'trim|required|matches[password]');
@@ -257,7 +253,7 @@ class LoginController extends CI_Controller
                         'password' => $password,
                     ];
 
-                    $status = $this->loginModel->updatePassword($data);
+                    $status = $this->LoginModel->updatePassword($data);
                     if ($status) {
                         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                         Error updating your password. Please contact <b>admin@tcrb.ub.ac.id</b></small>.
