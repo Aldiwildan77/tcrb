@@ -42,7 +42,7 @@ class UserController extends CI_Controller
 
     public function doUpload()
     {
-        $config['upload_path']      = realpath(APPPATH . '../bukti-bayar/');
+        $config['upload_path']      = realpath('./bukti-bayar/');
         $config['allowed_types']    = 'png|jpeg|jpg';
         $config['file_name']        = $this->session->userdata('username');
         $config['remove_spaces']    = true;
