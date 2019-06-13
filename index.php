@@ -53,7 +53,20 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'production');
+
+	switch ($_SERVER['HTTP_HOST']) {
+		case 'localhost':
+			$env = 'development';
+			break;
+		case 'tcrb.ub.ac.id':
+			$env = 'production';
+			break;
+		default:
+			$env = 'development';
+			break;
+	}
+
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : $env);
 
 /*
  *---------------------------------------------------------------
@@ -97,7 +110,7 @@ switch (ENVIRONMENT)
  * This variable must contain the name of your "system" directory.
  * Set the path if it is not in the same directory as this file.
  */
-	$system_path = 'system';
+	$system_path = 'src/system';
 
 /*
  *---------------------------------------------------------------
@@ -114,7 +127,7 @@ switch (ENVIRONMENT)
  *
  * NO TRAILING SLASH!
  */
-	$application_folder = 'application';
+	$application_folder = 'src/application';
 
 /*
  *---------------------------------------------------------------
