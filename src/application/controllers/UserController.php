@@ -67,7 +67,7 @@ class UserController extends CI_Controller
             $update = [
                 'bukti_bayar' => $this->upload->data()['file_name']
             ];
-            $this->LoginModel->update_data($where, $update);
+            $this->LoginModel->updateData($where, $update);
 
             redirect('user/upload');
         }
