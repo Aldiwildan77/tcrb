@@ -15,9 +15,9 @@ class LoginController extends CI_Controller
         date_default_timezone_set("Asia/Jakarta");
         $time1 = date('d/m/Y');
         $time2 = '16/07/2019';
-        if ($time1 < $time2) { // Tanggal sekarang belum melewati tanggal yang telah ditentukan
-            redirect(base_url());
-        }
+        // if ($time1 < $time2) { // Tanggal sekarang belum melewati tanggal yang telah ditentukan
+        //     redirect(base_url());
+        // }
     }
 
     public function index()
@@ -110,13 +110,13 @@ class LoginController extends CI_Controller
 
     public function sendActivationEmail($username)
     {
-        $this->load->model('userModel');
+        $this->load->model('UserModel');
 
         $data = [
             'username' => $username
         ];
 
-        $dataUser = $this->userModel->getDataUser($data);
+        $dataUser = $this->UserModel->getDataUser($data);
         $data['username'] = $dataUser['username'];
         $data['email'] = $dataUser['email'];
         $data['link'] = base_url('activate/' . $dataUser['kode_aktivasi']);
