@@ -54,7 +54,7 @@ class UserController extends CI_Controller
         if (!$this->upload->do_upload('file')) {
             $error = $this->upload->display_errors();
             $this->session->set_flashdata('message', '<div class="alert alert-danger pb-0" role="alert">
-            '.$error.'.            
+            ' . $error . '.            
             </div>');
             redirect('user');
         } else {
@@ -77,11 +77,44 @@ class UserController extends CI_Controller
     {
         $data['title'] = 'Edit profile';
         $data['user'] = $this->UserModel->getDataUser([
-            'username' => $this->session->userdata['username']
+            'username' => $this->session->userdata('username')
         ]);
         $this->load->view('templates/header', $data);
         $this->load->view('user/edit_view', $data);
         $this->load->view('templates/footer');
     }
 
+    public function changePassword()
+    {
+        if (isset($_POST['inputOne']) && isset($_POST['inputTwo']) && isset($_POST['inputThree'])) {
+            $oldPass = sha1($this->input->post('inputOne'));
+            $newPass = sha1($this->input->post('inputTwo'));
+            $confNewPass = sha1($this->input->post('inputThree'));
+            $where = [
+                'username' => $this->session->userdata('username')
+            ];
+            // Jika old password benar
+            if ($this->UserModel->getDataUser($where)['password'] == $oldPass) {
+                // Jika new pass sama dengan conf new pas
+                if ($newPass == $confNewPass) {
+                    $update = [
+                        'password' => $newPass
+                    ];
+                    $this->UserModel->editProfile($update);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success col-12 text-center" role="alert">
+                        Your password has been updated.
+                        </div>');
+                } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger col-12 text-center" role="alert">
+                        Your new password doesn\'t match with the confirmation password.
+                        </div>');
+                }
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger col-12 text-center" role="alert">
+                    Your old password is incorrect.
+                    </div>');
+            }
+        }
+        redirect('user');
+    }
 }
