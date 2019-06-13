@@ -15,9 +15,9 @@ class LoginController extends CI_Controller
         date_default_timezone_set("Asia/Jakarta");
         $time1 = date('d/m/Y');
         $time2 = '16/07/2019';
-        if ($time1 < $time2) { // Tanggal sekarang belum melewati tanggal yang telah ditentukan
-            redirect(base_url());
-        }
+        // if ($time1 < $time2) { // Tanggal sekarang belum melewati tanggal yang telah ditentukan
+        //     redirect(base_url());
+        // }
     }
 
     public function index()
@@ -190,7 +190,7 @@ class LoginController extends CI_Controller
 
     private function recoveryConfig()
     {
-        include_once('../helpers/Email.php');
+        require_once 'src/application/helpers/Email.php';
         $mail = new Email();
 
         $config = [
@@ -221,7 +221,7 @@ class LoginController extends CI_Controller
         $this->email->to($dataUser['email']);
         $this->email->subject('Recovery Account');
         $this->email->message($msg);
-        $this->email->send();
+        return $this->email->send() ? true : false;
     }
 
     public function reset($code)
