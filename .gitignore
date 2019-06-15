@@ -11,9 +11,9 @@ user_guide_src/cilexer/dist/*
 user_guide_src/cilexer/pycilexer.egg-info/*
 
 # logs
-application/logs/*
-!application/logs/index.html
-!application/logs/.htaccess
+src/application/logs/*
+!src/application/logs/index.html
+!src/application/logs/.htaccess
 
 # bukti bayar
 bukti-bayar/*
