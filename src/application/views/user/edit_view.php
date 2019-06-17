@@ -4,20 +4,20 @@
             <form action="doEdit" method="post">
                 <div class="form-group">
                     <label for="fullname">Full name</label>
-                    <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Enter full name" value="<?= set_value('fullname'); ?>" required>
+                    <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Enter full name" value="<?= $user['nama_lengkap']; ?>" required>
                     <small class="form-text text-danger"><?= form_error('fullname'); ?></small>
                 </div>
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Enter username" value="<?= set_value('username'); ?>" required>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Enter username" value="<?= $user['username']; ?>" required>
                     <small class="form-text text-danger"><?= form_error('username'); ?></small>
                 </div>
                 <div class="form-group">
                     <label for="email">Email address</label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" value="<?= set_value('email'); ?>" required>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" value="<?= $user['email']; ?>" required>
                     <small class="form-text text-danger"><?= form_error('email'); ?></small>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" required>
                     <small class="form-text text-danger"><?= form_error('password'); ?></small>
@@ -26,8 +26,9 @@
                     <label for="passconf">Password Confirmation</label>
                     <input type="password" class="form-control" name="passconf" id="passconf" placeholder="Enter password confirmation" required>
                     <small class="form-text text-danger"><?= form_error('passconf'); ?></small>
-                </div>
-                <button type="submit" class="btn btn-primary">Register</button>
+                </div> -->
+                <button type="button" class="btn btn-light" onclick="history.back()">Back</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
     </div>

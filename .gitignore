@@ -10,7 +10,11 @@ user_guide_src/cilexer/build/*
 user_guide_src/cilexer/dist/*
 user_guide_src/cilexer/pycilexer.egg-info/*
 
-#codeigniter 3
-application/logs/*
-!application/logs/index.html
-!application/logs/.htaccess
+# logs
+src/application/logs/*
+!src/application/logs/index.html
+!src/application/logs/.htaccess
+
+# bukti bayar
+bukti-bayar/*
+!bukti-bayar/.htaccess
