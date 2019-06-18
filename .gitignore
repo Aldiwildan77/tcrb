@@ -18,3 +18,13 @@ src/application/logs/*
 # bukti bayar
 bukti-bayar/*
 !bukti-bayar/.htaccess
+
+# composer
+*/composer.lock
+*/composer.phar
+
+# environment
+.env
+
+# vendor
+src/application/vendor/*

@@ -101,9 +101,9 @@ switch (ENVIRONMENT) {
     break;
 
   case 'production':
-    defined('DB_HOST')      ? null : define('DB_HOST', 'localhost');
-    defined('DB_USER')      ? null : define('DB_USER', 'tcrb');
-    defined('DB_PASSWORD')  ? null : define('DB_PASSWORD', 'fkvgxgndba');
-    defined('DB_NAME')      ? null : define('DB_NAME', 'db_tcrb');
+    defined('DB_HOST')      ? null : define('DB_HOST', $_ENV['DB_HOST']);
+    defined('DB_USER')      ? null : define('DB_USER', $_ENV['DB_USER']);
+    defined('DB_PASSWORD')  ? null : define('DB_PASSWORD', $_ENV['DB_PASSWORD']);
+    defined('DB_NAME')      ? null : define('DB_NAME', $_ENV['DB_NAME']);
     break;
 }

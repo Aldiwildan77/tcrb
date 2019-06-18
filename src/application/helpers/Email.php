@@ -7,9 +7,9 @@ class Email
 
   public function __construct()
   {
-    $this->host = 'ssl://smtp.googlemail.com';
-    $this->user = 'no.reply.tcrb@gmail.com';
-    $this->password = 'apayaenaknya123';
+    $this->host = $_ENV['MAIL_HOST'];
+    $this->user = $_ENV['MAIL_USER'];
+    $this->password = $_ENV['MAIL_PASSWORD'];
   }
 
   public function getHost()
