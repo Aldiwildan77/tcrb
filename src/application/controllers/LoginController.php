@@ -209,7 +209,7 @@ class LoginController extends CI_Controller
             'charset'   => 'utf-8',
             'newline'   => "\r\n"
         ];
-
+        
         return $config;
     }
 
