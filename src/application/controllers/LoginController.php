@@ -13,8 +13,8 @@ class LoginController extends CI_Controller
         }
 
         date_default_timezone_set("Asia/Jakarta");
-        $time1 = date('d/m/Y');
-        $time2 = '16/07/2019';
+        $time1 = date('m/d/Y');
+        $time2 = '07/16/2019';
         if ($time1 < $time2) { // Tanggal sekarang belum melewati tanggal yang telah ditentukan
             redirect(base_url());
         }
