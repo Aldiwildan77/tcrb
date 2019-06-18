@@ -6,10 +6,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => DB_HOST,
-	'username' => DB_USER,
-	'password' => DB_PASSWORD,
-	'database' => DB_NAME,
+	'hostname' => ENVIRONMENT === 'production' ? getenv('DB_HOST') : 'localhost',
+	'username' => ENVIRONMENT === 'production' ? getenv('DB_USER') : 'root',
+	'password' => ENVIRONMENT === 'production' ? getenv('DB_PASSWORD') : '',
+	'database' => ENVIRONMENT === 'production' ? getenv('DB_NAME') : 'tcrb',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
