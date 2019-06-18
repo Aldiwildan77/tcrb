@@ -69,7 +69,7 @@ class LoginController extends CI_Controller
 
     public function register()
     {
-        $this->form_validation->set_rules('fullname', 'Full Name', 'required|trim|alpha_numeric');
+        $this->form_validation->set_rules('fullname', 'Full Name', 'required|trim');
         $this->form_validation->set_rules('username', 'Username', 'required|is_unique[user.username]|max_length[16]|trim|alpha_numeric', [
             'is_unique' => 'This username has already taken.'
         ]);
@@ -101,7 +101,7 @@ class LoginController extends CI_Controller
 
             $this->LoginModel->insertData($data);
 
-            if ($this->sendActivationEmail($username)) {
+            if ($this->_sendActivationEmail($username)) {
                 $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                 Your account has been created. Please check your email to activate your account.
                 </div>');
@@ -114,7 +114,7 @@ class LoginController extends CI_Controller
         }
     }
 
-    public function sendActivationEmail($username)
+    private function _sendActivationEmail($username)
     {
         $this->load->model('UserModel');
 
@@ -175,7 +175,7 @@ class LoginController extends CI_Controller
             $input = $this->input->post('input');
             $dataUser = $this->LoginModel->recovery($input);
             if ($dataUser) {
-                if ($this->sendRecoveryEmail($dataUser)) {
+                if ($this->_sendRecoveryEmail($dataUser)) {
                     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     We\'ve sent you an email with further details on how to recovery your account.
                     </div>');
@@ -213,7 +213,7 @@ class LoginController extends CI_Controller
         return $config;
     }
 
-    public function sendRecoveryEmail($dataUser)
+    private function _sendRecoveryEmail($dataUser)
     {
         $recoveryCode = md5('resettcrbbcc' . $dataUser['password']);
         $this->LoginModel->setRecoveryCode($recoveryCode);
