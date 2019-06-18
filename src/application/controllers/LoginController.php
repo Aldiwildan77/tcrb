@@ -23,15 +23,21 @@ class LoginController extends CI_Controller
     public function index()
     {
         $this->form_validation->set_rules('input', 'Username or Email', 'required|trim');
-        $this->form_validation->set_rules('password', 'Password', 'required|trim');
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]');
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Login';
             $this->load->view('templates/header', $data);
             $this->load->view('login/login_view');
             $this->load->view('templates/footer');
         } else {
-            $input = strtolower($this->input->post('input'));
-            $password = sha1($this->input->post('password'));
+            $inputData = array(
+                'input' => $this->security->xss_clean($this->input->post('input')),
+                'password' => $this->security->xss_clean($this->input->post('password'))
+            );
+            
+            $input = strtolower($inputData['input']);
+            $password = sha1($inputData['password']);
+            
             $data = [
                 'user' => $input,
                 'password' => $password
@@ -63,15 +69,15 @@ class LoginController extends CI_Controller
 
     public function register()
     {
-        $this->form_validation->set_rules('fullname', 'Full Name', 'required|trim');
-        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[user.username]|max_length[16]|trim', [
+        $this->form_validation->set_rules('fullname', 'Full Name', 'required|trim|alpha_numeric');
+        $this->form_validation->set_rules('username', 'Username', 'required|is_unique[user.username]|max_length[16]|trim|alpha_numeric', [
             'is_unique' => 'This username has already taken.'
         ]);
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]|trim', [
             'is_unique' => 'This email has already registered.'
         ]);
-        $this->form_validation->set_rules('password', 'Password', 'required|trim');
-        $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required|matches[password]|trim');
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]');
+        $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required|matches[password]|trim|min_length[6]');
 
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Register';

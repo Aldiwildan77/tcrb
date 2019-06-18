@@ -21,12 +21,12 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" required>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" minlength="6" required>
                     <small class="form-text text-danger"><?= form_error('password'); ?></small>
                 </div>
                 <div class="form-group">
                     <label for="passconf">Password Confirmation</label>
-                    <input type="password" class="form-control" name="passconf" id="passconf" placeholder="Enter password confirmation" required>
+                    <input type="password" class="form-control" name="passconf" id="passconf" placeholder="Enter password confirmation" minlength="6" required>
                     <small class="form-text text-danger"><?= form_error('passconf'); ?></small>
                 </div>
                 <div>

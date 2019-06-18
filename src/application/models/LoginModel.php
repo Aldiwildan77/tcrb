@@ -38,7 +38,7 @@ class LoginModel extends CI_Model
 
         $this->db->group_start();
         $this->db->where('username' , $user);
-        $this->db->or_where('password', $user);
+        $this->db->or_where('email', $user);
         $this->db->group_end();
 
         $this->db->where('password',$password);
