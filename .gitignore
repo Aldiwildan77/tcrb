@@ -23,5 +23,8 @@ bukti-bayar/*
 */composer.lock
 */composer.phar
 
-# Environment
+# environment
 .env
+
+# vendor
+src/application/vendor/*
