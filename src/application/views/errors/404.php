@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.css');?>">
 </head>
 <body>
-    <img src="<?= base_url('assets/img/404.png');?>" alt="" class="img-fluid">
+    <div class="col d-flex align-content-center justify-content-center my-5">
+        <img src="<?= base_url('assets/img/404.png');?>" alt="" class="img-fluid w-50">
+    </div>
 </body>
 </html>
