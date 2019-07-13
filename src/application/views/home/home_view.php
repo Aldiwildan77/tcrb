@@ -160,12 +160,12 @@
 			</div>
 
 			<div class="row justify-content-center">
-				<div class="col-md-10 gsponsor">
+				<div class="col-10 gsponsor">
+					<img class="center img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+					<img class="center img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+					<!-- <img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
 					<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-					<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-					<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-					<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-					<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+					<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt=""> -->
 				</div>
 			</div>
 
@@ -176,14 +176,14 @@
 			</div>
 
 			<div class="row justify-content-center">
-				<div class="col-lg-12 gmedpar">
+				<div class="col-12 gmedpar">
+					<img class="center img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img class="center img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img class="center img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<!-- <img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
 					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
 					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt=""> -->
 				</div>
 			</div>
 
