@@ -140,3 +140,8 @@
 .pairing {
 	min-height: 700px;
 }
+
+.section-page {
+	padding-top: 120px;
+	padding-bottom: 120px;
+}
