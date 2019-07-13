@@ -1,1 +1,191 @@
-<div class="container"></div>
+	<!-- Awal Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+		<a class="navbar-brand" href="#home">
+			<img class="rounded-circle" src="<?= base_url('assets/img/dota2.jpg'); ?>" width="60" height="60" alt="">
+		</a>
+		<div class="collapse navbar-collapse justify-content-end">
+			<ul class="nav navbar-nav navbar-right ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="#">
+						<h6>Home</h6>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">
+						<h6>Pairing</h6>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#denah">
+						<h6>Denah</h6>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#dokumentasi">
+						<h6>Dokumentasi</h6>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">
+						<h6>Score</h6>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Get Started</button>
+	</nav>
+	<!-- Akhir Navbar -->
+
+	<!-- Awal Jumbotron -->
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container text-center">
+			<h1 class="judul">TCRB</h1>
+			<p class="lead teks">Turnamen Catur Raja Brawijaya</p>
+		</div>
+	</div>
+	<!-- Akhir Jumbotron -->
+
+	<!-- Awal Deskripsi -->
+	<section class="about text-center" id="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h2 class="text-center">Apa itu TCRB?</h2>
+				</div>
+			</div>
+
+			<div class="row text-center">
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis unde sapiente, itaque eligendi perferendis ducimus. Repudiandae culpa quasi magni nostrum reiciendis quo illum libero non, omnis sit, officia neque dolore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis unde sapiente, itaque eligendi perferendis ducimus. Repudiandae culpa quasi magni nostrum reiciendis quo illum libero non, omnis sit, officia neque dolore.
+				</p>
+			</div>
+		</div>
+	</section>
+	<!-- Akhir Deskripsi -->
+
+	<!-- Awal Dokumentasi -->
+	<section class="dokumentasi text-center" id="dokumentasi">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h2 class="text-center">Dokumentasi Kegiatan</h2>
+				</div>
+			</div>
+
+			<div id="dynamic_slide_show" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+				</ol>
+
+				<div class="carousel-inner">
+				</div>
+				<a class="left carousel-control" href="#dynamic_slide_show" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+
+				<a class="right carousel-control" href="#dynamic_slide_show" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right"></span>
+					<span class="sr-only">Next</span>
+				</a>
+
+			</div>
+		</div>
+	</section>
+	<!-- Akhir Dokumentasi -->
+
+	<!-- Awal Rundown -->
+	<section class="rundown text-center" id="rundown">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h2 class="text-center">Rundown Kegiatan</h2>
+				</div>
+			</div>
+
+
+		</div>
+	</section>
+	<!-- Akhir Rundown -->
+
+	<!-- Awal Denah -->
+	<section class="denah text-center" id="denah">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h2 class="text-center">Denah</h2>
+				</div>
+			</div>
+
+			<div class="row justify-content-center">
+				<div class="col-lg-10 panel">
+					<img class="center" src="<?= base_url('assets/img/denah-ub.jpg'); ?>" width="80%" height="100%" alt="">
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- Akhir Denah -->
+
+	<!-- Awal Instagram -->
+	<section class="instagram text-center" id="instagram">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h2 class="text-center">Instagram</h2>
+				</div>
+			</div>
+
+			<div class="row justify-content-center">
+				<div class="col-lg-10 panel">
+					<img class="center" src="<?= base_url('assets/img/mars.jpg'); ?>" width="80%" height="100%" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Akhir Instagram -->
+
+	<!-- Awal Sponsor -->
+	<section class="sponsor" id="sponsor">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<h2>Sponsor</h2>
+				</div>
+			</div>
+
+			<div class="row justify-content-center">
+				<div class="col-md-10 gsponsor">
+					<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+					<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+					<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+					<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+					<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Akhir Sponsor -->
+
+	<!-- Awal MedPar -->
+	<section class="medpar" id="medpar">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<h2>Media Partner</h2>
+				</div>
+			</div>
+
+			<div class="row justify-content-center">
+				<div class="col-lg-12 gmedpar">
+					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Akhir MedPar -->
