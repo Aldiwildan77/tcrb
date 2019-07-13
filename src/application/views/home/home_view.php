@@ -205,6 +205,12 @@
 
 	<!-- Awal footer -->
 	<footer>
-		
+		<div class="container-fluid bg-secondary">
+			<div class="text-center">
+				<h5 class="text-white">TCRB 2019</h5>
+				<p class="lead text-white">Gedung UKM </p>
+				<p class="lead text-white">Jalan Sanan No 61</p>
+			</div>
+		</div>
 	</footer>
 	<!-- Akhir footer -->
