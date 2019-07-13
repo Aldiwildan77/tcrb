@@ -124,7 +124,7 @@
 
 			<div class="row justify-content-center">
 				<div class="col-lg-10 panel">
-					<img class="center" src="<?= base_url('assets/img/denah-ub.jpg'); ?>" width="80%" height="100%" alt="">
+					<img class="center img-fluid" src="<?= base_url('assets/img/denah-ub.jpg'); ?>" width="80%" height="100%" alt="">
 				</div>
 			</div>
 
@@ -143,7 +143,7 @@
 
 			<div class="row justify-content-center">
 				<div class="col-lg-10 panel">
-					<img class="center" src="<?= base_url('assets/img/mars.jpg'); ?>" width="80%" height="100%" alt="">
+					<img class="center img-fluid" src="<?= base_url('assets/img/mars.jpg'); ?>" width="80%" height="100%" alt="">
 				</div>
 			</div>
 		</div>
@@ -160,12 +160,14 @@
 			</div>
 
 			<div class="row justify-content-center">
-				<div class="col-10 gsponsor">
-					<img class="center img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-					<img class="center img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-					<!-- <img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-					<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-					<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt=""> -->
+				<div class="row">
+					<div class="gsponsor col-12 mx-auto">
+						<img class="center img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+						<img class="center img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+						<!-- <img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+						<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+						<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt=""> -->
+					</div>
 				</div>
 			</div>
 
@@ -176,14 +178,16 @@
 			</div>
 
 			<div class="row justify-content-center">
-				<div class="col-12 gmedpar">
-					<img class="center img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<img class="center img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<img class="center img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<!-- <img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt=""> -->
+				<div class="row">
+					<div class="gmedpar col-12 mx-auto">
+						<img class="center img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+						<img class="center img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+						<img class="center img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+						<!-- <img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+						<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+						<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+						<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt=""> -->
+					</div>
 				</div>
 			</div>
 
@@ -198,3 +202,9 @@
 		</div>
 	</section>
 	<!-- Akhir MedPar -->
+
+	<!-- Awal footer -->
+	<footer>
+		
+	</footer>
+	<!-- Akhir footer -->
