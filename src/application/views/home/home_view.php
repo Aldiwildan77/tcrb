@@ -4,30 +4,30 @@
 			<img class="rounded-circle" src="<?= base_url('assets/img/dota2.jpg'); ?>" width="60" height="60" alt="">
 		</a>
 		<div class="collapse navbar-collapse justify-content-end">
-			<ul class="nav navbar-nav navbar-right ml-auto">
+			<ul class="nav navbar-nav navbar-right ml-auto ">
 				<li class="nav-item">
 					<a class="nav-link" href="#">
-						<h6>Home</h6>
+						<h6 class="text-white">Home</h6>
 					</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">
-						<h6>Pairing</h6>
+						<h6 class="text-white">Pairing</h6>
 					</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#denah">
-						<h6>Denah</h6>
+						<h6 class="text-white">Denah</h6>
 					</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#dokumentasi">
-						<h6>Dokumentasi</h6>
+						<h6 class="text-white">Dokumentasi</h6>
 					</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">
-						<h6>Score</h6>
+						<h6 class="text-white">Score</h6>
 					</a>
 				</li>
 			</ul>
@@ -117,7 +117,7 @@
 			</div>
 
 			<div class="row justify-content-center">
-				<div class="col-lg-10 panel">
+				<div class="panel col-lg-10">
 					<img class="center" src="<?= base_url('assets/img/denah-ub.jpg'); ?>" width="80%" height="100%" alt="">
 				</div>
 			</div>
