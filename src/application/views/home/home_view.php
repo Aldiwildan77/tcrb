@@ -123,7 +123,7 @@
 			</div>
 
 			<div class="row justify-content-center">
-				<div class="panel col-lg-10">
+				<div class="col-lg-10 panel">
 					<img class="center img-fluid" src="<?= base_url('assets/img/denah-ub.jpg'); ?>" width="80%" height="100%" alt="">
 				</div>
 			</div>
@@ -162,8 +162,8 @@
 			<div class="row justify-content-center">
 				<div class="row">
 					<div class="gsponsor col-md-12 mx-auto">
-						<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-						<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+						<img class="center img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+						<img class="center img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
 						<!-- <img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
 						<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
 						<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt=""> -->
@@ -180,9 +180,9 @@
 			<div class="row justify-content-center">
 				<div class="row">
 					<div class="gmedpar col-md-12 mx-auto">
-						<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-						<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-						<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+						<img class="center img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+						<img class="center img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+						<img class="center img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
 						<!-- <img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
 						<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
 						<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
@@ -201,3 +201,16 @@
 		</div>
 	</section>
 	<!-- Akhir MedPar -->
+
+	<!-- Awal footer -->
+	<footer>
+		<div class="container-fluid bg-secondary">
+			<div class="text-center">
+				<h5 class="text-white">TCRB 2019</h5>
+				<span class="text-white">Gedung UKM UB Lt 3.9</span>
+				<br>
+				<span class="text-white">Jalan Sanan No 61</span>
+			</div>
+		</div>
+	</footer>
+	<!-- Akhir footer -->
