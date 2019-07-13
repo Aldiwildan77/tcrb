@@ -3,8 +3,12 @@
 		<a class="navbar-brand" href="#home">
 			<img class="rounded-circle" src="<?= base_url('assets/img/dota2.jpg'); ?>" width="60" height="60" alt="">
 		</a>
-		<div class="collapse navbar-collapse justify-content-end">
-			<ul class="nav navbar-nav navbar-right ml-auto">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse text-center" id="navbarCollapse">
+			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
 					<a class="nav-link" href="#">
 						<h6 class="text-white">Home</h6>
@@ -30,9 +34,11 @@
 						<h6>Score</h6>
 					</a>
 				</li>
+				<li class="nav-item">
+					<button class="btn btn-outline-primary col-md-12 my-2 my-sm-0" type="submit">Get Started</button>
+				</li>
 			</ul>
 		</div>
-		<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Get Started</button>
 	</nav>
 	<!-- Akhir Navbar -->
 
