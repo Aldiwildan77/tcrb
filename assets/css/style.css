@@ -115,9 +115,9 @@
 	padding-right: 20px;
 }
 
-.jumbotron .teks {
+/* .jumbotron .teks {
 	font-family: Oswald;
-}
+} */
 
 .gsponsor img {
 	width: 160px;
@@ -139,4 +139,9 @@
 
 .pairing {
 	min-height: 700px;
+}
+
+.section-page {
+	padding-top: 120px;
+	padding-bottom: 120px;
 }

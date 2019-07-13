@@ -43,7 +43,7 @@
 	<!-- Akhir Navbar -->
 
 	<!-- Awal Jumbotron -->
-	<div class="jumbotron jumbotron-fluid">
+	<div class="jumbotron jumbotron-fluid" style="height: 100vh">
 		<div class="container text-center">
 			<h1 class="judul">TCRB</h1>
 			<p class="lead teks">Turnamen Catur Raja Brawijaya</p>
@@ -52,7 +52,7 @@
 	<!-- Akhir Jumbotron -->
 
 	<!-- Awal Deskripsi -->
-	<section class="about text-center" id="about">
+	<section class="section-page about text-center" id="about">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
@@ -70,7 +70,7 @@
 	<!-- Akhir Deskripsi -->
 
 	<!-- Awal Dokumentasi -->
-	<section class="dokumentasi text-center" id="dokumentasi">
+	<section class="section-page dokumentasi text-center" id="dokumentasi">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
@@ -100,7 +100,7 @@
 	<!-- Akhir Dokumentasi -->
 
 	<!-- Awal Rundown -->
-	<section class="rundown text-center" id="rundown">
+	<section class="section-page rundown text-center" id="rundown">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
@@ -114,7 +114,7 @@
 	<!-- Akhir Rundown -->
 
 	<!-- Awal Denah -->
-	<section class="denah text-center" id="denah">
+	<section class="section-page denah text-center" id="denah">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
@@ -133,7 +133,7 @@
 	<!-- Akhir Denah -->
 
 	<!-- Awal Instagram -->
-	<section class="instagram text-center" id="instagram">
+	<section class="section-page instagram text-center" id="instagram">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
@@ -151,7 +151,7 @@
 	<!-- Akhir Instagram -->
 
 	<!-- Awal Sponsor -->
-	<section class="sponsor" id="sponsor">
+	<section class="section-page sponsor" id="sponsor">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 text-center">
@@ -168,13 +168,7 @@
 					<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
 				</div>
 			</div>
-		</div>
-	</section>
-	<!-- Akhir Sponsor -->
 
-	<!-- Awal MedPar -->
-	<section class="medpar" id="medpar">
-		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 text-center">
 					<h2>Media Partner</h2>
@@ -192,6 +186,15 @@
 					<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
 				</div>
 			</div>
+
+		</div>
+	</section>
+	<!-- Akhir Sponsor -->
+
+	<!-- Awal MedPar -->
+	<section class="medpar" id="medpar">
+		<div class="container">
+
 		</div>
 	</section>
 	<!-- Akhir MedPar -->
