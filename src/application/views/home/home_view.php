@@ -7,7 +7,7 @@
 			<ul class="nav navbar-nav navbar-right ml-auto">
 				<li class="nav-item">
 					<a class="nav-link" href="#">
-						<h6>Home</h6>
+						<h6 class="text-white">Home</h6>
 					</a>
 				</li>
 				<li class="nav-item">
