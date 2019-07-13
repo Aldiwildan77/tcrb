@@ -23,6 +23,9 @@ $route['user/do-upload'] = 'UserController/doUpload';
 $route['user/edit'] = 'UserController/edit';
 $route['user/changepass'] = 'UserController/changePassword';
 
-$route['default_controller'] = 'HomeController';
+// Home
+$route['home'] = 'HomeController';
+
+$route['default_controller'] = 'ComingSoon';
 $route['404_override'] = 'ErrorController';
 $route['translate_uri_dashes'] = FALSE;

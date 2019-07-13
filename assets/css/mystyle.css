@@ -1,0 +1,78 @@
+html {
+	position: relative;
+}
+
+body {
+	margin-bottom: 100px;
+}
+
+section {
+	min-height: 300px;
+	padding: 50px;
+}
+
+h6 {
+	color: white;
+}
+
+.navbar-nav {
+	color: white;
+}
+
+.nav-link {
+	margin-right: 20px;
+}
+
+.jumbotron {
+	background: grey;
+	height: 300px;
+}
+
+.jumbotron .judul {
+	font-size: 100px;
+	color: #2ED1A2;
+	margin-top: 60px;
+	font-family: Oswald;
+}
+
+.panel {
+	box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+	border-radius: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 20px;
+}
+
+.jumbotron .teks {
+	font-family: Oswald;
+}
+
+.gsponsor img {
+	width: 160px;
+	height: 160px;
+	padding: 5px;
+	border-radius: 50%;
+	box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+	margin: 10px;
+}
+
+.gmedpar img {
+	width: 130px;
+	height: 130px;
+	padding: 5px;
+	border-radius: 50%;
+	box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+	margin: 10px;
+}
+
+.pairing {
+	min-height: 700px;
+}
+
+footer {
+	position: absolute;
+	width: 200%;
+	height: 100px;
+	bottom: 0;
+	background-color: #343A40;
+}
