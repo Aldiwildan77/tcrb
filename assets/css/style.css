@@ -115,9 +115,9 @@
 	padding-right: 20px;
 }
 
-.jumbotron .teks {
+/* .jumbotron .teks {
 	font-family: Oswald;
-}
+} */
 
 .gsponsor img {
 	width: 160px;
@@ -144,4 +144,8 @@
 .section-page {
 	padding-top: 120px;
 	padding-bottom: 120px;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 68ee076960192c70137a79485c20b2ec78fb0018
