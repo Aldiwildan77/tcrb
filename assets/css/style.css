@@ -1,3 +1,9 @@
+/* CSS untuk semua halaman
+** 1. Coming Soon
+** 2. Beranda 
+*/
+
+/* 1. START Coming Soon */
 /* Style the Image Used to Trigger the Modal */
 #myImg {
 	border-radius: 5px;
@@ -98,7 +104,9 @@
 /* #customFile .custom-file-control::after {
 	content: "Select file...";
 } */
+/* END Coming Soon */
 
+/* 2. START Beranda */
 .jumbotron .judul {
 	font-size: 100px;
 	color: #2ED1A2;
@@ -106,6 +114,11 @@
 	font-family: Oswald;
 }
 
+.beranda{
+	background-image: url(../img/dashboard.svg);
+	background-size: cover;
+	height: 100vh;
+}
 
 .panel {
 	box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
@@ -144,8 +157,4 @@
 .section-page {
 	padding-top: 120px;
 	padding-bottom: 120px;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 68ee076960192c70137a79485c20b2ec78fb0018

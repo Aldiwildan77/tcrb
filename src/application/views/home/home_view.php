@@ -43,7 +43,7 @@
 	<!-- Akhir Navbar -->
 
 	<!-- Awal Jumbotron -->
-	<div class="jumbotron jumbotron-fluid" style="height: 100vh">
+	<div class="jumbotron jumbotron-fluid beranda" style="height: 100vh">
 		<div class="container text-center">
 			<h1 class="judul">TCRB</h1>
 			<p class="lead teks">Turnamen Catur Raja Brawijaya</p>
