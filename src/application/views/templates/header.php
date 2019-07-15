@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.css'); ?>">
     <!-- <link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="shortcut icon" href="<?= base_url('assets/tcrb.ico');?>" type="image/x-icon">
 </head>
 
 <body>
