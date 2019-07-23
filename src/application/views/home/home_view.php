@@ -78,7 +78,38 @@
 				</div>
 			</div>
 
-			<div id="dynamic_slide_show" class="carousel slide" data-ride="carousel">
+			<!-- <div class="owl-carousel owl-theme">
+				<img src="" alt="" srcset="">
+			</div> -->
+
+			<div class="owl-carousel owl-theme owl-loaded">
+				<div class="owl-stage-outer">
+					<div class="owl-stage">
+						<div class="owl-item">
+							<img src="<?=base_url('assets/img/bg-comingsoon-1.png')?>" alt="" srcset="" >
+						</div>
+						<div class="owl-item">
+							<img src="<?=base_url('assets/img/bg-comingsoon-2.png')?>" alt="" srcset="">								
+						</div>
+						<div class="owl-item">
+							<img src="<?=base_url('assets/img/bg-comingsoon-3.jpg')?>" alt="" srcset="">
+						</div>
+						<div class="owl-item">
+							<img src="<?=base_url('assets/img/bg-comingsoon-1.png')?>" alt="" srcset="">
+						</div>
+					</div>
+				</div>
+				<div class="owl-nav">
+					<div class="owl-prev">prev</div>
+					<div class="owl-next">next</div>
+				</div>
+				<div class="owl-dots">
+					<div class="owl-dot active"><span></span></div>
+					<div class="owl-dot"><span></span></div>
+					<div class="owl-dot"><span></span></div>
+				</div>
+			</div>
+			<!-- <div id="dynamic_slide_show" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
 				</ol>
 
@@ -94,7 +125,7 @@
 					<span class="sr-only">Next</span>
 				</a>
 
-			</div>
+			</div> -->
 		</div>
 	</section>
 	<!-- Akhir Dokumentasi -->

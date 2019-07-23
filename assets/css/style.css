@@ -3,6 +3,8 @@
 ** 2. Beranda 
 */
 
+
+
 /* 1. START Coming Soon */
 /* Style the Image Used to Trigger the Modal */
 #myImg {
@@ -100,10 +102,6 @@
 		width: 100%;
 	}
 }
-
-/* #customFile .custom-file-control::after {
-	content: "Select file...";
-} */
 /* END Coming Soon */
 
 /* 2. START Beranda */
@@ -126,9 +124,22 @@
 	font-family: Oswald;
 } */
 
+.beranda{
+	background-image: url(../img/dashboard.svg);
+	background-size: cover;
+}
+
 .about{
 	background-image: linear-gradient(#238FCC, #20232A);
 }
+
+.about > .container{
+	background-color: white;
+}
+
+/* .dokumentasi{
+	background-image: linear-gradient( #20232A, #5DBCD2);	
+} */
 
 .gsponsor img {
 	width: 160px;
@@ -159,38 +170,60 @@
 
 @media (min-width: 0) {
 	.beranda {
-		background-image: url(../img/dashboard.svg);
-		background-size: cover;
 		background-position: 50% 0%;
 		height: 100vh;
+	}
+	
+	.about{
+		margin-top:-70px;
+		font-size: 14px;
+	}
+
+	.about > .container{
+		/* margin: 0 5%; */
+		width: 90%;
+		padding: 35px 50px; 
+		border-radius: 10px;
 	}
 }
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) { 
-	/* .beranda {
-		background-image: url(../img/dashboard.svg);
-		background-size: cover;
-		background-position: 50% 20%;
-		height: 100vh;
-	} */
+	.about{
+		margin-top:-80px;
+		font-size: 15px;
+	}
 	
 }
 
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
-
+	.about{
+		margin-top:-80px;
+		font-size: 15px;
+	}
 }
 
 /* Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+	.about{
+		margin-top:-100px;
+	}
+}
 
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
 	.beranda {
-		background-image: url(../img/dashboard.svg);
-		background-size: cover;
-		background-position: 0% 70%;
-		height: 100vh;
+		background-position: 0% 50%;
+		height: 1000px;
+	}
+
+	.about{
+		margin-top:-80px;
+	}
+
+	.about > .container{
+		padding: 35px 150px; 
+		border-radius: 10px;
 	}
 }
