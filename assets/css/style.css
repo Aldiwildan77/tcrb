@@ -114,12 +114,6 @@
 	font-family: Oswald;
 }
 
-.beranda{
-	background-image: url(../img/dashboard.svg);
-	background-size: cover;
-	height: 100vh;
-}
-
 .panel {
 	box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
 	border-radius: 20px;
@@ -131,6 +125,10 @@
 /* .jumbotron .teks {
 	font-family: Oswald;
 } */
+
+.about{
+	background-image: linear-gradient(#238FCC, #20232A);
+}
 
 .gsponsor img {
 	width: 160px;
@@ -157,4 +155,42 @@
 .section-page {
 	padding-top: 120px;
 	padding-bottom: 120px;
+}
+
+@media (min-width: 0) {
+	.beranda {
+		background-image: url(../img/dashboard.svg);
+		background-size: cover;
+		background-position: 50% 0%;
+		height: 100vh;
+	}
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) { 
+	/* .beranda {
+		background-image: url(../img/dashboard.svg);
+		background-size: cover;
+		background-position: 50% 20%;
+		height: 100vh;
+	} */
+	
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+	.beranda {
+		background-image: url(../img/dashboard.svg);
+		background-size: cover;
+		background-position: 0% 70%;
+		height: 100vh;
+	}
 }

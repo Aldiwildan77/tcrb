@@ -11,7 +11,7 @@ class HomeController extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Tournament Catur Raja Brawijaya';
+        $data['title'] = 'Turnamen Catur Raja Brawijaya';
         $this->load->view('templates/header', $data);
         $this->load->view('home/home_view');
         $this->load->view('templates/footer');
