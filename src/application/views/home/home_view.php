@@ -263,12 +263,11 @@
 			<!-- sosmed  -->
 			<div class="row">
 				<div class="col-md-12 my-2">
-					<div class="d-flex justify-content-center">
-						<a href="" class="mx-1"><i class="fa fa-instagram"></i></a>
-						<a href="" class="mx-1"><i class="fa fa-facebook-f"></i></a>
-						<a href="" class="mx-1"><i class="fa fa-youtube"></i></a>
-						<a href="" class="mx-1"><i class="fa fa-twitter"></i></a>
-						<a href="" class="mx-1"><i class="fa fa-line"></i></a>
+					<div class="text-center">
+						<a href="" class="lead mx-2"><i class="fa fa-instagram"></i></a>
+						<a href="" class="lead mx-2"><i class="fa fa-facebook-f"></i></a>
+						<a href="" class="lead mx-2"><i class="fa fa-youtube"></i></a>
+						<a href="" class="lead mx-2"><i class="fa fa-twitter"></i></a>
 					</div>
 				</div>
 			</div>
