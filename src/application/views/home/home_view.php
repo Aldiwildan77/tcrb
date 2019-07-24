@@ -8,7 +8,7 @@
 		</button>
 
 		<div class="collapse navbar-collapse text-center" id="navbarCollapse">
-		<ul class="navbar-nav ml-auto">
+			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
 					<a class="nav-link" href="#">
 						<h6 class="text-white">Home</h6>
@@ -74,7 +74,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<h2 class="text-center">Dokumentasi Kegiatan</h2>
+					<h2 class="text-center text-white">Dokumentasi Kegiatan</h2>
 				</div>
 			</div>
 
@@ -237,12 +237,12 @@
 
 	<!-- Awal footer -->
 	<footer>
-		<div class="container-fluid bg-secondary">
+		<div class="container-fluid bg-dark">
 			<div class="text-center">
 				<h5 class="text-white">TCRB 2019</h5>
 				<span class="text-white">Gedung UKM UB Lt 3.9</span>
 				<br>
-				<span class="text-white">Jalan Sanan No 61</span>
+				<span class="text-white">Universitas Brawijaya</span>
 			</div>
 		</div>
 	</footer>

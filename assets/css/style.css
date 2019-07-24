@@ -102,14 +102,46 @@
 		width: 100%;
 	}
 }
+
 /* END Coming Soon */
 
+@font-face {
+	font-family: fontJudul;
+	src: url(../fonts/NYCTALOPIATILT.TTF);
+}
+
+@font-face {
+	font-family: fontGlobal;
+	src: url(../fonts/product-sans/Product\ Sans\ Regular.ttf);
+}
+
 /* 2. START Beranda */
+
+body {
+	font-family: fontGlobal;
+}
+
 .jumbotron .judul {
-	font-size: 100px;
-	color: #2ED1A2;
-	margin-top: 60px;
-	font-family: Oswald;
+	font-size: 130px;
+	color: white;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+	font-family: fontJudul;
+}
+
+.jumbotron p {
+	font-family: fontJudul;
+	font-size: 25px;
+	padding-top: 20px;
+	color: #238FCC;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+.nav-item {
+	padding-right: 50px;
+}
+
+.navbar h6 {
+	font-size: 20px;
 }
 
 .panel {
@@ -124,22 +156,31 @@
 	font-family: Oswald;
 } */
 
-.beranda{
+.beranda {
 	background-image: url(../img/dashboard.svg);
 	background-size: cover;
 }
 
-.about{
+/* Background Section About */
+.about {
 	background-image: linear-gradient(#238FCC, #20232A);
 }
 
-.about > .container{
+.about>.container {
 	background-color: white;
 }
 
-/* .dokumentasi{
-	background-image: linear-gradient( #20232A, #5DBCD2);	
-} */
+/* Background Section Dokumentasi */
+.dokumentasi {
+	background-image: url(../img/section3.svg);
+	background-size: cover;
+}
+
+/* Background Section Rundown */
+.rundown {
+	background-image: url(../img/section4.svg);
+	background-size: cover;
+}
 
 .gsponsor img {
 	width: 160px;
@@ -168,46 +209,104 @@
 	padding-bottom: 120px;
 }
 
+footer .container-fluid {
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+
+
 @media (min-width: 0) {
 	.beranda {
 		background-position: 50% 0%;
 		height: 100vh;
 	}
-	
-	.about{
-		margin-top:-70px;
+
+	.about {
+		margin-top: -70px;
 		font-size: 14px;
 	}
 
-	.about > .container{
+	.about>.container {
 		/* margin: 0 5%; */
 		width: 90%;
-		padding: 35px 50px; 
+		padding: 35px 50px;
+		border-radius: 10px;
+	}
+
+	.dokumentasi {
+		margin-top: -70px;
+		font-size: 14px;
+	}
+
+	.dokumentasi>.container {
+		/* margin: 0 5%; */
+		width: 90%;
+		padding: 35px 50px;
+		border-radius: 10px;
+	}
+
+	.rundown {
+		margin-top: -70px;
+		font-size: 14px;
+	}
+
+	.rundown>.container {
+		/* margin: 0 5%; */
+		width: 90%;
+		padding: 35px 50px;
 		border-radius: 10px;
 	}
 }
 
 /*Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) { 
-	.about{
-		margin-top:-80px;
+@media (min-width: 576px) {
+	.about {
+		margin-top: -80px;
 		font-size: 15px;
 	}
-	
+
+	.dokumentasi {
+		margin-top: -80px;
+		font-size: 15px;
+	}
+
+	.rundown {
+		margin-top: -80px;
+		font-size: 15px;
+	}
 }
 
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
-	.about{
-		margin-top:-80px;
+	.about {
+		margin-top: -80px;
+		font-size: 15px;
+	}
+
+	.dokumentasi {
+		margin-top: -80px;
+		font-size: 15px;
+	}
+
+	.rundown {
+		margin-top: -80px;
 		font-size: 15px;
 	}
 }
 
 /* Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
-	.about{
-		margin-top:-100px;
+	.about {
+		margin-top: -100px;
+	}
+
+	.dokumentasi {
+		margin-top: -100px;
+	}
+
+	.rundown {
+		margin-top: -100px;
 	}
 }
 
@@ -218,12 +317,36 @@
 		height: 1000px;
 	}
 
-	.about{
-		margin-top:-80px;
+	.about {
+		margin-top: -70px;
 	}
 
-	.about > .container{
-		padding: 35px 150px; 
+	.about>.container {
+		padding: 35px 150px;
+		border-radius: 10px;
+	}
+
+	.dokumentasi {
+		margin-top: -80px;
+		font-size: 14px;
+	}
+
+	.dokumentasi>.container {
+		/* margin: 0 5%; */
+		width: 90%;
+		padding: 35px 50px;
+		border-radius: 10px;
+	}
+
+	.rundown {
+		margin-top: -70px;
+		font-size: 14px;
+	}
+
+	.rundown>.container {
+		/* margin: 0 5%; */
+		width: 90%;
+		padding: 35px 50px;
 		border-radius: 10px;
 	}
 }
