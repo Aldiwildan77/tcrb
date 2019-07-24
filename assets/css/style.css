@@ -171,16 +171,22 @@ body {
 
 /* Background Section Dokumentasi */
 .dokumentasi {
-	background-image: url(../img/section3.svg);
+	/* background-image: url(../img/section3.svg); */
+	background: linear-gradient(to bottom, #20232A 66%, #676C76 90%);
 	background-size: cover;
+	
 }
 
 /* Background Section Rundown */
 .rundown {
 	background-image: url(../img/section4.svg);
 	background-size: cover;
+	/* background-repeat: no-repeat; */
+	background-position: 0% 43%;
 }
-
+.rundown>.container{
+	background-color: rgba(255, 255, 255, 0.6);
+}
 .gsponsor img {
 	width: 160px;
 	height: 160px;
@@ -234,26 +240,27 @@ footer .container-fluid {
 	}
 
 	.dokumentasi {
-		margin-top: -70px;
+		/* margin-top: -px; */
 		font-size: 14px;
 	}
 
 	.dokumentasi>.container {
 		/* margin: 0 5%; */
 		width: 90%;
-		padding: 35px 50px;
+		padding: 0px 50px 80px;
 		border-radius: 10px;
 	}
 
 	.rundown {
-		margin-top: -70px;
+		margin-top: -310px;
 		font-size: 14px;
 	}
 
-	.rundown>.container {
-		/* margin: 0 5%; */
+	.rundown .container {
+		margin-top: 140px;
 		width: 90%;
 		padding: 35px 50px;
+		padding-top: 60px;
 		border-radius: 10px;
 	}
 
@@ -270,13 +277,16 @@ footer .container-fluid {
 	}
 
 	.dokumentasi {
-		margin-top: -80px;
 		font-size: 15px;
 	}
 
 	.rundown {
-		margin-top: -80px;
+		margin-top: -240px;
 		font-size: 15px;
+	}
+
+	.rundown>.container{
+		margin-top: 140px;
 	}
 
 	.jumbotron .judul {
@@ -288,16 +298,16 @@ footer .container-fluid {
 @media (min-width: 768px) {
 	.about {
 		margin-top: -80px;
-		font-size: 15px;
+		font-size: 17px;
 	}
 
 	.dokumentasi {
-		margin-top: -80px;
+		/* margin-top: -32x; */
 		font-size: 15px;
 	}
 
 	.rundown {
-		margin-top: -80px;
+		margin-top: -230px;
 		font-size: 15px;
 	}
 }
@@ -308,12 +318,12 @@ footer .container-fluid {
 		margin-top: -100px;
 	}
 
-	.dokumentasi {
-		margin-top: -100px;
-	}
+	/* .dokumentasi {
+		margin-top: -53px;
+	} */
 
 	.rundown {
-		margin-top: -100px;
+		margin-top: -200px;
 	}
 
 	.jumbotron .judul {
@@ -338,7 +348,7 @@ footer .container-fluid {
 	}
 
 	.dokumentasi {
-		margin-top: -80px;
+		/* margin-top: -68px; */
 		font-size: 14px;
 	}
 
@@ -350,7 +360,7 @@ footer .container-fluid {
 	}
 
 	.rundown {
-		margin-top: -70px;
+		/* margin-top: -20px; */
 		font-size: 14px;
 	}
 
@@ -360,4 +370,46 @@ footer .container-fluid {
 		padding: 35px 50px;
 		border-radius: 10px;
 	}
+}
+/* FULL HD */
+@media (min-width: 1900px) {
+	.beranda {
+		background-position: 0% 65%;
+		height: 1200px;
+	}
+
+	.about {
+		margin-top: -80px;
+	}
+
+	.about>.container {
+		padding: 35px 150px;
+		border-radius: 10px;
+	}
+
+	.dokumentasi {
+		margin-top: -5px;
+		margin-bottom: 75px;
+		font-size: 14px;
+	}
+
+	.dokumentasi>.container {
+		/* margin: 0 5%; */
+		width: 90%;
+		padding: 35px 50px;
+		border-radius: 10px;
+	}
+
+	.rundown {
+		/* margin-top: -20px; */
+		font-size: 14px;
+	}
+
+	.rundown>.container {
+		/* margin: 0 5%; */
+		width: 90%;
+		padding: 35px 50px;
+		border-radius: 10px;
+	}
+
 }

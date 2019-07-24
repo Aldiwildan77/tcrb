@@ -19,23 +19,23 @@
 						<h6 class="text-white">Pairing</h6>
 					</a>
 				</li>
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a class="nav-link" href="#denah">
 						<h6 class="text-white">Denah</h6>
 					</a>
-				</li>
+				</li> -->
 				<li class="nav-item">
 					<a class="nav-link" href="#dokumentasi">
 						<h6 class="text-white">Dokumentasi</h6>
 					</a>
 				</li>
-				<li class="nav-item">
+				<!-- <li class="nav-item">
 					<a class="nav-link" href="#">
 						<h6 class="text-white">Score</h6>
 					</a>
-				</li>
+				</li> -->
 				<li class="nav-item">
-					<button class="btn btn-outline-primary col-md-12 my-2 my-sm-0" type="submit">Get Started</button>
+					<a href="" class="btn btn-outline-primary col-md-12 my-2 my-sm-0">Login</a>
 				</li>
 			</ul>
 		</div>
@@ -77,16 +77,7 @@
 					<h2 class="text-center text-white">Dokumentasi Kegiatan</h2>
 				</div>
 			</div>
-
-			<div class="carousel">
-				<a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>
-				<a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
-				<a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
-				<a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
-				<a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
-			</div>
-
-			<div class="owl-carousel owl-theme owl-loaded">
+			<div class="owl-carousel owl-theme owl-loaded mt-5">
 				<div class="owl-stage-outer">
 					<div class="owl-stage">
 						<div class="owl-item">
@@ -138,10 +129,10 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<h2 class="text-center">Rundown Kegiatan</h2>
+					<h1><b>COMING SOON</b></h1>
+					<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis unde sapiente, itaque eligendi perferendis ducimus. Repudiandae culpa quasi magni nostrum reiciendis quo illum libero non, omnis sit, officia neque dolore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis unde sapiente, itaque eligendi perferendis ducimus. Repudiandae culpa quasi magni nostrum reiciendis quo illum libero non, omnis sit, officia neque dolore.</p> -->
 				</div>
 			</div>
-
-
 		</div>
 	</section>
 	<!-- Akhir Rundown -->
@@ -243,6 +234,15 @@
 				<span class="text-white">Gedung UKM UB Lt 3.9</span>
 				<br>
 				<span class="text-white">Universitas Brawijaya</span>
+				<div class="main-area">
+					<ul class="social-btn">
+						<li class="list-heading">Ikuti kami untuk perkembangan terbaru</li>
+						<li><a href="https://www.instagram.com/tcrb_ub"><i class="ion-social-instagram-outline"></i></a></li>
+						<li><a href="#"><i class="fab fa-line"></i></a></li>
+						<li><a href="#"><i class="ion-social-facebook"></i></a></li>
+						<li><a href="#"><i class="ion-social-twitter"></i></a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</footer>
