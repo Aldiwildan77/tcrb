@@ -26,6 +26,11 @@ $route['user/changepass'] = 'UserController/changePassword';
 // Home
 $route['home'] = 'HomeController';
 
+// Auth
+$route['auth'] = 'AuthController';
+$route['auth/instagram'] = 'AuthController/instagram';
+$route['auth/generate'] = 'AuthController/authInstagram';
+
 $route['default_controller'] = 'ComingSoon';
 $route['404_override'] = 'ErrorController';
 $route['translate_uri_dashes'] = FALSE;
