@@ -122,7 +122,6 @@ body {
 }
 
 .jumbotron .judul {
-	font-size: 130px;
 	color: white;
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
 	font-family: fontJudul;
@@ -257,6 +256,10 @@ footer .container-fluid {
 		padding: 35px 50px;
 		border-radius: 10px;
 	}
+
+	.jumbotron .judul {
+		font-size: 60px;
+	}
 }
 
 /*Small devices (landscape phones, 576px and up)*/
@@ -274,6 +277,10 @@ footer .container-fluid {
 	.rundown {
 		margin-top: -80px;
 		font-size: 15px;
+	}
+
+	.jumbotron .judul {
+		font-size: 60px;
 	}
 }
 
@@ -308,6 +315,10 @@ footer .container-fluid {
 	.rundown {
 		margin-top: -100px;
 	}
+
+	.jumbotron .judul {
+		font-size: 130px;
+	}
 }
 
 /* Extra large devices (large desktops, 1200px and up)*/
@@ -318,7 +329,7 @@ footer .container-fluid {
 	}
 
 	.about {
-		margin-top: -70px;
+		margin-top: -80px;
 	}
 
 	.about>.container {
