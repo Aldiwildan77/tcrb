@@ -78,35 +78,37 @@
 				</div>
 			</div>
 
-			<!-- <div class="owl-carousel owl-theme">
-				<img src="" alt="" srcset="">
-			</div> -->
+			<div class="carousel">
+				<a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>
+				<a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
+				<a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
+				<a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
+				<a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
+			</div>
 
 			<div class="owl-carousel owl-theme owl-loaded">
 				<div class="owl-stage-outer">
 					<div class="owl-stage">
 						<div class="owl-item">
-							<img src="<?=base_url('assets/img/bg-comingsoon-1.png')?>" alt="" srcset="" >
+							<img src="https://lh5.googleusercontent.com/9nLMMK4tU_YVMkhB24B2AziFZybKAGVvNqx8qb0PeqQCtMw-xGo4RrZjhms=w2400" alt="" srcset="" >
 						</div>
 						<div class="owl-item">
-							<img src="<?=base_url('assets/img/bg-comingsoon-2.png')?>" alt="" srcset="">								
+							<img src="https://lh6.googleusercontent.com/u8OEu20fKOPzSwQefYlrd8WHgnWjgYd9F6L3iCoj7024EIWJBiquOuLHG-U=w2400" alt="" srcset="">								
 						</div>
 						<div class="owl-item">
-							<img src="<?=base_url('assets/img/bg-comingsoon-3.jpg')?>" alt="" srcset="">
+							<img src="https://lh6.googleusercontent.com/Z2l5bY2IPQPnfdSfIpCmx2OY6KHObyU3qhL_pQFol-ncikMlrLP6RdmT-kY=w2400" alt="" srcset="">
 						</div>
 						<div class="owl-item">
-							<img src="<?=base_url('assets/img/bg-comingsoon-1.png')?>" alt="" srcset="">
+							<img src="https://lh3.googleusercontent.com/4uc_6sjw3OOFKl14Zcz1vNViVbekASwA15O_i5cjj3fzH0bLZaw1ouC-sTI=w2400" alt="" srcset="">
+						</div>
+						<div class="owl-item">
+							<img src="https://lh3.googleusercontent.com/XIQ6LIOhvFDs07SJXUh5I0wsLNiUk0GpNHlaumbYuN3UtG73skCKMmmst8c=w2400" alt="" srcset="">
 						</div>
 					</div>
 				</div>
 				<div class="owl-nav">
-					<div class="owl-prev">prev</div>
-					<div class="owl-next">next</div>
-				</div>
-				<div class="owl-dots">
-					<div class="owl-dot active"><span></span></div>
-					<div class="owl-dot"><span></span></div>
-					<div class="owl-dot"><span></span></div>
+					<div class="owl-prev"><</div>
+					<div class="owl-next">></div>
 				</div>
 			</div>
 			<!-- <div id="dynamic_slide_show" class="carousel slide" data-ride="carousel">
