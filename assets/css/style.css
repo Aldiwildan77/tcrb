@@ -135,9 +135,19 @@ body {
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
 }
 
-.nav-item {
-	padding-right: 50px;
+.navbar-list > li > a {
+	text-decoration:none;
+	color: white;
 }
+
+/* .navbar-list > li > a:hover {
+	color: #238FCC;
+} */
+
+
+/* .nav-item {
+	padding-right: 50px;
+} */
 
 .navbar h6 {
 	font-size: 20px;

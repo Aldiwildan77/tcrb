@@ -1,15 +1,15 @@
 	<!-- Awal Navbar -->
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 		<a class="navbar-brand" href="#home">
-			<img class="rounded-circle" src="<?= base_url('assets/img/dota2.jpg'); ?>" width="50" height="50" alt="">
+			<img class="rounded-circle" src="<?= base_url('assets/img/dota2.jpg'); ?>" width="40" height="40" alt="">
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
 		<div class="collapse navbar-collapse text-center" id="navbarCollapse">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item">
+			<ul class="navbar-nav ml-auto navbar-list">
+				<!-- <li class="nav-item">
 					<a class="nav-link" href="#">
 						<h6 class="text-white">Home</h6>
 					</a>
@@ -19,24 +19,25 @@
 						<h6 class="text-white">Pairing</h6>
 					</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#dokumentasi">
+						<h6 class="text-white">Dokumentasi</h6>
+					</a>
+				</li> -->
 				<!-- <li class="nav-item">
 					<a class="nav-link" href="#denah">
 						<h6 class="text-white">Denah</h6>
 					</a>
 				</li> -->
-				<li class="nav-item">
-					<a class="nav-link" href="#dokumentasi">
-						<h6 class="text-white">Dokumentasi</h6>
-					</a>
-				</li>
 				<!-- <li class="nav-item">
 					<a class="nav-link" href="#">
 						<h6 class="text-white">Score</h6>
 					</a>
 				</li> -->
-				<li class="nav-item">
-					<a href="login" class="btn btn-outline-primary col-md-12 my-2 my-sm-0">Login</a>
-				</li>
+				<li class="mx-2 p-2"><a href="#">Home</a></li>
+				<li class="mx-2 p-2"><a href="#">Pairing</a></li>
+				<li class="mx-2 p-2"><a href="#dokumentasi">Dokumentasi</a></li>
+				<a href="login" class="btn btn-outline-primary text-white">Login</a>
 			</ul>
 		</div>
 	</nav>
@@ -268,6 +269,8 @@
 						<a href="" class="lead mx-2"><i class="fa fa-facebook-f"></i></a>
 						<a href="" class="lead mx-2"><i class="fa fa-youtube"></i></a>
 						<a href="" class="lead mx-2"><i class="fa fa-twitter"></i></a>
+						<a href="" class="lead mx-2"><i class="fa fa-envelope"></i></a>
+						<a href="" class="lead mx-2"><i class="fa fa-comment"></i></a>
 					</div>
 				</div>
 			</div>
@@ -275,7 +278,7 @@
 
 		<!-- end -->
 		<div class="text-white bg-secondary text-center py-2">
-			<span>Made with &hearts; by TCRB 2019</span>
+			<span>Copyright &copy; TCRB 2019 | Made with &hearts; by TCRB 2019</span>
 		</div>
 	</footer>
 	<!-- Akhir footer -->
