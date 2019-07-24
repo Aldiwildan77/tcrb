@@ -135,9 +135,9 @@ body {
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
 }
 
-.nav-item {
+/* .nav-item {
 	padding-right: 50px;
-}
+} */
 
 .navbar h6 {
 	font-size: 20px;
@@ -193,7 +193,6 @@ body {
 	padding: 5px;
 	border-radius: 50%;
 	box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
-	margin: 10px;
 }
 
 .gmedpar img {
@@ -202,7 +201,6 @@ body {
 	padding: 5px;
 	border-radius: 50%;
 	box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
-	margin: 10px;
 }
 
 .pairing {

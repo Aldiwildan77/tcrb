@@ -1,7 +1,7 @@
 	<!-- Awal Navbar -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 		<a class="navbar-brand" href="#home">
-			<img class="rounded-circle" src="<?= base_url('assets/img/dota2.jpg'); ?>" width="60" height="60" alt="">
+			<img class="rounded-circle" src="<?= base_url('assets/img/dota2.jpg'); ?>" width="50" height="50" alt="">
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
 					</a>
 				</li> -->
 				<li class="nav-item">
-					<a href="" class="btn btn-outline-primary col-md-12 my-2 my-sm-0">Login</a>
+					<a href="login" class="btn btn-outline-primary col-md-12 my-2 my-sm-0">Login</a>
 				</li>
 			</ul>
 		</div>
@@ -81,10 +81,10 @@
 				<div class="owl-stage-outer">
 					<div class="owl-stage">
 						<div class="owl-item">
-							<img src="https://lh5.googleusercontent.com/9nLMMK4tU_YVMkhB24B2AziFZybKAGVvNqx8qb0PeqQCtMw-xGo4RrZjhms=w2400" alt="" srcset="" >
+							<img src="https://lh5.googleusercontent.com/9nLMMK4tU_YVMkhB24B2AziFZybKAGVvNqx8qb0PeqQCtMw-xGo4RrZjhms=w2400" alt="" srcset="">
 						</div>
 						<div class="owl-item">
-							<img src="https://lh6.googleusercontent.com/u8OEu20fKOPzSwQefYlrd8WHgnWjgYd9F6L3iCoj7024EIWJBiquOuLHG-U=w2400" alt="" srcset="">								
+							<img src="https://lh6.googleusercontent.com/u8OEu20fKOPzSwQefYlrd8WHgnWjgYd9F6L3iCoj7024EIWJBiquOuLHG-U=w2400" alt="" srcset="">
 						</div>
 						<div class="owl-item">
 							<img src="https://lh6.googleusercontent.com/Z2l5bY2IPQPnfdSfIpCmx2OY6KHObyU3qhL_pQFol-ncikMlrLP6RdmT-kY=w2400" alt="" srcset="">
@@ -98,8 +98,9 @@
 					</div>
 				</div>
 				<div class="owl-nav">
-					<div class="owl-prev"><</div>
-					<div class="owl-next">></div>
+					<div class="owl-prev">
+						<</div> <div class="owl-next">>
+					</div>
 				</div>
 			</div>
 			<!-- <div id="dynamic_slide_show" class="carousel slide" data-ride="carousel">
@@ -175,42 +176,42 @@
 	<!-- Akhir Instagram -->
 
 	<!-- Awal Sponsor -->
-	<section class="section-page sponsor" id="sponsor">
+	<section class="section-page" id="sponsor">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12 text-center">
+				<div class="mx-auto text-center">
 					<h2>Sponsor</h2>
 				</div>
 			</div>
 
 			<div class="row justify-content-center">
 				<div class="row">
-					<div class="gsponsor col-md-12 mx-auto">
-						<img class="center img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-						<img class="center img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-						<!-- <img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-						<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-						<img class="center" src="<?= base_url('assets/img/wd.jpg'); ?>" alt=""> -->
+					<div class="gsponsor mx-auto">
+						<img class="img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+						<img class="img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+						<!-- <img class="" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+						<img class="" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+						<img class="" src="<?= base_url('assets/img/wd.jpg'); ?>" alt=""> -->
 					</div>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-sm-12 text-center">
+				<div class="mx-auto text-center">
 					<h2>Media Partner</h2>
 				</div>
 			</div>
 
 			<div class="row justify-content-center">
 				<div class="row">
-					<div class="gmedpar col-md-12 mx-auto">
-						<img class="center img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-						<img class="center img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-						<img class="center img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-						<!-- <img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-						<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-						<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-						<img class="center" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt=""> -->
+					<div class="gmedpar mx-auto">
+						<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+						<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+						<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+						<!-- <img class="" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+						<img class="" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+						<img class="" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+						<img class="" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt=""> -->
 					</div>
 				</div>
 			</div>
@@ -227,7 +228,7 @@
 	<!-- Akhir MedPar -->
 
 	<!-- Awal footer -->
-	<footer>
+	<!-- <footer>
 		<div class="container-fluid bg-dark">
 			<div class="text-center">
 				<h5 class="text-white">TCRB 2019</h5>
@@ -239,11 +240,43 @@
 						<li class="list-heading">Ikuti kami untuk perkembangan terbaru</li>
 						<li><a href="https://www.instagram.com/tcrb_ub"><i class="ion-social-instagram-outline"></i></a></li>
 						<li><a href="#"><i class="fab fa-line"></i></a></li>
-						<li><a href="#"><i class="ion-social-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 						<li><a href="#"><i class="ion-social-twitter"></i></a></li>
 					</ul>
 				</div>
 			</div>
+		</div>
+	</footer> -->
+
+	<footer>
+		<div class="container-fluid bg-dark text-white">
+			<!-- about -->
+			<div class="row">
+				<div class="col-md-12 mt-3 mb-2">
+					<div class="text-center">
+						<h6>Gedung UKM UB Lt. 3.9</h6>
+						<span>Universitas Brawijaya</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- sosmed  -->
+			<div class="row">
+				<div class="col-md-12 my-2">
+					<div class="d-flex justify-content-center">
+						<a href="" class="mx-1"><i class="fa fa-instagram"></i></a>
+						<a href="" class="mx-1"><i class="fa fa-facebook-f"></i></a>
+						<a href="" class="mx-1"><i class="fa fa-youtube"></i></a>
+						<a href="" class="mx-1"><i class="fa fa-twitter"></i></a>
+						<a href="" class="mx-1"><i class="fa fa-line"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- end -->
+		<div class="text-white bg-secondary text-center py-2">
+			<span>Made with &hearts; by TCRB 2019</span>
 		</div>
 	</footer>
 	<!-- Akhir footer -->
