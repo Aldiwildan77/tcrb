@@ -3,8 +3,6 @@
 ** 2. Beranda 
 */
 
-
-
 /* 1. START Coming Soon */
 /* Style the Image Used to Trigger the Modal */
 #myImg {
@@ -139,8 +137,8 @@ body {
 	font-size: 16px;
 }
 
-.navbar-list > li > a {
-	text-decoration:none;
+.navbar-list>li>a {
+	text-decoration: none;
 	color: white;
 }
 
@@ -188,7 +186,7 @@ body {
 	/* background-image: url(../img/section3.svg); */
 	background: linear-gradient(to bottom, #20232A 66%, #676C76 90%);
 	background-size: cover;
-	
+
 }
 
 /* Background Section Rundown */
@@ -198,9 +196,11 @@ body {
 	/* background-repeat: no-repeat; */
 	background-position: 0% 43%;
 }
-.rundown>.container{
+
+.rundown>.container {
 	background-color: rgba(255, 255, 255, 0.6);
 }
+
 .gsponsor img {
 	width: 160px;
 	height: 160px;
@@ -289,7 +289,7 @@ footer .container-fluid {
 		border-radius: 50%;
 		box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
 	}
-	
+
 	.gmedpar img {
 		width: 70px;
 		height: 70px;
@@ -315,7 +315,7 @@ footer .container-fluid {
 		font-size: 15px;
 	}
 
-	.rundown>.container{
+	.rundown>.container {
 		margin-top: 140px;
 	}
 
@@ -413,6 +413,7 @@ footer .container-fluid {
 		border-radius: 10px;
 	}
 }
+
 /* FULL HD */
 @media (min-width: 1900px) {
 	.beranda {
