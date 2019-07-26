@@ -6,9 +6,16 @@ class AuthController extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    show_404();
   }
 
-  public function instagram()
+  function authInstagram()
+  {
+    $url = "https://www.instagram.com/oauth/authorize/?client_id=" . getenv('INSTA_ID') . "&redirect_uri=" . getenv('INSTA_URI') . "&response_type=code";
+    redirect($url);
+  }
+
+  function instagram()
   {
     if (isset($_GET['code'])) {
       $config = $this->_loadInstagramConfig();
@@ -20,16 +27,13 @@ class AuthController extends CI_Controller
       $result = curl_exec($curl);
       curl_close($curl);
 
-      echo $result;
+      $token = json_decode($result)->access_token;
+      putenv("INSTA_TOKEN=$token");
+      
+      // echo json_encode(getenv('INSTA_TOKEN'));
     }
   }
-
-  public function authInstagram()
-  {
-    $url = "https://www.instagram.com/oauth/authorize/?client_id=" . getenv('INSTA_ID') . "&redirect_uri=" . getenv('INSTA_URI') . "&response_type=code";
-    redirect($url);
-  }
-
+  
   private function _loadInstagramConfig()
   {
     $config = array(
@@ -39,7 +43,7 @@ class AuthController extends CI_Controller
       'redirect_uri' => getenv('INSTA_URI'),
       'code' => $_GET['code']
     );
-
+    
     return $config;
   }
 }

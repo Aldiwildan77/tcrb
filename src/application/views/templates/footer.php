@@ -5,6 +5,26 @@
 <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
 
 <script>
+	let segment = window.location.pathname.split('/')
+	let check = segment.includes("home")
+
+	// if (check) {
+	// 	$.ajax({
+	// 		url: `<?= base_url(); ?>auth/generate`,
+	// 		crossDomain: true,
+	// 		beforeSend: function(xhr) {
+	// 			xhr.withCredentials = true
+	// 		}
+
+	// 	}).then(_ => {
+	// 		console.log(<?= getenv('INSTA_TOKEN'); ?>)
+	// 	}).catch(err => {
+	// 		console.error(err)
+	// 	})
+	// }
+</script>
+
+<script>
 	bsCustomFileInput.init()
 </script>
 

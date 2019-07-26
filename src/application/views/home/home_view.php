@@ -168,8 +168,10 @@
 			</div>
 
 			<div class="row justify-content-center">
-				<div class="col-lg-10 panel">
-					<img class="center img-fluid" src="<?= base_url('assets/img/mars.jpg'); ?>" width="80%" height="100%" alt="">
+				<div class="col-lg-12 panel">
+					<?php foreach ($instagram as $key) : ?>
+						<img class="center img-fluid" src="<?= $key['url']; ?>" width="<?= $key['width']; ?>" height="<?= $key['height']; ?>" alt="">
+					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
@@ -185,35 +187,31 @@
 				</div>
 			</div>
 
-			<div class="row justify-content-center">
-				<div class="row">
-					<div class="gsponsor mx-auto">
-						<img class="img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-						<img class="img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-						<!-- <img class="" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-						<img class="" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-						<img class="" src="<?= base_url('assets/img/wd.jpg'); ?>" alt=""> -->
-					</div>
+			<div class="row">
+				<div class="gsponsor mx-auto">
+					<img class="img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+					<img class="img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+					<img class="img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+					<img class="img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+					<img class="img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="mx-auto text-center">
+				<div class="mx-auto mt-2 text-center">
 					<h2>Media Partner</h2>
 				</div>
 			</div>
 
-			<div class="row justify-content-center">
-				<div class="row">
-					<div class="gmedpar mx-auto">
-						<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-						<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-						<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-						<!-- <img class="" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-						<img class="" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-						<img class="" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-						<img class="" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt=""> -->
-					</div>
+			<div class="row">
+				<div class="gmedpar mx-auto">
+					<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
 				</div>
 			</div>
 
@@ -227,27 +225,6 @@
 		</div>
 	</section>
 	<!-- Akhir MedPar -->
-
-	<!-- Awal footer -->
-	<!-- <footer>
-		<div class="container-fluid bg-dark">
-			<div class="text-center">
-				<h5 class="text-white">TCRB 2019</h5>
-				<span class="text-white">Gedung UKM UB Lt 3.9</span>
-				<br>
-				<span class="text-white">Universitas Brawijaya</span>
-				<div class="main-area">
-					<ul class="social-btn">
-						<li class="list-heading">Ikuti kami untuk perkembangan terbaru</li>
-						<li><a href="https://www.instagram.com/tcrb_ub"><i class="ion-social-instagram-outline"></i></a></li>
-						<li><a href="#"><i class="fab fa-line"></i></a></li>
-						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#"><i class="ion-social-twitter"></i></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</footer> -->
 
 	<footer>
 		<div class="container-fluid bg-dark text-white">
@@ -278,7 +255,7 @@
 
 		<!-- end -->
 		<div class="text-white bg-secondary text-center py-2">
-			<span>Copyright &copy; TCRB 2019 | Made with &hearts; by TCRB 2019</span>
+			<span class="footer-end text-wrap">Copyright &copy; TCRB 2019 | Made with &hearts; by TCRB 2019</span>
 		</div>
 	</footer>
 	<!-- Akhir footer -->

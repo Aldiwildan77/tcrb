@@ -135,6 +135,10 @@ body {
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
 }
 
+.footer-end {
+	font-size: 16px;
+}
+
 .navbar-list > li > a {
 	text-decoration:none;
 	color: white;
@@ -227,8 +231,6 @@ footer .container-fluid {
 	padding-bottom: 25px;
 }
 
-
-
 @media (min-width: 0) {
 	.beranda {
 		background-position: 50% 0%;
@@ -275,6 +277,26 @@ footer .container-fluid {
 	.jumbotron .judul {
 		font-size: 60px;
 	}
+
+	.footer-end {
+		font-size: 12px;
+	}
+
+	.gsponsor img {
+		width: 90px;
+		height: 90px;
+		padding: 3px;
+		border-radius: 50%;
+		box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+	}
+	
+	.gmedpar img {
+		width: 70px;
+		height: 70px;
+		padding: 3px;
+		border-radius: 50%;
+		box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+	}
 }
 
 /*Small devices (landscape phones, 576px and up)*/
@@ -300,6 +322,10 @@ footer .container-fluid {
 	.jumbotron .judul {
 		font-size: 60px;
 	}
+
+	.footer-end {
+		font-size: 12px;
+	}
 }
 
 /* Medium devices (tablets, 768px and up)*/
@@ -317,6 +343,10 @@ footer .container-fluid {
 	.rundown {
 		margin-top: -230px;
 		font-size: 15px;
+	}
+
+	.footer-end {
+		font-size: 12px;
 	}
 }
 
@@ -336,6 +366,10 @@ footer .container-fluid {
 
 	.jumbotron .judul {
 		font-size: 130px;
+	}
+
+	.footer-end {
+		font-size: 16px;
 	}
 }
 
