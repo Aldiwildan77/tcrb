@@ -168,12 +168,12 @@
 				</div>
 			</div>
 
-			<div class="row justify-content-center">
-				<div class="col-lg-12 panel">
-					<?php foreach ($instagram as $key) : ?>
-						<img class="center img-fluid" src="<?= $key['url']; ?>" width="<?= $key['width']; ?>" height="<?= $key['height']; ?>" alt="">
-					<?php endforeach; ?>
-				</div>
+			<div class="row no-gutters panel">
+				<?php foreach ($instagram as $key) : ?>
+					<div class="col-4">
+						<img class="img-fluid" src="<?= $key['url']; ?>" width="100%" alt="">
+					</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</section>
@@ -188,31 +188,31 @@
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="gsponsor mx-auto">
-					<img class="img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-					<img class="img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-					<img class="img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-					<img class="img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
-					<img class="img-responsive" src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+			<div class="gsponsor">
+				<div class="row justify-content-center">
+					<img src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+					<img src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+					<img src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+					<img src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
+					<img src="<?= base_url('assets/img/wd.jpg'); ?>" alt="">
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="mx-auto mt-2 text-center">
+				<div class="mx-auto mt-3 mb-3 text-center">
 					<h2>Media Partner</h2>
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="gmedpar mx-auto">
-					<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
-					<img class="img-responsive" src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+			<div class="gmedpar">
+				<div class="row justify-content-center">
+					<img src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
+					<img src="<?= base_url('assets/img/invoker.jpg'); ?>" alt="">
 				</div>
 			</div>
 
@@ -256,7 +256,7 @@
 
 		<!-- end -->
 		<div class="text-white bg-secondary text-center py-2">
-			<span class="footer-end text-wrap">Copyright &copy; TCRB 2019 | Made with &hearts; by TCRB 2019</span>
+			<span class="footer-end text-wrap">Copyright &copy; TCRB 2019 | Made with &hearts; by IT TCRB 2019</span>
 		</div>
 	</footer>
 	<!-- Akhir footer -->

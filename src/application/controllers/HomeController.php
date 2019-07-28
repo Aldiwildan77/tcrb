@@ -39,7 +39,8 @@ class HomeController extends CI_Controller
         for ($i = 0; $i < $count; $i++) {
             $output += array(
                 $i => array(
-                    'url' => $result['data'][$i]['images']['low_resolution']['url'],
+                    // 'url' => $result['data'][$i]['images']['low_resolution']['url'],
+                    'url' => $result['data'][$i]['images']['standard_resolution']['url'],
                     'width' => $result['data'][$i]['images']['low_resolution']['width'],
                     'height' => $result['data'][$i]['images']['low_resolution']['height']
                 )
