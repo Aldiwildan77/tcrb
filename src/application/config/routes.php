@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 // Form
 $route['form'] = 'ComingSoon/form';
 $route['hasil'] = 'ComingSoon/hasilForm';
@@ -23,6 +23,21 @@ $route['user/do-upload'] = 'UserController/doUpload';
 $route['user/edit'] = 'UserController/edit';
 $route['user/changepass'] = 'UserController/changePassword';
 
-$route['default_controller'] = 'ComingSoon';
+// Home
+$route['home'] = 'HomeController';
+$route['dokumentasi'] = 'HomeController/dokumentasi';
+
+// Auth
+$route['auth'] = 'AuthController';
+$route['auth/instagram'] = 'AuthController/instagram';
+$route['auth/generate'] = 'AuthController/authInstagram';
+
+// Sosmed
+$route['line'] = 'HomeController/line';
+$route['youtube'] = 'HomeController/youtube';
+$route['email'] = 'HomeController/email';
+$route['instagram'] = 'HomeController/instagram';
+
+$route['default_controller'] = 'HomeController';
 $route['404_override'] = 'ErrorController';
 $route['translate_uri_dashes'] = FALSE;

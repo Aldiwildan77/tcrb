@@ -40,30 +40,72 @@ $('#myToast').on('hidden.bs.toast', function () {
   // do something...
 })
 
-// Get the modal
-// var modal = document.getElementById('myModal');
+$('#instagramModal').on('show.bs.modal', function (event) {
+  let btn = $(event.relatedTarget)
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-// var img = document.getElementById('myImg');
-// var modalImg = document.getElementById("img01");
-// var captionText = document.getElementById("caption");
+  let cond = btn.data('link')
+  $('.instagram-media').attr('data-instgrm-permalink', cond)
+  $('.instagram-media').attr('src', cond + "embed/captioned/") 
+  console.log(cond)
+})
 
-// $('#myImg').on('click', function(){
-//   modal.style.display = "block";
-//   modalImg.src = this.src;
-//   captionText.innerHTML = this.alt;
-// })
+// owl carousel home
+$(document).ready(function() {
+  var owl = $('.owl-home');
+  owl.owlCarousel({
+		loop: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+		autoplayTimeout: 5000,
+    autoplayHoverPause: false,
+    responsiveClass: true,
+    margin: 10,
+    nav: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 2
+      },
+      1000: {
+        items: 3
+      }
+    }
+  });
+  // Go to the next item
+  $('.owl-next').click(function() {
+    owl.trigger('next.owl.carousel');
+  })
+  // Go to the previous item
+  $('.owl-prev').click(function() {
+    // With optional speed parameter
+    // Parameters has to be in square bracket '[]'
+    owl.trigger('prev.owl.carousel', [300]);
+  })
+});
 
-// Get the <span> element that closes the modal
-// var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-// span.onclick = function () {
-//   modal.style.display = "none";
-// }
-
-// Memunculkan nama file setelah menekan tombol upload
-// $('.custom-file-input').on('change',function(){
-//   var fileName = document.getElementById("exampleInputFile").files[0].name;
-//   $(this).next('.form-control-file').addClass("selected").html(fileName);
-// })
+// owl carousel dokumentasi
+$(document).ready(function () {
+	$('.owl-docs').owlCarousel({
+		loop: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+		autoplayTimeout: 5000,
+    autoplayHoverPause: false,
+    responsiveClass: true,
+    margin: 10,
+    nav: true,
+    responsive: {
+      0: {
+        items: 2
+      },
+      600: {
+        items: 3
+      },
+      1000: {
+        items: 4
+      }
+    }
+	});
+});
