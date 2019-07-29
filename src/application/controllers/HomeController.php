@@ -13,7 +13,8 @@ class HomeController extends CI_Controller
     {
         $data['title'] = 'Turnamen Catur Raja Brawijaya';
         $output['instagram'] = $this->_loadInstagramPhotos();
-        
+        // print_r($output['instagram']);
+        // return;
         $this->load->view('templates/header', $data);
         $this->load->view('home/home_view', $output);
         $this->load->view('templates/footer');
@@ -22,7 +23,7 @@ class HomeController extends CI_Controller
     private function _loadInstagramPhotos()
     {
         $token = getenv('INSTA_TOKEN'); # token
-        $count = 3; # total post
+        $count = 9; # total post
 
         $curl = curl_init("https://api.instagram.com/v1/users/self/media/recent/?access_token=$token&count=$count");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -40,9 +41,12 @@ class HomeController extends CI_Controller
             $output += array(
                 $i => array(
                     // 'url' => $result['data'][$i]['images']['low_resolution']['url'],
-                    'url' => $result['data'][$i]['images']['standard_resolution']['url'],
-                    'width' => $result['data'][$i]['images']['low_resolution']['width'],
-                    'height' => $result['data'][$i]['images']['low_resolution']['height']
+                    'url'       => $result['data'][$i]['images']['standard_resolution']['url'],
+                    'width'     => $result['data'][$i]['images']['low_resolution']['width'],
+                    'height'    => $result['data'][$i]['images']['low_resolution']['height'],
+                    'nomer'     => $i,
+                    'link'      => $result['data'][$i]['link'],
+                    'caption'   => $result['data'][$i]['caption']['text']
                 )
             );
         }

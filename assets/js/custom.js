@@ -40,6 +40,15 @@ $('#myToast').on('hidden.bs.toast', function () {
   // do something...
 })
 
+$('#instagramModal').on('show.bs.modal', function (event) {
+  let btn = $(event.relatedTarget)
+  // $(this).find('.modal-title').text("Edit " + btn.data('func'));
+
+  let cond = btn.data('link')
+  $('.instagram-media').attr('data-instgrm-permalink', cond)
+  console.log(cond)
+})
+
 // Get the modal
 // var modal = document.getElementById('myModal');
 
