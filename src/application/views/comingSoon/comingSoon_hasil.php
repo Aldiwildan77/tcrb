@@ -8,6 +8,7 @@
     <title>Hasil Form Fitur</title>
 
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.css'); ?>">
+    <link rel="shortcut icon" href="<?= base_url('assets/tcrb.ico');?>" type="image/x-icon">
 </head>
 
 <body>
