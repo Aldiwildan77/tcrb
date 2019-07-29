@@ -12,6 +12,7 @@ class LoginController extends CI_Controller
             redirect('user');
         }
 
+        show_404();
         date_default_timezone_set("Asia/Jakarta");
         $time1 = date('m/d/Y');
         $time2 = '07/16/2019';

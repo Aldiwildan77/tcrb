@@ -38,7 +38,7 @@
 
 		<div class="collapse navbar-collapse text-center" id="navbarCollapse">
 			<ul class="navbar-nav ml-auto navbar-list">
-				<li class="mx-2 p-2"><a href="<?= base_url('home')?>">Home</a></li>
+				<!-- <li class="mx-2 p-2"><a href="<?= base_url('home')?>">Home</a></li> -->
 				<li class="mx-2 p-2 text-white"><a href="#" onclick="return comingSoon()">Pairing</a></li>
 				<li class="mx-2 p-2"><a href="<?= base_url('dokumentasi')?>">Dokumentasi</a></li>
 				<a class="btn btn-outline-primary text-white" onclick="return comingSoon()">Login</a>

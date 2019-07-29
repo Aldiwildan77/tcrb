@@ -38,6 +38,6 @@ $route['youtube'] = 'HomeController/youtube';
 $route['email'] = 'HomeController/email';
 $route['instagram'] = 'HomeController/instagram';
 
-$route['default_controller'] = 'ComingSoon';
+$route['default_controller'] = 'HomeController';
 $route['404_override'] = 'ErrorController';
 $route['translate_uri_dashes'] = FALSE;

@@ -18,7 +18,7 @@
 
 		<div class="row text-center">
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis unde sapiente, itaque eligendi perferendis ducimus. Repudiandae culpa quasi magni nostrum reiciendis quo illum libero non, omnis sit, officia neque dolore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis unde sapiente, itaque eligendi perferendis ducimus. Repudiandae culpa quasi magni nostrum reiciendis quo illum libero non, omnis sit, officia neque dolore.
+				Turnamen Catur Raja Brawijaya (TCRB) merupakan event tahunan yang diselenggerakan oleh Unit Kegiatan Mahasiswa Brawijaya Chess Club. Sejak diselenggerakan pertama kali pada tahun 2011, TCRB telah berhasil menjaring dan mewadahi ketertarikan minat dan bakat pelajar SMA maupun Mahasiswa seluruh Indonesia dalam dunia catur
 			</p>
 		</div>
 	</div>
@@ -56,7 +56,7 @@
 		</div>
 		<div class="text-center text-white">
 			<h5>Tekan tombol dibawah ini untuk melihat lebih banyak</h5>
-			<a href="<?=base_url('dokumentasi')?>" class="btn btn-warning">Tampilkan</a>
+			<a href="<?= base_url('dokumentasi') ?>" class="btn btn-outline-warning ">Tampilkan</a>
 		</div>
 	</div>
 </section>

@@ -138,7 +138,7 @@ footer .container-fluid {
 	padding-bottom: 25px;
 }
 
-#foto-ig:hover{
+#foto-ig:hover {
 	opacity: 0.7;
 	/* background-color: yellow; */
 	/* background-color: rgba(0, 0, 0, 0.5) */
@@ -264,6 +264,14 @@ footer .container-fluid {
 	.footer-end {
 		font-size: 12px;
 	}
+
+	.login-footer-right {
+		text-align: right;
+	}
+
+	.login-card {
+		width: 50%;
+	}
 }
 
 /* Large devices (desktops, 992px and up)*/
@@ -362,13 +370,23 @@ footer .container-fluid {
 
 }
 
+@media (max-width: 767.98px) {
+	.login-footer-left {
+		text-align: center;
+	}
+
+	.login-footer-right {
+		text-align: center;
+	}
+}
+
 /* START Halaman Dokumentasi */
-#docs{
+#docs {
 	background: linear-gradient(to bottom, #78D0D8, #EAF7F9);
 }
 
-.img-round{
-    border-radius: 5px;
+.img-round {
+	border-radius: 5px;
 }
 
 /* END Halaman Dokumentasi */

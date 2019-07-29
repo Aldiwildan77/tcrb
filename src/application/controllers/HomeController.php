@@ -65,11 +65,11 @@ class HomeController extends CI_Controller
 
     function line()
     {
-        redirect('https://line.me/R/ti/p/%trm9176m');
+        redirect('https://line.me/R/ti/p/@trm9176m');
     }
     function email()
     {
-        redirect('mailto:aldiwild77@gmail.com');
+        redirect('');
     }
     function instagram()
     {
