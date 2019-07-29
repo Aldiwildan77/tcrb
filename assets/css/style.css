@@ -361,3 +361,14 @@ footer .container-fluid {
 	}
 
 }
+
+/* START Halaman Dokumentasi */
+#docs{
+	background: linear-gradient(to bottom, #78D0D8, #EAF7F9);
+}
+
+.img-round{
+    border-radius: 5px;
+}
+
+/* END Halaman Dokumentasi */

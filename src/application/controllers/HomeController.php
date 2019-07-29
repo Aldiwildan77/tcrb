@@ -11,7 +11,7 @@ class HomeController extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Turnamen Catur Raja Brawijaya';
+        $data['title'] = 'Home';
         $output['instagram'] = $this->_loadInstagramPhotos();
         // print_r($output['instagram']);
         // return;
@@ -52,5 +52,31 @@ class HomeController extends CI_Controller
         }
 
         return $output;
+    }
+
+    function dokumentasi()
+    {
+        $data['title'] = 'Dokumentasi';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('home/dokumentasi_view');
+        $this->load->view('templates/footer');
+    }
+
+    function line()
+    {
+        redirect('https://line.me/R/ti/p/%trm9176m');
+    }
+    function email()
+    {
+        redirect('mailto:aldiwild77@gmail.com');
+    }
+    function instagram()
+    {
+        redirect('https://www.instagram.com/tcrb_ub/');
+    }
+    function youtube()
+    {
+        redirect('https://www.youtube.com/channel/UCq-pgI0KWAISOnfwG-YkOFQ');
     }
 }
