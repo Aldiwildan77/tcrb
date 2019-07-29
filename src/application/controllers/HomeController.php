@@ -27,6 +27,7 @@ class HomeController extends CI_Controller
 
         $curl = curl_init("https://api.instagram.com/v1/users/self/media/recent/?access_token=$token&count=$count");
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
         curl_setopt(
             $curl,
             CURLOPT_HTTPHEADER,
