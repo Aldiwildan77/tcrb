@@ -13,8 +13,7 @@ class HomeController extends CI_Controller
     {
         $data['title'] = 'Home';
         $output['instagram'] = $this->_loadInstagramPhotos();
-        // print_r($output['instagram']);
-        // return;
+
         $this->load->view('templates/header', $data);
         $this->load->view('home/home_view', $output);
         $this->load->view('templates/footer');
@@ -25,16 +24,11 @@ class HomeController extends CI_Controller
         $token = getenv('INSTA_TOKEN'); # token
         $count = 9; # total post
 
-        $curl = curl_init("https://api.instagram.com/v1/users/self/media/recent/?access_token=$token&count=$count");
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt(
-            $curl,
-            CURLOPT_HTTPHEADER,
-            array('Content-Type: application/json')
-        );
-        $rawResult = curl_exec($curl);
+        $rawResult = file_get_contents("https://api.instagram.com/v1/users/self/media/recent/?access_token=$token&count=$count");
         $result = json_decode($rawResult, true);
-        curl_close($curl);
+
+        // print_r($result);
+        // return;
 
         $output = [];
         for ($i = 0; $i < $count; $i++) {

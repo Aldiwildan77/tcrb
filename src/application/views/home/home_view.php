@@ -1,6 +1,6 @@
 <!-- Awal Jumbotron -->
 <div class="jumbotron jumbotron-fluid beranda">
-	<div class="container text-center">
+	<div class="container text-center wow fadeIn" data-wow-delay="0.5s">
 		<h1 class="judul">TCRB</h1>
 		<p class="lead teks">Turnamen Catur Raja Brawijaya</p>
 	</div>
@@ -9,7 +9,7 @@
 
 <!-- Awal Deskripsi -->
 <section class="section-page about text-center" id="about">
-	<div class="container">
+	<div class="container wow fadeIn" data-wow-offset="137">
 		<div class="row">
 			<div class="col-sm-12">
 				<h2 class="text-center">Apa itu TCRB?</h2>
@@ -27,7 +27,7 @@
 
 <!-- Awal Dokumentasi -->
 <section class="section-page dokumentasi text-center" id="dokumentasi">
-	<div class="container">
+	<div class="container wow fadeIn" data-wow-offset="197">
 		<div class="row">
 			<div class="col-sm-12">
 				<h2 class="text-center text-white">Dokumentasi Kegiatan</h2>
@@ -64,7 +64,7 @@
 
 <!-- Awal Rundown -->
 <section class="section-page rundown text-center" id="rundown">
-	<div class="container">
+	<div class="container wow fadeIn" data-wow-offset="102">
 		<div class="row">
 			<div class="col-sm-12">
 				<h2 class="text-center">Rundown Kegiatan</h2>
@@ -78,7 +78,7 @@
 
 <!-- Awal Denah -->
 <section class="section-page denah text-center" id="denah">
-	<div class="container">
+	<div class="container wow fadeIn" data-wow-offset="182" data-wow-duration="0.5s">
 		<div class="row">
 			<div class="col-sm-12 mb-3">
 				<h2 class="text-center">Denah</h2>
@@ -98,7 +98,7 @@
 
 <!-- Awal Instagram -->
 <section class="section-page instagram text-center" id="instagram">
-	<div class="container">
+	<div class="container wow fadeIn" data-wow-offset="233" data-wow-duration="0.5s">
 		<div class="row mb-3">
 			<div class="col-sm-12">
 				<h2 class="text-center">Instagram</h2>
@@ -123,7 +123,7 @@
 
 <!-- Awal Sponsor -->
 <section class="section-page" id="sponsor">
-	<div class="container">
+	<div class="container wow fadeIn" data-wow-offset="184">
 		<div class="row">
 			<div class="mx-auto text-center">
 				<h2>Sponsor</h2>

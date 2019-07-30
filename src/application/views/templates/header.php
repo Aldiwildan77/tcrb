@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/vendor/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/vendor/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css') ?>">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
     <link rel="icon" href="<?= base_url('assets/img/tcrb.ico'); ?>" type="image/x-icon" />
 
@@ -24,25 +25,62 @@
             background-color: grey;
         }
     </style>
+
+    <!-- GOOGLE ANALYTICS -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144591507-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-144591507-1');
+    </script>
+
+    <!-- WOW JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/5d3fd5297d27204601c851ba/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
 </head>
 
 <body>
-	<!-- Awal Navbar -->
-	<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-		<a class="navbar-brand" href="home">
-			<img class="rounded-circle" src="<?= base_url('assets/img/logo.png'); ?>" width="40" height="40" alt="">
-		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+    <!-- Awal Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="home">
+            <img class="rounded-circle" src="<?= base_url('assets/img/logo.png'); ?>" width="40" height="40" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-		<div class="collapse navbar-collapse text-center" id="navbarCollapse">
-			<ul class="navbar-nav ml-auto navbar-list">
-				<!-- <li class="mx-2 p-2"><a href="<?= base_url('home')?>">Home</a></li> -->
-				<li class="mx-2 p-2 text-white"><a href="#" onclick="return comingSoon()">Pairing</a></li>
-				<li class="mx-2 p-2"><a href="<?= base_url('dokumentasi')?>">Dokumentasi</a></li>
-				<a class="btn btn-outline-primary text-white" onclick="return comingSoon()">Login</a>
-			</ul>
-		</div>
-	</nav>
-	<!-- Akhir Navbar -->
+        <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto navbar-list">
+                <li class="mx-2 p-2"><a href="<?= base_url('home') ?>">Home</a></li>
+                <li class="mx-2 p-2"><a href="#" onclick="return comingSoon()">Pairing</a></li>
+                <li class="mx-2 p-2"><a href="<?= base_url('dokumentasi') ?>">Dokumentasi</a></li>
+                <a class="btn btn-outline-primary text-white" onclick="return comingSoon()">Login</a>
+            </ul>
+        </div>
+    </nav>
+    <!-- Akhir Navbar -->

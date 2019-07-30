@@ -1,7 +1,7 @@
 <section id="docs">
     <div class="container">
         <br><br>
-        <h1 class="text-center"><b>Dokumentasi Turnamen Catur Raja Brawijaya</b></h1>
+        <h1 class="text-center wow fadeIn"><b>Dokumentasi Turnamen Catur Raja Brawijaya</b></h1>
         <br><br>
         <div class="owl-carousel owl-docs owl-theme owl-loaded mt-4">
             <div class="owl-stage-outer">
@@ -34,7 +34,7 @@
                 </div>
             </div>
         </div>
-        <div class="owl-carousel owl-docs owl-theme owl-loaded mt-4">
+        <div class="owl-carousel owl-docs owl-theme owl-loaded mt-4 wow fadeIn">
             <div class="owl-stage-outer">
                 <div class="owl-stage">
                     <div class="owl-item">
@@ -65,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <div class="owl-carousel owl-docs owl-theme owl-loaded mt-4">
+        <div class="owl-carousel owl-docs owl-theme owl-loaded mt-4 wow fadeIn">
             <div class="owl-stage-outer">
                 <div class="owl-stage">
                     <div class="owl-item">

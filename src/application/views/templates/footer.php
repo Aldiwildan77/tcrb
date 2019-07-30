@@ -52,6 +52,13 @@
 		)
 	}
 </script>
+
+<!-- <script>
+	$(".wow").each(function() {
+		var wowHeight = $(this).height();
+		$(this).attr("data-wow-offset", wowHeight);
+	});
+</script> -->
 </body>
 
 </html>
