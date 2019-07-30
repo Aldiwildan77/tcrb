@@ -58,11 +58,8 @@
 		case 'localhost':
 			$env = 'development';
 			break;
-		case 'tcrb.ub.ac.id':
-			$env = 'production';
-			break;
 		default:
-			$env = 'development';
+			$env = 'production';
 			break;
 	}
 
