@@ -61,10 +61,7 @@ class HomeController extends CI_Controller
     {
         redirect('https://line.me/R/ti/p/@trm9176m');
     }
-    function email()
-    {
-        redirect('');
-    }
+
     function instagram()
     {
         redirect('https://www.instagram.com/tcrb_ub/');

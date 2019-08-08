@@ -16,7 +16,6 @@
 				<div class="text-center">
 					<a href="instagram" class="lead mx-2"><i class="fab fa-instagram"></i></a>
 					<a href="youtube" class="lead mx-2"><i class="fab fa-youtube"></i></a>
-					<a href="email" class="lead mx-2"><i class="fa fa-envelope"></i></a>
 					<a href="line" class="lead mx-2"><i class="fab fa-line"></i></a>
 				</div>
 			</div>
