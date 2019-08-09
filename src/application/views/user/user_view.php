@@ -17,10 +17,7 @@
             <h5 class="card-title text-center">User Data</h5>
             <?= $this->session->flashdata('message') ?>
             <div class="row">
-                <div class="col-3">
-                    <img src="<?= base_url('assets/img/' . $user['foto_diri']) ?>" alt="<?= $user['foto_diri'] ?>" style="width:200px;heigth:200px">
-                </div>
-                <div class="col-9">
+                <div class="col-lg-9">
                     <table class="table table-borderless">
                         <tbody>
                             <tr>
@@ -36,7 +33,7 @@
                                 <td>= <?= $user['email']; ?></td>
                             </tr>
                             <tr>
-                                <td>School / University </td>
+                                <td>Asal instansi </td>
                                 <td>= <?= $user['asal']; ?></td>
                             </tr>
                             <tr>

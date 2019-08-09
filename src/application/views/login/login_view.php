@@ -6,7 +6,7 @@
                 <?= $this->session->flashdata('message'); ?>
                 <form action="login" method="post">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Username / Email</label>
+                        <label for="exampleInputEmail1">Username</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" name="input" placeholder="Enter username">
                         <small class="form-text text-danger"><?= form_error('input'); ?></small>
                     </div>

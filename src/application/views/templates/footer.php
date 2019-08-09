@@ -24,16 +24,16 @@
 
 	<!-- end -->
 	<div class="text-white bg-secondary text-center py-2">
-		<span class="footer-end text-wrap">Copyright &copy; TCRB 2019 | Made with &hearts; by IT TCRB 2019</span>
+		<span class="footer-end text-wrap">Copyright &copy; TCRB 2019 | Made With <i class="fas fa-heart"></i> By IT TCRB 2019</span>
 	</div>
 </footer>
 <!-- Akhir footer -->
 
-<script src="<?= base_url('assets/js/jquery-3.1.1.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/jquery-3.3.1.min.js') ?>"></script>
+<script src="<?= base_url('assets/js/popper.min.js') ?>"></script>
 <script src="<?= base_url('assets/js/bootstrap.js') ?>"></script>
 <script src="<?= base_url('assets/vendor/OwlCarousel2-2.3.4/src/js/owl.carousel.js') ?>"></script>
 <script src="<?= base_url('assets/vendor/OwlCarousel2-2.3.4/src/js/owl.autoplay.js') ?>"></script>
-<script src="<?= base_url('assets/vendor/OwlCarousel2-2.3.4/src/js/owl.navigation.js') ?>"></script>
 <script src="<?= base_url('assets/js/custom.js') ?>"></script>
 <script src="<?= base_url('assets/js/custom-file-input.js') ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>

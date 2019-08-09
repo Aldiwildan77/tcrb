@@ -36,18 +36,14 @@ class LoginModel extends CI_Model
         $user = $data['user'];
         $password = $data['password'];
 
-        $this->db->group_start();
-        $this->db->where('username' , $user);
-        $this->db->or_where('email', $user);
-        $this->db->group_end();
-
-        $this->db->where('password',$password);
+        $this->db->where('username', $user);
+        $this->db->where('password', $password);
         return $this->db->get('user')->row_array();
     }
 
     public function recovery($data)
     {
-        $where = "username='{$data}' OR email='{$data}' ";
+        $where = ['username' => $data];
         return $this->db->get_where('user', $where)->row_array();
     }
 

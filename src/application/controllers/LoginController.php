@@ -11,14 +11,6 @@ class LoginController extends CI_Controller
         if ($this->session->userdata('username') != null) {
             redirect('user');
         }
-
-        show_404();
-        date_default_timezone_set("Asia/Jakarta");
-        $time1 = date('m/d/Y');
-        $time2 = '07/16/2019';
-        if ($time1 < $time2) { // Tanggal sekarang belum melewati tanggal yang telah ditentukan
-            redirect(base_url());
-        }
     }
 
     public function index()
@@ -74,9 +66,7 @@ class LoginController extends CI_Controller
         $this->form_validation->set_rules('username', 'Username', 'required|is_unique[user.username]|max_length[16]|trim|alpha_numeric', [
             'is_unique' => 'This username has already taken.'
         ]);
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]|trim', [
-            'is_unique' => 'This email has already registered.'
-        ]);
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|trim');
         $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]');
         $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required|matches[password]|trim|min_length[6]');
 
@@ -236,8 +226,8 @@ class LoginController extends CI_Controller
         if ($code != null) {
             $dataUser = $this->LoginModel->verifyRecoveryCode($code);
             if ($dataUser != null) {
-                $this->form_validation->set_rules('password', 'Password', 'trim|required');
-                $this->form_validation->set_rules('passconf', 'Repeat password', 'trim|required|matches[password]');
+                $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
+                $this->form_validation->set_rules('passconf', 'Repeat password', 'trim|required|matches[password]|min_length[6]');
                 if ($this->form_validation->run() == false) {
                     $data['title'] = 'Reset Password';
                     $data['hash'] = $code;

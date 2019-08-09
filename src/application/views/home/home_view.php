@@ -55,7 +55,7 @@
 			</div>
 		</div>
 		<div class="text-center text-white">
-			<h5>Tekan tombol dibawah ini untuk melihat lebih banyak</h5>
+			<h5 class="mt-4">Tekan tombol dibawah ini untuk melihat lebih banyak</h5>
 			<a href="<?= base_url('dokumentasi') ?>" class="btn btn-outline-warning ">Tampilkan</a>
 		</div>
 	</div>
