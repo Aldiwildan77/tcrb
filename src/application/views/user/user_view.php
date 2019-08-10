@@ -21,12 +21,12 @@
                     <table class="table table-borderless">
                         <tbody>
                             <tr>
-                                <td scope="col">Full name </td>
-                                <td scope="col">= <?= $user['nama_lengkap']; ?></td>
+                                <td scope="col">Username </td>
+                                <td scope="col">= <?= $user['username']; ?></td>
                             </tr>
                             <tr>
-                                <td>Username </td>
-                                <td>= <?= $user['username']; ?></td>
+                                <td>Full name </td>
+                                <td>= <?= $user['nama_lengkap']; ?></td>
                             </tr>
                             <tr>
                                 <td>Email </td>
@@ -34,11 +34,15 @@
                             </tr>
                             <tr>
                                 <td>Asal instansi </td>
-                                <td>= <?= $user['asal']; ?></td>
+                                <td>= <?= $user['universitas']; ?></td>
                             </tr>
                             <tr>
-                                <td>Identitiy Card </td>
-                                <td>= <?= $user['foto_ktm']; ?></td>
+                                <td>Sebagai </td>
+                                <td>= <?= $user['role']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>No telepon</td>
+                                <td>= <?= $user['no_telepon']; ?></td>
                             </tr>
 
                         </tbody>

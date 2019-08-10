@@ -84,6 +84,45 @@ class UserController extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    public function doEdit()
+    {
+        $this->form_validation->set_rules('fullname', 'Nama Lengkap', 'trim|required');
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+        $this->form_validation->set_rules('univ', 'Universitas', 'trim|required');
+        $this->form_validation->set_rules('role', 'Keterangan', 'trim|required');
+        $this->form_validation->set_rules('telp', 'Nomer telepon', 'trim|required');
+
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'Edit profile';
+            $data['user'] = $this->UserModel->getDataUser([
+                'username' => $this->session->userdata('username')
+            ]);
+            $this->load->view('templates/header', $data);
+            $this->load->view('user/edit_view', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $fullname = $this->input->post('fullname');
+            $email = $this->input->post('email');
+            $univ = $this->input->post('univ');
+            $role = $this->input->post('role');
+            $telp = $this->input->post('telp');
+
+            $data = [
+                'nama_lengkap' => $fullname,
+                'email' => $email,
+                'universitas' => $univ,
+                'role' => $role,
+                'no_telepon' => $telp,
+            ];
+
+            $this->UserModel->editProfile($data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            Edit profile success
+            </div>');
+            redirect('user');
+        }
+    }
+
     public function changePassword()
     {
         if (isset($_POST['inputOne']) && isset($_POST['inputTwo']) && isset($_POST['inputThree'])) {

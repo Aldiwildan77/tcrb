@@ -1,32 +1,32 @@
 <div class="container">
     <div class="card w-75 mx-auto mt-3">
         <div class="card-body">
-            <form action="doEdit" method="post">
+            <form action="do-edit" method="post">
                 <div class="form-group">
                     <label for="fullname">Full name</label>
                     <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Enter full name" value="<?= $user['nama_lengkap']; ?>" required>
                     <small class="form-text text-danger"><?= form_error('fullname'); ?></small>
                 </div>
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Enter username" value="<?= $user['username']; ?>" required>
-                    <small class="form-text text-danger"><?= form_error('username'); ?></small>
-                </div>
-                <div class="form-group">
                     <label for="email">Email address</label>
                     <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" value="<?= $user['email']; ?>" required>
                     <small class="form-text text-danger"><?= form_error('email'); ?></small>
                 </div>
-                <!-- <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" required>
-                    <small class="form-text text-danger"><?= form_error('password'); ?></small>
+                <div class="form-group">
+                    <label for="univ">Universitas</label>
+                    <input type="text" class="form-control" name="univ" id="univ" placeholder="Masukkan universitas" value="<?= $user['universitas']; ?>" required>
+                    <small class="form-text text-danger"><?= form_error('univ'); ?></small>
                 </div>
                 <div class="form-group">
-                    <label for="passconf">Password Confirmation</label>
-                    <input type="password" class="form-control" name="passconf" id="passconf" placeholder="Enter password confirmation" required>
-                    <small class="form-text text-danger"><?= form_error('passconf'); ?></small>
-                </div> -->
+                    <label for="role">Sebagai</label>
+                    <input type="text" class="form-control" name="role" id="role" placeholder="Masukkan keterangan posisi anda" value="<?= $user['role']; ?>" required>
+                    <small class="form-text text-danger"><?= form_error('role'); ?></small>
+                </div>
+                <div class="form-group">
+                    <label for="telp">No Telepon</label>
+                    <input type="text" class="form-control" name="telp" id="telp" placeholder="Enter telephone number" value="<?= $user['no_telepon']; ?>" required>
+                    <small class="form-text text-danger"><?= form_error('telp'); ?></small>
+                </div>
                 <button type="button" class="btn btn-light" onclick="history.back()">Back</button>
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>

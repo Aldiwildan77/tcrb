@@ -15,7 +15,7 @@ class LoginController extends CI_Controller
 
     public function index()
     {
-        $this->form_validation->set_rules('input', 'Username or Email', 'required|trim');
+        $this->form_validation->set_rules('input', 'Username', 'required|trim');
         $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]');
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Login';
