@@ -16,10 +16,8 @@
     <div class="container">
         <img src="<?= base_url('assets/img/404.png'); ?>" alt="" class="img-fluid d-block mr-auto ml-auto">
     </div>
-    <span style=" display: flex;
-  justify-content: center;
-  align-items: center;">
-        <a class="" href="<?= base_url(''); ?>">Back</a>
+    <span class="mb-3" style="display: flex;justify-content: center;align-items: center;">
+        <a class="btn btn-warning btn-lg" href="<?= base_url(''); ?>">Back</a>
     </span>
 </body>
 

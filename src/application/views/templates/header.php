@@ -90,10 +90,10 @@
                 <a class="btn btn-outline-primary text-white" onclick="return comingSoon()">Login</a>
                 <?php else : ?>
                 <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle text-white btn btn-outline-primary" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?= $this->session->userdata('username') ?>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="<?=base_url('user')?>">Profile</a>
                         <a class="dropdown-item" href="<?=base_url('logout')?>">Logout</a>
                     </div>

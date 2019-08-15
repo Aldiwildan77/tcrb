@@ -44,16 +44,20 @@ class LoginController extends CI_Controller
                         'fullname' => $data['nama_lengkap']
                     ];
                     $this->session->set_userdata($array);
-                    redirect('user');
+                    if(isset($_GET['r'])){
+                        redirect($_GET['r']);
+                    } else {
+                        redirect('user');
+                    }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                    Your account has not been activated. Please check your email.
+                    Akun anda belum aktif. Silahkan cek kotak email atau kotak spam anda
                     </div>');
                     redirect('login');
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                The username or password is incorrect.
+                Username atau password salah
                 </div>');
                 redirect('login');
             }

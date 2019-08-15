@@ -1,16 +1,15 @@
 <div class="halaman-user">
-    <div class="container pt-5">
+    <div class="container pt-5 pb-5">
         <div class="row">
             <div class="col-lg-3 col-xs-12 user mb-5">
-                <div class="row mt-5 mb-5">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <img src="<?= base_url('assets/img/profile.png')?>" alt="profile" width="200px" height="200px">
-                        </div>
+                <div class="row mb-3 mt-5">
+                    <div class="col-lg-12 text-center">
+                        <h4 class="text-center"><b>Selamat datang</b></h4>
+                        <h5><?=$user['nama_lengkap']?></h5>
                     </div>
                 </div>
                 <hr>
-                <a class="tombol-user" href="">
+                <a class="tombol-user" href="<?=base_url('user')?>">
                     <div class="row pt-2 pb-1 row-tbl-user">
                         <div class="col-lg-12">
                             <h5 class="text-center">Profile</h5>
@@ -35,7 +34,7 @@
                 </a>
             </div>
             <div class="col-lg-8 offset-lg-1 user pt-5">
-                <div class="row mb-3 mt-2">
+                <div class="row mb-4 mt-1">
                     <div class="col-lg-12">
                         <h3 class="text-center"><b>Edit Profile</b></h3>
                     </div>
@@ -76,7 +75,7 @@
                             <small class="form-text text-danger"><?= form_error('telp'); ?></small>
                         </div>
                     </div>
-                    <div class="row mx-1">
+                    <div class="row mx-1 mb-5">
                         <div class="col-12">
                             <button type="button" class="btn btn-light" onclick="history.back()">Kembali</button>
                             <button type="submit" class="btn btn-primary">Update</button>

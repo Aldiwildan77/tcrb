@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="my-5" style="height: 75vh">
+    <div class="my-5">
         <div class="login-card card mx-auto">
             <div class="card-body">
                 <h5 class="card-title"><strong>Register</strong></h5>
@@ -23,6 +23,7 @@
                         <label for="password">Password</label>
                         <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" minlength="6" required>
                         <small class="form-text text-danger"><?= form_error('password'); ?></small>
+                        <small class="form-text text-disabled">Password minimal 6 karakter</small>
                     </div>
                     <div class="form-group">
                         <label for="passconf">Password Confirmation</label>
