@@ -5,8 +5,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="Turnamen Catur Raja Brawijaya">
+    <meta name="description" content="Turnamen Catur Raja Brawijaya (TCRB) merupakan event tahunan yang diselenggerakan oleh Unit Kegiatan Mahasiswa Brawijaya Chess Club. Sejak diselenggerakan pertama kali pada tahun 2011, TCRB telah berhasil menjaring dan mewadahi ketertarikan minat dan bakat pelajar SMA maupun Mahasiswa seluruh Indonesia dalam dunia catur">
+    <meta name="keywords" content="tcrb, turnamen catur raja brawijaya, tcrb ub, tcrb ub 2019, tcrb ub bcc">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="revisit-after" content="1 hours">
-    
+
 
     <title><?= $title ?> | TCRB</title>
 
@@ -81,7 +86,19 @@
                 <li class="mx-2 p-2"><a href="<?= base_url('home') ?>">Home</a></li>
                 <li class="mx-2 p-2"><a href="#" onclick="return comingSoon()">Pairing</a></li>
                 <li class="mx-2 p-2"><a href="<?= base_url('dokumentasi') ?>">Dokumentasi</a></li>
+                <?php if ($this->session->userdata('username') == null) : ?>
                 <a class="btn btn-outline-primary text-white" onclick="return comingSoon()">Login</a>
+                <?php else : ?>
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?= $this->session->userdata('username') ?>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="<?=base_url('user')?>">Profile</a>
+                        <a class="dropdown-item" href="<?=base_url('logout')?>">Logout</a>
+                    </div>
+                </div>
+                <?php endif; ?>
             </ul>
         </div>
     </nav>

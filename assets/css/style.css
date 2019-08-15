@@ -1,6 +1,7 @@
 /* CSS untuk semua halaman
 ** 1. Coming Soon
-** 2. Beranda 
+** 2. Beranda
+** 3. User
 */
 
 /* 1. START Coming Soon */
@@ -390,3 +391,22 @@ footer .container-fluid {
 }
 
 /* END Halaman Dokumentasi */
+
+/* START Halaman User */
+.halaman-user{
+    background: linear-gradient(to bottom, #238FCC, #F3F9F9);
+}
+
+.user{
+    background: white;
+    border-radius: 5px;
+}
+
+a.tombol-user{
+    text-decoration: none;    
+}
+
+.row-tbl-user:hover{
+    background: #B0EEFD
+}
+/* END Halaman User */

@@ -14,9 +14,9 @@
 		<div class="row">
 			<div class="col-md-12 my-2">
 				<div class="text-center">
-					<a href="instagram" class="lead mx-2"><i class="fab fa-instagram"></i></a>
-					<a href="youtube" class="lead mx-2"><i class="fab fa-youtube"></i></a>
-					<a href="line" class="lead mx-2"><i class="fab fa-line"></i></a>
+					<a href="<?=base_url('instagram')?>" class="lead mx-2" target="_blank"><i class="fab fa-instagram"></i></a>
+					<a href="<?=base_url('youtube')?>" class="lead mx-2" target="_blank"><i class="fab fa-youtube"></i></a>
+					<a href="<?=base_url('line')?>" class="lead mx-2" target="_blank"><i class="fab fa-line"></i></a>
 				</div>
 			</div>
 		</div>

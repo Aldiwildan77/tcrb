@@ -18,10 +18,9 @@ $route['activate/(:any)'] = 'LoginController/activate/$1';
 
 //User
 $route['user'] = 'UserController';
-$route['user/upload'] = 'UserController/upload';
-$route['user/do-upload'] = 'UserController/doUpload';
+// $route['user/upload'] = 'UserController/upload';
+// $route['user/do-upload'] = 'UserController/doUpload';
 $route['user/edit'] = 'UserController/edit';
-$route['user/do-edit'] = 'UserController/doEdit';
 $route['user/changepass'] = 'UserController/changePassword';
 
 // Home

@@ -1,65 +1,83 @@
-<div class="container mt-5">
-    <div class="text-center">
-        <h4>Welcome, <?= $this->session->userdata('fullname'); ?></h4>
-        <a href="user/upload" class="btn btn-warning">Upload bukti pembayaran</a>
-        <a href="logout" class="btn">Logout</a>
-    </div>
-    <!-- <img src="https://gdurl.com/6Sbt" height="200" width="200">
-    <img src="https://gdurl.com/kUg7" height="200" width="200">
-    <img src="https://gdurl.com/IoZ7" height="200" width="200">
-    <img src="https://gdurl.com/6Sbt" height="200" width="200"> -->
-    <div class="card w-75 mx-auto mt-3">
-        <div class="card-body">
-            <div class="p-1">
-                <a class="btn btn-info" href="<?= base_url('user/edit'); ?>">Edit Profile</a>
-                <a class="btn btn-light" data-toggle="modal" data-target="#exampleModal" data-sembarang="paswd" data-func="Password">Change Password</a>
-            </div>
-            <h5 class="card-title text-center">User Data</h5>
-            <?= $this->session->flashdata('message') ?>
-            <div class="row">
-                <div class="col-lg-9">
-                    <table class="table table-borderless">
-                        <tbody>
-                            <tr>
-                                <td scope="col">Username </td>
-                                <td scope="col">= <?= $user['username']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Full name </td>
-                                <td>= <?= $user['nama_lengkap']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Email </td>
-                                <td>= <?= $user['email']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Asal instansi </td>
-                                <td>= <?= $user['universitas']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Sebagai </td>
-                                <td>= <?= $user['role']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>No telepon</td>
-                                <td>= <?= $user['no_telepon']; ?></td>
-                            </tr>
-
-                        </tbody>
-                    </table>
+<div class="halaman-user">
+    <div class="container pt-5 pb-5">
+        <div class="row">
+            <div class="col-lg-3 col-xs-12 user mb-5">
+                <div class="row mt-5 mb-5">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <img src="<?= base_url('assets/img/profile.png')?>" alt="profile" width="200px" height="200px">
+                        </div>
+                    </div>
                 </div>
+                <hr>
+                <a class="tombol-user" href="">
+                    <div class="row pt-2 pb-1 row-tbl-user">
+                        <div class="col-lg-12">
+                            <h5 class="text-center">Profile</h5>
+                        </div>
+                    </div>
+                </a>
+                <hr>
+                <a class="tombol-user" href="">
+                    <div class="row pt-2 pb-1 row-tbl-user">
+                        <div class="col-lg-12">
+                            <h5 class="text-center">Pendaftaran</h5>
+                        </div>
+                    </div>
+                </a>
+                <hr>
+                <a class="tombol-user" href="">
+                    <div class="row pt-2 pb-1 mb-3 row-tbl-user">
+                        <div class="col-lg-12">
+                            <h5 class="text-center">Pembayaran</h5>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-
-                <!-- The Close Button -->
-                <span class="close">&times;</span>
-
-                <!-- Modal Content (The Image) -->
-                <img class="modal-content" id="img01">
-
-                <!-- Modal Caption (Image Text) -->
-                <div id="caption"></div>
+            <div class="col-lg-8 offset-lg-1 user pt-5">
+                <div class="row mb-3 mt-2">
+                    <div class="col-lg-12">
+                        <h3 class="text-center"><b>Selamat datang, </b>Muhammad Fakhri Imaduddin</h3>
+                    </div>
+                </div>
+                <div class="row mx-1">
+                    <div class="col-lg-12">
+                        <div class="text-center mb-2">
+                            <a class="btn btn-primary" href="<?= base_url('user/edit')?>">Edit profile</a>
+                            <a class="btn btn-light" data-toggle="modal" data-target="#exampleModal" data-sembarang="paswd" data-func="Password">Change Password</a>
+                        </div>
+                        <?=$this->session->flashdata('message')?>
+                    </div>
+                </div>
+                <div class="row mt-3 mb-3 mx-1">
+                    <div class="col-lg-3"><b>Nama Lengkap</b></div>
+                    <div class="col-lg-6"><?=$user['nama_lengkap']?></div>
+                </div>
+                <hr>
+                <div class="row mt-3 mb-3 mx-1">
+                    <div class="col-lg-3"><b>Username</b></div>
+                    <div class="col-lg-6"><?=$user['username']?></div>
+                </div>
+                <hr>
+                <div class="row mt-3 mb-3 mx-1">
+                    <div class="col-lg-3"><b>Email</b></div>
+                    <div class="col-lg-6"><?=$user['email']?></div>
+                </div>
+                <hr>
+                <div class="row mt-3 mb-3 mx-1">
+                    <div class="col-lg-3"><b>Asal Instansi</b></div>
+                    <div class="col-lg-6"><?=$user['instansi']?></div>
+                </div>
+                <hr>
+                <div class="row mt-3 mb-3 mx-1">
+                    <div class="col-lg-3"><b>Role</b></div>
+                    <div class="col-lg-6"><?=$user['role']?></div>
+                </div>
+                <hr>
+                <div class="row mt-3 mb-3 mx-1">
+                    <div class="col-lg-3"><b>No telp</b></div>
+                    <div class="col-lg-6"><?=$user['no_telepon']?></div>
+                </div>
             </div>
         </div>
     </div>

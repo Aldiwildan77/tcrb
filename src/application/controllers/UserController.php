@@ -75,20 +75,48 @@ class UserController extends CI_Controller
 
     public function edit()
     {
-        $data['title'] = 'Edit profile';
-        $data['user'] = $this->UserModel->getDataUser([
-            'username' => $this->session->userdata('username')
-        ]);
-        $this->load->view('templates/header', $data);
-        $this->load->view('user/edit_view', $data);
-        $this->load->view('templates/footer');
+        $this->form_validation->set_rules('fullname', 'Nama Lengkap', 'trim|required');
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+        $this->form_validation->set_rules('instansi', 'Asal Instansi', 'trim|required');
+        $this->form_validation->set_rules('role', 'Sebagai', 'trim|required');
+        $this->form_validation->set_rules('telp', 'Nomer telepon', 'trim|required');
+
+        if ($this->form_validation->run() == false) {
+            $data['title'] = 'Edit profile';
+            $data['user'] = $this->UserModel->getDataUser([
+                'username' => $this->session->userdata('username')
+            ]);
+            $this->load->view('templates/header', $data);
+            $this->load->view('user/edit_view', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $fullname = $this->input->post('fullname');
+            $email = $this->input->post('email');
+            $instansi = $this->input->post('instansi');
+            $role = $this->input->post('role');
+            $telp = $this->input->post('telp');
+
+            $data = [
+                'nama_lengkap' => $fullname,
+                'email' => $email,
+                'instansi' => $instansi,
+                'role' => $role,
+                'no_telepon' => $telp,
+            ];
+
+            $this->UserModel->editProfile($data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            Edit profile berhasil
+            </div>');
+            redirect('user');
+        }
     }
 
     public function doEdit()
     {
         $this->form_validation->set_rules('fullname', 'Nama Lengkap', 'trim|required');
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-        $this->form_validation->set_rules('univ', 'Universitas', 'trim|required');
+        $this->form_validation->set_rules('instansi', 'Asal Instansi', 'trim|required');
         $this->form_validation->set_rules('role', 'Keterangan', 'trim|required');
         $this->form_validation->set_rules('telp', 'Nomer telepon', 'trim|required');
 
@@ -103,14 +131,14 @@ class UserController extends CI_Controller
         } else {
             $fullname = $this->input->post('fullname');
             $email = $this->input->post('email');
-            $univ = $this->input->post('univ');
+            $instansi = $this->input->post('instansi');
             $role = $this->input->post('role');
             $telp = $this->input->post('telp');
 
             $data = [
                 'nama_lengkap' => $fullname,
                 'email' => $email,
-                'universitas' => $univ,
+                'instansi' => $instansi,
                 'role' => $role,
                 'no_telepon' => $telp,
             ];
@@ -141,16 +169,16 @@ class UserController extends CI_Controller
                     ];
                     $this->UserModel->editProfile($update);
                     $this->session->set_flashdata('message', '<div class="alert alert-success col-12 text-center" role="alert">
-                        Your password has been updated.
+                        Password anda berhasil diperbarui
                         </div>');
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger col-12 text-center" role="alert">
-                        Your new password doesn\'t match with the confirmation password.
+                        Password baru anda tidak sesuai dengan password konfirmasi yang anda masukkan
                         </div>');
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger col-12 text-center" role="alert">
-                    Your old password is incorrect.
+                    Password lama anda salah
                     </div>');
             }
         }
