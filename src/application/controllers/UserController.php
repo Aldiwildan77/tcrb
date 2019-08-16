@@ -23,6 +23,7 @@ class UserController extends CI_Controller
 		$data['full'] = $this->_checkProfileFull($data['user']);
 
 		$this->load->view('templates/header', $data);
+		$this->load->view('templates/aside_user', $data);
 		$this->load->view('user/user_view', $data);
 		$this->load->view('templates/footer');
 	}
@@ -125,6 +126,7 @@ class UserController extends CI_Controller
 			$data['full'] = $this->_checkProfileFull($data['user']);
 
 			$this->load->view('templates/header', $data);
+			$this->load->view('templates/aside_user', $data);
 			$this->load->view('user/edit_view', $data);
 			$this->load->view('templates/footer');
 		} else {
@@ -190,9 +192,30 @@ class UserController extends CI_Controller
 		redirect('user');
 	}
 
-
-
 	public function pendaftaran()
+	{
+
+		$data['title'] = 'Pendaftaran';
+		$data['user'] = $this->UserModel->getDataUser([
+			'username' => $this->session->userdata['username']
+		]);
+		if (!$this->_checkProfileFull($data['user'])) {
+			$this->session->set_flashdata('message', "<script>Swal.fire({
+				type: 'error',
+				title: 'Maaf',
+				text: 'Silahkan lengkapi data diri anda',
+			})</script>");
+			redirect('user/edit');
+		}
+		$data['full'] = $this->_checkProfileFull($data['user']);
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/aside_user', $data);
+		$this->load->view('user/pendaftaran_view', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function proses_pendaftaran()
 	{
 		/*
 		* jika tipe yang di pilih adalah perorangan maka $tipe = 1 else 2
@@ -202,12 +225,7 @@ class UserController extends CI_Controller
 			'username' => $this->session->userdata['username']
 		]);
 
-		if($tipe == 1){
-
-		} else {
-
-		}
-
+		if ($tipe == 1) { } else { }
 	}
 
 	public function pembayaran()
