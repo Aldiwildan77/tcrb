@@ -17,22 +17,6 @@ $('#exampleModal').on('show.bs.modal', function (event) {
      $('#rowThree').html('Konfirmasi Password Baru')
      $('#inputThree').val('').attr('type', 'password')
   } else {
-    //  $('.labelModals').addClass('col-sm-2').removeClass('col-sm-4')
-    //  $('.inputModals').addClass('col-sm-10').removeClass('col-sm-8')
-    //  $('#formModal').attr('action', 'editProfile')
-    //  $('#rowOne').html('Name')
-    //  $('#rowTwo').html('Username')
-    //  $('#rowThree').html('Email')
-    //  $.ajax({
-    //     url: baseUrl + "getProfile",
-    //     method: "GET",
-    //     success: function (data) {
-    //        let result = JSON.parse(data)
-    //        $('#inputOne').val(result.name).attr('type', 'text')
-    //        $('#inputTwo').val(result.username).attr('type', 'text')
-    //        $('#inputThree').val(result.email).attr('type', 'text')
-    //     }
-    //  })
   }
 })
 
@@ -45,7 +29,7 @@ $('#instagramModal').on('show.bs.modal', function (event) {
 
   let cond = btn.data('link')
   $('.instagram-media').attr('data-instgrm-permalink', cond)
-  $('.instagram-media').attr('src', cond + "embed/captioned/") 
+  $('.instagram-media').attr('src', cond + "embed/captioned/")
   console.log(cond)
 })
 
@@ -109,3 +93,20 @@ $(document).ready(function () {
     }
 	});
 });
+
+$('.pilih-daftar').click(function(e){
+	console.log('berhasil')
+	// Swal.fire({
+	// 	title: 'Are you sure?',
+	// 	text: "You won't be able to revert this!",
+	// 	type: 'warning',
+	// 	showCancelButton: true,
+	// 	confirmButtonColor: '#3085d6',
+	// 	cancelButtonColor: '#d33',
+	// 	confirmButtonText: 'Yes, delete it!'
+	// }).then((result) => {
+	// 	if (result.value) {
+
+	// 	}
+	// })
+})
