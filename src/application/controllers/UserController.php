@@ -51,7 +51,7 @@ class UserController extends CI_Controller
 
 	function teleponValidation($telp)
 	{
-		$re = '/\+?([ -]?\d+)+|\(\d+\)([ -]\d+)/';
+		$re = '/^(\+62|08|[0][\d]{2,3})[\d]+$/';
 		preg_match($re, $telp, $matches, PREG_OFFSET_CAPTURE, 0);
 		if (!$matches) {
 			$this->form_validation->set_message('teleponValidation', 'Telepon tidak valid, periksa kembali nomor telepon sesuai aturan telepon Indonesia');
@@ -90,7 +90,7 @@ class UserController extends CI_Controller
 		if (!$this->upload->do_upload('file')) {
 			$error = $this->upload->display_errors();
 			$this->session->set_flashdata('message', '<div class="alert alert-danger pb-0" role="alert">
-            ' . $error . '.            
+            ' . $error . '.
             </div>');
 			redirect('user');
 		} else {
