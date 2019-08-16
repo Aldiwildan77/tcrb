@@ -193,7 +193,22 @@ class UserController extends CI_Controller
 
 
 	public function pendaftaran()
-	{ }
+	{
+		/*
+		* jika tipe yang di pilih adalah perorangan maka $tipe = 1 else 2
+		*/
+		$tipe = $this->input->post('');
+		$profil = $this->UserModel->getDataUser([
+			'username' => $this->session->userdata['username']
+		]);
+
+		if($tipe == 1){
+
+		} else {
+
+		}
+
+	}
 
 	public function pembayaran()
 	{ }
