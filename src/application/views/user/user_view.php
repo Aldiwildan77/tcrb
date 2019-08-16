@@ -1,40 +1,3 @@
-<div class="halaman-user">
-	<div class="container pt-5 pb-5">
-		<div class="row">
-			<div class="col-lg-3 col-xs-12 user mb-5">
-				<div class="row mb-3 mt-5">
-					<div class="col-lg-12 text-center">
-						<h4 class="text-center"><b>Selamat datang</b></h4>
-						<h5><?= $user['nama_lengkap'] ?></h5>
-					</div>
-				</div>
-				<hr>
-				<a class="tombol-user" href="<?= base_url('user') ?>">
-					<div class="row pt-2 pb-1 row-tbl-user">
-						<div class="col-lg-12">
-							<h5 class="text-center">Profil</h5>
-						</div>
-					</div>
-				</a>
-				<hr>
-				<?php if ($full) : ?>
-				<a class="tombol-user" href="">
-					<div class="row pt-2 pb-1 row-tbl-user">
-						<div class="col-lg-12">
-							<h5 class="text-center">Pendaftaran</h5>
-						</div>
-					</div>
-				</a>
-				<hr>
-				<a class="tombol-user" href="">
-					<div class="row pt-2 pb-1 mb-3 row-tbl-user">
-						<div class="col-lg-12">
-							<h5 class="text-center">Pembayaran</h5>
-						</div>
-					</div>
-				</a>
-				<?php endif; ?>
-			</div>
 			<div class="col-lg-8 offset-lg-1 user pt-3">
 				<div class="row mx-1">
 					<div class="col-lg-7">
@@ -75,6 +38,10 @@
 				<div class="row mt-3 mb-5 mx-1">
 					<div class="col-lg-3"><b>No Telepon</b></div>
 					<div class="col-lg-6"><?= str_replace(' ', '',$user['no_telepon']) ?></div>
+				</div>
+				<div class="row mt-3 mb-5 mx-1">
+					<div class="col-12">
+					</div>
 				</div>
 			</div>
 		</div>

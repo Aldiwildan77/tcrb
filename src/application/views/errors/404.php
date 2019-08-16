@@ -15,10 +15,12 @@
 <body>
 	<div class="container">
 		<img src="<?= base_url('assets/img/404.png'); ?>" alt="" class="img-fluid d-block mr-auto ml-auto">
+		<div class="row">
+			<div class="col-4 col-lg-3 mx-auto mb-5">
+				<a class="btn btn-secondary btn-block" href="#" onclick="history.back()">Back</a>
+			</div>
+		</div>
 	</div>
-	<span class="mb-3" style="display: flex; justify-content: center; align-items: center;">
-		<a class="btn btn-secondary btn-md" href="#" onclick="history.back()">Back</a>
-	</span>
 </body>
 
 </html>

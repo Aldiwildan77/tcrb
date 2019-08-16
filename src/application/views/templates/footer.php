@@ -37,7 +37,7 @@
 <script src="<?= base_url('assets/js/custom.js') ?>"></script>
 <script src="<?= base_url('assets/js/custom-file-input.js') ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-
+<?=$this->session->flashdata('message')?>
 <script>
 	bsCustomFileInput.init()
 </script>
@@ -51,13 +51,6 @@
 		)
 	}
 </script>
-
-<!-- <script>
-	$(".wow").each(function() {
-		var wowHeight = $(this).height();
-		$(this).attr("data-wow-offset", wowHeight);
-	});
-</script> -->
 </body>
 
 </html>
