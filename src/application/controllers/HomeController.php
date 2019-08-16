@@ -69,5 +69,5 @@ class HomeController extends CI_Controller
     function youtube()
     {
         redirect('https://www.youtube.com/channel/UCq-pgI0KWAISOnfwG-YkOFQ');
-    }
+	}
 }

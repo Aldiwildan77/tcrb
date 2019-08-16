@@ -3,152 +3,198 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class UserController extends CI_Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->model('UserModel');
-        $this->load->model('LoginModel');
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('UserModel');
+		$this->load->model('LoginModel');
 
-        if ($this->session->userdata('username') == null) {
-            redirect('login?r='. $this->uri->segment(1, null));
-        }
-    }
+		if ($this->session->userdata('username') == null) {
+			redirect('login?r=' . $this->uri->segment(1, null));
+		}
+	}
 
-    public function index()
-    {
-        $data['title'] = 'User';
-        $data['user'] = $this->UserModel->getDataUser([
-            'username' => $this->session->userdata['username']
-        ]);
-        $this->load->view('templates/header', $data);
-        $this->load->view('user/user_view', $data);
-        $this->load->view('templates/footer');
-    }
+	public function index()
+	{
+		$data['title'] = 'User';
+		$data['user'] = $this->UserModel->getDataUser([
+			'username' => $this->session->userdata['username']
+		]);
+		$data['full'] = $this->_checkProfileFull($data['user']);
 
-    public function logout()
-    {
-        $this->session->sess_destroy();
-        redirect('login');
-    }
+		$this->load->view('templates/header', $data);
+		$this->load->view('user/user_view', $data);
+		$this->load->view('templates/footer');
+	}
 
-    public function upload()
-    {
-        $data['title'] = 'Upload bukti pembayaran';
+	private function _checkProfileFull($arr = [])
+	{
+		if (sizeof($arr) == 0) return false;
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('user/uploadFile_view', $data);
-        $this->load->view('templates/footer');
-    }
+		$count = 0;
+		foreach ($arr as $key => $value) {
+			if (!empty($value)) {
+				$count++;
+			}
+		};
 
-    public function doUpload()
-    {
-        $config['upload_path']      = realpath('./bukti-bayar/');
-        $config['allowed_types']    = 'png|jpeg|jpg';
-        $config['file_name']        = $this->session->userdata('username');
-        $config['remove_spaces']    = true;
-        $config['overwrite']        = true;
-        $config['max_sizes']        = '512';
+		return $count > 9 ? true : false;
+	}
 
-        $this->load->library('upload', $config);
+	private function validateConfig()
+	{
+		require_once 'src/application/helpers/Email.php';
+		$mail = new Email();
 
-        if (!$this->upload->do_upload('file')) {
-            $error = $this->upload->display_errors();
-            $this->session->set_flashdata('message', '<div class="alert alert-danger pb-0" role="alert">
+		return $mail->getConfig();
+	}
+
+	function teleponValidation($telp)
+	{
+		$re = '/\+?([ -]?\d+)+|\(\d+\)([ -]\d+)/';
+		preg_match($re, $telp, $matches, PREG_OFFSET_CAPTURE, 0);
+		if (!$matches) {
+			$this->form_validation->set_message('teleponValidation', 'Telepon tidak valid, periksa kembali nomor telepon sesuai aturan telepon Indonesia');
+			return FALSE;
+		}
+
+		return TRUE;
+	}
+
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('login');
+	}
+
+	public function upload()
+	{
+		$data['title'] = 'Upload bukti pembayaran';
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('user/uploadFile_view', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function doUpload()
+	{
+		$config['upload_path']      = realpath('./bukti-bayar/');
+		$config['allowed_types']    = 'png|jpeg|jpg';
+		$config['file_name']        = $this->session->userdata('username');
+		$config['remove_spaces']    = true;
+		$config['overwrite']        = true;
+		$config['max_sizes']        = '512';
+
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload('file')) {
+			$error = $this->upload->display_errors();
+			$this->session->set_flashdata('message', '<div class="alert alert-danger pb-0" role="alert">
             ' . $error . '.            
             </div>');
-            redirect('user');
-        } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+			redirect('user');
+		} else {
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Your file has been succesfully uploaded.
             </div>');
-            $where = [
-                'username' => $this->session->userdata('username')
-            ];
-            $update = [
-                'bukti_bayar' => $this->upload->data()['file_name']
-            ];
-            $this->LoginModel->updateData($where, $update);
+			$where = [
+				'username' => $this->session->userdata('username')
+			];
+			$update = [
+				'bukti_bayar' => $this->upload->data()['file_name']
+			];
+			$this->LoginModel->updateData($where, $update);
 
-            redirect('user/upload');
-        }
-    }
+			redirect('user/upload');
+		}
+	}
 
-    public function edit()
-    {
-        $this->form_validation->set_rules('fullname', 'Nama Lengkap', 'trim|required');
-        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
-        $this->form_validation->set_rules('instansi', 'Asal Instansi', 'trim|required');
-        $this->form_validation->set_rules('role', 'Sebagai', 'trim|required');
-        $this->form_validation->set_rules('telp', 'Nomer telepon', 'trim|required');
+	public function edit()
+	{
+		$this->form_validation->set_rules('fullname', 'Nama Lengkap', 'trim|required');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+		$this->form_validation->set_rules('instansi', 'Asal Instansi', 'trim|required');
+		$this->form_validation->set_rules('role', 'Sebagai', 'trim|required');
+		$this->form_validation->set_rules('telp', 'Nomer telepon', 'trim|required|callback_teleponValidation');
 
-        if ($this->form_validation->run() == false) {
-            $data['title'] = 'Edit profile';
-            $data['user'] = $this->UserModel->getDataUser([
-                'username' => $this->session->userdata('username')
-            ]);
-            $this->load->view('templates/header', $data);
-            $this->load->view('user/edit_view', $data);
-            $this->load->view('templates/footer');
-        } else {
-            $fullname = $this->input->post('fullname');
-            $email = $this->input->post('email');
-            $instansi = $this->input->post('instansi');
-            $role = $this->input->post('role');
-            $telp = $this->input->post('telp');
+		if ($this->form_validation->run() == false) {
+			$data['title'] = 'Edit profile';
+			$data['user'] = $this->UserModel->getDataUser([
+				'username' => $this->session->userdata('username')
+			]);
+			$data['full'] = $this->_checkProfileFull($data['user']);
 
-            $data = [
-                'nama_lengkap' => $fullname,
-                'email' => $email,
-                'instansi' => $instansi,
-                'role' => $role,
-                'no_telepon' => $telp,
-            ];
+			$this->load->view('templates/header', $data);
+			$this->load->view('user/edit_view', $data);
+			$this->load->view('templates/footer');
+		} else {
+			$fullname = $this->input->post('fullname');
+			$email = $this->input->post('email');
+			$instansi = $this->input->post('instansi');
+			$role = $this->input->post('role');
+			$telp = str_replace(' ', '', $this->input->post('telp'));
 
-            $this->UserModel->editProfile($data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-            Edit profile berhasil
+			$data = [
+				'nama_lengkap' => $fullname,
+				'email' => $email,
+				'instansi' => $instansi,
+				'role' => $role,
+				'no_telepon' => $telp,
+			];
+
+			$this->UserModel->editProfile($data);
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            Edit profil berhasil
             </div>');
-            redirect('user');
-        }
-    }
+			redirect('user');
+		}
+	}
 
-    public function changePassword()
-    {
-        if (isset($_POST['inputOne']) && isset($_POST['inputTwo']) && isset($_POST['inputThree'])) {            
-            $oldPass = sha1($this->input->post('inputOne'));
-            $newPass = sha1($this->input->post('inputTwo'));
-            $confNewPass = sha1($this->input->post('inputThree'));
-            $where = [
-                'username' => $this->session->userdata('username')
-            ];
-            // Jika old password benar
-            if ($this->UserModel->getDataUser($where)['password'] == $oldPass) {
-                // Jika new pass sama dengan conf new pas
-                if ($newPass == $confNewPass) {
-                    if (strlen($this->input->post('inputTwo')) < 6){
-                        $this->session->set_flashdata('message', '<div class="alert alert-success col-12 text-center" role="alert">
+	public function changePassword()
+	{
+		if (isset($_POST['inputOne']) && isset($_POST['inputTwo']) && isset($_POST['inputThree'])) {
+			$oldPass = sha1($this->input->post('inputOne'));
+			$newPass = sha1($this->input->post('inputTwo'));
+			$confNewPass = sha1($this->input->post('inputThree'));
+			$where = [
+				'username' => $this->session->userdata('username')
+			];
+			// Jika old password benar
+			if ($this->UserModel->getDataUser($where)['password'] == $oldPass) {
+				// Jika new pass sama dengan conf new pas
+				if ($newPass == $confNewPass) {
+					if (strlen($this->input->post('inputTwo')) < 6) {
+						$this->session->set_flashdata('message', '<div class="alert alert-success col-12 text-center" role="alert">
                         Panjang password minimal 6 karakter
                         </div>');
-                    } else {
-                        $update = [
-                            'password' => $newPass
-                        ];
-                        $this->UserModel->editProfile($update);
-                        $this->session->set_flashdata('message', '<div class="alert alert-success col-12 text-center" role="alert">
+					} else {
+						$update = [
+							'password' => $newPass
+						];
+						$this->UserModel->editProfile($update);
+						$this->session->set_flashdata('message', '<div class="alert alert-success col-12 text-center" role="alert">
                         Password anda berhasil diperbarui
                         </div>');
-                    }
-                } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger col-12 text-center" role="alert">
+					}
+				} else {
+					$this->session->set_flashdata('message', '<div class="alert alert-danger col-12 text-center" role="alert">
                     Password baru anda tidak sesuai dengan password konfirmasi yang anda masukkan
                     </div>');
-                }
-            } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger col-12 text-center" role="alert">
+				}
+			} else {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger col-12 text-center" role="alert">
                 Password lama anda salah
                 </div>');
-            }
-        }
-        redirect('user');
-    }
+			}
+		}
+		redirect('user');
+	}
+
+
+
+	public function pendaftaran()
+	{ }
+
+	public function pembayaran()
+	{ }
 }
