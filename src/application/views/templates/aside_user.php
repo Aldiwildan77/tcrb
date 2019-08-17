@@ -1,7 +1,10 @@
-<div class="halaman-user">
+<div class="halaman-user pt-5 pb-5">
 	<div class="container pt-5 pb-5">
 		<div class="row">
-			<div class="col-lg-3 col-xs-12 user mb-5">
+			<div class="col-lg-3 col-xs-12 mb-5">
+				<div class="card" style="margin-left:-5%;margin-right:-5%">
+			<div class="card-body">
+
 				<div class="row mb-3 mt-5">
 					<div class="col-lg-12 text-center">
 						<h4 class="text-center"><b>Selamat datang</b></h4>
@@ -35,3 +38,5 @@
 				</a>
 				<?php endif; ?>
 			</div>
+			</div>
+		</div>

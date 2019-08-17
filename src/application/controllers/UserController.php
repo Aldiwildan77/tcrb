@@ -32,14 +32,19 @@ class UserController extends CI_Controller
 	{
 		if (sizeof($arr) == 0) return false;
 
-		$count = 0;
-		foreach ($arr as $key => $value) {
-			if (!empty($value)) {
-				$count++;
-			}
-		};
+		if(empty($arr['instansi']) || empty($arr['role']) || empty($arr['no_telepon'])){
+			return false;
+		} else {
+			return true;
+		}
+		// $count = 0;
+		// foreach ($arr as $key => $value) {
+		// 	if (!empty($value)) {
+		// 		$count++;
+		// 	}
+		// };
 
-		return $count > 9 ? true : false;
+		// return $count > 9 ? true : false;
 	}
 
 	private function validateConfig()
@@ -145,7 +150,7 @@ class UserController extends CI_Controller
 			];
 
 			$this->UserModel->editProfile($data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+			$this->session->set_flashdata('message-user', '<div class="alert alert-success" role="alert">
             Edit profil berhasil
             </div>');
 			redirect('user');
@@ -166,7 +171,7 @@ class UserController extends CI_Controller
 				// Jika new pass sama dengan conf new pas
 				if ($newPass == $confNewPass) {
 					if (strlen($this->input->post('inputTwo')) < 6) {
-						$this->session->set_flashdata('message', '<div class="alert alert-success col-12 text-center" role="alert">
+						$this->session->set_flashdata('message-user', '<div class="alert alert-success col-12 text-center" role="alert">
                         Panjang password minimal 6 karakter
                         </div>');
 					} else {
@@ -174,17 +179,17 @@ class UserController extends CI_Controller
 							'password' => $newPass
 						];
 						$this->UserModel->editProfile($update);
-						$this->session->set_flashdata('message', '<div class="alert alert-success col-12 text-center" role="alert">
+						$this->session->set_flashdata('message-user', '<div class="alert alert-success col-12 text-center" role="alert">
                         Password anda berhasil diperbarui
                         </div>');
 					}
 				} else {
-					$this->session->set_flashdata('message', '<div class="alert alert-danger col-12 text-center" role="alert">
+					$this->session->set_flashdata('message-user', '<div class="alert alert-danger col-12 text-center" role="alert">
                     Password baru anda tidak sesuai dengan password konfirmasi yang anda masukkan
                     </div>');
 				}
 			} else {
-				$this->session->set_flashdata('message', '<div class="alert alert-danger col-12 text-center" role="alert">
+				$this->session->set_flashdata('message-user', '<div class="alert alert-danger col-12 text-center" role="alert">
                 Password lama anda salah
                 </div>');
 			}
