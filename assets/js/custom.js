@@ -229,7 +229,6 @@ $('#reguTab').on('click', '.regu', function (e) { //ganti tab beregu
 	$('#reguTabContent').find('#regu' + cond).addClass('active show')
 })
 
-
 $('#tambah-regu').click(function (e) { //tambah beregu
 	$('#reguTab').find('.active').removeClass('active')
 	$('#reguTabContent').find('.active').removeClass('active show')
