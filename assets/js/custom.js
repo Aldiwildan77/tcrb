@@ -163,7 +163,7 @@ $('.beregu').on('click', '#hapusRegu', function (e) { //hapus beregu
 	}).then((result) => {
 		if (result.value) {
 			$('.regu-tambahan' + cond).html('')
-			$('#reguTab').find('#regu' + (cond -1)).addClass('active')
+			$('#reguTab').find('#regu' + (cond - 1)).addClass('active')
 			$('#reguTabContent').find('#regu' + (cond - 1)).addClass('active show')
 		}
 	})
@@ -205,11 +205,23 @@ $('#tambah-perorangan').click(function (e) { //tambah perorangan
 		'</div>' +
 		'<div class="form-row">' +
 		'<div class="form-group col-lg-6">' +
+		'<label for="foto_diri' + urutanPerorangan + '">Upload foto diri</label>' +
+		'<input type="file" class="form-control-file" id="foto_diri' + urutanPerorangan + '"  name="foto_diri[]">' +
+		'</div>' +
+		'<div class="form-group col-lg-6">' +
+		'<label for="foto_kartu' + urutanPerorangan + '">Upload foto kartu pelajar</label>' +
+		'<input type="file" class="form-control-file" id="foto_kartu' + urutanPerorangan + '"  name="foto_kartu[]">' +
+		'</div>' +
+		'</div>' +
+		'<div class="form-row">' +
+		'<div class="form-group col-lg-6">' +
 		'<label for="kategori' + urutanPerorangan + '">Kategori pertandingan</label>' +
 		'<select id="kategori' + urutanPerorangan + '" class="form-control" name="kategori[]">' +
 		'<option selected disabled>Pilih salah satu</option>' +
-		'<option value="Cepat">Cepat</option>' +
-		'<option value="Kilat">Kilat</option>' +
+		'<option value="1">Presale 1 Cepat</option>' +
+		'<option value="2">Presale 2 Cepat</option>' +
+		'<option value="3">Presale 1 Kilat</option>' +
+		'<option value="4">Presale 2 Kilat</option>' +
 		'</select>' +
 		'</div>' +
 		'<div class="form-group col-lg-6">' +
@@ -254,16 +266,18 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 					<label for="kategoriRegu`+ urutanBeregu + `">Kategori pertandingan</label>
 					<select id="kategoriRegu`+ urutanBeregu + `" class="form-control" name="kategoriRegu[]">
 						<option selected disabled>Pilih salah satu</option>
-						<option value="Cepat">Beregu Cepat</option>
-						<option value="Kilat">Beregu Kilat</option>
+						<option value="5">Beregu Cepat Paket A</option>
+						<option value="6">Beregu Cepat Paket B</option>
+						<option value="7">Beregu Cepat Paket C</option>
+						<option value="8">Beregu Kilat</option>
 					</select>
 				</div>
 			</div>
 			<hr>
-			<h6><b>Pemain 1</b></h6>
+			<h6><b>Pemain 1 (Captain regu)</b></h6>
 			<div class="form-row">
 				<div class="form-group col-lg-6">
-					<label for="pemain1_`+ urutanBeregu + `">Nama Pemain 1</label>
+					<label for="pemain1_`+ urutanBeregu + `">Nama Pemain 1 (sebagai captain regu)</label>
 					<input type="text" class="form-control" id="pemain1_`+ urutanBeregu + `" name="pemain1[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain 1">
 					<small id="pemain1" class="form-text text-muted">Gelar diberi tanda kurung</small>
 				</div>
@@ -277,14 +291,29 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 				</div>
 			</div>
 			<div class="form-row">
-				<div class="form-group col-lg-6">
+				<div class="form-group col-lg-4">
 					<label for="nim1_`+ urutanBeregu + `">NIM/NIS</label>
 					<input type="text" class="form-control" id="nim1_`+ urutanBeregu + `" name="nim1[]" aria-describedby="nim" placeholder="Masukkan nim/nis">
 				</div>
-				<div class="form-group col-lg-6">
+				<div class="form-group col-lg-4">
 					<label for="fakultas1_`+ urutanBeregu + `">Fakultas</label>
 					<input type="text" class="form-control" id="fakultas1_`+ urutanBeregu + `" name="fakultas1[]" aria-describedby="fakultas" placeholder="Masukkan fakultas">
 					<small id="fakultas1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
+				</div>
+				<div class="form-group col-lg-4">
+					<label for="alergi1_`+ urutanBeregu + `">Alergi makanan</label>
+					<input type="text" class="form-control" id="alergi1_`+ urutanBeregu + `" name="alergi1[]" aria-describedby="nim" placeholder="Masukkan alergi makanan">
+					<small id="alergi1_`+ urutanBeregu + `" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-lg-6">
+					<label for="foto_diri1_`+ urutanBeregu + `">Upload foto diri</label>
+					<input type="file" class="form-control-file" id="foto_diri1_`+ urutanBeregu + `" name="foto_diri1[]">
+				</div>
+				<div class="form-group col-lg-6">
+					<label for="foto_kartu1_`+ urutanBeregu + `">Upload foto kartu pelajar</label>
+					<input type="file" class="form-control-file" id="foto_kartu1_`+ urutanBeregu + `" name="foto_kartu1[]">
 				</div>
 			</div>
 			<hr>
@@ -305,14 +334,29 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 				</div>
 			</div>
 			<div class="form-row">
-				<div class="form-group col-lg-6">
+				<div class="form-group col-lg-4">
 					<label for="nim2_`+ urutanBeregu + `">NIM/NIS</label>
 					<input type="text" class="form-control" id="nim2_`+ urutanBeregu + `" name="nim2[]" aria-describedby="nim" placeholder="Masukkan nim/nis">
 				</div>
-				<div class="form-group col-lg-6">
+				<div class="form-group col-lg-4">
 					<label for="fakultas2_`+ urutanBeregu + `">Fakultas</label>
 					<input type="text" class="form-control" id="fakultas2_`+ urutanBeregu + `" name="fakultas2[]" aria-describedby="fakultas" placeholder="Masukkan fakultas">
 					<small id="fakultas2_`+ urutanBeregu + `" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
+				</div>
+				<div class="form-group col-lg-4">
+					<label for="alergi2_`+ urutanBeregu + `">Alergi makanan</label>
+					<input type="text" class="form-control" id="alergi2_`+ urutanBeregu + `" name="alergi2[]" aria-describedby="nim" placeholder="Masukkan alergi makanan">
+					<small id="alerg21_`+ urutanBeregu + `" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-lg-6">
+					<label for="foto_diri2_`+ urutanBeregu + `">Upload foto diri</label>
+					<input type="file" class="form-control-file" id="foto_diri2_`+ urutanBeregu + `" name="foto_diri2[]">
+				</div>
+				<div class="form-group col-lg-6">
+					<label for="foto_kartu2_`+ urutanBeregu + `">Upload foto kartu pelajar</label>
+					<input type="file" class="form-control-file" id="foto_kartu2_`+ urutanBeregu + `" name="foto_kartu2[]">
 				</div>
 			</div>
 			<hr>
@@ -333,21 +377,36 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 				</div>
 			</div>
 			<div class="form-row">
-				<div class="form-group col-lg-6">
+				<div class="form-group col-lg-4">
 					<label for="nim3_`+ urutanBeregu + `">NIM/NIS</label>
 					<input type="text" class="form-control" id="nim3_`+ urutanBeregu + `" name="nim3[]" aria-describedby="nim" placeholder="Masukkan nim/nis">
 				</div>
-				<div class="form-group col-lg-6">
+				<div class="form-group col-lg-4">
 					<label for="fakultas3_`+ urutanBeregu + `">Fakultas</label>
 					<input type="text" class="form-control" id="fakultas3_`+ urutanBeregu + `" name="fakultas3[]" aria-describedby="fakultas" placeholder="Masukkan fakultas">
 					<small id="fakultas3_`+ urutanBeregu + `" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
+				</div>
+				<div class="form-group col-lg-4">
+					<label for="alergi3_`+ urutanBeregu + `">Alergi makanan</label>
+					<input type="text" class="form-control" id="alergi3_`+ urutanBeregu + `" name="alergi3[]" aria-describedby="nim" placeholder="Masukkan alergi makanan">
+					<small id="alergi3_`+ urutanBeregu + `" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-lg-6">
+					<label for="foto_diri3_`+ urutanBeregu + `">Upload foto diri</label>
+					<input type="file" class="form-control-file" id="foto_diri3_`+ urutanBeregu + `" name="foto_diri3[]">
+				</div>
+				<div class="form-group col-lg-6">
+					<label for="foto_kartu3_`+ urutanBeregu + `">Upload foto kartu pelajar</label>
+					<input type="file" class="form-control-file" id="foto_kartu3_`+ urutanBeregu + `" name="foto_kartu3[]">
 				</div>
 			</div>
 			<hr>
 			<h6><b>Pemain 4</b></h6>
 			<div class="form-row">
 				<div class="form-group col-lg-6">
-					<label for="pemain4_`+ urutanBeregu + `">Nama Pemain 3</label>
+					<label for="pemain4_`+ urutanBeregu + `">Nama Pemain 4</label>
 					<input type="text" class="form-control" id="pemain4_`+ urutanBeregu + `" name="pemain4[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain 4">
 					<small id="pemain4_`+ urutanBeregu + `" class="form-text text-muted">Gelar diberi tanda kurung</small>
 				</div>
@@ -361,22 +420,83 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 				</div>
 			</div>
 			<div class="form-row">
-				<div class="form-group col-lg-6">
+				<div class="form-group col-lg-4">
 					<label for="nim4_`+ urutanBeregu + `">NIM/NIS</label>
 					<input type="text" class="form-control" id="nim4_`+ urutanBeregu + `" name="nim4[]" aria-describedby="nim" placeholder="Masukkan nim/nis">
 				</div>
-				<div class="form-group col-lg-6">
+				<div class="form-group col-lg-4">
 					<label for="fakultas4_`+ urutanBeregu + `">Fakultas</label>
 					<input type="text" class="form-control" id="fakultas4_`+ urutanBeregu + `" name="fakultas4[]" aria-describedby="fakultas" placeholder="Masukkan fakultas">
 					<small id="fakultas1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 				</div>
+				<div class="form-group col-lg-4">
+					<label for="alergi4_`+ urutanBeregu + `">Alergi makanan</label>
+					<input type="text" class="form-control" id="alergi4_`+ urutanBeregu + `" name="alergi4[]" aria-describedby="nim" placeholder="Masukkan alergi makanan">
+					<small id="alergi4_`+ urutanBeregu + `" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
+				</div>
 			</div>
-			<div class="row">
-				<div class="col-12">
-					<label>Tekan tombol dibawah untuk menghapus regu ini</label>
-					<button type="button" class="btn btn-danger btn-block" data-urutanRegu="`+ urutanBeregu + `" id="hapusRegu">Hapus regu ` + urutanBeregu++ + `</button>
+			<div class="form-row">
+				<div class="form-group col-lg-6">
+					<label for="foto_diri4_`+ urutanBeregu + `">Upload foto diri</label>
+					<input type="file" class="form-control-file" id="foto_diri4_`+ urutanBeregu + `" name="foto_diri4[]">
+				</div>
+				<div class="form-group col-lg-6">
+					<label for="foto_kartu4_`+ urutanBeregu + `">Upload foto kartu pelajar</label>
+					<input type="file" class="form-control-file" id="foto_kartu4_`+ urutanBeregu + `" name="foto_kartu4[]">
 				</div>
 			</div>
 			<hr>
-</div>`)
+			<h6><b>Official</b></h6>
+				<div class="form-row">
+					<div class="form-group col-lg-6">
+						<label for="official1_`+ urutanBeregu + `">Nama Official</label>
+						<input type="text" class="form-control" id="official1_`+ urutanBeregu + `" name="official1[]" aria-describedby="namaPemain" placeholder="Masukkan nama official 1">
+						<input type="text" class="form-control" id="official2_`+ urutanBeregu + `" name="official2[]" aria-describedby="namaPemain" placeholder="Masukkan nama official 2">
+						<small id="pemain4_1" class="form-text text-muted">Gelar diberi tanda kurung</small>
+					</div>
+					<div class="form-group col-lg-6">
+						<label for="jk_official1_`+ urutanBeregu + `">Jenis Kelamin</label>
+						<select id="jk_official1_`+ urutanBeregu + `" class="form-control" name="jk_official1[]">
+							<option selected disabled>Official 1</option>
+							<option value="L">Laki-laki</option>
+							<option value="P">Perempuan</option>
+							<option>Tidak ada official 1</option>
+						</select>
+						<select id="jk_official2_`+ urutanBeregu + `" class="form-control" name="jk_official2[]">
+							<option selected disabled>Official 2</option>
+							<option value="L">Laki-laki</option>
+							<option value="P">Perempuan</option>
+							<option>Tidak ada official 2</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-lg-4">
+						<label for="sebagai1_`+ urutanBeregu + `">Sebagai</label>
+						<input type="text" class="form-control" id="sebagai1_`+ urutanBeregu + `" name="sebagai1[]" aria-describedby="nim" placeholder="Masukkan kedudukan official 1">
+						<input type="text" class="form-control" id="sebagai2_`+ urutanBeregu + `" name="sebagai2[]" aria-describedby="nim" placeholder="Masukkan kedudukan official 2">
+					</div>
+					<div class="form-group col-lg-4">
+						<label for="alergi_official1_`+ urutanBeregu + `">Alergi makanan</label>
+						<input type="text" class="form-control" id="alergi_official1_`+ urutanBeregu + `" name="alergi_official1[]" aria-describedby="nim" placeholder="Masukkan alergi official 1">
+						<input type="text" class="form-control" id="alergi_official2_`+ urutanBeregu + `" name="alergi_official2[]" aria-describedby="nim" placeholder="Masukkan alergi official 2">
+						<small id="alergi4_1" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
+					</div>
+					<div class="form-group col-lg-4">
+					<label for="paket_official_`+ urutanBeregu + `">Pilih paket</label>
+						<select id="paket_official_`+ urutanBeregu + `" class="form-control" name="paket_official[]">
+							<option selected disabled>Pilih salah satu</option>
+							<option value="9">Paket A</option>
+							<option value="10">Paket B</option>
+						</select>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<label>Tekan tombol dibawah untuk menghapus regu ini</label>
+						<button type="button" class="btn btn-danger btn-block" data-urutanRegu="`+ urutanBeregu + `" id="hapusRegu">Hapus regu ` + urutanBeregu++ + `</button>
+					</div>
+				</div>
+				<hr>
+			</div>`)
 })

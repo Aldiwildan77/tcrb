@@ -14,6 +14,9 @@ class UserController extends CI_Controller
 		$this->load->model('LoginModel');
 
 		if ($this->session->userdata('username') == null) {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+				Silahkan login terlebih dahulu
+				</div>');
 			redirect('login?r=' . $this->uri->segment(1, null));
 		}
 	}
@@ -36,19 +39,11 @@ class UserController extends CI_Controller
 	{
 		if (sizeof($arr) == 0) return false;
 
-		if(empty($arr['instansi']) || empty($arr['role']) || empty($arr['no_telepon'])){
+		if (empty($arr['instansi']) || empty($arr['role']) || empty($arr['no_telepon'])) {
 			return false;
 		} else {
 			return true;
 		}
-		// $count = 0;
-		// foreach ($arr as $key => $value) {
-		// 	if (!empty($value)) {
-		// 		$count++;
-		// 	}
-		// };
-
-		// return $count > 9 ? true : false;
 	}
 
 	private function mailConfig()
@@ -75,15 +70,6 @@ class UserController extends CI_Controller
 	{
 		$this->session->sess_destroy();
 		redirect('login');
-	}
-
-	public function upload()
-	{
-		$data['title'] = 'Upload bukti pembayaran';
-
-		$this->load->view('templates/header', $data);
-		$this->load->view('user/uploadFile_view', $data);
-		$this->load->view('templates/footer');
 	}
 
 	public function doUpload()
@@ -224,17 +210,31 @@ class UserController extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	public function proses_pendaftaran()
+	public function prosesPendaftaranPerorangan()
 	{
-		/*
-		* jika tipe yang di pilih adalah perorangan maka $tipe = 1 else 2
-		*/
-		$tipe = $this->input->post('');
+		$profil = $this->UserModel->getDataUser([
+			'username' => $this->session->userdata['username']
+		]);
+		$pemain = $this->input->post('pemain');
+		$nim = $this->input->post('nim');
+		$instansi = $this->input->post('instansi');
+		$jenisKelamin = $this->input->post('jenisKelamin');
+		$fakultas = $this->input->post('fakultas');
+		$kategori = $this->input->post('kategori');
+	}
+
+	public function prosesPendaftaranBeregu()
+	{
+		$tipe = $this->input->post('pemain');
 		$profil = $this->UserModel->getDataUser([
 			'username' => $this->session->userdata['username']
 		]);
 
-		if ($tipe == 1) { } else { }
+		if ($tipe != null) {
+			echo "perorangan";
+		} else {
+			echo "beregu";
+		}
 	}
 
 	public function pembayaran()

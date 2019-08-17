@@ -18,20 +18,23 @@
 							<div class="col-12">
 								<!-- Perorangan -->
 								<h4 class="text-center mt-2 mb-2">FORM PENDAFTARAN PERORANGAN</h4>
-								<div class="row">
-									<div class="col-12 col-md-5 col-lg-5 offset-lg-7 offset-md-7">
-										<div class="row no-gutters">
-											<div class="col-6">
-												<button type="button" id="tambah-perorangan" class="btn btn-info btn-block">Tambah pemain</button>
-											</div>
-											<div class="col-6">
-												<button class="btn btn-success btn-block">Submit</button>
+								<form action="<?= base_url('user/pendaftaran-proses-orang') ?>" method="post" id="formPerorangan">
+									<div class="row">
+										<div class="col-12 col-md-4 col-lg-8 offset-lg-4 offset-md-4">
+											<div class="row no-gutters">
+												<div class="col-4">
+													<button type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#modalPerorangan">Lihat harga</button>
+												</div>
+												<div class="col-4">
+													<button type="button" id="tambah-perorangan" class="btn btn-info btn-block">Tambah pemain</button>
+												</div>
+												<div class="col-4">
+													<button class="btn btn-success btn-block">Submit</button>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-								<hr>
-								<form action="" method="post" id="formPerorangan">
+									<hr>
 									<div class="perorangan">
 										<h5 class="text-center">Pemain 1</h5>
 										<div class="form-row">
@@ -66,11 +69,23 @@
 										</div>
 										<div class="form-row">
 											<div class="form-group col-lg-6">
+												<label for="foto_diri1">Upload foto diri</label>
+												<input type="file" class="form-control-file" id="foto_diri1" name="foto_diri[]">
+											</div>
+											<div class="form-group col-lg-6">
+												<label for="foto_kartu1">Upload foto kartu pelajar</label>
+												<input type="file" class="form-control-file" id="foto_kartu1" name="foto_kartu[]">
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-lg-6">
 												<label for="kategori1">Kategori pertandingan</label>
 												<select id="kategori1" class="form-control" name="kategori[]">
 													<option selected disabled>Pilih salah satu</option>
-													<option value="Cepat">Cepat</option>
-													<option value="Kilat">Kilat</option>
+													<option value="1">Presale 1 Cepat</option>
+													<option value="2">Presale 2 Cepat</option>
+													<option value="3">Presale 1 Kilat</option>
+													<option value="3">Presale 2 Kilat</option>
 												</select>
 											</div>
 										</div>
@@ -85,28 +100,31 @@
 							<div class="col-12">
 								<!-- Beregu -->
 								<h4 class="text-center mt-2 mb-2">FORM PENDAFTARAN BEREGU</h4>
-								<div class="row">
-									<div class="col-12 col-md-5 col-lg-5 offset-lg-7 offset-md-7">
-										<div class="row no-gutters">
-											<div class="col-6">
-												<button type="button" id="tambah-regu" class="btn btn-info btn-block">Tambah regu</button>
-											</div>
-											<div class="col-6">
-												<button class="btn btn-success btn-block">Submit</button>
+								<form action="<?= base_url('user/pendaftaran-proses-regu') ?>" method="post" id="formBeregu">
+									<div class="row">
+										<div class="col-12 col-md-4 col-lg-8 offset-lg-4 offset-md-4">
+											<div class="row no-gutters">
+												<div class="col-4">
+													<button type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#modalBeregu">Lihat harga</button>
+												</div>
+												<div class="col-4">
+													<button type="button" id="tambah-regu" class="btn btn-info btn-block">Tambah regu</button>
+												</div>
+												<div class="col-4">
+													<button class="btn btn-success btn-block">Submit</button>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-								<hr>
-								<nav>
-									<ul class="nav nav-tabs" id="reguTab" role="tablist">
-										<li class="nav-item">
-											<a class="nav-link regu active" id="regu1" data-toggle="tab" href="#regu1" data-regu="1" role="tab" aria-controls="regu1" aria-selected="true">Regu 1</a>
-										</li>
-									</ul>
-								</nav>
-								<hr>
-								<form action="" method="post" id="formBeregu">
+									<hr>
+									<nav>
+										<ul class="nav nav-tabs" id="reguTab" role="tablist">
+											<li class="nav-item">
+												<a class="nav-link regu active" id="regu1" data-toggle="tab" href="#regu1" data-regu="1" role="tab" aria-controls="regu1" aria-selected="true">Regu 1</a>
+											</li>
+										</ul>
+									</nav>
+									<hr>
 									<div class="beregu">
 										<div class="tab-content" id="reguTabContent">
 											<div class="tab-pane fade show active" id="regu1" role="tabpanel" aria-labelledby="nav-home-tab">
@@ -124,16 +142,18 @@
 														<label for="kategoriRegu1">Kategori pertandingan</label>
 														<select id="kategoriRegu1" class="form-control" name="kategoriRegu[]">
 															<option selected disabled>Pilih salah satu</option>
-															<option value="Cepat">Beregu Cepat</option>
-															<option value="Kilat">Beregu Kilat</option>
+															<option value="5">Beregu Cepat Paket A</option>
+															<option value="6">Beregu Cepat Paket B</option>
+															<option value="7">Beregu Cepat Paket C</option>
+															<option value="8">Beregu Kilat</option>
 														</select>
 													</div>
 												</div>
 												<hr>
-												<h6><b>Pemain 1</b></h6>
+												<h6><b>Pemain 1 (Captain regu)</b></h6>
 												<div class="form-row">
 													<div class="form-group col-lg-6">
-														<label for="pemain1_1">Nama Pemain 1</label>
+														<label for="pemain1_1">Nama Pemain 1 (sebagai captain regu)</label>
 														<input type="text" class="form-control" id="pemain1_1" name="pemain1[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain 1">
 														<small id="pemain1" class="form-text text-muted">Gelar diberi tanda kurung</small>
 													</div>
@@ -147,14 +167,29 @@
 													</div>
 												</div>
 												<div class="form-row">
-													<div class="form-group col-lg-6">
+													<div class="form-group col-lg-4">
 														<label for="nim1_1">NIM/NIS</label>
 														<input type="text" class="form-control" id="nim1_1" name="nim1[]" aria-describedby="nim" placeholder="Masukkan nim/nis">
 													</div>
-													<div class="form-group col-lg-6">
+													<div class="form-group col-lg-4">
 														<label for="fakultas1_1">Fakultas</label>
 														<input type="text" class="form-control" id="fakultas1_1" name="fakultas1[]" aria-describedby="fakultas" placeholder="Masukkan fakultas">
 														<small id="fakultas1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
+													</div>
+													<div class="form-group col-lg-4">
+														<label for="alergi1_1">Alergi makanan</label>
+														<input type="text" class="form-control" id="alergi1_1" name="alergi1[]" aria-describedby="nim" placeholder="Masukkan alergi makanan">
+														<small id="alergi1_1" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="form-group col-lg-6">
+														<label for="foto_diri1_1">Upload foto diri</label>
+														<input type="file" class="form-control-file" id="foto_diri1_1" name="foto_diri1[]">
+													</div>
+													<div class="form-group col-lg-6">
+														<label for="foto_kartu1_1">Upload foto kartu pelajar</label>
+														<input type="file" class="form-control-file" id="foto_kartu1_1" name="foto_kartu1[]">
 													</div>
 												</div>
 												<hr>
@@ -175,14 +210,29 @@
 													</div>
 												</div>
 												<div class="form-row">
-													<div class="form-group col-lg-6">
+													<div class="form-group col-lg-4">
 														<label for="nim2_1">NIM/NIS</label>
 														<input type="text" class="form-control" id="nim2_1" name="nim2[]" aria-describedby="nim" placeholder="Masukkan nim/nis">
 													</div>
-													<div class="form-group col-lg-6">
+													<div class="form-group col-lg-4">
 														<label for="fakultas2_1">Fakultas</label>
 														<input type="text" class="form-control" id="fakultas2_1" name="fakultas2[]" aria-describedby="fakultas" placeholder="Masukkan fakultas">
 														<small id="fakultas1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
+													</div>
+													<div class="form-group col-lg-4">
+														<label for="alergi2_1">Alergi makanan</label>
+														<input type="text" class="form-control" id="alergi2_1" name="alergi2[]" aria-describedby="nim" placeholder="Masukkan alergi makanan">
+														<small id="alergi2_1" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="form-group col-lg-6">
+														<label for="foto_diri2_1">Upload foto diri</label>
+														<input type="file" class="form-control-file" id="foto_diri2_1" name="foto_diri2[]">
+													</div>
+													<div class="form-group col-lg-6">
+														<label for="foto_kartu2_1">Upload foto kartu pelajar</label>
+														<input type="file" class="form-control-file" id="foto_kartu2_1" name="foto_kartu2[]">
 													</div>
 												</div>
 												<hr>
@@ -203,21 +253,36 @@
 													</div>
 												</div>
 												<div class="form-row">
-													<div class="form-group col-lg-6">
+													<div class="form-group col-lg-4">
 														<label for="nim3_1">NIM/NIS</label>
 														<input type="text" class="form-control" id="nim3_1" name="nim3[]" aria-describedby="nim" placeholder="Masukkan nim/nis">
 													</div>
-													<div class="form-group col-lg-6">
+													<div class="form-group col-lg-4">
 														<label for="fakultas3_1">Fakultas</label>
 														<input type="text" class="form-control" id="fakultas3_1" name="fakultas3[]" aria-describedby="fakultas" placeholder="Masukkan fakultas">
 														<small id="fakultas3_1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
+													</div>
+													<div class="form-group col-lg-4">
+														<label for="alergi3_1">Alergi makanan</label>
+														<input type="text" class="form-control" id="alergi3_1" name="alergi3[]" aria-describedby="nim" placeholder="Masukkan alergi makanan">
+														<small id="alergi3_1" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="form-group col-lg-6">
+														<label for="foto_diri3_1">Upload foto diri</label>
+														<input type="file" class="form-control-file" id="foto_diri3_1" name="foto_diri3[]">
+													</div>
+													<div class="form-group col-lg-6">
+														<label for="foto_kartu3_1">Upload foto kartu pelajar</label>
+														<input type="file" class="form-control-file" id="foto_kartu3_1" name="foto_kartu3[]">
 													</div>
 												</div>
 												<hr>
 												<h6><b>Pemain 4</b></h6>
 												<div class="form-row">
 													<div class="form-group col-lg-6">
-														<label for="pemain4_1">Nama Pemain 3</label>
+														<label for="pemain4_1">Nama Pemain 4</label>
 														<input type="text" class="form-control" id="pemain4_1" name="pemain4[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain 4">
 														<small id="pemain4_1" class="form-text text-muted">Gelar diberi tanda kurung</small>
 													</div>
@@ -231,14 +296,75 @@
 													</div>
 												</div>
 												<div class="form-row">
-													<div class="form-group col-lg-6">
+													<div class="form-group col-lg-4">
 														<label for="nim4_1">NIM/NIS</label>
 														<input type="text" class="form-control" id="nim4_1" name="nim4[]" aria-describedby="nim" placeholder="Masukkan nim/nis">
 													</div>
-													<div class="form-group col-lg-6">
+													<div class="form-group col-lg-4">
 														<label for="fakultas4_1">Fakultas</label>
 														<input type="text" class="form-control" id="fakultas4_1" name="fakultas4[]" aria-describedby="fakultas" placeholder="Masukkan fakultas">
 														<small id="fakultas4_1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
+													</div>
+													<div class="form-group col-lg-4">
+														<label for="alergi4_1">Alergi makanan</label>
+														<input type="text" class="form-control" id="alergi4_1" name="alergi4[]" aria-describedby="nim" placeholder="Masukkan alergi makanan">
+														<small id="alergi4_1" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="form-group col-lg-6">
+														<label for="foto_diri4_1">Upload foto diri</label>
+														<input type="file" class="form-control-file" id="foto_diri4_1" name="foto_diri4[]">
+													</div>
+													<div class="form-group col-lg-6">
+														<label for="foto_kartu4_1">Upload foto kartu pelajar</label>
+														<input type="file" class="form-control-file" id="foto_kartu4_1" name="foto_kartu4[]">
+													</div>
+												</div>
+												<hr>
+												<h6><b>Official</b></h6>
+												<div class="form-row">
+													<div class="form-group col-lg-6">
+														<label for="official1_1">Nama Official</label>
+														<input type="text" class="form-control" id="official1_1" name="official1[]" aria-describedby="namaPemain" placeholder="Masukkan nama official 1">
+														<input type="text" class="form-control" id="official2_1" name="official2[]" aria-describedby="namaPemain" placeholder="Masukkan nama official 2">
+														<small id="pemain4_1" class="form-text text-muted">Gelar diberi tanda kurung</small>
+													</div>
+													<div class="form-group col-lg-6">
+														<label for="jk_official1_1">Jenis Kelamin</label>
+														<select id="jk_official1_1" class="form-control" name="jk_official1[]">
+															<option selected disabled>Official 1</option>
+															<option value="L">Laki-laki</option>
+															<option value="P">Perempuan</option>
+															<option>Tidak ada official 1</option>
+														</select>
+														<select id="jk_official2_1" class="form-control" name="jk_official2[]">
+															<option selected disabled>Official 2</option>
+															<option value="L">Laki-laki</option>
+															<option value="P">Perempuan</option>
+															<option>Tidak ada official 2</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-row">
+													<div class="form-group col-lg-4">
+														<label for="sebagai1_1">Sebagai</label>
+														<input type="text" class="form-control" id="sebagai1_1" name="sebagai1[]" aria-describedby="nim" placeholder="Masukkan kedudukan official 1">
+														<input type="text" class="form-control" id="sebagai2_1" name="sebagai2[]" aria-describedby="nim" placeholder="Masukkan kedudukan official 2">
+													</div>
+													<div class="form-group col-lg-4">
+														<label for="alergi_official1_1">Alergi makanan</label>
+														<input type="text" class="form-control" id="alergi_official1_1" name="alergi_official1[]" aria-describedby="nim" placeholder="Masukkan alergi official 1">
+														<input type="text" class="form-control" id="alergi_official2_1" name="alergi_official2[]" aria-describedby="nim" placeholder="Masukkan alergi official 2">
+														<small id="alergi4_1" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
+													</div>
+													<div class="form-group col-lg-4">
+														<label for="paket_official_1">Pilih paket</label>
+														<select id="paket_official_1" class="form-control" name="paket_official[]">
+															<option selected disabled>Pilih salah satu</option>
+															<option value="9">Paket A</option>
+															<option value="10">Paket B</option>
+														</select>
 													</div>
 												</div>
 												<hr>
@@ -253,4 +379,110 @@
 			</div>
 			</div>
 			</div>
+			</div>
+
+			<div class="modal fade" id="modalPerorangan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Harga Kategori Perorangan</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="table-responsive">
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th scope="col">No</th>
+											<th scope="col">Kategori</th>
+											<th scope="col">Harga</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">1</th>
+											<td>Presale 1 cepat</td>
+											<td>Rp 75.000</td>
+										</tr>
+										<tr>
+											<th scope="row">2</th>
+											<td>Presale 2 cepat</td>
+											<td>Rp 85.000</td>
+										</tr>
+										<tr>
+											<th scope="row">3</th>
+											<td>Presale 1 kilat</td>
+											<td>Rp 25.000</td>
+										</tr>
+										<tr>
+											<th scope="row">4</th>
+											<td>Presale 2 kilat</td>
+											<td>Rp 35.000</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal fade" id="modalBeregu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Harga Kategori Beregu</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="table-responsive">
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th scope="col">No</th>
+											<th scope="col">Kategori</th>
+											<th scope="col">Harga</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">1</th>
+											<td>Beregu Cepat Paket A</td>
+											<td>Rp 1.550.000</td>
+										</tr>
+										<tr>
+											<th scope="row">2</th>
+											<td>Beregu Cepat Paket B</td>
+											<td>Rp 1.400.000</td>
+										</tr>
+										<tr>
+											<th scope="row">3</th>
+											<td>Beregu Cepat Paket C</td>
+											<td>Rp 500.000</td>
+										</tr>
+										<tr>
+											<th scope="row">4</th>
+											<td>Beregu Kilat</td>
+											<td>Rp 120.000</td>
+										</tr>
+										<tr>
+											<th scope="row">5</th>
+											<td>Personil yang menemani Paket A</td>
+											<td>Rp 650.000</td>
+										</tr>
+										<tr>
+											<th scope="row">6</th>
+											<td>Personil yang menemani Paket B</td>
+											<td>Rp 100.000</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>

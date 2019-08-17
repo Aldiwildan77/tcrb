@@ -22,6 +22,8 @@ $route['user'] = 'UserController';
 // $route['user/do-upload'] = 'UserController/doUpload';
 $route['user/edit'] = 'UserController/edit';
 $route['user/pendaftaran'] = 'UserController/pendaftaran';
+$route['user/pendaftaran-proses-orang'] = 'UserController/prosesPendaftaranPerorangan';
+$route['user/pendaftaran-proses-regu'] = 'UserController/prosesPendaftaranBeregu';
 $route['user/pembayaran'] = 'UserController/pembayaran';
 $route['user/changepass'] = 'UserController/changePassword';
 
