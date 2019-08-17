@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="my-5">
+<div class="halaman-user" style="height: calc(100vh - 100px)">
+    <div class="container py-5">
         <div class="login-card card mx-auto">
             <div class="card-body">
                 <h5 class="card-title"><strong>Register</strong></h5>
