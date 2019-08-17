@@ -49,6 +49,7 @@
 			'info'
 		)
 	}
+
 </script>
 </body>
 

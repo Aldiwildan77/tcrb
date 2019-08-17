@@ -1,7 +1,7 @@
 			<div class="col-lg-8 offset-lg-1 user pt-3">
 				<div class="row mx-1">
 					<div class="col-lg-7">
-						<?= $this->session->flashdata('message') ?>
+						<?= $this->session->flashdata('message-user') ?>
 					</div>
 					<div class="col-lg-5">
 						<div class="float-right mb-2">

@@ -21,7 +21,8 @@
     <link rel="stylesheet" href="<?= base_url('assets/vendor/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/vendor/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css') ?>">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
     <link rel="icon" href="<?= base_url('assets/img/tcrb.ico'); ?>" type="image/x-icon" />
 
