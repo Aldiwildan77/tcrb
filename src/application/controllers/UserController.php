@@ -1,4 +1,8 @@
 <?php
+
+use Endroid\QrCode\ErrorCorrectionLevel;
+use Endroid\QrCode\QrCode;
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class UserController extends CI_Controller
@@ -42,7 +46,7 @@ class UserController extends CI_Controller
 		return $count > 9 ? true : false;
 	}
 
-	private function validateConfig()
+	private function mailConfig()
 	{
 		require_once 'src/application/helpers/Email.php';
 		$mail = new Email();
@@ -230,4 +234,47 @@ class UserController extends CI_Controller
 
 	public function pembayaran()
 	{ }
+
+	public function sendAbsensiMail()
+	{
+		['email' => $email] = $this->UserModel->getDataUser([
+			'username' => $this->session->userdata['username']
+		]);
+
+		$token = $this->_generateQrCode();
+
+		$this->load->library('email', $this->mailConfig());
+		$this->email->from($this->mailConfig()['smtp_user'], 'Turnamen Catur Raja Brawijaya');
+		$this->email->to($email);
+		$this->email->subject('Kode Registrasi Ulang');
+		$this->email->attach(FCPATH . "/qrcode/$token.png");
+		$cid = $this->email->attachment_cid(FCPATH . "/qrcode/$token.png");
+		$this->email->message('<img src="cid:' . $cid . '"/>');
+		$this->email->send();
+	}
+
+	private function _generateQrCode()
+	{
+		['username' => $username] = $this->session->userdata();
+
+		$check = $this->UserModel->checkPembayaranOrang($username) ? "orang" : ($this->UserModel->checkPembayaranRegu($username) ? "regu" : false);
+		if (!$check) return false;
+
+		$where = array('user_id' => $this->session->userdata('id'));
+		['token' => $token] = $this->UserModel->getDataPembayaran($check, $where);
+
+		$qr = new QrCode();
+		$qr->setText(base_url("/absensi/$check/$token"));
+		$qr->setSize(200);
+		$qr->setErrorCorrectionLevel(new ErrorCorrectionLevel(ErrorCorrectionLevel::HIGH));
+		$qr->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0));
+		$qr->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0));
+		$qr->setLogoPath(FCPATH . '/assets/img/logo.png');
+		$qr->setLogoSize(45, 45);
+
+		header('Content-Type: ' . $qr->getContentType());
+		$qr->writeFile(FCPATH . "/qrcode/$token.png");
+
+		return $token;
+	}
 }

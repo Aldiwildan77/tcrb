@@ -36,7 +36,6 @@
 <script src="<?= base_url('assets/vendor/OwlCarousel2-2.3.4/src/js/owl.autoplay.js') ?>"></script>
 <script src="<?= base_url('assets/js/custom.js') ?>"></script>
 <script src="<?= base_url('assets/js/custom-file-input.js') ?>"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <?=$this->session->flashdata('message')?>
 <script>
 	bsCustomFileInput.init()

@@ -33,6 +33,8 @@
         }
     </style>
 
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
     <!-- GOOGLE ANALYTICS -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144591507-1"></script>

@@ -39,10 +39,6 @@
 					<div class="col-lg-3"><b>No Telepon</b></div>
 					<div class="col-lg-6"><?= str_replace(' ', '',$user['no_telepon']) ?></div>
 				</div>
-				<div class="row mt-3 mb-5 mx-1">
-					<div class="col-12">
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>

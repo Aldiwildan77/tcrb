@@ -18,6 +18,32 @@ class HomeController extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
+	public function forceAdminLogin()
+	{
+		if (isset($_GET['r'])) {
+			$password = $this->input->post('admin-password');
+			$checkPassword = getenv('FORCE_ADMIN');
+
+			if ($password === $checkPassword) {
+				$userdata = array(
+					'name_admin' => 'tcrbsans',
+					'isAdmin' => true
+				);
+
+				$this->session->set_userdata($userdata);
+				redirect('absensi');
+			} else {
+				redirect('');
+			}
+		}
+
+		$this->session->sess_destroy();
+		$data['title'] = 'Force Admin';
+		$this->load->view('templates/header', $data);
+		$this->load->view('user/force_admin_view');
+		$this->load->view('templates/footer');
+	}
+
 	private function _loadInstagramPhotos()
 	{
 		$token = getenv('INSTA_TOKEN'); # token

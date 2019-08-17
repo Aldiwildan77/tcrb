@@ -40,6 +40,13 @@ $route['youtube'] = 'HomeController/youtube';
 $route['email'] = 'HomeController/email';
 $route['instagram'] = 'HomeController/instagram';
 
+// Absensi aka registrasi ulang
+$route['force-admin'] = 'HomeController/forceAdminLogin';
+$route['absensi'] = 'AbsensiController';
+$route['absensi/orang/(:any)'] = 'AbsensiController/validateOrangTokenWithPembayaran/$1';
+$route['absensi/regu/(:any)'] = 'AbsensiController/validateReguTokenWithPembayaran/$1';
+
+
 $route['default_controller'] = 'HomeController';
 $route['404_override'] = 'ErrorController';
 $route['translate_uri_dashes'] = FALSE;
