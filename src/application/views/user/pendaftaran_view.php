@@ -108,8 +108,8 @@
 								<hr>
 								<form action="" method="post" id="formBeregu">
 									<div class="beregu">
-									<div class="tab-content" id="reguTabContent">
-										<div class="tab-pane fade show active" id="regu1" role="tabpanel" aria-labelledby="nav-home-tab">
+										<div class="tab-content" id="reguTabContent">
+											<div class="tab-pane fade show active" id="regu1" role="tabpanel" aria-labelledby="nav-home-tab">
 												<h5 class="text-center">REGU 1</h5>
 												<div class="form-row">
 													<div class="form-group col-lg-4">

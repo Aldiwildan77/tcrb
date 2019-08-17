@@ -102,7 +102,7 @@ $('.pilih-daftar').click(function (e) {
 	console.log(btn.data('func'))
 	Swal.fire({
 		title: 'Apakah kamu yakin memilih ' + cond + '?',
-		text: "Data yang telah anda masukkan di kategori sebelumnya akan hilang semua",
+		text: "Data yang telah diinput pada kategori sebelumnya akan terhapus",
 		type: 'warning',
 		showCancelButton: true,
 		confirmButtonColor: '#3085d6',
@@ -134,7 +134,7 @@ $('.perorangan').on('click', '#hapus', function (e) { //hapus perorangan
 	let btn = $(this).data('urutan')
 	Swal.fire({
 		title: 'Apakah kamu yakin?',
-		text: "Data pemain yang telah dihapus tidak dapat dikembalkan",
+		text: "Data pemain yang telah dihapus tidak dapat dikembalikan",
 		type: 'warning',
 		showCancelButton: true,
 		confirmButtonColor: '#3085d6',
