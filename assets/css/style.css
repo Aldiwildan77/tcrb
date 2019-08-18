@@ -109,20 +109,36 @@ body {
 	background-color: rgba(255, 255, 255, 0.6);
 }
 
-.gsponsor img {
+/* .gsponsor img {
 	width: 160px;
 	height: 160px;
 	padding: 5px;
 	border-radius: 50%;
 	box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
-}
+} */
 
-.gmedpar img {
+/* .gmedpar img {
 	width: 130px;
 	height: 130px;
 	padding: 5px;
 	border-radius: 50%;
 	box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+} */
+
+.gsponsor img {
+	width: 90px;
+	height: 90px;
+	padding: 3px;
+	border-radius: 50%;
+	box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+}
+
+.gmedpar img {
+	/* width: 70px; */
+	height: 70px;
+	/* padding: 3px;
+	border-radius: 50%; */
+	/* box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5); */
 }
 
 .pairing {
@@ -193,21 +209,7 @@ footer .container-fluid {
 		font-size: 12px;
 	}
 
-	.gsponsor img {
-		width: 90px;
-		height: 90px;
-		padding: 3px;
-		border-radius: 50%;
-		box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
-	}
 
-	.gmedpar img {
-		width: 70px;
-		height: 70px;
-		padding: 3px;
-		border-radius: 50%;
-		box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
-	}
 
 	.panel {
 		padding-top: 10px;

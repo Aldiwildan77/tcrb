@@ -121,7 +121,7 @@
 </section>
 <!-- Akhir Instagram -->
 
-<!-- Awal Sponsor -->
+<!-- Awal Sponsor & MedPar -->
 <section class="section-page" id="sponsor">
 	<div class="container wow fadeIn" data-wow-offset="184">
 		<div class="row">
@@ -144,20 +144,15 @@
 
 		<div class="gmedpar">
 			<div class="row justify-content-center">
-				<img src="<?= base_url('assets/img/white.jpg'); ?>" alt="">
+				<img src="<?= base_url('assets/img/medpar/ubsos.jpg'); ?>" alt="">
+				<img src="<?= base_url('assets/img/medpar/smansasi-prestasi.jpg'); ?>" alt="">
+				<img src="<?= base_url('assets/img/medpar/draft-sms-mahasiswa.jpg'); ?>" alt="">
 			</div>
 		</div>
 
 	</div>
 </section>
-<!-- Akhir Sponsor -->
-
-<!-- Awal MedPar -->
-<section class="medpar" id="medpar">
-	<div class="container">
-	</div>
-</section>
-<!-- Akhir MedPar -->
+<!-- Akhir Sponsor & MedPar -->
 
 
 
