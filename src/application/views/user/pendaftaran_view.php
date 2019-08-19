@@ -19,28 +19,28 @@
 								<!-- Perorangan -->
 								<h4 class="text-center mt-2 mb-2">FORM PENDAFTARAN PERORANGAN</h4>
 								<form action="<?= base_url('user/pendaftaran-proses-orang') ?>" method="post" id="formPerorangan">
-									<div class="row">
-										<div class="col-12 col-md-4 col-lg-8 offset-lg-4 offset-md-4">
-											<div class="row no-gutters">
-												<div class="col-4">
-													<button type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#modalPerorangan">Lihat harga</button>
+									<div class="row mb-3">
+										<div class="col-12">
+											<div class="row no-gutters justify-content-center">
+												<div class="col col-auto col-lg col-md col-sm col-xs mx-1">
+													<button type="button" class="btn btn-sm btn-warning text-white btn-block" data-toggle="modal" data-target="#modalPerorangan">Lihat harga</button>
 												</div>
-												<div class="col-4">
-													<button type="button" id="tambah-perorangan" class="btn btn-info btn-block">Tambah pemain</button>
+												<div class="col col-auto col-lg col-md col-sm col-xs mx-1">
+													<button type="button" id="tambah-perorangan" class="btn btn-sm btn-info btn-block">Tambah pemain</button>
 												</div>
-												<div class="col-4">
-													<button class="btn btn-success btn-block">Submit</button>
+												<div class="col col-auto col-lg col-md col-sm col-xs mx-1">
+													<button class="btn btn-sm btn-success btn-block">Submit</button>
 												</div>
 											</div>
 										</div>
 									</div>
 									<hr>
 									<div class="perorangan">
-										<h5 class="text-center">Pemain 1</h5>
+										<h5 class="font-weight-bold">Pemain 1</h5>
 										<div class="form-row">
 											<div class="form-group col-lg-6">
 												<label for="pemain1">Nama Pemain</label>
-												<input type="text" class="form-control" id="pemain1" name="pemain[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain">
+												<input type="text" class="form-control" id="pemain1" name="pemain[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain" required >
 												<small id="pemain1" class="form-text text-muted">Gelar diberi tanda kurung</small>
 											</div>
 											<div class="form-group col-lg-6">
@@ -95,28 +95,27 @@
 							</div>
 						</div>
 					</div>
-					<div class="tab-pane fade" id="pills-beregu" role="tabpanel" aria-labelledby="pills-profile-tab">
+					<div class="tab-pane show active fade" id="pills-beregu" role="tabpanel" aria-labelledby="pills-profile-tab">
 						<div class="row">
 							<div class="col-12">
 								<!-- Beregu -->
 								<h4 class="text-center mt-2 mb-2">FORM PENDAFTARAN BEREGU</h4>
 								<form action="<?= base_url('user/pendaftaran-proses-regu') ?>" method="post" id="formBeregu">
-									<div class="row">
-										<div class="col-12 col-md-4 col-lg-8 offset-lg-4 offset-md-4">
-											<div class="row no-gutters">
-												<div class="col-4">
-													<button type="button" class="btn btn-warning btn-block" data-toggle="modal" data-target="#modalBeregu">Lihat harga</button>
+									<div class="row mb-3">
+										<div class="col-12">
+											<div class="row no-gutters justify-content-center">
+												<div class="col col-auto col-lg col-md col-sm col-xs mx-1">
+													<button type="button" class="btn btn-sm btn-warning text-white btn-block" data-toggle="modal" data-target="#modalBeregu">Lihat harga</button>
 												</div>
-												<div class="col-4">
-													<button type="button" id="tambah-regu" class="btn btn-info btn-block">Tambah regu</button>
+												<div class="col col-auto col-lg col-md col-sm col-xs mx-1">
+													<button type="button" id="tambah-regu" class="btn btn-sm btn-info btn-block">Tambah regu</button>
 												</div>
-												<div class="col-4">
-													<button class="btn btn-success btn-block">Submit</button>
+												<div class="col col-auto col-lg col-md col-sm col-xs mx-1">
+													<button class="btn btn-sm btn-success btn-block">Submit</button>
 												</div>
 											</div>
 										</div>
 									</div>
-									<hr>
 									<nav>
 										<ul class="nav nav-tabs" id="reguTab" role="tablist">
 											<li class="nav-item">
@@ -124,12 +123,11 @@
 											</li>
 										</ul>
 									</nav>
-									<hr>
 									<div class="beregu">
 										<div class="tab-content" id="reguTabContent">
 											<div class="tab-pane fade show active" id="regu1" role="tabpanel" aria-labelledby="nav-home-tab">
-												<h5 class="text-center">REGU 1</h5>
-												<div class="form-row">
+											<h5 class="text-center mt-2">REGU 1</h5>	
+											<div class="form-row">
 													<div class="form-group col-lg-4">
 														<label for="namaRegu1">Nama Regu</label>
 														<input type="text" class="form-control" id="namaRegu1" name="regu[]" aria-describedby="namaRegu" placeholder="Masukkan nama regu 1">

@@ -225,16 +225,70 @@ class UserController extends CI_Controller
 
 	public function prosesPendaftaranBeregu()
 	{
-		$tipe = $this->input->post('pemain');
 		$profil = $this->UserModel->getDataUser([
 			'username' => $this->session->userdata['username']
 		]);
+		
+		$regu = [];
+		$pemain = [];
+		$official = [];
 
-		if ($tipe != null) {
-			echo "perorangan";
-		} else {
-			echo "beregu";
+		$officialJenisKelamin = [];
+		$officialSebagai = [];
+		$officialAlergi = [];
+		$officialPaket = [];
+		
+			/* insert regu 
+			** insert official 
+			** insert pemain regu
+			** insert pembayaran regu
+			*/
+			
+		$reguLength = $this->input->post('regu');
+		for ($i=0; $i < sizeof($reguLength) ; $i++) { 
+			$regu[$i]['nama'] = $this->input->post("regu")[$i];
+			$regu[$i]['user_id'] = $this->session->userdata('id');
+			$regu[$i]['instansi'] = $this->input->post("instansiRegu")[$i];
+			$regu[$i]['kategori_id'] = $this->input->post("kategoriRegu")[$i];
 		}
+
+		echo json_encode($regu);
+		$insertRegu = $this->UserModel->insertRegu($regu);
+
+		for ($i=0; $i < sizeof($reguLength) ; $i++) { 
+			for ($j=1; $j < 5; $j++) { 
+				$pemain[$i][$j-1]['isCaptain'] = $j == 1 ? 1 : 0;
+				$pemain[$i][$j-1]['nama'] = $this->input->post("pemain$j")[$i];
+				$pemain[$i][$j-1]['jenis_kelamin'] = $this->input->post("jenisKelamin$j")[$i];
+				$pemain[$i][$j-1]['nim'] = $this->input->post("nim$j")[$i];
+				$pemain[$i][$j-1]['jurusan'] = $this->input->post("fakultas$j")[$i];
+				$pemain[$i][$j-1]['alergi'] = $this->input->post("alergi$j")[$i];
+			}
+		}
+
+		// for ($i=0; $i < sizeof($reguLength) ; $i++) { 
+		// 	for ($j=1; $j < 3; $j++) { 
+		// 		$official[$i][$j-1]['regu_id'] = $this->input->post("");
+		// 		$official[$i][$j-1]['kategori_id']
+		// 		$official[$i][$j-1]['regu_id']
+		// 	}
+		// }
+		
+		// echo json_encode($pemain);
+		// echo json_encode($regu);
+		// return;
+		// print_r($pemain);
+		
+		// $ = $this->input->post('');
+		// $ = $this->input->post('');
+		// $ = $this->input->post('');
+		// $ = $this->input->post('');
+		// $ = $this->input->post('');
+		// $ = $this->input->post('');
+		// $ = $this->input->post('');
+		// $ = $this->input->post('');
+		// $ = $this->input->post('');
+		
 	}
 
 	public function pembayaran()

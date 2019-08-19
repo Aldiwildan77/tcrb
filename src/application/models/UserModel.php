@@ -49,4 +49,9 @@ class UserModel extends CI_Model
 		$this->db->where('pr.token', $token);
 		return $this->db->get()->row_array();
 	}
+
+	public function insertRegu($data){
+		$this->db->insert_batch('regu', $data);
+		// return $this->db->;
+	}
 }
