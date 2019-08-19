@@ -12,4 +12,9 @@ class ErrorController extends CI_Controller
     {
         $this->load->view('errors/404');
     }
+
+    public function jsError()
+    {
+      $this->load->view('errors/js-error');
+    }
 }

@@ -72,39 +72,6 @@ class UserController extends CI_Controller
 		redirect('login');
 	}
 
-	public function doUpload()
-	{
-		$config['upload_path']      = realpath('./bukti-bayar/');
-		$config['allowed_types']    = 'png|jpeg|jpg';
-		$config['file_name']        = $this->session->userdata('username');
-		$config['remove_spaces']    = true;
-		$config['overwrite']        = true;
-		$config['max_sizes']        = '512';
-
-		$this->load->library('upload', $config);
-
-		if (!$this->upload->do_upload('file')) {
-			$error = $this->upload->display_errors();
-			$this->session->set_flashdata('message', '<div class="alert alert-danger pb-0" role="alert">
-            ' . $error . '.
-            </div>');
-			redirect('user');
-		} else {
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-            Your file has been succesfully uploaded.
-            </div>');
-			$where = [
-				'username' => $this->session->userdata('username')
-			];
-			$update = [
-				'bukti_bayar' => $this->upload->data()['file_name']
-			];
-			$this->LoginModel->updateData($where, $update);
-
-			redirect('user/upload');
-		}
-	}
-
 	public function edit()
 	{
 		$this->form_validation->set_rules('fullname', 'Nama Lengkap', 'trim|required');
@@ -210,6 +177,48 @@ class UserController extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
+	private function _upload($file, $fileName)
+	{
+		$config['upload_path']      = FCPATH . 'img/foto/';
+		$config['allowed_types']    = 'png|jpeg|jpg';
+		$config['file_name']        = $fileName;
+		$config['remove_spaces']    = true;
+		$config['overwrite']        = true;
+		$config['max_sizes']        = '1024';
+
+		$this->load->library('upload', $config);
+
+		$this->upload->do_upload('file');
+	}
+
+	public function upload()
+	{
+		$this->load->view('user/upload');
+	}
+
+	public function doUpload()
+	{
+		$config['upload_path']      = FCPATH . 'assets/img/foto/';
+		$config['allowed_types']    = 'png|jpeg|jpg';
+		$config['file_name']        = 'tes.jpg';
+		$config['remove_spaces']    = true;
+		$config['overwrite']        = true;
+		$config['max_sizes']        = '1024';
+
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload('file')) {
+			print_r($this->upload->display_errors());
+
+			// $this->load->view('upload_form', $error);
+		} else {
+			echo "sukses";
+			// $data = array('upload_data' => $this->upload->data());
+
+			// $this->load->view('upload_success', $data);
+		}
+	}
+
 	public function prosesPendaftaranPerorangan()
 	{
 		$profil = $this->UserModel->getDataUser([
@@ -228,7 +237,7 @@ class UserController extends CI_Controller
 		$profil = $this->UserModel->getDataUser([
 			'username' => $this->session->userdata['username']
 		]);
-		
+
 		$regu = [];
 		$pemain = [];
 		$official = [];
@@ -237,15 +246,15 @@ class UserController extends CI_Controller
 		$officialSebagai = [];
 		$officialAlergi = [];
 		$officialPaket = [];
-		
-			/* insert regu 
+
+		/* insert regu 
 			** insert official 
 			** insert pemain regu
 			** insert pembayaran regu
 			*/
-			
+
 		$reguLength = $this->input->post('regu');
-		for ($i=0; $i < sizeof($reguLength) ; $i++) { 
+		for ($i = 0; $i < sizeof($reguLength); $i++) {
 			$regu[$i]['nama'] = $this->input->post("regu")[$i];
 			$regu[$i]['user_id'] = $this->session->userdata('id');
 			$regu[$i]['instansi'] = $this->input->post("instansiRegu")[$i];
@@ -255,14 +264,14 @@ class UserController extends CI_Controller
 		echo json_encode($regu);
 		$insertRegu = $this->UserModel->insertRegu($regu);
 
-		for ($i=0; $i < sizeof($reguLength) ; $i++) { 
-			for ($j=1; $j < 5; $j++) { 
-				$pemain[$i][$j-1]['isCaptain'] = $j == 1 ? 1 : 0;
-				$pemain[$i][$j-1]['nama'] = $this->input->post("pemain$j")[$i];
-				$pemain[$i][$j-1]['jenis_kelamin'] = $this->input->post("jenisKelamin$j")[$i];
-				$pemain[$i][$j-1]['nim'] = $this->input->post("nim$j")[$i];
-				$pemain[$i][$j-1]['jurusan'] = $this->input->post("fakultas$j")[$i];
-				$pemain[$i][$j-1]['alergi'] = $this->input->post("alergi$j")[$i];
+		for ($i = 0; $i < sizeof($reguLength); $i++) {
+			for ($j = 1; $j < 5; $j++) {
+				$pemain[$i][$j - 1]['isCaptain'] = $j == 1 ? 1 : 0;
+				$pemain[$i][$j - 1]['nama'] = $this->input->post("pemain$j")[$i];
+				$pemain[$i][$j - 1]['jenis_kelamin'] = $this->input->post("jenisKelamin$j")[$i];
+				$pemain[$i][$j - 1]['nim'] = $this->input->post("nim$j")[$i];
+				$pemain[$i][$j - 1]['jurusan'] = $this->input->post("fakultas$j")[$i];
+				$pemain[$i][$j - 1]['alergi'] = $this->input->post("alergi$j")[$i];
 			}
 		}
 
@@ -273,12 +282,12 @@ class UserController extends CI_Controller
 		// 		$official[$i][$j-1]['regu_id']
 		// 	}
 		// }
-		
+
 		// echo json_encode($pemain);
 		// echo json_encode($regu);
 		// return;
 		// print_r($pemain);
-		
+
 		// $ = $this->input->post('');
 		// $ = $this->input->post('');
 		// $ = $this->input->post('');
@@ -288,7 +297,7 @@ class UserController extends CI_Controller
 		// $ = $this->input->post('');
 		// $ = $this->input->post('');
 		// $ = $this->input->post('');
-		
+
 	}
 
 	public function pembayaran()

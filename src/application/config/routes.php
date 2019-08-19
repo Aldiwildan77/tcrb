@@ -51,4 +51,5 @@ $route['absensi/regu/(:any)'] = 'AbsensiController/validateReguTokenWithPembayar
 
 $route['default_controller'] = 'HomeController';
 $route['404_override'] = 'ErrorController';
+$route['javascript-mati'] = 'ErrorController/jsError';
 $route['translate_uri_dashes'] = FALSE;
