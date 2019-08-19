@@ -196,7 +196,7 @@ class UserController extends CI_Controller
 		$this->load->view('user/upload');
 	}
 
-	public function doUpload()
+	public function doUpload($file)
 	{
 		$config['upload_path']      = FCPATH . 'assets/img/foto/';
 		$config['allowed_types']    = 'png|jpeg|jpg';
@@ -207,16 +207,8 @@ class UserController extends CI_Controller
 
 		$this->load->library('upload', $config);
 
-		if (!$this->upload->do_upload('file')) {
-			print_r($this->upload->display_errors());
-
-			// $this->load->view('upload_form', $error);
-		} else {
-			echo "sukses";
-			// $data = array('upload_data' => $this->upload->data());
-
-			// $this->load->view('upload_success', $data);
-		}
+		$this->upload->do_upload($file);
+		return $this->upload->data('file_name');
 	}
 
 	public function prosesPendaftaranPerorangan()
