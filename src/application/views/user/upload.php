@@ -1,3 +1,8 @@
+<noscript>
+	Your browser does not support JavaScript!
+	<?= "<meta http-equiv='refresh' content='0; URL=".base_url('javascript-mati')."'>"?>
+</noscript>
+
 <!doctype html>
 <html lang="en">
 
