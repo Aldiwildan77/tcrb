@@ -223,6 +223,10 @@ class UserController extends CI_Controller
 		$kategori = $this->input->post('kategori');
 	}
 
+	private function _generateNamaFoto($arr = [], $suffix) {
+		return $this->session->userdata('id') . $arr[0] . substr(str_replace(' ', '', $arr[1]), 0, 7) . '-' . $suffix .'.jpg';
+	}
+
 	public function prosesPendaftaranBeregu()
 	{
 		$profil = $this->UserModel->getDataUser([
@@ -246,25 +250,35 @@ class UserController extends CI_Controller
 			
 		$reguLength = $this->input->post('regu');
 		for ($i=0; $i < sizeof($reguLength) ; $i++) { 
-			$regu[$i]['nama'] = $this->input->post("regu")[$i];
 			$regu[$i]['user_id'] = $this->session->userdata('id');
-			$regu[$i]['instansi'] = $this->input->post("instansiRegu")[$i];
 			$regu[$i]['kategori_id'] = $this->input->post("kategoriRegu")[$i];
+			$regu[$i]['nama'] = $this->input->post("regu")[$i];
+			$regu[$i]['instansi'] = $this->input->post("instansiRegu")[$i];
 		}
 
-		echo json_encode($regu);
-		$insertRegu = $this->UserModel->insertRegu($regu);
+		$this->UserModel->insertRegu($regu);
+		$reguId = $this->UserModel->getReguData();
 
 		for ($i=0; $i < sizeof($reguLength) ; $i++) { 
 			for ($j=1; $j < 5; $j++) { 
+				$pemain[$i][$j-1]['user_id'] = $this->session->userdata('id');
+				$pemain[$i][$j-1]['user_id'] = $reguId[$i];
 				$pemain[$i][$j-1]['isCaptain'] = $j == 1 ? 1 : 0;
 				$pemain[$i][$j-1]['nama'] = $this->input->post("pemain$j")[$i];
-				$pemain[$i][$j-1]['jenis_kelamin'] = $this->input->post("jenisKelamin$j")[$i];
 				$pemain[$i][$j-1]['nim'] = $this->input->post("nim$j")[$i];
+				$pemain[$i][$j-1]['jenis_kelamin'] = $this->input->post("jenisKelamin$j")[$i];
 				$pemain[$i][$j-1]['jurusan'] = $this->input->post("fakultas$j")[$i];
+				$pemain[$i][$j-1]['foto_diri'] = $this->_generateNamaFoto([$reguId[$i], $pemain[$i][$j-1]['nama']], 'FD');
+				$pemain[$i][$j-1]['foto_kartu_pelajar'] = $this->_generateNamaFoto([$reguId[$i], $pemain[$i][$j-1]['nama']], 'FKP');
 				$pemain[$i][$j-1]['alergi'] = $this->input->post("alergi$j")[$i];
 			}
+
+			
 		}
+
+
+
+		$this->UserModel->insertPemainRegu($pemain);
 
 		// for ($i=0; $i < sizeof($reguLength) ; $i++) { 
 		// 	for ($j=1; $j < 3; $j++) { 
@@ -273,21 +287,6 @@ class UserController extends CI_Controller
 		// 		$official[$i][$j-1]['regu_id']
 		// 	}
 		// }
-		
-		// echo json_encode($pemain);
-		// echo json_encode($regu);
-		// return;
-		// print_r($pemain);
-		
-		// $ = $this->input->post('');
-		// $ = $this->input->post('');
-		// $ = $this->input->post('');
-		// $ = $this->input->post('');
-		// $ = $this->input->post('');
-		// $ = $this->input->post('');
-		// $ = $this->input->post('');
-		// $ = $this->input->post('');
-		// $ = $this->input->post('');
 		
 	}
 

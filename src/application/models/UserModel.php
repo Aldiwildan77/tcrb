@@ -42,7 +42,8 @@ class UserModel extends CI_Model
 		return $this->db->get()->num_rows() > 0 ? true : false;
 	}
 
-	public function getDataPembayaranWithRegu($token){
+	public function getDataPembayaranWithRegu($token)
+	{
 		$this->db->select('*');
 		$this->db->from('pem_regu pr');
 		$this->db->join('regu r', 'pr.regu_id = r.id');
@@ -52,6 +53,19 @@ class UserModel extends CI_Model
 
 	public function insertRegu($data){
 		$this->db->insert_batch('regu', $data);
-		// return $this->db->;
+	}
+
+	public function insertPemainRegu($data){
+		$this->db->insert_batch('pl_beregu', $data);
+	}
+
+	public function getReguData()
+	{
+		// $this->db->get_where('regu', array('user_id' => $this->session->userdata('id')))->row_array();
+		$this->db->select('id');
+		$this->db->from('regu');
+		$this->db->where('user_id', $this->session->userdata('id'));
+		$this->db->order_by('id', 'ASC');
+		return $this->db->get()->result_array();
 	}
 }
