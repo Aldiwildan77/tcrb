@@ -252,7 +252,7 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 </div>`)
 	$('#reguTabContent').append(`
 		<div class="tab-pane fade show active regu-tambahan` + urutanBeregu + `" id="regu` + urutanBeregu + `" role="tabpanel" aria-labelledby="nav-home-tab">
-			<h5 class="text-center">REGU `+ urutanBeregu + `</h5>
+			<h5 class="text-center mt-2">REGU `+ urutanBeregu + `</h5>
 			<div class="form-row">
 				<div class="form-group col-lg-4">
 					<label for="namaRegu`+ urutanBeregu + `">Nama Regu</label>

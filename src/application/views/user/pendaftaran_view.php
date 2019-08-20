@@ -18,7 +18,7 @@
 							<div class="col-12">
 								<!-- Perorangan -->
 								<h4 class="text-center mt-2 mb-2">FORM PENDAFTARAN PERORANGAN</h4>
-								<form action="<?= base_url('user/pendaftaran-proses-orang') ?>" method="post" id="formPerorangan">
+								<form action="<?= base_url('user/pendaftaran-proses-orang') ?>" method="post" enctype="multipart/form-data" id="formPerorangan">
 									<div class="row mb-3">
 										<div class="col-12">
 											<div class="row no-gutters justify-content-center">
@@ -100,7 +100,7 @@
 							<div class="col-12">
 								<!-- Beregu -->
 								<h4 class="text-center mt-2 mb-2">FORM PENDAFTARAN BEREGU</h4>
-								<form action="<?= base_url('user/pendaftaran-proses-regu') ?>" method="post" id="formBeregu">
+								<form action="<?= base_url('user/pendaftaran-proses-regu') ?>" method="post" enctype="multipart/form-data" id="formBeregu">
 									<div class="row mb-3">
 										<div class="col-12">
 											<div class="row no-gutters justify-content-center">
