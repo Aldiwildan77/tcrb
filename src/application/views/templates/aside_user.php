@@ -29,7 +29,7 @@
 					</div>
 				</a>
 				<hr>
-				<a class="tombol-user" href="">
+				<a class="tombol-user" href="<?= base_url('user/pembayaran');?>">
 					<div class="row pt-2 pb-1 mb-3 row-tbl-user">
 						<div class="col-lg-12">
 							<h5 class="text-center">Pembayaran</h5>

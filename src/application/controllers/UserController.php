@@ -275,7 +275,18 @@ class UserController extends CI_Controller
 	}
 
 	public function pembayaran()
-	{ }
+	{
+		$data['title'] = 'Pembayaran';
+		$data['user'] = $this->UserModel->getDataUser([
+			'username' => $this->session->userdata['username']
+		]);
+		$data['full'] = $this->_checkProfileFull($data['user']);
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/aside_user', $data);
+		$this->load->view('user/pembayaran_view');
+		$this->load->view('templates/footer');
+	}
 
 	public function sendAbsensiMail()
 	{
