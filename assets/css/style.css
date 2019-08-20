@@ -399,13 +399,11 @@ footer .container-fluid {
 	border-bottom-left-radius: 4px;
 }
 
-.rec {
-	height: 80vh;
-}
+
 @media (min-width: 768px) {
-	/* .log{
-		height: 100vh;
-	} */
+	.rec ,.logres {
+		height: 80vh;
+	}
 }
 /* END Halaman Login Register */
 
