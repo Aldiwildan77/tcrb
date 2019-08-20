@@ -66,13 +66,13 @@ class LoginController extends CI_Controller
 
 	public function register()
 	{
-		$this->form_validation->set_rules('fullname', 'Full Name', 'required|trim');
+		$this->form_validation->set_rules('nama', 'Full Name', 'required|trim');
 		$this->form_validation->set_rules('username', 'Username', 'required|is_unique[user.username]|max_length[16]|trim|alpha_numeric', [
-			'is_unique' => 'This username has already taken.'
+			'is_unique' => 'Username ini sudah digunakan.'
 		]);
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|trim');
 		$this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]');
-		$this->form_validation->set_rules('passconf', 'Password Confirmation', 'required|matches[password]|trim|min_length[6]');
+		$this->form_validation->set_rules('repassword', 'Password Konfirmasi', 'required|matches[password]|trim|min_length[6]');
 
 		if ($this->form_validation->run() == false) {
 			$data['title'] = 'Register';
@@ -160,14 +160,14 @@ class LoginController extends CI_Controller
 
 	public function forgetPassword()
 	{
-		$this->form_validation->set_rules('input', 'Username or email', 'trim|required');
+		$this->form_validation->set_rules('username', 'Username', 'trim|required');
 		if ($this->form_validation->run() == false) {
 			$data['title'] = 'Recovery';
 			$this->load->view('templates/header', $data);
 			$this->load->view('login/recovery_view');
 			$this->load->view('templates/footer');
 		} else {
-			$input = $this->input->post('input');
+			$input = $this->input->post('username');
 			$dataUser = $this->LoginModel->recovery($input);
 			if ($dataUser) {
 				if ($this->_sendRecoveryEmail($dataUser)) {
@@ -220,7 +220,7 @@ class LoginController extends CI_Controller
 			$dataUser = $this->LoginModel->verifyRecoveryCode($code);
 			if ($dataUser != null) {
 				$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
-				$this->form_validation->set_rules('passconf', 'Repeat password', 'trim|required|matches[password]|min_length[6]');
+				$this->form_validation->set_rules('repassword', 'Konfirmasi password', 'trim|required|matches[password]|min_length[6]');
 				if ($this->form_validation->run() == false) {
 					$data['title'] = 'Reset Password';
 					$data['hash'] = $code;
@@ -246,7 +246,7 @@ class LoginController extends CI_Controller
 					$status = $this->LoginModel->updatePassword($data);
 					if ($status) {
 						$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                        Error updating your password. Please contact <b>admin@tcrb.ub.ac.id</b></small>.
+                        Error updating your password. Please contact <b>ittcrbvii@gmail.com</b></small>.
                         </div>');
 					} else {
 						$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
