@@ -126,7 +126,7 @@
 									<div class="beregu">
 										<div class="tab-content" id="reguTabContent">
 											<div class="tab-pane fade show active" id="regu1" role="tabpanel" aria-labelledby="nav-home-tab">
-											<h5 class="text-center mt-2">REGU 1</h5>	
+											<h5 class="text-center mt-2">REGU 1</h5>
 											<div class="form-row">
 													<div class="form-group col-lg-4">
 														<label for="namaRegu1">Nama Regu</label>

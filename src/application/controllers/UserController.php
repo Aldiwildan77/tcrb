@@ -177,38 +177,25 @@ class UserController extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	private function _upload($file, $fileName)
-	{
-		$config['upload_path']      = FCPATH . 'img/foto/';
-		$config['allowed_types']    = 'png|jpeg|jpg';
-		$config['file_name']        = $fileName;
-		$config['remove_spaces']    = true;
-		$config['overwrite']        = true;
-		$config['max_sizes']        = '1024';
-
-		$this->load->library('upload', $config);
-
-		$this->upload->do_upload('file');
-	}
-
 	public function upload()
 	{
 		$this->load->view('user/upload');
 	}
 
-	public function doUpload($file)
+	public function doUpload($file, $fileName)
 	{
-		$config['upload_path']      = FCPATH . 'assets/img/foto/';
+		$config['upload_path']      = './assets/img/foto/';
 		$config['allowed_types']    = 'png|jpeg|jpg';
-		$config['file_name']        = 'tes.jpg';
 		$config['remove_spaces']    = true;
 		$config['overwrite']        = true;
 		$config['max_sizes']        = '1024';
+		$config['file_name'] 				= array($fileName);
 
-		$this->load->library('upload', $config);
-
-		$this->upload->do_upload($file);
-		return $this->upload->data('file_name');
+		$this->load->library('upload');
+		$this->upload->initialize($config);
+		if ($this->upload->do_multi_upload($file)) {
+			echo "berhasil";
+		}
 	}
 
 	public function prosesPendaftaranPerorangan()
@@ -224,24 +211,16 @@ class UserController extends CI_Controller
 		$kategori = $this->input->post('kategori');
 	}
 
-	private function _generateNamaFoto($arr = [], $suffix) {
-		return $this->session->userdata('id') . $arr[0] . substr(str_replace(' ', '', $arr[1]), 0, 7) . '-' . $suffix .'.jpg';
+	private function _generateNamaFoto($arr = [], $suffix)
+	{
+		return $this->session->userdata('id') . $arr[0] . substr(str_replace(' ', '', $arr[1]), 0, 7) . '-' . $suffix . '.jpg';
 	}
 
 	public function prosesPendaftaranBeregu()
 	{
-		$profil = $this->UserModel->getDataUser([
-			'username' => $this->session->userdata['username']
-		]);
-
 		$regu = [];
 		$pemain = [];
 		$official = [];
-
-		$officialJenisKelamin = [];
-		$officialSebagai = [];
-		$officialAlergi = [];
-		$officialPaket = [];
 
 		/* insert regu
 			** insert official
@@ -263,29 +242,36 @@ class UserController extends CI_Controller
 
 		for ($i = 0; $i < sizeof($reguLength); $i++) {
 			for ($j = 1; $j < 5; $j++) {
+				$pemain[$i][$j - 1]['user_id'] = $this->session->userdata('id');
+				$pemain[$i][$j - 1]['regu_id'] = $reguId[$i]['id'];
 				$pemain[$i][$j - 1]['isCaptain'] = $j == 1 ? 1 : 0;
 				$pemain[$i][$j - 1]['nama'] = $this->input->post("pemain$j")[$i];
-				$pemain[$i][$j - 1]['jenis_kelamin'] = $this->input->post("jenisKelamin$j")[$i];
 				$pemain[$i][$j - 1]['nim'] = $this->input->post("nim$j")[$i];
+				$pemain[$i][$j - 1]['jenis_kelamin'] = $this->input->post("jenisKelamin$j")[$i];
 				$pemain[$i][$j - 1]['jurusan'] = $this->input->post("fakultas$j")[$i];
+				$pemain[$i][$j - 1]['foto_diri'] = $this->_generateNamaFoto([$reguId[$i]['id'], $pemain[$i][$j - 1]['nama']], 'FD');
+				$pemain[$i][$j - 1]['foto_kartu_pelajar'] = $this->_generateNamaFoto([$reguId[$i]['id'], $pemain[$i][$j - 1]['nama']], 'FKP');
 				$pemain[$i][$j - 1]['alergi'] = $this->input->post("alergi$j")[$i];
+
+				$this->doUpload("foto_diri$j", $pemain[$i][$j - 1]['foto_diri']);
+				$this->doUpload("foto_kartu$j", $pemain[$i][$j - 1]['foto_kartu_pelajar']);
+				// sorry Fakhri, this method used magic because CodeIgniter seems can't solve that
 			}
-
-
 		}
-
-
 
 		$this->UserModel->insertPemainRegu($pemain);
 
-		// for ($i=0; $i < sizeof($reguLength) ; $i++) {
-		// 	for ($j=1; $j < 3; $j++) {
-		// 		$official[$i][$j-1]['regu_id'] = $this->input->post("");
-		// 		$official[$i][$j-1]['kategori_id']
-		// 		$official[$i][$j-1]['regu_id']
-		// 	}
-		// }
+		for ($i = 0; $i < sizeof($reguLength); $i++) {
+			for ($j = 1; $j < 3; $j++) {
+				$official[$i][$j - 1]['regu_id'] = $reguId[$i]['id'];
+				$official[$i][$j - 1]['kategori_id'] = $this->input->post("paket_official")[$i];
+				$official[$i][$j - 1]['nama'] = $this->input->post("official$j")[$i];
+				$official[$i][$j - 1]['sebagai'] = $this->input->post("sebagai$j")[$i];
+				// $official[$i][$j - 1]['jenis_kelamin'] = $this->input->post("jk_official$j")[$i];
+			}
+		}
 
+		$this->UserModel->insertOfficial($official);
 	}
 
 	public function pembayaran()

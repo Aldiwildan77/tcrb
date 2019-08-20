@@ -51,17 +51,27 @@ class UserModel extends CI_Model
 		return $this->db->get()->row_array();
 	}
 
-	public function insertRegu($data){
+	public function insertRegu($data)
+	{
 		$this->db->insert_batch('regu', $data);
 	}
 
-	public function insertPemainRegu($data){
-		$this->db->insert_batch('pl_beregu', $data);
+	public function insertOfficial($data)
+	{
+		for ($i = 0; $i < sizeof($data); $i++) {
+			$this->db->insert_batch('official', $data[$i]);
+		}
+	}
+
+	public function insertPemainRegu($data)
+	{
+		for ($i = 0; $i < sizeof($data); $i++) {
+			$this->db->insert_batch('pl_beregu', $data[$i]);
+		}
 	}
 
 	public function getReguData()
 	{
-		// $this->db->get_where('regu', array('user_id' => $this->session->userdata('id')))->row_array();
 		$this->db->select('id');
 		$this->db->from('regu');
 		$this->db->where('user_id', $this->session->userdata('id'));
