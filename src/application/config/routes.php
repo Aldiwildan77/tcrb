@@ -5,16 +5,16 @@ $route['form'] = 'ComingSoon/form';
 $route['hasil'] = 'ComingSoon/hasilForm';
 
 //Login
-$route['login'] = 'LoginController';
-$route['logout'] = 'UserController/logout';
+$route['masuk'] = 'LoginController';
+$route['keluar'] = 'UserController/logout';
 
 //Recovery
-$route['recovery'] = 'LoginController/forgetPassword';
-$route['recovery/reset/(:any)'] = 'LoginController/reset/$1';
+$route['lupa-password'] = 'LoginController/forgetPassword';
+$route['lupa-password/ganti/(:any)'] = 'LoginController/reset/$1';
 
 //Register
-$route['register'] = 'LoginController/register';
-$route['activate/(:any)'] = 'LoginController/activate/$1';
+$route['daftar'] = 'LoginController/register';
+$route['daftar/aktivasi/(:any)'] = 'LoginController/activate/$1';
 
 //User
 $route['user'] = 'UserController';

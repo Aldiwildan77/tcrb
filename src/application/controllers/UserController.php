@@ -15,9 +15,9 @@ class UserController extends CI_Controller
 
 		if ($this->session->userdata('username') == null) {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-				Silahkan login terlebih dahulu
+				Silahkan masuk terlebih dahulu
 				</div>');
-			redirect('login?r=' . $this->uri->segment(1, null));
+			redirect('masuk?r=' . $this->uri->segment(1, null));
 		}
 	}
 
@@ -69,7 +69,7 @@ class UserController extends CI_Controller
 	public function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('login');
+		redirect('masuk');
 	}
 
 	public function edit()
