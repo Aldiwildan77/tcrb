@@ -40,7 +40,7 @@
 										<div class="form-row">
 											<div class="form-group col-lg-6">
 												<label for="pemain1">Nama Pemain</label>
-												<input type="text" class="form-control" id="pemain1" name="pemain[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain" required >
+												<input type="text" class="form-control" id="pemain1" name="pemain[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain" required>
 												<small id="pemain1" class="form-text text-muted">Gelar diberi tanda kurung</small>
 											</div>
 											<div class="form-group col-lg-6">
@@ -126,8 +126,8 @@
 									<div class="beregu">
 										<div class="tab-content" id="reguTabContent">
 											<div class="tab-pane fade show active" id="regu1" role="tabpanel" aria-labelledby="nav-home-tab">
-											<h5 class="text-center mt-2">REGU 1</h5>
-											<div class="form-row">
+												<h5 class="text-center mt-2">REGU 1</h5>
+												<div class="form-row">
 													<div class="form-group col-lg-4">
 														<label for="namaRegu1">Nama Regu</label>
 														<input type="text" class="form-control" id="namaRegu1" name="regu[]" aria-describedby="namaRegu" placeholder="Masukkan nama regu 1">
