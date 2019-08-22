@@ -248,7 +248,7 @@ class UserController extends CI_Controller
     $config['remove_spaces']    = true;
     $config['overwrite']        = true;
     $config['max_sizes']        = '1024';
-    $config['file_name']         = array($fileName);
+    $config['file_name'] 				= array($fileName);
 
     $this->load->library('upload');
     $this->upload->initialize($config);
@@ -258,17 +258,43 @@ class UserController extends CI_Controller
   }
 
   public function prosesPendaftaranPerorangan()
-  {
-    $profil = $this->UserModel->getDataUser([
-      'username' => $this->session->userdata['username']
-    ]);
-    $pemain = $this->input->post('pemain');
-    $nim = $this->input->post('nim');
-    $instansi = $this->input->post('instansi');
-    $jenisKelamin = $this->input->post('jenisKelamin');
-    $fakultas = $this->input->post('fakultas');
-    $kategori = $this->input->post('kategori');
-  }
+	{
+		$profil = $this->UserModel->getDataUser([
+			'username' => $this->session->userdata['username']
+		]);
+
+		$pemain = [];
+		$kategori = [];
+		$pemainLength = $this->input->post('pemain');
+
+		for ($i = 0; $i < sizeof($pemainLength); $i++) {
+			$pemain[$i]['user_id'] = $this->session->userdata('id');
+			$pemain[$i]['kategori_id'] = $this->input->post('kategori')[$i];
+			$pemain[$i]['nama'] = $this->input->post('pemain')[$i];
+			$pemain[$i]['nim'] = $this->input->post('nim')[$i];
+			$pemain[$i]['jenis_kelamin'] = $this->input->post('jenisKelamin')[$i];
+			$pemain[$i]['instansi'] = $this->input->post('instansi')[$i];
+			$pemain[$i]['jurusan'] = $this->input->post('fakultas')[$i];
+			$pemain[$i]['foto_diri'] = $this->_generateNamaFoto([$pemain[$i]['nim'], $pemain[$i]['nama']], 'PRG-FD');
+			$pemain[$i]['foto_kartu_pelajar'] = $this->_generateNamaFoto([$pemain[$i]['nim'], $pemain[$i]['nama']], 'PRG-FKP');
+			$kategori[$i] = $pemain[$i]['kategori_id'];
+
+			$this->doUpload("foto_diri", $pemain[$i]['foto_diri']);
+			$this->doUpload("foto_diri", $pemain[$i]['foto_kartu_pelajar']);
+		}
+
+		$this->UserModel->insertPerorangan($pemain);
+
+		$data = array(
+			'user_id' => $this->session->userdata('id'),
+			'total' => $this->UserModel->getTotalHargaPerorangan(),
+			'token' => md5('perorangan' . $this->session->userdata('id') . 'tcrb' . sizeof($pemainLength))
+		);
+
+		$this->UserModel->insertPembayaranPerorangan($data);
+
+		// should redirect to pembayaran with carrying pemain + pem_orang data's
+	}
 
   private function _generateNamaFoto($arr = [], $i, $suffix)
   {
@@ -340,10 +366,12 @@ class UserController extends CI_Controller
       $data[$i]['regu_id'] = $reguId[$i]['id'];
       $data[$i]['official_group'] = $officialData[$i]['official_group'];
       $data[$i]['total'] = $this->UserModel->getTotalHargaBeregu($reguId[$i]['id'], $officialData[$i]['id'])['harga'];
-      $data[$i]['token'] = md5('tcrb2019');
+      $data[$i]['token'] = md5('tcrb2019' . $data[$i]['regu_id'] . $data[$i]['user_id']);
 
-      $this->UserModel->insertPembayaranRegu($data[$i]);
+      $this->UserModel->insertPembayaranRegu($data[$i]);    
     }
+    
+		// should redirect to pembayaran with carrying pemain + official + regu + pem_regu data's
   }
 
   public function pembayaran()
