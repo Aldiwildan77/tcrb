@@ -95,15 +95,15 @@
                 <li class="mx-2 p-2"><a href="#" onclick="return comingSoon()">Pairing</a></li>
                 <li class="mx-2 p-2"><a href="<?= base_url('dokumentasi') ?>">Dokumentasi</a></li>
                 <?php if ($this->session->userdata('username') == null) : ?>
-                <a class="btn btn-outline-primary text-white" onclick="return comingSoon()">Login</a>
+                <a class="btn btn-outline-primary text-white" onclick="return comingSoon()">Masuk</a>
                 <?php else : ?>
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white btn btn-outline-primary" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?= $this->session->userdata('username') ?>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="<?= base_url('user') ?>">Profile</a>
-                        <a class="dropdown-item" href="<?= base_url('logout') ?>">Logout</a>
+                        <a class="dropdown-item" href="<?= base_url('user') ?>">Profil</a>
+                        <a class="dropdown-item" href="<?= base_url('keluar') ?>">Keluar</a>
                     </div>
                 </div>
                 <?php endif; ?>

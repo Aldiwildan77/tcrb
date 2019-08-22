@@ -388,7 +388,7 @@ footer .container-fluid {
 
 .logres h1 {
 	color: #17A2B8;
-	font-size: 55px;
+	font-size: 50px;
 }
 
 .logres i {
@@ -399,13 +399,11 @@ footer .container-fluid {
 	border-bottom-left-radius: 4px;
 }
 
-.rec {
-	height: 80vh;
-}
+
 @media (min-width: 768px) {
-	/* .log{
-		height: 100vh;
-	} */
+	.rec ,.logres {
+		height: 80vh;
+	}
 }
 /* END Halaman Login Register */
 
