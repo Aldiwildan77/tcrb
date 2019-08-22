@@ -119,7 +119,6 @@ class UserModel extends CI_Model
 		$this->db->from('official');
 		$this->db->where('id', $officialId);
 		return $this->db->get()->row_array();
-<<<<<<< HEAD
   }
   
   public function getDataPendaftaranRegu($userId)
@@ -138,8 +137,6 @@ class UserModel extends CI_Model
     return $this->db->get()->result_array();
 
     // return $this->db->get_where('official', ['user_id' => $userId])->result_array();
-  }
-=======
 	}
 
 	public function insertPerorangan($data)
@@ -168,5 +165,4 @@ class UserModel extends CI_Model
 	{
 		$this->db->insert('pem_orang', $data);
 	}
->>>>>>> a322cee15db0fb4e62e71a82657d6b0de43d3b94
 }
