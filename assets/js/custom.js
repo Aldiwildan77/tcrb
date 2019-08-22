@@ -1,261 +1,261 @@
 $('#exampleModal').on('show.bs.modal', function (event) {
-  // $('#myInput').trigger('focus')
-  let btn = $(event.relatedTarget)
-  $(this).find('.modal-title').text("Edit " + btn.data('func'));
+	// $('#myInput').trigger('focus')
+	let btn = $(event.relatedTarget)
+	$(this).find('.modal-title').text("Edit " + btn.data('func'));
 
-  let cond = btn.data('sembarang')
-  console.log(cond)
+	let cond = btn.data('sembarang')
+	console.log(cond)
 
-  if (cond == 'paswd') {
-    $('.labelModals').addClass('col-sm-4').removeClass('col-sm-2')
-    $('.inputModals').addClass('col-sm-8').removeClass('col-sm-10')
-    $('#formModal').attr('action', 'user/changepass')
-    $('#rowOne').html('Password Lama')
-    $('#inputOne').val('').attr('type', 'password')
-    $('#rowTwo').html('Password Baru')
-    $('#inputTwo').val('').attr('type', 'password')
-    $('#rowThree').html('Konfirmasi Password Baru')
-    $('#inputThree').val('').attr('type', 'password')
-  } else {
-  }
+	if (cond == 'paswd') {
+		$('.labelModals').addClass('col-sm-4').removeClass('col-sm-2')
+		$('.inputModals').addClass('col-sm-8').removeClass('col-sm-10')
+		$('#formModal').attr('action', 'user/changepass')
+		$('#rowOne').html('Password Lama')
+		$('#inputOne').val('').attr('type', 'password')
+		$('#rowTwo').html('Password Baru')
+		$('#inputTwo').val('').attr('type', 'password')
+		$('#rowThree').html('Konfirmasi Password Baru')
+		$('#inputThree').val('').attr('type', 'password')
+	} else {
+	}
 })
 
 $('#myToast').on('hidden.bs.toast', function () {
-  // do something...
+	// do something...
 })
 
 $('#instagramModal').on('show.bs.modal', function (event) {
-  let btn = $(event.relatedTarget)
+	let btn = $(event.relatedTarget)
 
-  let cond = btn.data('link')
-  $('.instagram-media').attr('data-instgrm-permalink', cond)
-  $('.instagram-media').attr('src', cond + "embed/captioned/")
-  console.log(cond)
+	let cond = btn.data('link')
+	$('.instagram-media').attr('data-instgrm-permalink', cond)
+	$('.instagram-media').attr('src', cond + "embed/captioned/")
+	console.log(cond)
 })
 
 // owl carousel home
 $(document).ready(function () {
-  var owl = $('.owl-home');
-  owl.owlCarousel({
-    loop: true,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    autoplayTimeout: 5000,
-    autoplayHoverPause: false,
-    responsiveClass: true,
-    margin: 10,
-    nav: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      600: {
-        items: 2
-      },
-      1000: {
-        items: 3
-      }
-    }
-  });
-  // Go to the next item
-  $('.owl-next').click(function () {
-    owl.trigger('next.owl.carousel');
-  })
-  // Go to the previous item
-  $('.owl-prev').click(function () {
-    // With optional speed parameter
-    // Parameters has to be in square bracket '[]'
-    owl.trigger('prev.owl.carousel', [300]);
-  })
+	var owl = $('.owl-home');
+	owl.owlCarousel({
+		loop: true,
+		autoplay: true,
+		autoplaySpeed: 2000,
+		autoplayTimeout: 5000,
+		autoplayHoverPause: false,
+		responsiveClass: true,
+		margin: 10,
+		nav: true,
+		responsive: {
+			0: {
+				items: 1
+			},
+			600: {
+				items: 2
+			},
+			1000: {
+				items: 3
+			}
+		}
+	});
+	// Go to the next item
+	$('.owl-next').click(function () {
+		owl.trigger('next.owl.carousel');
+	})
+	// Go to the previous item
+	$('.owl-prev').click(function () {
+		// With optional speed parameter
+		// Parameters has to be in square bracket '[]'
+		owl.trigger('prev.owl.carousel', [300]);
+	})
 });
 
 // owl carousel dokumentasi
 $(document).ready(function () {
-  $('.owl-docs').owlCarousel({
-    loop: true,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    autoplayTimeout: 5000,
-    autoplayHoverPause: false,
-    responsiveClass: true,
-    margin: 10,
-    nav: true,
-    responsive: {
-      0: {
-        items: 2
-      },
-      600: {
-        items: 3
-      },
-      1000: {
-        items: 4
-      }
-    }
-  });
+	$('.owl-docs').owlCarousel({
+		loop: true,
+		autoplay: true,
+		autoplaySpeed: 2000,
+		autoplayTimeout: 5000,
+		autoplayHoverPause: false,
+		responsiveClass: true,
+		margin: 10,
+		nav: true,
+		responsive: {
+			0: {
+				items: 2
+			},
+			600: {
+				items: 3
+			},
+			1000: {
+				items: 4
+			}
+		}
+	});
 });
 
 var urutanPerorangan = 2;
 var urutanBeregu = 2;
 $('.pilih-daftar').click(function (e) {
-  let btn = $(this)
-  let cond = btn.data('func')
-  console.log(btn.data('func'))
-  Swal.fire({
-    title: 'Apakah kamu yakin memilih ' + cond + '?',
-    text: "Data yang telah diinput pada kategori sebelumnya akan terhapus",
-    type: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Yakin',
-    cancelButtonText: 'Tidak',
-  }).then((result) => {
-    if (result.value) {
-      if (cond == 'perorangan') {
-        $('#pills-perorangan').addClass('active show')
-        $('#pills-beregu').removeClass('active show')
-        $('#formBeregu')[0].reset()
-        for (let i = 2; i < urutanBeregu; i++) {
-          $('.regu-tambahan' + i).html('')
-        }
-      } else {
-        $('#pills-perorangan').removeClass('active show')
-        $('#pills-beregu').addClass('active show')
-        $('#formPerorangan')[0].reset()
-        for (let i = 2; i < urutanPerorangan; i++) {
-          $('.perorangan-tambahan' + i).html('')
-        }
-      }
-    }
-  })
+	let btn = $(this)
+	let cond = btn.data('func')
+	console.log(btn.data('func'))
+	Swal.fire({
+		title: 'Apakah kamu yakin memilih ' + cond + '?',
+		text: "Data yang telah diinput pada kategori sebelumnya akan terhapus",
+		type: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Yakin',
+		cancelButtonText: 'Tidak',
+	}).then((result) => {
+		if (result.value) {
+			if (cond == 'perorangan') {
+				$('#pills-perorangan').addClass('active show')
+				$('#pills-beregu').removeClass('active show')
+				$('#formBeregu')[0].reset()
+				for (let i = 2; i < urutanBeregu; i++) {
+					$('.regu-tambahan' + i).html('')
+				}
+			} else {
+				$('#pills-perorangan').removeClass('active show')
+				$('#pills-beregu').addClass('active show')
+				$('#formPerorangan')[0].reset()
+				for (let i = 2; i < urutanPerorangan; i++) {
+					$('.perorangan-tambahan' + i).html('')
+				}
+			}
+		}
+	})
 })
 
 $('.perorangan').on('click', '#hapus', function (e) { //hapus perorangan
-  let btn = $(this).data('urutan')
-  Swal.fire({
-    title: 'Apakah kamu yakin?',
-    text: "Data pemain yang telah dihapus tidak dapat dikembalikan",
-    type: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Yakin!',
-    cancelButtonText: 'Tidak',
-  }).then((result) => {
-    if (result.value) {
-      $('.perorangan-tambahan' + btn).html('')
-    }
-  })
+	let btn = $(this).data('urutan')
+	Swal.fire({
+		title: 'Apakah kamu yakin?',
+		text: "Data pemain yang telah dihapus tidak dapat dikembalikan",
+		type: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Yakin!',
+		cancelButtonText: 'Tidak',
+	}).then((result) => {
+		if (result.value) {
+			$('.perorangan-tambahan' + btn).html('')
+		}
+	})
 })
 
 $('.beregu').on('click', '#hapusRegu', function (e) { //hapus beregu
-  let cond = $(this).data('urutanregu')
+	let cond = $(this).data('urutanregu')
 
-  Swal.fire({
-    title: 'Apakah kamu yakin?',
-    text: "Data regu yang telah dihapus tidak dapat dikembalkan",
-    type: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Yakin!',
-    cancelButtonText: 'Tidak',
-  }).then((result) => {
-    if (result.value) {
-      $('.regu-tambahan' + cond).html('')
-      $('#reguTab').find('#regu' + (cond - 1)).addClass('active')
-      $('#reguTabContent').find('#regu' + (cond - 1)).addClass('active show')
-    }
-  })
+	Swal.fire({
+		title: 'Apakah kamu yakin?',
+		text: "Data regu yang telah dihapus tidak dapat dikembalkan",
+		type: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Yakin!',
+		cancelButtonText: 'Tidak',
+	}).then((result) => {
+		if (result.value) {
+			$('.regu-tambahan' + cond).html('')
+			$('#reguTab').find('#regu' + (cond - 1)).addClass('active')
+			$('#reguTabContent').find('#regu' + (cond - 1)).addClass('active show')
+		}
+	})
 })
 
 
 $('#tambah-perorangan').click(function (e) { //tambah perorangan
-  $('.perorangan').append('<div class="perorangan-tambahan' + urutanPerorangan + '">' +
-    '<h5 class="text-center">Pemain ' + urutanPerorangan + '</h5>' +
-    '<div class="form-row">' +
-    '<div class="form-group col-lg-6">' +
-    '<label for="pemain' + urutanPerorangan + '">Nama Pemain</label>' +
-    '<input type="text" class="form-control" id="pemain' + urutanPerorangan + '" name="pemain[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain">' +
-    '<small id="pemain' + urutanPerorangan + '" class="form-text text-muted">Gelar diberi tanda kurung</small>' +
-    '</div>' +
-    '<div class="form-group col-lg-6">' +
-    '<label for="instansi' + urutanPerorangan + '">Asal instansi</label>' +
-    '<input type="text" class="form-control" id="instansi' + urutanPerorangan + '" name="instansi[]" aria-describedby="instansi" placeholder="Masukkan asal instansi">' +
-    '</div>' +
-    '</div>' +
-    '<div class="form-row">' +
-    '<div class="form-group col-lg-4">' +
-    '<label for="jenisKelamin' + urutanPerorangan + '">Jenis Kelamin</label>' +
-    '<select id="jenisKelamin' + urutanPerorangan + '" class="form-control" name="jenisKelamin[]">' +
-    '<option selected disabled>Pilih salah satu</option>' +
-    '<option value="L">Laki-laki</option>' +
-    '<option value="P">Perempuan</option>' +
-    '</select>' +
-    '</div>' +
-    '<div class="form-group col-lg-4">' +
-    '<label for="nim' + urutanPerorangan + '">NIM/NIS</label>' +
-    '<input type="text" class="form-control" id="nim' + urutanPerorangan + '" name="nim[]" aria-describedby="nim" placeholder="Masukkan nim/nis">' +
-    '</div>' +
-    '<div class="form-group col-lg-4">' +
-    '<label for="fakultas' + urutanPerorangan + '">Fakultas</label>' +
-    '<input type="text" class="form-control" id="fakultas' + urutanPerorangan + '" name="fakultas[]" aria-describedby="fakultas" placeholder="Masukkan fakultas">' +
-    '<small id="fakultas' + urutanPerorangan + '" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>' +
-    '</div>' +
-    '</div>' +
-    '<div class="form-row">' +
-    '<div class="form-group col-lg-6">' +
-    '<label for="foto_diri' + urutanPerorangan + '">Upload foto diri</label>' +
-    '<input type="file" class="form-control-file" id="foto_diri' + urutanPerorangan + '"  name="foto_diri[]">' +
-    '</div>' +
-    '<div class="form-group col-lg-6">' +
-    '<label for="foto_kartu' + urutanPerorangan + '">Upload foto kartu pelajar</label>' +
-    '<input type="file" class="form-control-file" id="foto_kartu' + urutanPerorangan + '"  name="foto_kartu[]">' +
-    '</div>' +
-    '</div>' +
-    '<div class="form-row">' +
-    '<div class="form-group col-lg-6">' +
-    '<label for="kategori' + urutanPerorangan + '">Kategori pertandingan</label>' +
-    '<select id="kategori' + urutanPerorangan + '" class="form-control" name="kategori[]">' +
-    '<option selected disabled>Pilih salah satu</option>' +
-    '<option value="1">Presale 1 Cepat</option>' +
-    '<option value="2">Presale 2 Cepat</option>' +
-    '<option value="3">Presale 1 Kilat</option>' +
-    '<option value="4">Presale 2 Kilat</option>' +
-    '</select>' +
-    '</div>' +
-    '<div class="form-group col-lg-6">' +
-    '<label>Tekan tombol dibawah untuk menghapus pemain ini</label>' +
-    '<button type="button" class="btn btn-danger btn-block" data-urutan="' + urutanPerorangan++ + '"id="hapus">Hapus pemain</button>' +
-    '</div>' +
-    '</div>' +
-    '<hr>' +
-    '</div>')
-  Swal.fire({
-    title: 'Berhasil',
-    text: 'Pemain berhasil ditambah',
-    type: 'success'
-  })
+	$('.perorangan').append('<div class="perorangan-tambahan' + urutanPerorangan + '">' +
+		'<h5 class="text-center">Pemain ' + urutanPerorangan + '</h5>' +
+		'<div class="form-row">' +
+		'<div class="form-group col-lg-6">' +
+		'<label for="pemain' + urutanPerorangan + '">Nama Pemain</label>' +
+		'<input type="text" class="form-control" id="pemain' + urutanPerorangan + '" name="pemain[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain" required>' +
+		'<small id="pemain' + urutanPerorangan + '" class="form-text text-muted">Gelar diberi tanda kurung</small>' +
+		'</div>' +
+		'<div class="form-group col-lg-6">' +
+		'<label for="instansi' + urutanPerorangan + '">Asal instansi</label>' +
+		'<input type="text" class="form-control" id="instansi' + urutanPerorangan + '" name="instansi[]" aria-describedby="instansi" placeholder="Masukkan asal instansi" required>' +
+		'</div>' +
+		'</div>' +
+		'<div class="form-row">' +
+		'<div class="form-group col-lg-4">' +
+		'<label for="jenisKelamin' + urutanPerorangan + '">Jenis Kelamin</label>' +
+		'<select id="jenisKelamin' + urutanPerorangan + '" class="form-control" name="jenisKelamin[]" required>' +
+		'<option selected disabled>Pilih salah satu</option>' +
+		'<option value="L">Laki-laki</option>' +
+		'<option value="P">Perempuan</option>' +
+		'</select>' +
+		'</div>' +
+		'<div class="form-group col-lg-4">' +
+		'<label for="nim' + urutanPerorangan + '">NIM/NIS</label>' +
+		'<input type="text" class="form-control" id="nim' + urutanPerorangan + '" name="nim[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>' +
+		'</div>' +
+		'<div class="form-group col-lg-4">' +
+		'<label for="fakultas' + urutanPerorangan + '">Fakultas</label>' +
+		'<input type="text" class="form-control" id="fakultas' + urutanPerorangan + '" name="fakultas[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>' +
+		'<small id="fakultas' + urutanPerorangan + '" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>' +
+		'</div>' +
+		'</div>' +
+		'<div class="form-row">' +
+		'<div class="form-group col-lg-6">' +
+		'<label for="foto_diri' + urutanPerorangan + '">Upload foto diri</label>' +
+		'<input type="file" class="form-control-file" id="foto_diri' + urutanPerorangan + '"  name="foto_diri[]" required accept="image/*">' +
+		'</div>' +
+		'<div class="form-group col-lg-6">' +
+		'<label for="foto_kartu' + urutanPerorangan + '">Upload foto kartu pelajar</label>' +
+		'<input type="file" class="form-control-file" id="foto_kartu' + urutanPerorangan + '"  name="foto_kartu[]" required accept="image/*">' +
+		'</div>' +
+		'</div>' +
+		'<div class="form-row">' +
+		'<div class="form-group col-lg-6">' +
+		'<label for="kategori' + urutanPerorangan + '">Kategori pertandingan</label>' +
+		'<select id="kategori' + urutanPerorangan + '" class="form-control" name="kategori[]" required>' +
+		'<option selected disabled>Pilih salah satu</option>' +
+		'<option value="1">Presale 1 Cepat</option>' +
+		'<option value="2">Presale 2 Cepat</option>' +
+		'<option value="3">Presale 1 Kilat</option>' +
+		'<option value="4">Presale 2 Kilat</option>' +
+		'</select>' +
+		'</div>' +
+		'<div class="form-group col-lg-6">' +
+		'<label>Tekan tombol dibawah untuk menghapus pemain ini</label>' +
+		'<button type="button" class="btn btn-danger btn-block" data-urutan="' + urutanPerorangan++ + '"id="hapus">Hapus pemain</button>' +
+		'</div>' +
+		'</div>' +
+		'<hr>' +
+		'</div>')
+	Swal.fire({
+		title: 'Berhasil',
+		text: 'Pemain berhasil ditambah',
+		type: 'success'
+	})
 })
 
 $('#reguTab').on('click', '.regu', function (e) { //ganti tab beregu
-  let cond = $(this).data('regu')
-  $('#reguTab').find('.active').removeClass('active')
-  $('#reguTab').find('#regu' + cond).addClass('active')
-  $('#reguTabContent').find('.active').removeClass('active show')
-  $('#reguTabContent').find('#regu' + cond).addClass('active show')
+	let cond = $(this).data('regu')
+	$('#reguTab').find('.active').removeClass('active')
+	$('#reguTab').find('#regu' + cond).addClass('active')
+	$('#reguTabContent').find('.active').removeClass('active show')
+	$('#reguTabContent').find('#regu' + cond).addClass('active show')
 })
 
 $('#tambah-regu').click(function (e) { //tambah beregu
-  $('#reguTab').find('.active').removeClass('active')
-  $('#reguTabContent').find('.active').removeClass('active show')
+	$('#reguTab').find('.active').removeClass('active')
+	$('#reguTabContent').find('.active').removeClass('active show')
 
-  $('#reguTab').append(`<div class="regu-tambahan` + urutanBeregu + `">
+	$('#reguTab').append(`<div class="regu-tambahan` + urutanBeregu + `">
 	<li class="nav-item">
 	<a class="nav-link regu active" id="regu`+ urutanBeregu + `" data-regu="` + urutanBeregu + `" data-toggle="tab" href="#regu` + urutanBeregu + `" role="tab" aria-controls="regu` + urutanBeregu + `">Regu ` + urutanBeregu + `</a>
 </li>
 </div>`)
-  $('#reguTabContent').append(`
+	$('#reguTabContent').append(`
 		<div class="tab-pane fade show active regu-tambahan` + urutanBeregu + `" id="regu` + urutanBeregu + `" role="tabpanel" aria-labelledby="nav-home-tab">
 			<h5 class="text-center mt-2">REGU `+ urutanBeregu + `</h5>
 			<div class="form-row">
@@ -512,17 +512,62 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 				</div>
 				<hr>
 			</div>`)
-  Swal.fire({
-    title: 'Berhasil',
-    text: 'Regu berhasil ditambah',
-    type: 'success'
-  })
+	Swal.fire({
+		title: 'Berhasil',
+		text: 'Regu berhasil ditambah',
+		type: 'success'
+	})
 })
 
 // Cek ukuran foto yang diupload
-$('input[type=file]').bind('change', function () {
-  if (this.files[0].size > 1024000) {
-    alert('Ukuran file terlalu besar. Ukuran file anda : ' + this.files[0].size + ' bytes')
-    $(this).val('')
-  }
+$('.user').on('change','input[type=file]', function () {
+	let filename = $(this).val();
+	if (this.files[0].size > 1024000) {
+		alert('Ukuran file terlalu besar. Ukuran file anda : ' + this.files[0].size + ' bytes')
+		$(this).val('')
+	}
+
+	let extension = filename.replace(/^.*\./, '');
+	if (extension == filename) {
+		extension = '';
+	} else {
+		extension = extension.toLowerCase();
+	}
+
+	switch (extension) {
+		case 'jpg':
+		case 'jpeg':
+		case 'png':
+			break;
+		default:
+			alert("File yang diupload harus berupa file gambar (jpg / jpeg / png)");
+			$(this).val('')
+	}
+});
+
+// mencegah user secara tidak sengaja merefresh halaman saat ngisi form pendaftaran
+$(document).ready(function() {
+	needToConfirm = false;
+	window.onbeforeunload = askConfirm;
+});
+function askConfirm() {
+	if (needToConfirm) {
+			return "Your unsaved data will be lost.";
+	}
+}
+$(".user").on('change','input',function() {
+	let res = $(this).val()
+	if(res == ''){
+		needToConfirm = false;
+	} else {
+		needToConfirm = true;
+	}
+	// $('body').attr('window.onbeforeunload', '')
+});
+
+$(".user").on('submit','form',function() {
+	// $(window).unbind('beforeunload');
+	needToConfirm = false;
+	console.log('berhasil')
+	// $('body').attr('window.onbeforeunload', '')
 });

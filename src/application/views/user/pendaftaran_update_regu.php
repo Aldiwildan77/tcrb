@@ -109,13 +109,13 @@
 									<label for="foto_diri<?= $j + 1 ?>_<?= $i + 1 ?>">Upload foto diri</label>
 									<input type="file" class="form-control-file" id="foto_diri<?= $j + 1 ?>_<?= $i + 1 ?>" name="foto_diri<?= $j + 1 ?>[]" accept="image/*" required>
 									<small id="foto_diri<?= $j + 1 ?>" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
-									<img src="<?= base_url('assets/img/foto/') . $pemain[$j]['foto_diri'] ?>" alt="foto <?= $pemain[$j]['nama'] ?>" width="200">
+									<img src="<?= base_url('players/foto/foto/') . $pemain[$j]['foto_diri'] ?>" alt="foto <?= $pemain[$j]['nama'] ?>" width="200">
 								</div>
 								<div class="form-group col-lg-6">
 									<label for="foto_kartu<?= $j + 1 ?>_<?= $i + 1 ?>">Upload foto kartu pelajar</label>
 									<input type="file" class="form-control-file" id="foto_kartu<?= $j + 1 ?>_<?= $i + 1 ?>" name="foto_kartu<?= $j + 1 ?>[]" accept="image/*" required>
 									<small id="foto_kartu<?= $j + 1 ?>" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
-									<img src="<?= base_url('assets/img/foto/') . $pemain[$j]['foto_kartu_pelajar'] ?>" alt="foto <?= $pemain[$j]['nama'] ?>" width="200">
+									<img src="<?= base_url('players/foto/foto/') . $pemain[$j]['foto_kartu_pelajar'] ?>" alt="foto <?= $pemain[$j]['nama'] ?>" width="200">
 								</div>
 							</div>
 							<hr>

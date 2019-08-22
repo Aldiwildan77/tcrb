@@ -45,13 +45,13 @@
 											</div>
 											<div class="form-group col-lg-6">
 												<label for="instansi1">Asal instansi</label>
-												<input type="text" class="form-control" id="instansi1" name="instansi[]" aria-describedby="instansi" placeholder="Masukkan asal instansi">
+												<input type="text" class="form-control" id="instansi1" name="instansi[]" aria-describedby="instansi" placeholder="Masukkan asal instansi" required>
 											</div>
 										</div>
 										<div class="form-row">
 											<div class="form-group col-lg-4">
 												<label for="jenisKelamin1">Jenis Kelamin</label>
-												<select id="jenisKelamin1" class="form-control" name="jenisKelamin[]">
+												<select id="jenisKelamin1" class="form-control" name="jenisKelamin[]" required>
 													<option selected disabled>Pilih salah satu</option>
 													<option value="L">Laki-laki</option>
 													<option value="P">Perempuan</option>
@@ -59,22 +59,24 @@
 											</div>
 											<div class="form-group col-lg-4">
 												<label for="nim1">NIM/NIS</label>
-												<input type="text" class="form-control" id="nim1" name="nim[]" aria-describedby="nim" placeholder="Masukkan nim/nis">
+												<input type="text" class="form-control" id="nim1" name="nim[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>
 											</div>
 											<div class="form-group col-lg-4">
 												<label for="fakultas1">Fakultas</label>
-												<input type="text" class="form-control" id="fakultas1" name="fakultas[]" aria-describedby="fakultas" placeholder="Masukkan fakultas">
+												<input type="text" class="form-control" id="fakultas1" name="fakultas[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>
 												<small id="fakultas1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 											</div>
 										</div>
 										<div class="form-row">
 											<div class="form-group col-lg-6">
 												<label for="foto_diri1">Upload foto diri</label>
-												<input type="file" class="form-control-file" id="foto_diri1" name="foto_diri[]">
+												<input type="file" class="form-control-file" id="foto_diri1" name="foto_diri[]" accept="image/*" required>
+												<small id="foto_diri1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 											</div>
 											<div class="form-group col-lg-6">
 												<label for="foto_kartu1">Upload foto kartu pelajar</label>
-												<input type="file" class="form-control-file" id="foto_kartu1" name="foto_kartu[]">
+												<input type="file" class="form-control-file" id="foto_kartu1" name="foto_kartu[]" accept="image/*" required>
+												<small id="foto_kartu1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 											</div>
 										</div>
 										<div class="form-row">
@@ -228,12 +230,12 @@
 												<div class="form-row">
 													<div class="form-group col-lg-6">
 														<label for="foto_diri2_1">Upload foto diri</label>
-														<input type="file" class="form-control-file" id="foto_diri2_1" name="foto_diri2[]" required>
+														<input type="file" class="form-control-file" id="foto_diri2_1" name="foto_diri2[]" accept="image/*" required>
 														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 													<div class="form-group col-lg-6">
 														<label for="foto_kartu2_1">Upload foto kartu pelajar</label>
-														<input type="file" class="form-control-file" id="foto_kartu2_1" name="foto_kartu2[]" required>
+														<input type="file" class="form-control-file" id="foto_kartu2_1" name="foto_kartu2[]" accept="image/*" required>
 														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 												</div>
@@ -273,12 +275,12 @@
 												<div class="form-row">
 													<div class="form-group col-lg-6">
 														<label for="foto_diri3_1">Upload foto diri</label>
-														<input type="file" class="form-control-file" id="foto_diri3_1" name="foto_diri3[]" required>
+														<input type="file" class="form-control-file" id="foto_diri3_1" name="foto_diri3[]" accept="image/*" required>
 														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 													<div class="form-group col-lg-6">
 														<label for="foto_kartu3_1">Upload foto kartu pelajar</label>
-														<input type="file" class="form-control-file" id="foto_kartu3_1" name="foto_kartu3[]" required>
+														<input type="file" class="form-control-file" id="foto_kartu3_1" name="foto_kartu3[]" accept="image/*" required>
 														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 												</div>
@@ -318,12 +320,12 @@
 												<div class="form-row">
 													<div class="form-group col-lg-6">
 														<label for="foto_diri4_1">Upload foto diri</label>
-														<input type="file" class="form-control-file" id="foto_diri4_1" name="foto_diri4[]" required>
+														<input type="file" class="form-control-file" id="foto_diri4_1" name="foto_diri4[]" accept="image/*" required>
 														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 													<div class="form-group col-lg-6">
 														<label for="foto_kartu4_1">Upload foto kartu pelajar</label>
-														<input type="file" class="form-control-file" id="foto_kartu4_1" name="foto_kartu4[]" required>
+														<input type="file" class="form-control-file" id="foto_kartu4_1" name="foto_kartu4[]" accept="image/*" required>
 														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 												</div>

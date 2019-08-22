@@ -144,8 +144,11 @@ class UserModel extends CI_Model
 		$this->db->from('official o');
 		$this->db->join('regu r', 'r.id = o.regu_id');
 		return $this->db->get()->result_array();
+	}
 
-		// return $this->db->get_where('official', ['user_id' => $userId])->result_array();
+	public function getDataPendaftaranPerorangan($userId)
+	{
+		return $this->db->get_where('pl_perorangan', ['user_id' => $userId])->result_array();
 	}
 
 	public function insertPerorangan($data)

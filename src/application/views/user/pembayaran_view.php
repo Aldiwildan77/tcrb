@@ -5,7 +5,7 @@
 		</div>
 	</div>
 </div>
-
+<?= $this->session->flashdata('message-user') ?>
 
 
 

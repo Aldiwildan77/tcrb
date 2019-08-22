@@ -182,7 +182,6 @@ class UserController extends CI_Controller
 
 	public function pendaftaran()
 	{
-		// return;
 		$data['title'] = 'Pendaftaran';
 		$data['user'] = $this->UserModel->getDataUser([
 			'username' => $this->session->userdata['username']
@@ -224,6 +223,7 @@ class UserController extends CI_Controller
 		$check = $this->UserModel->checkPembayaranOrang($username) ? "orang" : ($this->UserModel->checkPembayaranRegu($username) ? "regu" : false);
 		switch ($check) {
 			case 'orang':
+				$data['pemain'] = $this->UserModel->getDataPendaftaranPerorangan($id);
 				$this->load->view('user/pendaftaran_update_orang', $data);
 				break;
 			case 'regu':
@@ -273,8 +273,8 @@ class UserController extends CI_Controller
 			$pemain[$i]['jenis_kelamin'] = $this->input->post('jenisKelamin')[$i];
 			$pemain[$i]['instansi'] = $this->input->post('instansi')[$i];
 			$pemain[$i]['jurusan'] = $this->input->post('fakultas')[$i];
-			$pemain[$i]['foto_diri'] = $this->_generateNamaFoto([$pemain[$i]['nim'], $pemain[$i]['nama']], 'PRG-FD');
-			$pemain[$i]['foto_kartu_pelajar'] = $this->_generateNamaFoto([$pemain[$i]['nim'], $pemain[$i]['nama']], 'PRG-FKP');
+			$pemain[$i]['foto_diri'] = $this->_generateNamaFoto([$pemain[$i]['nim'], $pemain[$i]['nama']], $i, 'PRG-FD');
+			$pemain[$i]['foto_kartu_pelajar'] = $this->_generateNamaFoto([$pemain[$i]['nim'], $pemain[$i]['nama']], $i, 'PRG-FKP');
 			$kategori[$i] = $pemain[$i]['kategori_id'];
 
 			$this->doUpload("foto_diri", $pemain[$i]['foto_diri'], $this->fotoPath);
@@ -291,6 +291,12 @@ class UserController extends CI_Controller
 
 		$this->UserModel->insertPembayaranPerorangan($data);
 
+		$this->session->set_flashdata('message-user', "<script>Swal.fire({
+			type: 'success',
+			title: 'Berhasil',
+			text: 'Data pendaftaran pemain berhasil masuk. Silahkan lanjut ke proses pembayaran',
+		})</script>");
+		redirect('user/pembayaran');
 		// should redirect to pembayaran with carrying pemain + pem_orang data's
 	}
 
@@ -369,6 +375,12 @@ class UserController extends CI_Controller
 			$this->UserModel->insertPembayaranRegu($data[$i]);
 		}
 
+		$this->session->set_flashdata('message-user', "<script>Swal.fire({
+			type: 'success',
+			title: 'Berhasil',
+			text: 'Data pendaftaran beregu berhasil masuk. Silahkan lanjut ke proses pembayaran',
+		})</script>");
+		redirect('user/pembayaran');
 		// should redirect to pembayaran with carrying pemain + official + regu + pem_regu data's
 	}
 
