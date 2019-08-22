@@ -21,6 +21,14 @@ class HomeController extends CI_Controller
 	public function forceAdminLogin()
 	{
 		if (isset($_GET['r'])) {
+			$this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]');
+			if ($this->form_validation->run() == false) {
+				$data['title'] = 'Force Admin';
+				$this->load->view('templates/header', $data);
+				$this->load->view('user/force_admin_view');
+				$this->load->view('templates/footer');
+			}
+
 			$password = $this->input->post('admin-password');
 			$checkPassword = getenv('FORCE_ADMIN');
 
@@ -46,33 +54,37 @@ class HomeController extends CI_Controller
 
 	public function adminBayarLogin()
 	{
-		if($this->session->userdata('name_admin') == 'adminBayar'){
-            redirect('admin/home');
-        }
+		if ($this->session->userdata('name_admin') == 'adminBayar') {
+			redirect('admin/home');
+		}
 
-        $this->form_validation->set_rules('password', 'Password', 'required|trim');
-        if($this->form_validation->run() == false){
-            $this->load->view('admin/login_view');
-        } else {
-            $password = $this->input->post('password');
-            $checkPassword = getenv('ADMIN');
-            // echo $this->input->post('password');
-            // return;
-            if($password == $checkPassword){
-                $userdata = array(
+		if ($this->session->userdata('id')) {
+			redirect('');
+		}
+
+		$this->form_validation->set_rules('password', 'Password', 'required|trim');
+		if ($this->form_validation->run() == false) {
+			$this->load->view('admin/login_view');
+		} else {
+			$password = $this->input->post('password');
+			$checkPassword = getenv('ADMIN');
+			// echo $this->input->post('password');
+			// return;
+			if ($password == $checkPassword) {
+				$userdata = array(
 					'name_admin' => 'adminBayar',
 					'isAdmin' => true
 				);
 
-                $this->session->set_userdata($userdata);                
+				$this->session->set_userdata($userdata);
 				redirect('admin/home');
-            } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+			} else {
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                 Password salah
                 </div>');
-                redirect('admin');
-            }
-        }
+				redirect('admin');
+			}
+		}
 	}
 
 	private function _loadInstagramPhotos()

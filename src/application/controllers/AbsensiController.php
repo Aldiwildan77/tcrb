@@ -15,19 +15,34 @@ class AbsensiController extends CI_Controller
 
 	public function index()
 	{
-		echo 'Connected as Admin';
+		echo "<script>
+			alert('Connected as Admin');
+			window.location.href='./'
+		</script>";
 	}
 
 	public function validateOrangTokenWithPembayaran($token)
-	{ }
+	{
+		$data['title'] = 'Validasi Perorangan';
+		['status_bayar' => $data['status'], 'user_id' => $userId, 'nama_lengkap' => $nama] = $this->UserModel->getDataPembayaranWithPerorangan($token);
+
+		$this->session->set_flashdata('validate', "$userId - $nama");
+		$data['status'] = $data['status'] == 1 ? 'success' : 'error';
+		$data['kategori'] = 'Perorangan';
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('absensi/validasi_view', $data);
+		$this->load->view('templates/footer');
+	}
 
 	public function validateReguTokenWithPembayaran($token)
 	{
 		$data['title'] = 'Validasi Regu';
-		['status_bayar'=> $data['status'], 'regu_id' => $reguId, 'nama' => $nama] = $this->UserModel->getDataPembayaranWithRegu($token);
+		['status_bayar' => $data['status'], 'regu_id' => $reguId, 'nama' => $nama] = $this->UserModel->getDataPembayaranWithRegu($token);
 
 		$this->session->set_flashdata('validate', "$reguId - $nama");
 		$data['status'] = $data['status'] == 1 ? 'success' : 'error';
+		$data['kategori'] = 'Beregu';
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('absensi/validasi_view', $data);

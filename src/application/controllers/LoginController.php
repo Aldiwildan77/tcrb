@@ -11,6 +11,10 @@ class LoginController extends CI_Controller
 		if ($this->session->userdata('username') != null) {
 			redirect('user');
 		}
+
+		if($this->session->userdata('isAdmin')) {
+			redirect('admin/home');
+		}
 	}
 
 	public function tes()

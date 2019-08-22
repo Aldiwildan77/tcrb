@@ -19,7 +19,8 @@ src/application/logs/*
 bukti-bayar/*
 !bukti-bayar/.htaccess
 
-assets/img/foto/*
+# foto diri + foto kartu pelajar
+players/foto/*
 
 # composer
 */composer.lock

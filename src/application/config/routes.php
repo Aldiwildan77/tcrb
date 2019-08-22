@@ -18,8 +18,7 @@ $route['daftar/aktivasi/(:any)'] = 'LoginController/activate/$1';
 
 //User
 $route['user'] = 'UserController';
-// $route['user/upload'] = 'UserController/upload';
-// $route['user/do-upload'] = 'UserController/doUpload';
+$route['user/upload'] = 'UserController/uploadBuktiPembayaran';
 $route['user/edit'] = 'UserController/edit';
 $route['user/pendaftaran'] = 'UserController/pendaftaran';
 $route['user/pendaftaran-proses-orang'] = 'UserController/prosesPendaftaranPerorangan';
@@ -31,11 +30,6 @@ $route['user/changepass'] = 'UserController/changePassword';
 $route['home'] = 'HomeController';
 $route['dokumentasi'] = 'HomeController/dokumentasi';
 
-// Auth
-$route['auth'] = 'AuthController';
-$route['auth/instagram'] = 'AuthController/instagram';
-$route['auth/generate'] = 'AuthController/authInstagram';
-
 // Sosmed
 $route['line'] = 'HomeController/line';
 $route['youtube'] = 'HomeController/youtube';
@@ -44,6 +38,7 @@ $route['instagram'] = 'HomeController/instagram';
 
 // Absensi aka registrasi ulang
 $route['force-admin'] = 'HomeController/forceAdminLogin';
+$route['absensi'] = 'AbsensiController';
 $route['absensi/orang/(:any)'] = 'AbsensiController/validateOrangTokenWithPembayaran/$1';
 $route['absensi/regu/(:any)'] = 'AbsensiController/validateReguTokenWithPembayaran/$1';
 
