@@ -21,7 +21,7 @@ class LoginController extends CI_Controller
 	public function index()
 	{
 		$this->form_validation->set_message('required', 'Kolom {field} wajib diisi.');
-		$this->form_validation->set_rules('input', 'Username', 'required|trim',);
+		$this->form_validation->set_rules('input', 'Username', 'required|trim');
 		$this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]');
 		if ($this->form_validation->run() == false) {
 			$data['title'] = 'Masuk';
@@ -53,7 +53,7 @@ class LoginController extends CI_Controller
 					if (isset($_GET['r'])) {
 						redirect($_GET['r']);
 					} else {
-						redirect('user');
+						redirect('user/edit');
 					}
 				} else {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">

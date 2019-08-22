@@ -119,5 +119,23 @@ class UserModel extends CI_Model
 		$this->db->from('official');
 		$this->db->where('id', $officialId);
 		return $this->db->get()->row_array();
-	}
+  }
+  
+  public function getDataPendaftaranRegu($userId)
+  {
+    return $this->db->get_where('regu', ['user_id' => $userId])->result_array();
+  }
+  public function getDataPendaftaranReguPemain($userId)
+  {
+    return $this->db->get_where('pl_beregu', ['user_id' => $userId])->result_array();
+  }
+  public function getDataPendaftaranReguOfficial()
+  {
+    $this->db->select('o.kategori_id, o.nama, o.jenis_kelamin, o.sebagai, o.alergi');
+    $this->db->from('official o');
+    $this->db->join('regu r', 'r.id = o.regu_id');
+    return $this->db->get()->result_array();
+
+    // return $this->db->get_where('official', ['user_id' => $userId])->result_array();
+  }
 }

@@ -400,7 +400,7 @@ footer .container-fluid {
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 1368px) {
 	.rec ,.logres {
 		height: 80vh;
 	}

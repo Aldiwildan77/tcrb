@@ -44,6 +44,37 @@ class HomeController extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
+	public function adminBayarLogin()
+	{
+		if($this->session->userdata('name_admin') == 'adminBayar'){
+            redirect('admin/home');
+        }
+
+        $this->form_validation->set_rules('password', 'Password', 'required|trim');
+        if($this->form_validation->run() == false){
+            $this->load->view('admin/login_view');
+        } else {
+            $password = $this->input->post('password');
+            $checkPassword = getenv('ADMIN');
+            // echo $this->input->post('password');
+            // return;
+            if($password == $checkPassword){
+                $userdata = array(
+					'name_admin' => 'adminBayar',
+					'isAdmin' => true
+				);
+
+                $this->session->set_userdata($userdata);                
+				redirect('admin/home');
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+                Password salah
+                </div>');
+                redirect('admin');
+            }
+        }
+	}
+
 	private function _loadInstagramPhotos()
 	{
 		$token = getenv('INSTA_TOKEN'); # token

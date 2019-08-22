@@ -82,7 +82,7 @@
 <body>
     <!-- Awal Navbar -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="home">
+        <a class="navbar-brand" href="<?=base_url('home')?>">
             <img class="rounded-circle" src="<?= base_url('assets/img/logo.png'); ?>" width="40" height="40" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
