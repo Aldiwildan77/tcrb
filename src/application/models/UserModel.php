@@ -78,4 +78,46 @@ class UserModel extends CI_Model
 		$this->db->order_by('id', 'ASC');
 		return $this->db->get()->result_array();
 	}
+
+	public function getOfficialData()
+	{
+		$this->db->select('o.*');
+		$this->db->from('regu r');
+		$this->db->join('user u', 'r.user_id = u.id');
+		$this->db->join('official o', 'o.regu_id = r.id');
+		$this->db->where('u.id', $this->session->userdata('id'));
+		return $this->db->get()->result_array();
+	}
+
+	public function insertPembayaranRegu($data)
+	{
+		$this->db->insert('pem_regu', $data);
+	}
+
+	public function getTotalHargaBeregu($reguId, $officialId)
+	{
+		$kategoriReguId = $this->getKategoriIdFromRegu($reguId);
+		$kategoriOfficialId = $this->getKategoriIdFromOfficial($officialId);
+
+		$this->db->select('SUM(k.harga) AS harga');
+		$this->db->from('kategori k');
+		$this->db->where_in('k.id', array($kategoriReguId['kategori_id'], $kategoriOfficialId['kategori_id']));
+		return $this->db->get()->row_array();
+	}
+
+	public function getKategoriIdFromRegu($reguId)
+	{
+		$this->db->select('kategori_id');
+		$this->db->from('regu');
+		$this->db->where('id', $reguId);
+		return $this->db->get()->row_array();
+	}
+
+	public function getKategoriIdFromOfficial($officialId)
+	{
+		$this->db->select('kategori_id');
+		$this->db->from('official');
+		$this->db->where('id', $officialId);
+		return $this->db->get()->row_array();
+	}
 }

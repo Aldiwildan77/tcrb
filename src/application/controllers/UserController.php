@@ -46,6 +46,16 @@ class UserController extends CI_Controller
 		}
 	}
 
+	private function _randomGroupOfficialId()
+	{
+		$listed = "0123456789ABCDEFGHJKMNOPQRSTUVWXYZabcdefghjkmnopqrstuvwxyz";
+		$generatedCode = '';
+		for ($i = 0; $i < 8; $i++) {
+			$generatedCode .= substr($listed, rand(0, strlen($listed) - 1), 1);
+		}
+		return $generatedCode;
+	}
+
 	private function mailConfig()
 	{
 		require_once 'src/application/helpers/Email.php';
@@ -262,16 +272,29 @@ class UserController extends CI_Controller
 		$this->UserModel->insertPemainRegu($pemain);
 
 		for ($i = 0; $i < sizeof($reguLength); $i++) {
+			$og = $this->_randomGroupOfficialId();
 			for ($j = 1; $j < 3; $j++) {
+				$official[$i][$j - 1]['official_group'] = $og;
 				$official[$i][$j - 1]['regu_id'] = $reguId[$i]['id'];
 				$official[$i][$j - 1]['kategori_id'] = $this->input->post("paket_official")[$i];
 				$official[$i][$j - 1]['nama'] = $this->input->post("official$j")[$i];
 				$official[$i][$j - 1]['sebagai'] = $this->input->post("sebagai$j")[$i];
-				// $official[$i][$j - 1]['jenis_kelamin'] = $this->input->post("jk_official$j")[$i];
+				$official[$i][$j - 1]['jenis_kelamin'] = $this->input->post("jk_official$j")[$i];
 			}
 		}
 
 		$this->UserModel->insertOfficial($official);
+		$officialData = $this->UserModel->getOfficialData();
+
+		for ($i = 0; $i < sizeof($reguLength); $i++) {
+			$data[$i]['user_id'] = $this->session->userdata('id');
+			$data[$i]['regu_id'] = $reguId[$i]['id'];
+			$data[$i]['official_group'] = $officialData[$i]['official_group'];
+			$data[$i]['total'] = $this->UserModel->getTotalHargaBeregu($reguId[$i]['id'], $officialData[$i]['id'])['harga'];
+			$data[$i]['token'] = md5('tcrb2019');
+
+			$this->UserModel->insertPembayaranRegu($data[$i]);
+		}
 	}
 
 	public function pembayaran()
