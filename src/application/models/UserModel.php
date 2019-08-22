@@ -120,4 +120,31 @@ class UserModel extends CI_Model
 		$this->db->where('id', $officialId);
 		return $this->db->get()->row_array();
 	}
+
+	public function insertPerorangan($data)
+	{
+		$this->db->insert_batch('pl_perorangan', $data);
+	}
+
+	public function getTotalHargaPerorangan()
+	{
+		$this->db->select('k.harga, count(pp.kategori_id) as jml, sum(k.harga) as subtotal');
+		$this->db->from('pl_perorangan pp');
+		$this->db->join('kategori k', 'pp.kategori_id = k.id');
+		$this->db->where('pp.user_id', $this->session->userdata('id'));
+		$this->db->group_by('k.harga');
+
+		$result = $this->db->get()->result_array();
+		$total = 0;
+
+		foreach ($result as $row) {
+			$total += $row['subtotal'];
+		}
+		return $total;
+	}
+
+	public function insertPembayaranPerorangan($data)
+	{
+		$this->db->insert('pem_orang', $data);
+	}
 }

@@ -95,7 +95,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="tab-pane show active fade" id="pills-beregu" role="tabpanel" aria-labelledby="pills-profile-tab">
+					<div class="tab-pane fade" id="pills-beregu" role="tabpanel" aria-labelledby="pills-profile-tab">
 						<div class="row">
 							<div class="col-12">
 								<!-- Beregu -->
