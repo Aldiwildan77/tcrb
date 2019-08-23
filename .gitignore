@@ -19,6 +19,9 @@ src/application/logs/*
 bukti-bayar/*
 !bukti-bayar/.htaccess
 
+# foto diri + foto kartu pelajar
+players/foto/*
+
 # composer
 */composer.lock
 */composer.phar

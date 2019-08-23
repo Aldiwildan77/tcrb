@@ -133,6 +133,12 @@
 		</div>
 	</div>
 </div>
+<<<<<<< HEAD
+=======
+<?= $this->session->flashdata('message-user') ?>
+
+
+>>>>>>> e5d287aa9693b30939d54da3109f6329c795555b
 
 <!-- untuk aside 3 div,   -->
 </div>

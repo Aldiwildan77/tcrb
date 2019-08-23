@@ -37,48 +37,48 @@
 				<hr>
 				<div class="row mt-3 mb-5 mx-1">
 					<div class="col-lg-3"><b>No Telepon</b></div>
-					<div class="col-lg-6"><?= str_replace(' ', '',$user['no_telepon']) ?></div>
+					<div class="col-lg-6"><?= str_replace(' ', '', $user['no_telepon']) ?></div>
 				</div>
 			</div>
-		</div>
-	</div>
-</div>
+			</div>
+			</div>
+			</div>
 
-<!-- Modal Box -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
+			<!-- Modal Box -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form action="" method="post" id="formModal">
+								<div class="form-group row">
+									<label class="col-sm-2 col-form-label labelModals" id="rowOne"></label>
+									<div class="col-sm-10 inputModals">
+										<input type="text" class="form-control" id="inputOne" name="inputOne" value="" required>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-2 col-form-label labelModals" id="rowTwo"></label>
+									<div class="col-sm-10 inputModals">
+										<input type="text" class="form-control" id="inputTwo" name="inputTwo" value="" required minlength="6">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-2 col-form-label labelModals" id="rowThree"></label>
+									<div class="col-sm-10 inputModals">
+										<input type="email" class="form-control" id="inputThree" name="inputThree" value="" required minlength="6">
+									</div>
+								</div>
+								<div class="float-right">
+									<button type="submit" class="btn btn-success">Simpan</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="modal-body">
-				<form action="" method="post" id="formModal">
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label labelModals" id="rowOne"></label>
-						<div class="col-sm-10 inputModals">
-							<input type="text" class="form-control" id="inputOne" name="inputOne" value="" required>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label labelModals" id="rowTwo"></label>
-						<div class="col-sm-10 inputModals">
-							<input type="text" class="form-control" id="inputTwo" name="inputTwo" value="" required minlength="6">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label labelModals" id="rowThree"></label>
-						<div class="col-sm-10 inputModals">
-							<input type="email" class="form-control" id="inputThree" name="inputThree" value="" required minlength="6">
-						</div>
-					</div>
-					<div class="float-right">
-						<button type="submit" class="btn btn-success">Simpan</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>

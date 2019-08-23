@@ -5,21 +5,20 @@ $route['form'] = 'ComingSoon/form';
 $route['hasil'] = 'ComingSoon/hasilForm';
 
 //Login
-$route['login'] = 'LoginController';
-$route['logout'] = 'UserController/logout';
+$route['masuk'] = 'LoginController';
+$route['keluar'] = 'UserController/logout';
 
 //Recovery
-$route['recovery'] = 'LoginController/forgetPassword';
-$route['recovery/reset/(:any)'] = 'LoginController/reset/$1';
+$route['lupa-password'] = 'LoginController/forgetPassword';
+$route['lupa-password/ganti/(:any)'] = 'LoginController/reset/$1';
 
 //Register
-$route['register'] = 'LoginController/register';
-$route['activate/(:any)'] = 'LoginController/activate/$1';
+$route['daftar'] = 'LoginController/register';
+$route['daftar/aktivasi/(:any)'] = 'LoginController/activate/$1';
 
 //User
 $route['user'] = 'UserController';
-// $route['user/upload'] = 'UserController/upload';
-// $route['user/do-upload'] = 'UserController/doUpload';
+$route['user/upload'] = 'UserController/uploadBuktiPembayaran';
 $route['user/edit'] = 'UserController/edit';
 $route['user/pendaftaran'] = 'UserController/pendaftaran';
 $route['user/pendaftaran-proses-orang'] = 'UserController/prosesPendaftaranPerorangan';
@@ -30,11 +29,6 @@ $route['user/changepass'] = 'UserController/changePassword';
 // Home
 $route['home'] = 'HomeController';
 $route['dokumentasi'] = 'HomeController/dokumentasi';
-
-// Auth
-$route['auth'] = 'AuthController';
-$route['auth/instagram'] = 'AuthController/instagram';
-$route['auth/generate'] = 'AuthController/authInstagram';
 
 // Sosmed
 $route['line'] = 'HomeController/line';
@@ -48,6 +42,9 @@ $route['absensi'] = 'AbsensiController';
 $route['absensi/orang/(:any)'] = 'AbsensiController/validateOrangTokenWithPembayaran/$1';
 $route['absensi/regu/(:any)'] = 'AbsensiController/validateReguTokenWithPembayaran/$1';
 
+// Admin
+$route['admin'] = 'HomeController/adminBayarLogin';
+$route['admin/home'] = 'AdminController';
 
 $route['default_controller'] = 'HomeController';
 $route['404_override'] = 'ErrorController';

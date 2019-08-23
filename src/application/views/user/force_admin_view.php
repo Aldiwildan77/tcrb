@@ -10,7 +10,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fa fa-lock"></i></span>
 						</div>
-						<input type="password" class="form-control" name="admin-password" placeholder="Password">
+						<input type="password" class="form-control" name="admin-password" placeholder="Password" minlength="6" required>
 					</div>
 					<input type="submit" class="btn btn-block btn-dark" value="Login">
 				</div>

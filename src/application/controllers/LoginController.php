@@ -11,14 +11,24 @@ class LoginController extends CI_Controller
 		if ($this->session->userdata('username') != null) {
 			redirect('user');
 		}
+
+		if($this->session->userdata('isAdmin')) {
+			redirect('admin/home');
+		}
+	}
+
+	public function tes()
+	{
+		$this->load->view('templates/activation_email');
 	}
 
 	public function index()
 	{
+		$this->form_validation->set_message('required', 'Kolom {field} wajib diisi.');
 		$this->form_validation->set_rules('input', 'Username', 'required|trim');
 		$this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]');
 		if ($this->form_validation->run() == false) {
-			$data['title'] = 'Login';
+			$data['title'] = 'Masuk';
 			$this->load->view('templates/header', $data);
 			$this->load->view('login/login_view');
 			$this->load->view('templates/footer');
@@ -47,35 +57,38 @@ class LoginController extends CI_Controller
 					if (isset($_GET['r'])) {
 						redirect($_GET['r']);
 					} else {
-						redirect('user');
+						redirect('user/edit');
 					}
 				} else {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                    Akun anda belum aktif. Silahkan cek kotak email atau kotak spam anda
-                    </div>');
-					redirect('login');
+						Akun anda belum aktif. Silahkan mengaktifkan akun anda melalui link didalam email yang telah kami kirim
+						</div>');
+					redirect('masuk');
 				}
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                Username atau password salah
-                </div>');
-				redirect('login');
+					Username atau password salah
+					</div>');
+				redirect('masuk');
 			}
 		}
 	}
 
 	public function register()
 	{
-		$this->form_validation->set_rules('nama', 'Full Name', 'required|trim');
+		$this->form_validation->set_message('required', 'Kolom {field} wajib diisi.');
+		$this->form_validation->set_rules('fullname', 'Nama lengkap', 'required|trim');
 		$this->form_validation->set_rules('username', 'Username', 'required|is_unique[user.username]|max_length[16]|trim|alpha_numeric', [
 			'is_unique' => 'Username ini sudah digunakan.'
 		]);
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email|trim');
 		$this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]');
-		$this->form_validation->set_rules('repassword', 'Password Konfirmasi', 'required|matches[password]|trim|min_length[6]');
+		$this->form_validation->set_rules('repassword', 'Konfirmasi password', 'required|matches[password]|trim|min_length[6]', [
+			'matches' => 'Kolom konfirmasi password tidak cocok dengan kolom password'
+		]);
 
 		if ($this->form_validation->run() == false) {
-			$data['title'] = 'Register';
+			$data['title'] = 'Daftar';
 			$this->load->view('templates/header', $data);
 			$this->load->view('login/register_view');
 			$this->load->view('templates/footer');
@@ -98,14 +111,14 @@ class LoginController extends CI_Controller
 
 			if ($this->_sendActivationEmail($username)) {
 				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                Your account has been created. Please check your email to activate your account.
-                </div>');
+				Akun anda berhasil dibuat. Silahkan cek kotak email anda untuk mengaktifkan akun
+				</div>');
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                Send activation email failed. Please contact our support at <b>admin@tcrb.ub.ac.id</b>
-                </div>');
+				Gagal mengirim email aktivasi. Silahkan menghubungi admin melalui sosial media atau melalui email ittcrbcii@gmail.com
+				</div>');
 			}
-			redirect('login');
+			redirect('masuk');
 		}
 	}
 
@@ -120,13 +133,13 @@ class LoginController extends CI_Controller
 		$dataUser = $this->UserModel->getDataUser($data);
 		$data['username'] = $dataUser['username'];
 		$data['email'] = $dataUser['email'];
-		$data['link'] = base_url('activate/' . $dataUser['kode_aktivasi']);
+		$data['link'] = base_url('daftar/aktivasi/' . $dataUser['kode_aktivasi']);
 		$msg = $this->load->view('templates/activation_email', $data, true);
 
 		$this->load->library('email', $this->recoveryConfig());
 		$this->email->from($this->recoveryConfig()['smtp_user'], 'Turnamen Catur Raja Brawijaya');
 		$this->email->to($dataUser['email']);
-		$this->email->subject('Account Activation');
+		$this->email->subject('Aktivasi Akun TCRB');
 		$this->email->message($msg);
 		return $this->email->send() ? true : false;
 	}
@@ -140,29 +153,33 @@ class LoginController extends CI_Controller
 		if ($this->LoginModel->checkActivationCode($data)) {
 			if ($this->LoginModel->checkStatusAktif($data)) {
 				$this->session->set_flashdata('message', '<div class="alert alert-info" role="alert">
-                Your account is already activated.
-                </div>');
-				redirect('login');
+				Akun anda telah aktif
+				</div>');
+				redirect('masuk');
 			} else {
 				$update = [
 					'status_aktif' => 1
 				];
 				$this->LoginModel->updateData($data, $update);
 				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                Your account has been activated. You can login now.
-                </div>');
-				redirect('login');
+				Akun anda berhasil diaktifkan
+				</div>');
+				redirect('masuk');
 			}
 		} else {
-			echo "Your link is incorrect";
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+			Link aktivasi salah
+			</div>');
+			redirect('masuk');
 		}
 	}
 
 	public function forgetPassword()
 	{
+		$this->form_validation->set_message('required', 'Kolom {field} wajib diisi.');
 		$this->form_validation->set_rules('username', 'Username', 'trim|required');
 		if ($this->form_validation->run() == false) {
-			$data['title'] = 'Recovery';
+			$data['title'] = 'Lupa Password';
 			$this->load->view('templates/header', $data);
 			$this->load->view('login/recovery_view');
 			$this->load->view('templates/footer');
@@ -172,19 +189,19 @@ class LoginController extends CI_Controller
 			if ($dataUser) {
 				if ($this->_sendRecoveryEmail($dataUser)) {
 					$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                    We\'ve sent you an email with further details on how to recovery your account.
-                    </div>');
+					Kami telah mengirim email ke anda. Silahkan ikuti petunjuk yang ada di email tersebut
+					</div>');
 				} else {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                    Send recovery email failed. Please contact our support at <b>admin@tcrb.ub.ac.id</b>
-                    </div>');
+					Gagal mengirim email. Silahkan menghubungi admin melalui sosial media atau email ittcrbcii@gmail.com
+					</div>');
 				}
-				redirect('login');
+				redirect('masuk');
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                Sorry we can\'t find that username or email. Please enter the correct username or email.
-                </div>');
-				redirect('recovery');
+				Username tidak ditemukan
+				</div>');
+				redirect('lupa-password');
 			}
 		}
 	}
@@ -203,13 +220,13 @@ class LoginController extends CI_Controller
 		$this->LoginModel->setRecoveryCode($recoveryCode);
 
 		$data['username'] = $dataUser['username'];
-		$data['link'] = base_url('recovery/reset/' . $recoveryCode);
+		$data['link'] = base_url('lupa-password/ganti/' . $recoveryCode);
 		$msg = $this->load->view('templates/recovery_email', $data, true);
 
 		$this->load->library('email', $this->recoveryConfig());
 		$this->email->from($this->recoveryConfig()['smtp_user'], 'Turnamen Catur Raja Brawijaya');
 		$this->email->to($dataUser['email']);
-		$this->email->subject('Recovery Account');
+		$this->email->subject('Lupa Password Akun TCRB');
 		$this->email->message($msg);
 		return $this->email->send() ? true : false;
 	}
@@ -219,10 +236,13 @@ class LoginController extends CI_Controller
 		if ($code != null) {
 			$dataUser = $this->LoginModel->verifyRecoveryCode($code);
 			if ($dataUser != null) {
+				$this->form_validation->set_message('required', 'Kolom {field} wajib diisi.');
 				$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
-				$this->form_validation->set_rules('repassword', 'Konfirmasi password', 'trim|required|matches[password]|min_length[6]');
+				$this->form_validation->set_rules('repassword', 'Konfirmasi password', 'trim|required|matches[password]|min_length[6]', [
+					'matches' => 'Kolom konfirmasi password tidak cocok dengan kolom password'
+				]);
 				if ($this->form_validation->run() == false) {
-					$data['title'] = 'Reset Password';
+					$data['title'] = 'Ganti Password';
 					$data['hash'] = $code;
 					$data['username'] = $dataUser['username'];
 					$data['email'] = $dataUser['email'];
@@ -246,26 +266,26 @@ class LoginController extends CI_Controller
 					$status = $this->LoginModel->updatePassword($data);
 					if ($status) {
 						$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                        Error updating your password. Please contact <b>ittcrbvii@gmail.com</b></small>.
-                        </div>');
+						Terjadi kesalahan saat mengganti password anda. Silahkan menghubungi admin melalui sosial media atau email ittcrbcii@gmail.com
+						</div>');
 					} else {
 						$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-                        Your password has been updated! You can login with your new password.
-                        </div>');
+						Password anda berhasil diganti. Silahkan masuk dengan password baru anda
+						</div>');
 					}
-					redirect('login');
+					redirect('masuk');
 				}
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                Your link has expired or incorrect. Please request a new one.
-                </div>');
-				redirect('login');
+				Link reset password salah atau telah kadaluarsa. Silahkan melakukan permintaan ganti password kembali
+				</div>');
+				redirect('masuk');
 			}
 		} else {
 			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-            Your link has expired or incorrect. Please request a new one.
-            </div>');
-			redirect('login');
+			Link reset password salah atau telah kadaluarsa. Silahkan melakukan permintaan ganti password kembali
+			</div>');
+			redirect('masuk');
 		}
 	}
 }

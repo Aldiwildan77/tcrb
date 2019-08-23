@@ -45,13 +45,13 @@
 											</div>
 											<div class="form-group col-lg-6">
 												<label for="instansi1">Asal instansi</label>
-												<input type="text" class="form-control" id="instansi1" name="instansi[]" aria-describedby="instansi" placeholder="Masukkan asal instansi">
+												<input type="text" class="form-control" id="instansi1" name="instansi[]" aria-describedby="instansi" placeholder="Masukkan asal instansi" required>
 											</div>
 										</div>
 										<div class="form-row">
 											<div class="form-group col-lg-4">
 												<label for="jenisKelamin1">Jenis Kelamin</label>
-												<select id="jenisKelamin1" class="form-control" name="jenisKelamin[]">
+												<select id="jenisKelamin1" class="form-control" name="jenisKelamin[]" required>
 													<option selected disabled>Pilih salah satu</option>
 													<option value="L">Laki-laki</option>
 													<option value="P">Perempuan</option>
@@ -59,22 +59,24 @@
 											</div>
 											<div class="form-group col-lg-4">
 												<label for="nim1">NIM/NIS</label>
-												<input type="text" class="form-control" id="nim1" name="nim[]" aria-describedby="nim" placeholder="Masukkan nim/nis">
+												<input type="text" class="form-control" id="nim1" name="nim[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>
 											</div>
 											<div class="form-group col-lg-4">
 												<label for="fakultas1">Fakultas</label>
-												<input type="text" class="form-control" id="fakultas1" name="fakultas[]" aria-describedby="fakultas" placeholder="Masukkan fakultas">
+												<input type="text" class="form-control" id="fakultas1" name="fakultas[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>
 												<small id="fakultas1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 											</div>
 										</div>
 										<div class="form-row">
 											<div class="form-group col-lg-6">
 												<label for="foto_diri1">Upload foto diri</label>
-												<input type="file" class="form-control-file" id="foto_diri1" name="foto_diri[]">
+												<input type="file" class="form-control-file" id="foto_diri1" name="foto_diri[]" accept="image/*" required>
+												<small id="foto_diri1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 											</div>
 											<div class="form-group col-lg-6">
 												<label for="foto_kartu1">Upload foto kartu pelajar</label>
-												<input type="file" class="form-control-file" id="foto_kartu1" name="foto_kartu[]">
+												<input type="file" class="form-control-file" id="foto_kartu1" name="foto_kartu[]" accept="image/*" required>
+												<small id="foto_kartu1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 											</div>
 										</div>
 										<div class="form-row">
@@ -95,7 +97,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="tab-pane show active fade" id="pills-beregu" role="tabpanel" aria-labelledby="pills-profile-tab">
+					<div class="tab-pane fade" id="pills-beregu" role="tabpanel" aria-labelledby="pills-profile-tab">
 						<div class="row">
 							<div class="col-12">
 								<!-- Beregu -->
@@ -130,15 +132,15 @@
 												<div class="form-row">
 													<div class="form-group col-lg-4">
 														<label for="namaRegu1">Nama Regu</label>
-														<input type="text" class="form-control" id="namaRegu1" name="regu[]" aria-describedby="namaRegu" placeholder="Masukkan nama regu 1">
+														<input type="text" class="form-control" id="namaRegu1" name="regu[]" aria-describedby="namaRegu" placeholder="Masukkan nama regu 1" required>
 													</div>
 													<div class="form-group col-lg-4">
 														<label for="instansiRegu1">Asal instansi</label>
-														<input type="text" class="form-control" id="instansiRegu1" name="instansiRegu[]" aria-describedby="instansi" placeholder="Masukkan asal instansi">
+														<input type="text" class="form-control" id="instansiRegu1" name="instansiRegu[]" aria-describedby="instansi" placeholder="Masukkan asal instansi" required>
 													</div>
 													<div class="form-group col-lg-4">
 														<label for="kategoriRegu1">Kategori pertandingan</label>
-														<select id="kategoriRegu1" class="form-control" name="kategoriRegu[]">
+														<select id="kategoriRegu1" class="form-control" name="kategoriRegu[]" required>
 															<option selected disabled>Pilih salah satu</option>
 															<option value="5">Beregu Cepat Paket A</option>
 															<option value="6">Beregu Cepat Paket B</option>
@@ -157,7 +159,7 @@
 													</div>
 													<div class="form-group col-lg-6">
 														<label for="jenisKelamin1_1">Jenis Kelamin</label>
-														<select id="jenisKelamin1_1" class="form-control" name="jenisKelamin1[]">
+														<select id="jenisKelamin1_1" class="form-control" name="jenisKelamin1[]" required>
 															<option selected disabled>Pilih salah satu</option>
 															<option value="L">Laki-laki</option>
 															<option value="P">Perempuan</option>
@@ -167,11 +169,11 @@
 												<div class="form-row">
 													<div class="form-group col-lg-4">
 														<label for="nim1_1">NIM/NIS</label>
-														<input type="text" class="form-control" id="nim1_1" name="nim1[]" aria-describedby="nim" placeholder="Masukkan nim/nis">
+														<input type="text" class="form-control" id="nim1_1" name="nim1[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>
 													</div>
 													<div class="form-group col-lg-4">
 														<label for="fakultas1_1">Fakultas</label>
-														<input type="text" class="form-control" id="fakultas1_1" name="fakultas1[]" aria-describedby="fakultas" placeholder="Masukkan fakultas">
+														<input type="text" class="form-control" id="fakultas1_1" name="fakultas1[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>
 														<small id="fakultas1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 													</div>
 													<div class="form-group col-lg-4">
@@ -183,11 +185,13 @@
 												<div class="form-row">
 													<div class="form-group col-lg-6">
 														<label for="foto_diri1_1">Upload foto diri</label>
-														<input type="file" class="form-control-file" id="foto_diri1_1" name="foto_diri1[]">
+														<input type="file" class="form-control-file" id="foto_diri1_1" name="foto_diri1[]" accept="image/*" required>
+														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 													<div class="form-group col-lg-6">
 														<label for="foto_kartu1_1">Upload foto kartu pelajar</label>
-														<input type="file" class="form-control-file" id="foto_kartu1_1" name="foto_kartu1[]">
+														<input type="file" class="form-control-file" id="foto_kartu1_1" name="foto_kartu1[]" accept="image/*" required>
+														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 												</div>
 												<hr>
@@ -195,12 +199,12 @@
 												<div class="form-row">
 													<div class="form-group col-lg-6">
 														<label for="pemain2_1">Nama Pemain 2</label>
-														<input type="text" class="form-control" id="pemain2_1" name="pemain2[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain 2">
+														<input type="text" class="form-control" id="pemain2_1" name="pemain2[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain 2" required>
 														<small id="pemain2_1" class="form-text text-muted">Gelar diberi tanda kurung</small>
 													</div>
 													<div class="form-group col-lg-6">
 														<label for="jenisKelamin2_1">Jenis Kelamin</label>
-														<select id="jenisKelamin2_1" class="form-control" name="jenisKelamin2[]">
+														<select id="jenisKelamin2_1" class="form-control" name="jenisKelamin2[]" required>
 															<option selected disabled>Pilih salah satu</option>
 															<option value="L">Laki-laki</option>
 															<option value="P">Perempuan</option>
@@ -210,11 +214,11 @@
 												<div class="form-row">
 													<div class="form-group col-lg-4">
 														<label for="nim2_1">NIM/NIS</label>
-														<input type="text" class="form-control" id="nim2_1" name="nim2[]" aria-describedby="nim" placeholder="Masukkan nim/nis">
+														<input type="text" class="form-control" id="nim2_1" name="nim2[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>
 													</div>
 													<div class="form-group col-lg-4">
 														<label for="fakultas2_1">Fakultas</label>
-														<input type="text" class="form-control" id="fakultas2_1" name="fakultas2[]" aria-describedby="fakultas" placeholder="Masukkan fakultas">
+														<input type="text" class="form-control" id="fakultas2_1" name="fakultas2[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>
 														<small id="fakultas1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 													</div>
 													<div class="form-group col-lg-4">
@@ -226,11 +230,13 @@
 												<div class="form-row">
 													<div class="form-group col-lg-6">
 														<label for="foto_diri2_1">Upload foto diri</label>
-														<input type="file" class="form-control-file" id="foto_diri2_1" name="foto_diri2[]">
+														<input type="file" class="form-control-file" id="foto_diri2_1" name="foto_diri2[]" accept="image/*" required>
+														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 													<div class="form-group col-lg-6">
 														<label for="foto_kartu2_1">Upload foto kartu pelajar</label>
-														<input type="file" class="form-control-file" id="foto_kartu2_1" name="foto_kartu2[]">
+														<input type="file" class="form-control-file" id="foto_kartu2_1" name="foto_kartu2[]" accept="image/*" required>
+														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 												</div>
 												<hr>
@@ -238,12 +244,12 @@
 												<div class="form-row">
 													<div class="form-group col-lg-6">
 														<label for="pemain3_1">Nama Pemain 3</label>
-														<input type="text" class="form-control" id="pemain3_1" name="pemain3[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain 3">
+														<input type="text" class="form-control" id="pemain3_1" name="pemain3[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain 3" required>
 														<small id="pemain1" class="form-text text-muted">Gelar diberi tanda kurung</small>
 													</div>
 													<div class="form-group col-lg-6">
 														<label for="jenisKelamin3_1">Jenis Kelamin</label>
-														<select id="jenisKelamin3_1" class="form-control" name="jenisKelamin3[]">
+														<select id="jenisKelamin3_1" class="form-control" name="jenisKelamin3[]" required>
 															<option selected disabled>Pilih salah satu</option>
 															<option value="L">Laki-laki</option>
 															<option value="P">Perempuan</option>
@@ -253,11 +259,11 @@
 												<div class="form-row">
 													<div class="form-group col-lg-4">
 														<label for="nim3_1">NIM/NIS</label>
-														<input type="text" class="form-control" id="nim3_1" name="nim3[]" aria-describedby="nim" placeholder="Masukkan nim/nis">
+														<input type="text" class="form-control" id="nim3_1" name="nim3[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>
 													</div>
 													<div class="form-group col-lg-4">
 														<label for="fakultas3_1">Fakultas</label>
-														<input type="text" class="form-control" id="fakultas3_1" name="fakultas3[]" aria-describedby="fakultas" placeholder="Masukkan fakultas">
+														<input type="text" class="form-control" id="fakultas3_1" name="fakultas3[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>
 														<small id="fakultas3_1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 													</div>
 													<div class="form-group col-lg-4">
@@ -269,11 +275,13 @@
 												<div class="form-row">
 													<div class="form-group col-lg-6">
 														<label for="foto_diri3_1">Upload foto diri</label>
-														<input type="file" class="form-control-file" id="foto_diri3_1" name="foto_diri3[]">
+														<input type="file" class="form-control-file" id="foto_diri3_1" name="foto_diri3[]" accept="image/*" required>
+														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 													<div class="form-group col-lg-6">
 														<label for="foto_kartu3_1">Upload foto kartu pelajar</label>
-														<input type="file" class="form-control-file" id="foto_kartu3_1" name="foto_kartu3[]">
+														<input type="file" class="form-control-file" id="foto_kartu3_1" name="foto_kartu3[]" accept="image/*" required>
+														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 												</div>
 												<hr>
@@ -281,12 +289,12 @@
 												<div class="form-row">
 													<div class="form-group col-lg-6">
 														<label for="pemain4_1">Nama Pemain 4</label>
-														<input type="text" class="form-control" id="pemain4_1" name="pemain4[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain 4">
+														<input type="text" class="form-control" id="pemain4_1" name="pemain4[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain 4" required>
 														<small id="pemain4_1" class="form-text text-muted">Gelar diberi tanda kurung</small>
 													</div>
 													<div class="form-group col-lg-6">
 														<label for="jenisKelamin4_1">Jenis Kelamin</label>
-														<select id="jenisKelamin4_1" class="form-control" name="jenisKelamin4[]">
+														<select id="jenisKelamin4_1" class="form-control" name="jenisKelamin4[]" required>
 															<option selected disabled>Pilih salah satu</option>
 															<option value="L">Laki-laki</option>
 															<option value="P">Perempuan</option>
@@ -296,11 +304,11 @@
 												<div class="form-row">
 													<div class="form-group col-lg-4">
 														<label for="nim4_1">NIM/NIS</label>
-														<input type="text" class="form-control" id="nim4_1" name="nim4[]" aria-describedby="nim" placeholder="Masukkan nim/nis">
+														<input type="text" class="form-control" id="nim4_1" name="nim4[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>
 													</div>
 													<div class="form-group col-lg-4">
 														<label for="fakultas4_1">Fakultas</label>
-														<input type="text" class="form-control" id="fakultas4_1" name="fakultas4[]" aria-describedby="fakultas" placeholder="Masukkan fakultas">
+														<input type="text" class="form-control" id="fakultas4_1" name="fakultas4[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>
 														<small id="fakultas4_1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 													</div>
 													<div class="form-group col-lg-4">
@@ -312,11 +320,13 @@
 												<div class="form-row">
 													<div class="form-group col-lg-6">
 														<label for="foto_diri4_1">Upload foto diri</label>
-														<input type="file" class="form-control-file" id="foto_diri4_1" name="foto_diri4[]">
+														<input type="file" class="form-control-file" id="foto_diri4_1" name="foto_diri4[]" accept="image/*" required>
+														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 													<div class="form-group col-lg-6">
 														<label for="foto_kartu4_1">Upload foto kartu pelajar</label>
-														<input type="file" class="form-control-file" id="foto_kartu4_1" name="foto_kartu4[]">
+														<input type="file" class="form-control-file" id="foto_kartu4_1" name="foto_kartu4[]" accept="image/*" required>
+														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 												</div>
 												<hr>
