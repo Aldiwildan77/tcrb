@@ -141,6 +141,7 @@ footer .container-fluid {
 	/* background-color: yellow; */
 	/* background-color: rgba(0, 0, 0, 0.5) */
 }
+
 @media (min-width: 0) {
 	.beranda {
 		background-position: 50% 0%;
@@ -402,28 +403,36 @@ footer .container-fluid {
 .rec {
 	height: 80vh;
 }
+
 @media (min-width: 768px) {
 	/* .log{
 		height: 100vh;
 	} */
 }
+
 /* END Halaman Login Register */
 
 /* START Halaman User */
-.halaman-user{
-    background: linear-gradient(to bottom, #238FCC, #F3F9F9);
+.halaman-user {
+	background: linear-gradient(to bottom, #238FCC, #F3F9F9);
 }
 
-.user{
-    background: white;
-    border-radius: 5px;
+.user {
+	background: white;
+	border-radius: 5px;
 }
 
-a.tombol-user{
-    text-decoration: none;
+a.tombol-user {
+	text-decoration: none;
 }
 
-.row-tbl-user:hover{
-    background: #B0EEFD
+.row-tbl-user:hover {
+	background: #B0EEFD
 }
+
 /* END Halaman User */
+
+/* START Halaman Pembayaran User */
+
+
+/* END Halaman Pembayaran User */
