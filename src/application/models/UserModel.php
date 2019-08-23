@@ -151,6 +151,34 @@ class UserModel extends CI_Model
 		return $this->db->get_where('pl_perorangan', ['user_id' => $userId])->result_array();
 	}
 
+  public function getDataPembayaranPerorangan($userId)
+  {
+    $this->db->select('pp.nama as nama_pemain, k.nama as nama_kategori, k.harga');
+    $this->db->from('pem_orang po');
+    $this->db->where('po.user_id', $userId);
+    $this->db->join('pl_perorangan pp', 'po.user_id = pp.user_id');
+    $this->db->join('kategori k', 'pp.kategori_id = k.id');
+    return $this->db->get()->result_array();
+  }
+
+  public function getStatusPembayaranPerorangan($userId)
+  {
+    return $this->db->get_where('pem_orang', ['user_id' => $userId])->row_array();
+  }
+
+  
+
+  // BELUM SELESAI
+  // public function getDataPembayaranBeregu($userId)
+  // {
+  //   $this->db->select('pp.nama as nama_pemain, k.nama as nama_kategori, k.harga');
+  //   $this->db->from('pem_regu pr');
+  //   $this->db->where('po.user_id', $userId);
+  //   $this->db->join('pl_beregu pb', 'po.user_id = pp.user_id');
+  //   $this->db->join('kategori k', 'pp.kategori_id = k.id');
+  //   return $this->db->get()->result_array();
+  // }
+
 	public function insertPerorangan($data)
 	{
 		$this->db->insert_batch('pl_perorangan', $data);

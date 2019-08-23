@@ -45,6 +45,7 @@ $route['absensi/regu/(:any)'] = 'AbsensiController/validateReguTokenWithPembayar
 // Admin
 $route['admin'] = 'HomeController/adminBayarLogin';
 $route['admin/home'] = 'AdminController';
+$route['admin/keluar'] = 'AdminController/logout';
 
 $route['default_controller'] = 'HomeController';
 $route['404_override'] = 'ErrorController';

@@ -278,7 +278,7 @@ class UserController extends CI_Controller
 			$kategori[$i] = $pemain[$i]['kategori_id'];
 
 			$this->doUpload("foto_diri", $pemain[$i]['foto_diri'], $this->fotoPath);
-			$this->doUpload("foto_diri", $pemain[$i]['foto_kartu_pelajar'], $this->fotoPath);
+			$this->doUpload("foto_kartu", $pemain[$i]['foto_kartu_pelajar'], $this->fotoPath);
 		}
 
 		$this->UserModel->insertPerorangan($pemain);
@@ -392,9 +392,25 @@ class UserController extends CI_Controller
 		]);
 		$data['full'] = $this->_checkProfileFull($data['user']);
 
-		$username = $data['user']['username'];
-		$check = $this->UserModel->checkPembayaranOrang($username) ? "orang" : ($this->UserModel->checkPembayaranRegu($username) ? "regu" : false);
-
+    $username = $data['user']['username'];
+    $id = $data['user']['id'];
+		$data['check'] = $this->UserModel->checkPembayaranOrang($username) ? "orang" : ($this->UserModel->checkPembayaranRegu($username) ? "regu" : false);
+    switch ($data['check']) {
+      case 'orang':
+        $data['pemain'] = $this->UserModel->getDataPembayaranPerorangan($id);
+        $data['tot_harga'] = $this->UserModel->getTotalHargaPerorangan($id);
+        $data['status'] = $this->UserModel->getStatusPembayaranPerorangan($id);
+        break;
+      case 'regu':
+        $data['regu'] = $this->UserModel->getDataPendaftaranPerorangan($id);
+        break;
+      
+      default:
+        # code...
+        break;
+    }
+    // print_r($data['pemain']);
+    // return;
 		/*
 		 * <-- business logic -->
 		 * + first, we need to check if this logged in user already done with pembayaran process
@@ -411,7 +427,7 @@ class UserController extends CI_Controller
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/aside_user', $data);
-		$this->load->view('user/pembayaran_view');
+		$this->load->view('user/pembayaran_view', $data);
 		$this->load->view('templates/footer');
 	}
 

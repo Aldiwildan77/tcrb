@@ -57,7 +57,7 @@ class LoginController extends CI_Controller
 					if (isset($_GET['r'])) {
 						redirect($_GET['r']);
 					} else {
-						redirect('user/edit');
+						redirect('user');
 					}
 				} else {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">

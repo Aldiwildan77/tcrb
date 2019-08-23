@@ -33,7 +33,8 @@
 									<i class="fa fa-envelope fa-lg icon px-1 py-2"></i>
 								</label>
 								<input type="email" class="form-control" name="email" id="email" placeholder="Email" value="<?= set_value('email'); ?>" required>
-							</div>
+              </div>
+              <small class="form-text text-white">Gunakan email yang aktif</small>
 							<small class="form-text text-danger"><?= form_error('email'); ?></small>
 						</div>
 						<div class="form-group mb-4">

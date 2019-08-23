@@ -28,5 +28,12 @@ class AdminController extends CI_Controller
 		for ($i = 0; $i < 5; $i++) {
 			# code...
 		}
-	}
+  }
+  
+  public function logout()
+  {
+    $this->session->sess_destroy();
+    redirect('admin');
+
+  }
 }
