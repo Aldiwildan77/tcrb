@@ -400,22 +400,11 @@ footer .container-fluid {
 	border-bottom-left-radius: 4px;
 }
 
-<<<<<<< HEAD
-.rec {
-	height: 80vh;
-}
-
-@media (min-width: 768px) {
-	/* .log{
-		height: 100vh;
-	} */
-=======
 
 @media (min-width: 1368px) {
 	.rec ,.logres {
 		height: 80vh;
 	}
->>>>>>> e5d287aa9693b30939d54da3109f6329c795555b
 }
 
 /* END Halaman Login Register */

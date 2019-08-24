@@ -459,7 +459,7 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 				</div>
 			</div>
 			<hr>
-			<h6><b>Official</b></h6>
+			<h6><b>Official</b> (Kosongi jika tidak ada official)</h6>
 				<div class="form-row">
 					<div class="form-group col-lg-6">
 						<label for="official1_`+ urutanBeregu + `">Nama Official</label>
@@ -562,12 +562,8 @@ $(".user").on('change','input',function() {
 	} else {
 		needToConfirm = true;
 	}
-	// $('body').attr('window.onbeforeunload', '')
 });
 
-$(".user").on('submit','form',function() {
-	// $(window).unbind('beforeunload');
-	needToConfirm = false;
-	console.log('berhasil')
-	// $('body').attr('window.onbeforeunload', '')
-});
+$('#kategori1').change(function (e) {
+	console.log('halo')
+})

@@ -23,16 +23,16 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<form action="doUpload" method="post" enctype="multipart/form-data">
+				<form action="" method="post" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="exampleFormControlFile1">Example file input</label>
-						<input type="file" class="form-control-file myFile" id="myFile" name="file">
+						<input type="file" class="form-control-file myFile" id="myFile" name="files[]">
 					</div>
 					<div class="form-group">
 						<label for="exampleFormControlFile1">Example file input 2</label>
-						<input type="file" class="form-control-file myFile" id="myFile" name="file">
+						<input type="file" class="form-control-file myFile" id="myFile" name="files[]">
 					</div>
-					<button class="btn btn-primary" type="submit">Submit</button>
+					<input class="btn btn-primary" type="submit" name="upload" value="upload">
 				</form>
 			</div>
 		</div>
@@ -45,11 +45,9 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<script>
 		$('.myFile').bind('change', function() {
-			if (this.files[0].size > 20) {
+			if (this.files[0].size > 1024000) {
 				$(this).val('')
 				alert('terlalu besar')
-			} else {
-				alert('kecil kok')
 			}
 		});
 	</script>

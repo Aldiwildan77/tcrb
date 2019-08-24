@@ -25,7 +25,7 @@
 						<?php $k = 0 ?>
 						<?php for ($i = 0; $i < sizeof($regu); $i++) : ?>
 						<li class="nav-item">
-							<a class="nav-link regu active" id="regu1" data-toggle="tab" href="#regu1" data-regu="1" role="tab" aria-controls="regu1" aria-selected="true">Regu <?= $i + 1 ?></a>
+							<a class="nav-link regu active" id="regu1" data-toggle="tab" href="#regu<?= $i + 1 ?>" data-regu="1" role="tab" aria-controls="regu1" aria-selected="true">Regu <?= $i + 1 ?></a>
 						</li>
 						<?php endfor; ?>
 					</ul>
@@ -33,7 +33,7 @@
 				<div class="beregu">
 					<div class="tab-content" id="reguTabContent">
 						<?php for ($i = 0; $i < sizeof($regu); $i++) : ?>
-						<div class="tab-pane fade show active" id="regu<?= $i + 1 ?>" role="tabpanel" aria-labelledby="nav-home-tab">
+						<div class="tab-pane fade" id="regu<?= $i + 1 ?>" role="tabpanel" aria-labelledby="nav-home-tab">
 							<h5 class="text-center mt-2">REGU <?= $i + 1 ?></h5>
 							<div class="form-row">
 								<div class="form-group col-lg-4">
@@ -61,23 +61,23 @@
 							<?php $a = $j + 4 ?>
 							<?php for ($j; $j < $a; $j++) : ?>
 							<?php if ($j == 0 || $j % 4 == 0) : ?>
-							<h6><b>Pemain <?= $j + 1 ?> (Captain regu)</b></h6>
+							<h6><b>Pemain <?= $j % 4 + 1 ?> (Captain regu)</b></h6>
 							<?php else : ?>
-							<h6><b>Pemain <?= $j + 1 ?></b></h6>
+							<h6><b>Pemain <?= $j % 4 + 1 ?></b></h6>
 							<?php endif; ?>
 							<div class="form-row">
 								<div class="form-group col-lg-6">
 									<?php if ($j == 0 || $j % 4 == 0) : ?>
-									<label for="pemain<?= $j + 1 ?>_<?= $i + 1 ?>">Nama Pemain <?= $j + 1 ?> (sebagai captain regu)</label>
+									<label for="pemain<?= $j + 1 ?>_<?= $i + 1 ?>">Nama Pemain <?= $j % 4 + 1 ?> (sebagai captain regu)</label>
 									<?php else : ?>
-									<label for="pemain<?= $j + 1 ?>_<?= $i + 1 ?>">Nama Pemain <?= $j + 1 ?></label>
+									<label for="pemain<?= $j + 1 ?>_<?= $i + 1 ?>">Nama Pemain <?= $j % 4 + 1 ?></label>
 									<?php endif; ?>
-									<input type="text" class="form-control" id="pemain<?= $j + 1 ?>_<?= $i + 1 ?>" name="pemain<?= $j + 1 ?>[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain <?= $j + 1 ?>" value="<?= $pemain[$j]['nama'] ?>">
+									<input type="text" class="form-control" id="pemain<?= $j + 1 ?>_<?= $i + 1 ?>" name="pemain<?= $j % 4 + 1 ?>[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain <?= $j + 1 ?>" value="<?= $pemain[$j]['nama'] ?>">
 									<small id="pemain<?= $j + 1 ?>" class="form-text text-muted">Gelar diberi tanda kurung</small>
 								</div>
 								<div class="form-group col-lg-6">
 									<label for="jenisKelamin<?= $j + 1 ?>_<?= $i + 1 ?>">Jenis Kelamin</label>
-									<select id="jenisKelamin<?= $j + 1 ?>_<?= $i + 1 ?>" class="form-control" name="jenisKelamin<?= $j + 1 ?>[]" required>
+									<select id="jenisKelamin<?= $j + 1 ?>_<?= $i + 1 ?>" class="form-control" name="jenisKelamin<?= $j % 4 + 1 ?>[]" required>
 										<?php foreach ($jenis_kelamin as $key => $value) : ?>
 										<?php if ($regu[$j]['jenis_kelamin'] == $key) : ?>
 										<option value="<?= $key ?>" selected><?= $value ?></option>
@@ -91,48 +91,49 @@
 							<div class="form-row">
 								<div class="form-group col-lg-4">
 									<label for="nim<?= $j + 1 ?>_<?= $i + 1 ?>">NIM/NIS</label>
-									<input type="text" class="form-control" id="nim<?= $j + 1 ?>_<?= $i + 1 ?>" name="nim<?= $j + 1 ?>[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required value="<?= $pemain[$j]['nim'] ?>">
+									<input type="text" class="form-control" id="nim<?= $j + 1 ?>_<?= $i + 1 ?>" name="nim<?= $j % 4 + 1 ?>[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required value="<?= $pemain[$j]['nim'] ?>">
 								</div>
 								<div class="form-group col-lg-4">
 									<label for="fakultas<?= $j + 1 ?>_<?= $i + 1 ?>">Fakultas</label>
-									<input type="text" class="form-control" id="fakultas<?= $j + 1 ?>_<?= $i + 1 ?>" name="fakultas<?= $j + 1 ?>[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required value="<?= $pemain[$j]['jurusan'] ?>">
+									<input type="text" class="form-control" id="fakultas<?= $j + 1 ?>_<?= $i + 1 ?>" name="fakultas<?= $j % 4 + 1 ?>[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required value="<?= $pemain[$j]['jurusan'] ?>">
 									<small id="fakultas1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 								</div>
 								<div class="form-group col-lg-4">
 									<label for="alergi<?= $j + 1 ?>_<?= $i + 1 ?>">Alergi makanan</label>
-									<input type="text" class="form-control" id="alergi<?= $j + 1 ?>_<?= $i + 1 ?>" name="alergi<?= $j + 1 ?>[]" aria-describedby="nim" placeholder="Masukkan alergi makanan" value="<?= $pemain[$j]['alergi'] ?>">
+									<input type="text" class="form-control" id="alergi<?= $j + 1 ?>_<?= $i + 1 ?>" name="alergi<?= $j % 4 + 1 ?>[]" aria-describedby="nim" placeholder="Masukkan alergi makanan" value="<?= $pemain[$j]['alergi'] ?>">
 									<small id="alergi<?= $j + 1 ?>_<?= $i + 1 ?>" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-lg-6">
 									<label for="foto_diri<?= $j + 1 ?>_<?= $i + 1 ?>">Upload foto diri</label>
-									<input type="file" class="form-control-file" id="foto_diri<?= $j + 1 ?>_<?= $i + 1 ?>" name="foto_diri<?= $j + 1 ?>[]" accept="image/*" required>
+									<input type="file" class="form-control-file" id="foto_diri<?= $j + 1 ?>_<?= $i + 1 ?>" name="foto_diri<?= $j % 4 + 1 ?>[]" accept="image/*" required>
 									<small id="foto_diri<?= $j + 1 ?>" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
-									<img src="<?= base_url('players/foto/foto/') . $pemain[$j]['foto_diri'] ?>" alt="foto <?= $pemain[$j]['nama'] ?>" width="200">
+									<img src="<?= base_url('players/foto/') . $pemain[$j]['foto_diri'] ?>" alt="foto <?= $pemain[$j]['nama'] ?>" width="200">
 								</div>
 								<div class="form-group col-lg-6">
 									<label for="foto_kartu<?= $j + 1 ?>_<?= $i + 1 ?>">Upload foto kartu pelajar</label>
-									<input type="file" class="form-control-file" id="foto_kartu<?= $j + 1 ?>_<?= $i + 1 ?>" name="foto_kartu<?= $j + 1 ?>[]" accept="image/*" required>
+									<input type="file" class="form-control-file" id="foto_kartu<?= $j + 1 ?>_<?= $i + 1 ?>" name="foto_kartu<?= $j % 4 + 1 ?>[]" accept="image/*" required>
 									<small id="foto_kartu<?= $j + 1 ?>" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
-									<img src="<?= base_url('players/foto/foto/') . $pemain[$j]['foto_kartu_pelajar'] ?>" alt="foto <?= $pemain[$j]['nama'] ?>" width="200">
+									<img src="<?= base_url('players/foto/') . $pemain[$j]['foto_kartu_pelajar'] ?>" alt="foto <?= $pemain[$j]['nama'] ?>" width="200">
 								</div>
 							</div>
 							<hr>
 							<?php endfor; ?>
-							<h6><b>Official</b></h6>
+							<?php $j = $a ?>
+							<h6><b>Official</b> (Kosongi jika tidak ada official)</h6>
 							<?php $b = $k + 2 ?>
 							<div class="form-row">
 								<div class="form-group col-lg-6">
 									<label for="official1_1">Nama Official</label>
 									<?php for ($l = $k; $l < $b; $l++) : ?>
-									<input type="text" class="form-control" id="official<?= $l ?>_<?= $i ?>" name="official<?= $l ?>[]" aria-describedby="namaOfficial" placeholder="Masukkan nama official <?= $l ?>" value="<?= $official[$l]['nama'] ?>">
+									<input type="text" class="form-control" id="official<?= $l + 1 ?>_<?= $i ?>" name="official<?= $l + 1 ?>[]" aria-describedby="namaOfficial" placeholder="Masukkan nama official <?= $l + 1 ?>" value="<?= $official[$l]['nama'] ?>">
 									<?php endfor; ?>
 								</div>
 								<div class="form-group col-lg-6">
 									<label for="jk_official1_1">Jenis Kelamin</label>
 									<?php for ($l = $k; $l < $b; $l++) : ?>
-									<select id="jk_official<?= $l ?>_<?= $i ?>" class="form-control" name="jk_official<?= $l ?>[]">
+									<select id="jk_official<?= $l + 1 ?>_<?= $i ?>" class="form-control" name="jk_official<?= $l + 1 ?>[]">
 										<?php if (!empty($official[$l]['jenis_kelamin'])) : ?>
 										<?php foreach ($jenis_kelamin as $key => $value) : ?>
 										<?php if ($official[$l]['jenis_kelamin'] == $key) : ?>
@@ -142,7 +143,7 @@
 										<?php endif; ?>
 										<?php endforeach ?>
 										<?php else : ?>
-										<option>Tidak ada official <?= $l ?></option>
+										<option>Tidak ada official <?= $l + 1 ?></option>
 										<?php endif; ?>
 									</select>
 									<?php endfor; ?>
@@ -152,19 +153,19 @@
 								<div class="form-group col-lg-4">
 									<label for="sebagai1_1">Sebagai</label>
 									<?php for ($l = $k; $l < $b; $l++) : ?>
-									<input type="text" class="form-control" id="sebagai<?= $l ?>_<?= $i ?>" name="sebagai<?= $l ?>[]" aria-describedby="nim" placeholder="Masukkan kedudukan official <?= $l ?>" value="<?= $official[$l]['sebagai'] ?>">
+									<input type="text" class="form-control" id="sebagai<?= $l + 1 ?>_<?= $i ?>" name="sebagai<?= $l + 1 ?>[]" aria-describedby="nim" placeholder="Masukkan kedudukan official <?= $l + 1 ?>" value="<?= $official[$l]['sebagai'] ?>">
 									<?php endfor; ?>
 								</div>
 								<div class="form-group col-lg-4">
 									<label for="alergi_official1_1">Alergi makanan</label>
 									<?php for ($l = $k; $l < $b; $l++) : ?>
-									<input type="text" class="form-control" id="alergi_official<?= $l ?>_<?= $i ?>" name="alergi_official<?= $l ?>[]" aria-describedby="nim" placeholder="Masukkan alergi official <?= $l ?>" value="<?= $official[$l]['alergi'] ?>">
+									<input type="text" class="form-control" id="alergi_official<?= $l + 1 ?>_<?= $i ?>" name="alergi_official<?= $l + 1 ?>[]" aria-describedby="nim" placeholder="Masukkan alergi official <?= $l + 1 ?>" value="<?= $official[$l]['alergi'] ?>">
 									<?php endfor; ?>
 									<small class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
 								</div>
 								<div class="form-group col-lg-4">
-									<label for="paket_official_1">Pilih paket</label>
-									<select id="paket_official_1" class="form-control" name="paket_official[]">
+									<label for="paket_official_<?= $l + 1 ?>">Pilih paket</label>
+									<select id="paket_official_<?= $l + 1 ?>" class="form-control" name="paket_official[]">
 										<?php foreach ($kategoriOfficial as $key => $value) : ?>
 										<?php if ($official[$k]['kategori_id'] == $key) : ?>
 										<option value="<?= $key ?>" selected><?= $value ?></option>
@@ -178,6 +179,7 @@
 							<hr>
 						</div>
 						<?php endfor; ?>
+						<?php $k = $b ?>
 					</div>
 				</div>
 			</form>

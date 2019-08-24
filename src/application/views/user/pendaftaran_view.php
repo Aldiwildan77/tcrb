@@ -82,7 +82,7 @@
 										<div class="form-row">
 											<div class="form-group col-lg-6">
 												<label for="kategori1">Kategori pertandingan</label>
-												<select id="kategori1" class="form-control" name="kategori[]">
+												<select id="kategori1" class="form-control" name="kategori[]" required>
 													<option selected disabled>Pilih salah satu</option>
 													<option value="1">Presale 1 Cepat</option>
 													<option value="2">Presale 2 Cepat</option>
@@ -330,7 +330,7 @@
 													</div>
 												</div>
 												<hr>
-												<h6><b>Official</b></h6>
+												<h6><b>Official</b> (Kosongi jika tidak ada official)</h6>
 												<div class="form-row">
 													<div class="form-group col-lg-6">
 														<label for="official1_1">Nama Official</label>

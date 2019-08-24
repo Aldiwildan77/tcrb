@@ -239,24 +239,68 @@ class UserController extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
-	public function upload()
+	// FUNCTION UNTUK TESTING UPLOAD FILE
+	// public function upload()
+	// {
+
+	// 	if ($this->input->post('upload') != null) {
+	// 		$size = sizeof($_FILES['files']['name']);
+	// 		// echo $size;
+	// 		for ($i = 0; $i < $size; $i++) {
+	// 			$arr = [
+	// 				'name' => $_FILES['files']['name'][$i],
+	// 				'type' => $_FILES['files']['type'][$i],
+	// 				'tmp_name' => $_FILES['files']['tmp_name'][$i],
+	// 				'error' => $_FILES['files']['error'][$i],
+	// 				'size' => $_FILES['files']['size'][$i],
+	// 			];
+	// 			$this->doUpload($arr, "file-ke-$i.jpg");
+	// 		}
+	// 	} else {
+
+	// 		$this->load->view('user/upload');
+	// 	}
+	// }
+
+	public function aturArrayUpload($inputName, $i)
 	{
-		$this->load->view('user/upload');
+		$arr = [
+			'name' => $_FILES[$inputName]['name'][$i],
+			'type' => $_FILES[$inputName]['type'][$i],
+			'tmp_name' => $_FILES[$inputName]['tmp_name'][$i],
+			'error' => $_FILES[$inputName]['error'][$i],
+			'size' => $_FILES[$inputName]['size'][$i],
+		];
+
+		return $arr;
 	}
 
 	public function doUpload($file, $fileName, $path)
 	{
 		// './players/foto/'
+		$_FILES['file']['name'] = $file['name'];
+		$_FILES['file']['type'] = $file['type'];
+		$_FILES['file']['tmp_name'] = $file['tmp_name'];
+		$_FILES['file']['error'] = $file['error'];
+		$_FILES['file']['size'] = $file['size'];
+
 		$config['upload_path']      = $path;
 		$config['allowed_types']    = 'png|jpeg|jpg';
 		$config['remove_spaces']    = true;
 		$config['overwrite']        = true;
 		$config['max_sizes']        = '1024';
-		$config['file_name'] 				= array($fileName);
+		$config['file_name'] 				= $fileName;
 
 		$this->load->library('upload');
 		$this->upload->initialize($config);
-		$this->upload->do_multi_upload($file);
+		if(!$this->upload->do_upload('file')){
+			$this->session->set_flashdata('message', "<script>Swal.fire({
+				type: 'error',
+				title: 'Maaf',
+				text: 'Upload gagal',
+			})</script>");
+			redirect('user/pendaftaran');
+		}
 	}
 
 	public function prosesPendaftaranPerorangan()
@@ -273,12 +317,14 @@ class UserController extends CI_Controller
 			$pemain[$i]['jenis_kelamin'] = $this->input->post('jenisKelamin')[$i];
 			$pemain[$i]['instansi'] = $this->input->post('instansi')[$i];
 			$pemain[$i]['jurusan'] = $this->input->post('fakultas')[$i];
-			$pemain[$i]['foto_diri'] = $this->_generateNamaFoto([$pemain[$i]['nim'], $pemain[$i]['nama']], $i, 'PRG-FD');
-			$pemain[$i]['foto_kartu_pelajar'] = $this->_generateNamaFoto([$pemain[$i]['nim'], $pemain[$i]['nama']], $i, 'PRG-FKP');
+			$pemain[$i]['foto_diri'] = $this->_generateNamaFoto([$pemain[$i]['nim'], $pemain[$i]['nama']], $i + 1, 'PRG-FD');
+			$pemain[$i]['foto_kartu_pelajar'] = $this->_generateNamaFoto([$pemain[$i]['nim'], $pemain[$i]['nama']], $i + 1, 'PRG-FKP');
 			$kategori[$i] = $pemain[$i]['kategori_id'];
 
-			$this->doUpload("foto_diri", $pemain[$i]['foto_diri'], $this->fotoPath);
-			$this->doUpload("foto_kartu", $pemain[$i]['foto_kartu_pelajar'], $this->fotoPath);
+			$arrFotoDiri = $this->aturArrayUpload('foto_diri', $i);
+			$arrFotoKartu = $this->aturArrayUpload('foto_kartu', $i);
+			$this->doUpload($arrFotoDiri, $pemain[$i]['foto_diri'], $this->fotoPath);
+			$this->doUpload($arrFotoKartu, $pemain[$i]['foto_kartu_pelajar'], $this->fotoPath);
 		}
 
 		$this->UserModel->insertPerorangan($pemain);
@@ -342,8 +388,10 @@ class UserController extends CI_Controller
 				$pemain[$i][$j - 1]['foto_kartu_pelajar'] = $this->_generateNamaFoto([$reguId[$i]['id'], $pemain[$i][$j - 1]['nama']], $j, 'FKP');
 				$pemain[$i][$j - 1]['alergi'] = $this->input->post("alergi$j")[$i];
 
-				$this->doUpload("foto_diri$j", $pemain[$i][$j - 1]['foto_diri'], $this->fotoPath);
-				$this->doUpload("foto_kartu$j", $pemain[$i][$j - 1]['foto_kartu_pelajar'], $this->fotoPath);
+				$arrFotoDiri = $this->aturArrayUpload("foto_diri$j", $i);
+				$arrFotoKartu = $this->aturArrayUpload("foto_kartu$j", $i);
+				$this->doUpload($arrFotoDiri, $pemain[$i][$j - 1]['foto_diri'], $this->fotoPath);
+				$this->doUpload($arrFotoKartu, $pemain[$i][$j - 1]['foto_kartu_pelajar'], $this->fotoPath);
 				// sorry Fakhri, this method used magic because CodeIgniter seems can't solve that
 			}
 		}
@@ -392,25 +440,31 @@ class UserController extends CI_Controller
 		]);
 		$data['full'] = $this->_checkProfileFull($data['user']);
 
-    $username = $data['user']['username'];
-    $id = $data['user']['id'];
+		$username = $data['user']['username'];
+		$id = $data['user']['id'];
 		$data['check'] = $this->UserModel->checkPembayaranOrang($username) ? "orang" : ($this->UserModel->checkPembayaranRegu($username) ? "regu" : false);
-    switch ($data['check']) {
-      case 'orang':
-        $data['pemain'] = $this->UserModel->getDataPembayaranPerorangan($id);
-        $data['tot_harga'] = $this->UserModel->getTotalHargaPerorangan($id);
-        $data['status'] = $this->UserModel->getStatusPembayaranPerorangan($id);
-        break;
-      case 'regu':
-        $data['regu'] = $this->UserModel->getDataPendaftaranPerorangan($id);
-        break;
-      
-      default:
-        # code...
-        break;
-    }
-    // print_r($data['pemain']);
-    // return;
+		switch ($data['check']) {
+			case 'orang':
+				$data['pemain'] = $this->UserModel->getDataPembayaranPerorangan($id);
+				$data['totalHarga'] = $this->UserModel->getTotalHargaPerorangan($id);
+				$data['status'] = $this->UserModel->getStatusPembayaranPerorangan($id);
+				break;
+				case 'regu':
+				$data['regu'] = $this->UserModel->getDataPembayaranBeregu($id);
+				$data['pemain'] = $this->UserModel->getDataPendaftaranReguPemain($id);
+				$data['official'] = $this->UserModel->getDataPendaftaranReguOfficial($id);
+				$data['totalHarga'] = $this->UserModel->getTotalBayarRegu($id);
+				$data['p'] = 0;
+				// print_r($data['regu']);
+				// return;
+				break;
+
+			default:
+				# code...
+				break;
+		}
+		// print_r($data['pemain']);
+		// return;
 		/*
 		 * <-- business logic -->
 		 * + first, we need to check if this logged in user already done with pembayaran process

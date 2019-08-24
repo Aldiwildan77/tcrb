@@ -18,7 +18,7 @@ $route['daftar/aktivasi/(:any)'] = 'LoginController/activate/$1';
 
 //User
 $route['user'] = 'UserController';
-$route['user/upload'] = 'UserController/uploadBuktiPembayaran';
+$route['user/upload'] = 'UserController/upload';
 $route['user/edit'] = 'UserController/edit';
 $route['user/pendaftaran'] = 'UserController/pendaftaran';
 $route['user/pendaftaran-proses-orang'] = 'UserController/prosesPendaftaranPerorangan';
