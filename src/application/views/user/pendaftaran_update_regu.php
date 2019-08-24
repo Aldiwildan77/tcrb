@@ -25,7 +25,7 @@
 						<?php $k = 0 ?>
 						<?php for ($i = 0; $i < sizeof($regu); $i++) : ?>
 						<li class="nav-item">
-							<a class="nav-link regu active" id="regu1" data-toggle="tab" href="#regu<?= $i + 1 ?>" data-regu="1" role="tab" aria-controls="regu1" aria-selected="true">Regu <?= $i + 1 ?></a>
+							<a class="nav-link regu" id="regu1" data-toggle="tab" href="#regu<?= $i + 1 ?>" data-regu="1" role="tab" aria-controls="regu1" aria-selected="true">Regu <?= $i + 1 ?></a>
 						</li>
 						<?php endfor; ?>
 					</ul>
@@ -68,12 +68,11 @@
 							<div class="form-row">
 								<div class="form-group col-lg-6">
 									<?php if ($j == 0 || $j % 4 == 0) : ?>
-									<label for="pemain<?= $j + 1 ?>_<?= $i + 1 ?>">Nama Pemain <?= $j % 4 + 1 ?> (sebagai captain regu)</label>
+									<label for="pemain<?= $j + 1 ?>_<?= $i + 1 ?>">Nama Pemain <?= $j % 4 + 1 ?> (sebagai captain regu)</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Gelar diberi tanda kurung"></i>
 									<?php else : ?>
 									<label for="pemain<?= $j + 1 ?>_<?= $i + 1 ?>">Nama Pemain <?= $j % 4 + 1 ?></label>
 									<?php endif; ?>
 									<input type="text" class="form-control" id="pemain<?= $j + 1 ?>_<?= $i + 1 ?>" name="pemain<?= $j % 4 + 1 ?>[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain <?= $j + 1 ?>" value="<?= $pemain[$j]['nama'] ?>">
-									<small id="pemain<?= $j + 1 ?>" class="form-text text-muted">Gelar diberi tanda kurung</small>
 								</div>
 								<div class="form-group col-lg-6">
 									<label for="jenisKelamin<?= $j + 1 ?>_<?= $i + 1 ?>">Jenis Kelamin</label>
@@ -94,28 +93,24 @@
 									<input type="text" class="form-control" id="nim<?= $j + 1 ?>_<?= $i + 1 ?>" name="nim<?= $j % 4 + 1 ?>[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required value="<?= $pemain[$j]['nim'] ?>">
 								</div>
 								<div class="form-group col-lg-4">
-									<label for="fakultas<?= $j + 1 ?>_<?= $i + 1 ?>">Fakultas</label>
+									<label for="fakultas<?= $j + 1 ?>_<?= $i + 1 ?>">Fakultas</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Untuk Pelajar SMA diisi dengan jurusan yang diambil"></i>
 									<input type="text" class="form-control" id="fakultas<?= $j + 1 ?>_<?= $i + 1 ?>" name="fakultas<?= $j % 4 + 1 ?>[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required value="<?= $pemain[$j]['jurusan'] ?>">
-									<small id="fakultas1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 								</div>
 								<div class="form-group col-lg-4">
-									<label for="alergi<?= $j + 1 ?>_<?= $i + 1 ?>">Alergi makanan</label>
+									<label for="alergi<?= $j + 1 ?>_<?= $i + 1 ?>">Alergi makanan</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Kosongi jika tidak memiliki alergi"></i>
 									<input type="text" class="form-control" id="alergi<?= $j + 1 ?>_<?= $i + 1 ?>" name="alergi<?= $j % 4 + 1 ?>[]" aria-describedby="nim" placeholder="Masukkan alergi makanan" value="<?= $pemain[$j]['alergi'] ?>">
-									<small id="alergi<?= $j + 1 ?>_<?= $i + 1 ?>" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group col-lg-6">
-									<label for="foto_diri<?= $j + 1 ?>_<?= $i + 1 ?>">Upload foto diri</label>
+									<label for="foto_diri<?= $j + 1 ?>_<?= $i + 1 ?>">Upload foto diri</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
 									<input type="file" class="form-control-file" id="foto_diri<?= $j + 1 ?>_<?= $i + 1 ?>" name="foto_diri<?= $j % 4 + 1 ?>[]" accept="image/*" required>
-									<small id="foto_diri<?= $j + 1 ?>" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
-									<img src="<?= base_url('players/foto/') . $pemain[$j]['foto_diri'] ?>" alt="foto <?= $pemain[$j]['nama'] ?>" width="200">
+									<img src="<?= base_url('players/foto/') . $pemain[$j]['foto_diri'] ?>" class="mt-2" alt="foto <?= $pemain[$j]['nama'] ?>" width="200">
 								</div>
 								<div class="form-group col-lg-6">
-									<label for="foto_kartu<?= $j + 1 ?>_<?= $i + 1 ?>">Upload foto kartu pelajar</label>
+									<label for="foto_kartu<?= $j + 1 ?>_<?= $i + 1 ?>">Upload foto kartu pelajar</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
 									<input type="file" class="form-control-file" id="foto_kartu<?= $j + 1 ?>_<?= $i + 1 ?>" name="foto_kartu<?= $j % 4 + 1 ?>[]" accept="image/*" required>
-									<small id="foto_kartu<?= $j + 1 ?>" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
-									<img src="<?= base_url('players/foto/') . $pemain[$j]['foto_kartu_pelajar'] ?>" alt="foto <?= $pemain[$j]['nama'] ?>" width="200">
+									<img src="<?= base_url('players/foto/') . $pemain[$j]['foto_kartu_pelajar'] ?>" class="mt-2" alt="foto <?= $pemain[$j]['nama'] ?>" width="200">
 								</div>
 							</div>
 							<hr>
@@ -157,11 +152,10 @@
 									<?php endfor; ?>
 								</div>
 								<div class="form-group col-lg-4">
-									<label for="alergi_official1_1">Alergi makanan</label>
+									<label for="alergi_official1_1">Alergi makanan</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Kosongi jika tidak memiliki alergi"></i>
 									<?php for ($l = $k; $l < $b; $l++) : ?>
 									<input type="text" class="form-control" id="alergi_official<?= $l + 1 ?>_<?= $i ?>" name="alergi_official<?= $l + 1 ?>[]" aria-describedby="nim" placeholder="Masukkan alergi official <?= $l + 1 ?>" value="<?= $official[$l]['alergi'] ?>">
 									<?php endfor; ?>
-									<small class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
 								</div>
 								<div class="form-group col-lg-4">
 									<label for="paket_official_<?= $l + 1 ?>">Pilih paket</label>

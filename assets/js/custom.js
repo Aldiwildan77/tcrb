@@ -172,12 +172,11 @@ $('.beregu').on('click', '#hapusRegu', function (e) { //hapus beregu
 
 $('#tambah-perorangan').click(function (e) { //tambah perorangan
 	$('.perorangan').append('<div class="perorangan-tambahan' + urutanPerorangan + '">' +
-		'<h5 class="text-center">Pemain ' + urutanPerorangan + '</h5>' +
+		'<h5 class="font-weight-bold">Pemain ' + urutanPerorangan + '</h5>' +
 		'<div class="form-row">' +
 		'<div class="form-group col-lg-6">' +
-		'<label for="pemain' + urutanPerorangan + '">Nama Pemain</label>' +
+		'<label for="pemain' + urutanPerorangan + '">Nama Pemain</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Gelar diberi tanda kurung"></i>' +
 		'<input type="text" class="form-control" id="pemain' + urutanPerorangan + '" name="pemain[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain" required>' +
-		'<small id="pemain' + urutanPerorangan + '" class="form-text text-muted">Gelar diberi tanda kurung</small>' +
 		'</div>' +
 		'<div class="form-group col-lg-6">' +
 		'<label for="instansi' + urutanPerorangan + '">Asal instansi</label>' +
@@ -198,18 +197,17 @@ $('#tambah-perorangan').click(function (e) { //tambah perorangan
 		'<input type="text" class="form-control" id="nim' + urutanPerorangan + '" name="nim[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>' +
 		'</div>' +
 		'<div class="form-group col-lg-4">' +
-		'<label for="fakultas' + urutanPerorangan + '">Fakultas</label>' +
+		'<label for="fakultas' + urutanPerorangan + '">Fakultas</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Untuk Pelajar SMA diisi dengan jurusan yang diambil"></i>' +
 		'<input type="text" class="form-control" id="fakultas' + urutanPerorangan + '" name="fakultas[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>' +
-		'<small id="fakultas' + urutanPerorangan + '" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>' +
 		'</div>' +
 		'</div>' +
 		'<div class="form-row">' +
 		'<div class="form-group col-lg-6">' +
-		'<label for="foto_diri' + urutanPerorangan + '">Upload foto diri</label>' +
+		'<label for="foto_diri' + urutanPerorangan + '">Upload foto diri</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>' +
 		'<input type="file" class="form-control-file" id="foto_diri' + urutanPerorangan + '"  name="foto_diri[]" required accept="image/*">' +
 		'</div>' +
 		'<div class="form-group col-lg-6">' +
-		'<label for="foto_kartu' + urutanPerorangan + '">Upload foto kartu pelajar</label>' +
+		'<label for="foto_kartu' + urutanPerorangan + '">Upload foto kartu pelajar</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>' +
 		'<input type="file" class="form-control-file" id="foto_kartu' + urutanPerorangan + '"  name="foto_kartu[]" required accept="image/*">' +
 		'</div>' +
 		'</div>' +
@@ -236,6 +234,7 @@ $('#tambah-perorangan').click(function (e) { //tambah perorangan
 		text: 'Pemain berhasil ditambah',
 		type: 'success'
 	})
+	$("[data-toggle='tooltip']").tooltip()
 })
 
 $('#reguTab').on('click', '.regu', function (e) { //ganti tab beregu
@@ -282,9 +281,8 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 			<h6><b>Pemain 1 (Captain regu)</b></h6>
 			<div class="form-row">
 				<div class="form-group col-lg-6">
-					<label for="pemain1_`+ urutanBeregu + `">Nama Pemain 1 (sebagai captain regu)</label>
+					<label for="pemain1_`+ urutanBeregu + `">Nama Pemain 1 (sebagai captain regu)</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Gelar diberi tanda kurung"></i>
 					<input type="text" class="form-control" id="pemain1_`+ urutanBeregu + `" name="pemain1[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain 1" required>
-					<small id="pemain1" class="form-text text-muted">Gelar diberi tanda kurung</small>
 				</div>
 				<div class="form-group col-lg-6">
 					<label for="jenisKelamin1_`+ urutanBeregu + `">Jenis Kelamin</label>
@@ -301,26 +299,22 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 					<input type="text" class="form-control" id="nim1_`+ urutanBeregu + `" name="nim1[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>
 				</div>
 				<div class="form-group col-lg-4">
-					<label for="fakultas1_`+ urutanBeregu + `">Fakultas</label>
+					<label for="fakultas1_`+ urutanBeregu + `">Fakultas</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Untuk Pelajar SMA diisi dengan jurusan yang diambil"></i>
 					<input type="text" class="form-control" id="fakultas1_`+ urutanBeregu + `" name="fakultas1[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>
-					<small id="fakultas1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 				</div>
 				<div class="form-group col-lg-4">
-					<label for="alergi1_`+ urutanBeregu + `">Alergi makanan</label>
+					<label for="alergi1_`+ urutanBeregu + `">Alergi makanan</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Kosongi jika tidak memiliki alergi"></i>
 					<input type="text" class="form-control" id="alergi1_`+ urutanBeregu + `" name="alergi1[]" aria-describedby="nim" placeholder="Masukkan alergi makanan">
-					<small id="alergi1_`+ urutanBeregu + `" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-lg-6">
-					<label for="foto_diri1_`+ urutanBeregu + `">Upload foto diri</label>
+					<label for="foto_diri1_`+ urutanBeregu + `">Upload foto diri</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
           <input type="file" class="form-control-file" id="foto_diri1_`+ urutanBeregu + `" name="foto_diri1[]" accept="image/*" required>
-          <small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 				</div>
 				<div class="form-group col-lg-6">
-					<label for="foto_kartu1_`+ urutanBeregu + `">Upload foto kartu pelajar</label>
+					<label for="foto_kartu1_`+ urutanBeregu + `">Upload foto kartu pelajar</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
           <input type="file" class="form-control-file" id="foto_kartu1_`+ urutanBeregu + `" name="foto_kartu1[]" accept="image/*" required>
-          <small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 				</div>
 			</div>
 			<hr>
@@ -346,26 +340,22 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 					<input type="text" class="form-control" id="nim2_`+ urutanBeregu + `" name="nim2[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>
 				</div>
 				<div class="form-group col-lg-4">
-					<label for="fakultas2_`+ urutanBeregu + `">Fakultas</label>
+					<label for="fakultas2_`+ urutanBeregu + `">Fakultas</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Untuk Pelajar SMA diisi dengan jurusan yang diambil"></i>
 					<input type="text" class="form-control" id="fakultas2_`+ urutanBeregu + `" name="fakultas2[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>
-					<small id="fakultas2_`+ urutanBeregu + `" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 				</div>
 				<div class="form-group col-lg-4">
-					<label for="alergi2_`+ urutanBeregu + `">Alergi makanan</label>
+					<label for="alergi2_`+ urutanBeregu + `">Alergi makanan</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Kosongi jika tidak memiliki alergi"></i>
 					<input type="text" class="form-control" id="alergi2_`+ urutanBeregu + `" name="alergi2[]" aria-describedby="nim" placeholder="Masukkan alergi makanan">
-					<small id="alerg21_`+ urutanBeregu + `" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-lg-6">
-					<label for="foto_diri2_`+ urutanBeregu + `">Upload foto diri</label>
+					<label for="foto_diri2_`+ urutanBeregu + `">Upload foto diri</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
           <input type="file" class="form-control-file" id="foto_diri2_`+ urutanBeregu + `" name="foto_diri2[]" accept="image/*" required>
-          <small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 				</div>
 				<div class="form-group col-lg-6">
-					<label for="foto_kartu2_`+ urutanBeregu + `">Upload foto kartu pelajar</label>
+					<label for="foto_kartu2_`+ urutanBeregu + `">Upload foto kartu pelajar</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
           <input type="file" class="form-control-file" id="foto_kartu2_`+ urutanBeregu + `" name="foto_kartu2[]" accept="image/*" required>
-          <small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 				</div>
 			</div>
 			<hr>
@@ -391,26 +381,22 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 					<input type="text" class="form-control" id="nim3_`+ urutanBeregu + `" name="nim3[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>
 				</div>
 				<div class="form-group col-lg-4">
-					<label for="fakultas3_`+ urutanBeregu + `">Fakultas</label>
+					<label for="fakultas3_`+ urutanBeregu + `">Fakultas</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Untuk Pelajar SMA diisi dengan jurusan yang diambil"></i>
 					<input type="text" class="form-control" id="fakultas3_`+ urutanBeregu + `" name="fakultas3[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>
-					<small id="fakultas3_`+ urutanBeregu + `" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 				</div>
 				<div class="form-group col-lg-4">
-					<label for="alergi3_`+ urutanBeregu + `">Alergi makanan</label>
+					<label for="alergi3_`+ urutanBeregu + `">Alergi makanan</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Kosongi jika tidak memiliki alergi"></i>
 					<input type="text" class="form-control" id="alergi3_`+ urutanBeregu + `" name="alergi3[]" aria-describedby="nim" placeholder="Masukkan alergi makanan">
-					<small id="alergi3_`+ urutanBeregu + `" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-lg-6">
-					<label for="foto_diri3_`+ urutanBeregu + `">Upload foto diri</label>
+					<label for="foto_diri3_`+ urutanBeregu + `">Upload foto diri</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
           <input type="file" class="form-control-file" id="foto_diri3_`+ urutanBeregu + `" name="foto_diri3[]" accept="image/*" required>
-          <small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 				</div>
 				<div class="form-group col-lg-6">
-					<label for="foto_kartu3_`+ urutanBeregu + `">Upload foto kartu pelajar</label>
+					<label for="foto_kartu3_`+ urutanBeregu + `">Upload foto kartu pelajar</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
           <input type="file" class="form-control-file" id="foto_kartu3_`+ urutanBeregu + `" name="foto_kartu3[]" accept="image/*" required>
-          <small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 				</div>
 			</div>
 			<hr>
@@ -436,26 +422,22 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 					<input type="text" class="form-control" id="nim4_`+ urutanBeregu + `" name="nim4[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>
 				</div>
 				<div class="form-group col-lg-4">
-					<label for="fakultas4_`+ urutanBeregu + `">Fakultas</label>
+					<label for="fakultas4_`+ urutanBeregu + `">Fakultas</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Untuk Pelajar SMA diisi dengan jurusan yang diambil"></i>
 					<input type="text" class="form-control" id="fakultas4_`+ urutanBeregu + `" name="fakultas4[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>
-					<small id="fakultas1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 				</div>
 				<div class="form-group col-lg-4">
-					<label for="alergi4_`+ urutanBeregu + `">Alergi makanan</label>
+					<label for="alergi4_`+ urutanBeregu + `">Alergi makanan</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Kosongi jika tidak memiliki alergi"></i>
 					<input type="text" class="form-control" id="alergi4_`+ urutanBeregu + `" name="alergi4[]" aria-describedby="nim" placeholder="Masukkan alergi makanan">
-					<small id="alergi4_`+ urutanBeregu + `" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-lg-6">
-					<label for="foto_diri4_`+ urutanBeregu + `">Upload foto diri</label>
+					<label for="foto_diri4_`+ urutanBeregu + `">Upload foto diri</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
           <input type="file" class="form-control-file" id="foto_diri4_`+ urutanBeregu + `" name="foto_diri4[]" accept="image/*" required>
-          <small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 				</div>
 				<div class="form-group col-lg-6">
-					<label for="foto_kartu4_`+ urutanBeregu + `">Upload foto kartu pelajar</label>
+					<label for="foto_kartu4_`+ urutanBeregu + `">Upload foto kartu pelajar</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
           <input type="file" class="form-control-file" id="foto_kartu4_`+ urutanBeregu + `" name="foto_kartu4[]" accept="image/*" required>
-          <small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 				</div>
 			</div>
 			<hr>
@@ -490,10 +472,9 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 						<input type="text" class="form-control" id="sebagai2_`+ urutanBeregu + `" name="sebagai2[]" aria-describedby="nim" placeholder="Masukkan kedudukan official 2">
 					</div>
 					<div class="form-group col-lg-4">
-						<label for="alergi_official1_`+ urutanBeregu + `">Alergi makanan</label>
+						<label for="alergi_official1_`+ urutanBeregu + `">Alergi makanan</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Kosongi jika tidak memiliki alergi"></i>
 						<input type="text" class="form-control" id="alergi_official1_`+ urutanBeregu + `" name="alergi_official1[]" aria-describedby="nim" placeholder="Masukkan alergi official 1">
 						<input type="text" class="form-control" id="alergi_official2_`+ urutanBeregu + `" name="alergi_official2[]" aria-describedby="nim" placeholder="Masukkan alergi official 2">
-						<small id="alergi4_1" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
 					</div>
 					<div class="form-group col-lg-4">
 					<label for="paket_official_`+ urutanBeregu + `">Pilih paket</label>
@@ -517,10 +498,11 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 		text: 'Regu berhasil ditambah',
 		type: 'success'
 	})
+	$("[data-toggle='tooltip']").tooltip()
 })
 
 // Cek ukuran foto yang diupload
-$('.user').on('change','input[type=file]', function () {
+$('.user').on('change', 'input[type=file]', function () {
 	let filename = $(this).val();
 	if (this.files[0].size > 1024000) {
 		alert('Ukuran file terlalu besar. Ukuran file anda : ' + this.files[0].size + ' bytes')
@@ -546,18 +528,18 @@ $('.user').on('change','input[type=file]', function () {
 });
 
 // mencegah user secara tidak sengaja merefresh halaman saat ngisi form pendaftaran
-$(document).ready(function() {
+$(document).ready(function () {
 	needToConfirm = false;
 	window.onbeforeunload = askConfirm;
 });
 function askConfirm() {
 	if (needToConfirm) {
-			return "Your unsaved data will be lost.";
+		return "Your unsaved data will be lost.";
 	}
 }
-$(".user").on('change','input',function() {
+$(".user").on('change', 'input', function () {
 	let res = $(this).val()
-	if(res == ''){
+	if (res == '') {
 		needToConfirm = false;
 	} else {
 		needToConfirm = true;
@@ -567,3 +549,7 @@ $(".user").on('change','input',function() {
 $('#kategori1').change(function (e) {
 	console.log('halo')
 })
+
+$(document).ready(function () {
+	$('[data-toggle="tooltip"]').tooltip()
+});

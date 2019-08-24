@@ -278,11 +278,11 @@ class UserController extends CI_Controller
 	public function doUpload($file, $fileName, $path)
 	{
 		// './players/foto/'
-		$_FILES['file']['name'] = $file['name'];
-		$_FILES['file']['type'] = $file['type'];
+		$_FILES['file']['name'] 		= $file['name'];
+		$_FILES['file']['type'] 		= $file['type'];
 		$_FILES['file']['tmp_name'] = $file['tmp_name'];
-		$_FILES['file']['error'] = $file['error'];
-		$_FILES['file']['size'] = $file['size'];
+		$_FILES['file']['error'] 		= $file['error'];
+		$_FILES['file']['size'] 		= $file['size'];
 
 		$config['upload_path']      = $path;
 		$config['allowed_types']    = 'png|jpeg|jpg';
@@ -293,7 +293,7 @@ class UserController extends CI_Controller
 
 		$this->load->library('upload');
 		$this->upload->initialize($config);
-		if(!$this->upload->do_upload('file')){
+		if (!$this->upload->do_upload('file')) {
 			$this->session->set_flashdata('message', "<script>Swal.fire({
 				type: 'error',
 				title: 'Maaf',
@@ -434,71 +434,99 @@ class UserController extends CI_Controller
 
 	public function pembayaran()
 	{
-		$data['title'] = 'Pembayaran';
-		$data['user'] = $this->UserModel->getDataUser([
-			'username' => $this->session->userdata['username']
-		]);
-		$data['full'] = $this->_checkProfileFull($data['user']);
-
-		$username = $data['user']['username'];
-		$id = $data['user']['id'];
-		$data['check'] = $this->UserModel->checkPembayaranOrang($username) ? "orang" : ($this->UserModel->checkPembayaranRegu($username) ? "regu" : false);
-		switch ($data['check']) {
-			case 'orang':
-				$data['pemain'] = $this->UserModel->getDataPembayaranPerorangan($id);
-				$data['totalHarga'] = $this->UserModel->getTotalHargaPerorangan($id);
-				$data['status'] = $this->UserModel->getStatusPembayaranPerorangan($id);
-				break;
-				case 'regu':
-				$data['regu'] = $this->UserModel->getDataPembayaranBeregu($id);
-				$data['pemain'] = $this->UserModel->getDataPendaftaranReguPemain($id);
-				$data['official'] = $this->UserModel->getDataPendaftaranReguOfficial($id);
-				$data['totalHarga'] = $this->UserModel->getTotalBayarRegu($id);
-				$data['p'] = 0;
-				// print_r($data['regu']);
-				// return;
-				break;
-
-			default:
-				# code...
-				break;
+		if (empty($_FILES['buktiBayar']['name'])) {
+			$this->form_validation->set_message('required', 'Kolom {field} tidak boleh kosong.');
+			$this->form_validation->set_rules('buktiBayar', 'bukti bayar', 'required');
+		} else {
+			$this->form_validation->set_rules('buktiBayar', 'bukti bayar', 'trim|xss_clean');
 		}
-		// print_r($data['pemain']);
-		// return;
-		/*
-		 * <-- business logic -->
-		 * + first, we need to check if this logged in user already done with pembayaran process
-		 * 		if its return true then frontend show 'cetak struk' button
-		 *  	else frontend show 'upload' button along with input upload
-		 *
-		 * + second, while check variables return true then 'cetak struk' button shown,
-		 * 	 those actions should be sending an email into user with a body of the invoice
-		 *
-		 * + third, if check variables return false then 'upload' button shown,
-		 * 	 those actions should be sending files with according to upload configuration setting
-		 */
+		if ($this->form_validation->run() == false) {
+			$data['title'] = 'Pembayaran';
+			$data['user'] = $this->UserModel->getDataUser([
+				'username' => $this->session->userdata['username']
+			]);
+			$data['full'] = $this->_checkProfileFull($data['user']);
 
+			$username = $data['user']['username'];
+			$id = $data['user']['id'];
+			$data['check'] = $this->UserModel->checkPembayaranOrang($username) ? "orang" : ($this->UserModel->checkPembayaranRegu($username) ? "regu" : 'null');
+			// print_r($data['check']);
+			// return;
+			switch ($data['check']) {
+				case 'orang':
+					$data['pemain'] = $this->UserModel->getDataPembayaranPerorangan($id);
+					$data['totalHarga'] = $this->UserModel->getTotalHargaPerorangan($id);
+					$data['status'] = $this->UserModel->getStatusPembayaranPerorangan($id);
+					break;
+					case 'regu':
+					$data['regu'] = $this->UserModel->getDataPembayaranBeregu($id);
+					$data['pemain'] = $this->UserModel->getDataPendaftaranReguPemain($id);
+					$data['official'] = $this->UserModel->getDataPendaftaranReguOfficial($id);
+					$data['totalHarga'] = $this->UserModel->getTotalBayarRegu($id);
+					$data['p'] = 0;
+					// print_r($data['regu']);
+					// return;
+					break;
 
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/aside_user', $data);
-		$this->load->view('user/pembayaran_view', $data);
-		$this->load->view('templates/footer');
+				default:
+					# code...
+					break;
+			}
+			/*
+			 * <-- business logic -->
+			 * + first, we need to check if this logged in user already done with pembayaran process
+			 * 		if its return true then frontend show 'cetak struk' button
+			 *  	else frontend show 'upload' button along with input upload
+			 *
+			 * + second, while check variables return true then 'cetak struk' button shown,
+			 * 	 those actions should be sending an email into user with a body of the invoice
+			 *
+			 * + third, if check variables return false then 'upload' button shown,
+			 * 	 those actions should be sending files with according to upload configuration setting
+			 */
+
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/aside_user', $data);
+			$this->load->view('user/pembayaran_view', $data);
+			$this->load->view('templates/footer');
+		} else {
+
+			['username' => $username] = $this->session->userdata();
+			['id' => $id] = $this->session->userdata();
+
+			$check = $this->UserModel->checkPembayaranOrang($username) ? "orang" : ($this->UserModel->checkPembayaranRegu($username) ? "regu" : false);
+			if (!$check) return false;
+			// this should return an error message instead of boolean, but its ok
+
+			$where = array('user_id' => $this->session->userdata('id'));
+			['token' => $token] = $this->UserModel->getDataPembayaran($check, $where);
+
+			// $arrBuktiBayar = $this->aturArrayUpload($this->input->post('buktiBayar'), 0);
+			// $this->doUpload($arrBuktiBayar, "$username.jpg", $this->pembayaranPath);
+			$config['upload_path']      = $this->pembayaranPath;
+			$config['allowed_types']    = 'png|jpeg|jpg';
+			$config['remove_spaces']    = true;
+			$config['overwrite']        = true;
+			$config['max_sizes']        = '1024';
+			$config['file_name'] 				= "$username.jpg";
+
+			$this->load->library('upload');
+			$this->upload->initialize($config);
+			if ($this->upload->do_upload('buktiBayar')) {
+				$arrUpdate = ['bukti_bayar' => "$username.jpg", 'status_bayar' => 1];
+				$this->UserModel->updatePembayaran($check, $arrUpdate, $id);
+				$this->session->set_flashdata('message-user', "<script>Swal.fire({
+					type: 'success',
+					title: 'Berhasil',
+					text: 'Bukti bayar berhasil disimpan. Silahkan menunggu hingga pembayaran anda divalidasi oleh admin',
+				})</script>");
+				redirect('user/pembayaran');
+			}
+		}
 	}
 
 	public function uploadBuktiPembayaran()
-	{
-		// html input file name should be named as bukti_bayar
-		['username' => $username] = $this->session->userdata();
-
-		$check = $this->UserModel->checkPembayaranOrang($username) ? "orang" : ($this->UserModel->checkPembayaranRegu($username) ? "regu" : false);
-		if (!$check) return false;
-		// this should return an error message instead of boolean, but its ok
-
-		$where = array('user_id' => $this->session->userdata('id'));
-		['token' => $token] = $this->UserModel->getDataPembayaran($check, $where);
-
-		$this->doUpload('bukti_bayar', $token, $this->pembayaranPath);
-	}
+	{ }
 
 	public function sendAbsensiMail()
 	{

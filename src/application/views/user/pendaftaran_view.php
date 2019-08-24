@@ -39,9 +39,8 @@
 										<h5 class="font-weight-bold">Pemain 1</h5>
 										<div class="form-row">
 											<div class="form-group col-lg-6">
-												<label for="pemain1">Nama Pemain</label>
+												<label for="pemain1">Nama Pemain</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Gelar diberi tanda kurung"></i>
 												<input type="text" class="form-control" id="pemain1" name="pemain[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain" required>
-												<small id="pemain1" class="form-text text-muted">Gelar diberi tanda kurung</small>
 											</div>
 											<div class="form-group col-lg-6">
 												<label for="instansi1">Asal instansi</label>
@@ -62,21 +61,18 @@
 												<input type="text" class="form-control" id="nim1" name="nim[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>
 											</div>
 											<div class="form-group col-lg-4">
-												<label for="fakultas1">Fakultas</label>
+												<label for="fakultas1">Fakultas</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Untuk Pelajar SMA diisi dengan jurusan yang diambil"></i>
 												<input type="text" class="form-control" id="fakultas1" name="fakultas[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>
-												<small id="fakultas1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 											</div>
 										</div>
 										<div class="form-row">
 											<div class="form-group col-lg-6">
-												<label for="foto_diri1">Upload foto diri</label>
+												<label for="foto_diri1">Upload foto diri</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
 												<input type="file" class="form-control-file" id="foto_diri1" name="foto_diri[]" accept="image/*" required>
-												<small id="foto_diri1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 											</div>
 											<div class="form-group col-lg-6">
-												<label for="foto_kartu1">Upload foto kartu pelajar</label>
+												<label for="foto_kartu1">Upload foto kartu pelajar</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
 												<input type="file" class="form-control-file" id="foto_kartu1" name="foto_kartu[]" accept="image/*" required>
-												<small id="foto_kartu1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 											</div>
 										</div>
 										<div class="form-row">
@@ -153,9 +149,8 @@
 												<h6><b>Pemain 1 (Captain regu)</b></h6>
 												<div class="form-row">
 													<div class="form-group col-lg-6">
-														<label for="pemain1_1">Nama Pemain 1 (sebagai captain regu)</label>
+														<label for="pemain1_1">Nama Pemain 1 (sebagai captain regu)</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Gelar diberi tanda kurung"></i>
 														<input type="text" class="form-control" id="pemain1_1" name="pemain1[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain 1">
-														<small id="pemain1" class="form-text text-muted">Gelar diberi tanda kurung</small>
 													</div>
 													<div class="form-group col-lg-6">
 														<label for="jenisKelamin1_1">Jenis Kelamin</label>
@@ -172,35 +167,30 @@
 														<input type="text" class="form-control" id="nim1_1" name="nim1[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>
 													</div>
 													<div class="form-group col-lg-4">
-														<label for="fakultas1_1">Fakultas</label>
+														<label for="fakultas1_1">Fakultas</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Untuk Pelajar SMA diisi dengan jurusan yang diambil"></i>
 														<input type="text" class="form-control" id="fakultas1_1" name="fakultas1[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>
-														<small id="fakultas1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 													</div>
 													<div class="form-group col-lg-4">
-														<label for="alergi1_1">Alergi makanan</label>
+														<label for="alergi1_1">Alergi makanan</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Kosongi jika tidak memiliki alergi"></i>
 														<input type="text" class="form-control" id="alergi1_1" name="alergi1[]" aria-describedby="nim" placeholder="Masukkan alergi makanan">
-														<small id="alergi1_1" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
 													</div>
 												</div>
 												<div class="form-row">
 													<div class="form-group col-lg-6">
-														<label for="foto_diri1_1">Upload foto diri</label>
+														<label for="foto_diri1_1">Upload foto diri</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
 														<input type="file" class="form-control-file" id="foto_diri1_1" name="foto_diri1[]" accept="image/*" required>
-														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 													<div class="form-group col-lg-6">
-														<label for="foto_kartu1_1">Upload foto kartu pelajar</label>
+														<label for="foto_kartu1_1">Upload foto kartu pelajar</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
 														<input type="file" class="form-control-file" id="foto_kartu1_1" name="foto_kartu1[]" accept="image/*" required>
-														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 												</div>
 												<hr>
 												<h6><b>Pemain 2</b></h6>
 												<div class="form-row">
 													<div class="form-group col-lg-6">
-														<label for="pemain2_1">Nama Pemain 2</label>
+														<label for="pemain2_1">Nama Pemain 2</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Gelar diberi tanda kurung"></i>
 														<input type="text" class="form-control" id="pemain2_1" name="pemain2[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain 2" required>
-														<small id="pemain2_1" class="form-text text-muted">Gelar diberi tanda kurung</small>
 													</div>
 													<div class="form-group col-lg-6">
 														<label for="jenisKelamin2_1">Jenis Kelamin</label>
@@ -217,35 +207,30 @@
 														<input type="text" class="form-control" id="nim2_1" name="nim2[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>
 													</div>
 													<div class="form-group col-lg-4">
-														<label for="fakultas2_1">Fakultas</label>
+														<label for="fakultas2_1">Fakultas</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Untuk Pelajar SMA diisi dengan jurusan yang diambil"></i>
 														<input type="text" class="form-control" id="fakultas2_1" name="fakultas2[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>
-														<small id="fakultas1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 													</div>
 													<div class="form-group col-lg-4">
-														<label for="alergi2_1">Alergi makanan</label>
+														<label for="alergi2_1">Alergi makanan</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Kosongi jika tidak memiliki alergi"></i>
 														<input type="text" class="form-control" id="alergi2_1" name="alergi2[]" aria-describedby="nim" placeholder="Masukkan alergi makanan">
-														<small id="alergi2_1" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
 													</div>
 												</div>
 												<div class="form-row">
 													<div class="form-group col-lg-6">
-														<label for="foto_diri2_1">Upload foto diri</label>
+														<label for="foto_diri2_1">Upload foto diri</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
 														<input type="file" class="form-control-file" id="foto_diri2_1" name="foto_diri2[]" accept="image/*" required>
-														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 													<div class="form-group col-lg-6">
-														<label for="foto_kartu2_1">Upload foto kartu pelajar</label>
+														<label for="foto_kartu2_1">Upload foto kartu pelajar</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
 														<input type="file" class="form-control-file" id="foto_kartu2_1" name="foto_kartu2[]" accept="image/*" required>
-														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 												</div>
 												<hr>
 												<h6><b>Pemain 3</b></h6>
 												<div class="form-row">
 													<div class="form-group col-lg-6">
-														<label for="pemain3_1">Nama Pemain 3</label>
+														<label for="pemain3_1">Nama Pemain 3</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Gelar diberi tanda kurung"></i>
 														<input type="text" class="form-control" id="pemain3_1" name="pemain3[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain 3" required>
-														<small id="pemain1" class="form-text text-muted">Gelar diberi tanda kurung</small>
 													</div>
 													<div class="form-group col-lg-6">
 														<label for="jenisKelamin3_1">Jenis Kelamin</label>
@@ -262,35 +247,30 @@
 														<input type="text" class="form-control" id="nim3_1" name="nim3[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>
 													</div>
 													<div class="form-group col-lg-4">
-														<label for="fakultas3_1">Fakultas</label>
+														<label for="fakultas3_1">Fakultas</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Untuk Pelajar SMA diisi dengan jurusan yang diambil"></i>
 														<input type="text" class="form-control" id="fakultas3_1" name="fakultas3[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>
-														<small id="fakultas3_1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 													</div>
 													<div class="form-group col-lg-4">
-														<label for="alergi3_1">Alergi makanan</label>
+														<label for="alergi3_1">Alergi makanan</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Kosongi jika tidak memiliki alergi"></i>
 														<input type="text" class="form-control" id="alergi3_1" name="alergi3[]" aria-describedby="nim" placeholder="Masukkan alergi makanan">
-														<small id="alergi3_1" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
 													</div>
 												</div>
 												<div class="form-row">
 													<div class="form-group col-lg-6">
-														<label for="foto_diri3_1">Upload foto diri</label>
+														<label for="foto_diri3_1">Upload foto diri</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
 														<input type="file" class="form-control-file" id="foto_diri3_1" name="foto_diri3[]" accept="image/*" required>
-														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 													<div class="form-group col-lg-6">
-														<label for="foto_kartu3_1">Upload foto kartu pelajar</label>
+														<label for="foto_kartu3_1">Upload foto kartu pelajar</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
 														<input type="file" class="form-control-file" id="foto_kartu3_1" name="foto_kartu3[]" accept="image/*" required>
-														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 												</div>
 												<hr>
 												<h6><b>Pemain 4</b></h6>
 												<div class="form-row">
 													<div class="form-group col-lg-6">
-														<label for="pemain4_1">Nama Pemain 4</label>
+														<label for="pemain4_1">Nama Pemain 4</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Gelar diberi tanda kurung"></i>
 														<input type="text" class="form-control" id="pemain4_1" name="pemain4[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain 4" required>
-														<small id="pemain4_1" class="form-text text-muted">Gelar diberi tanda kurung</small>
 													</div>
 													<div class="form-group col-lg-6">
 														<label for="jenisKelamin4_1">Jenis Kelamin</label>
@@ -307,26 +287,22 @@
 														<input type="text" class="form-control" id="nim4_1" name="nim4[]" aria-describedby="nim" placeholder="Masukkan nim/nis" required>
 													</div>
 													<div class="form-group col-lg-4">
-														<label for="fakultas4_1">Fakultas</label>
+														<label for="fakultas4_1">Fakultas</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Untuk Pelajar SMA diisi dengan jurusan yang diambil"></i>
 														<input type="text" class="form-control" id="fakultas4_1" name="fakultas4[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" required>
-														<small id="fakultas4_1" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 													</div>
 													<div class="form-group col-lg-4">
-														<label for="alergi4_1">Alergi makanan</label>
+														<label for="alergi4_1">Alergi makanan</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Kosongi jika tidak memiliki alergi"></i>
 														<input type="text" class="form-control" id="alergi4_1" name="alergi4[]" aria-describedby="nim" placeholder="Masukkan alergi makanan">
-														<small id="alergi4_1" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
 													</div>
 												</div>
 												<div class="form-row">
 													<div class="form-group col-lg-6">
-														<label for="foto_diri4_1">Upload foto diri</label>
+														<label for="foto_diri4_1">Upload foto diri</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
 														<input type="file" class="form-control-file" id="foto_diri4_1" name="foto_diri4[]" accept="image/*" required>
-														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 													<div class="form-group col-lg-6">
-														<label for="foto_kartu4_1">Upload foto kartu pelajar</label>
+														<label for="foto_kartu4_1">Upload foto kartu pelajar</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
 														<input type="file" class="form-control-file" id="foto_kartu4_1" name="foto_kartu4[]" accept="image/*" required>
-														<small id="pemain1" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
 													</div>
 												</div>
 												<hr>
@@ -361,10 +337,9 @@
 														<input type="text" class="form-control" id="sebagai2_1" name="sebagai2[]" aria-describedby="nim" placeholder="Masukkan kedudukan official 2">
 													</div>
 													<div class="form-group col-lg-4">
-														<label for="alergi_official1_1">Alergi makanan</label>
+														<label for="alergi_official1_1">Alergi makanan</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Kosongi jika tidak memiliki alergi"></i>
 														<input type="text" class="form-control" id="alergi_official1_1" name="alergi_official1[]" aria-describedby="nim" placeholder="Masukkan alergi official 1">
 														<input type="text" class="form-control" id="alergi_official2_1" name="alergi_official2[]" aria-describedby="nim" placeholder="Masukkan alergi official 2">
-														<small id="alergi4_1" class="form-text text-muted">Kosongi jika tidak memiliki alergi</small>
 													</div>
 													<div class="form-group col-lg-4">
 														<label for="paket_official_1">Pilih paket</label>

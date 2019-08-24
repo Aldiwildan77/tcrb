@@ -210,4 +210,10 @@ class UserModel extends CI_Model
 	{
 		$this->db->insert('pem_orang', $data);
 	}
+
+	public function updatePembayaran($suffix, $data, $userId)
+	{
+		$this->db->where('user_id', $userId);
+		$this->db->update("pem_$suffix", $data);
+	}
 }

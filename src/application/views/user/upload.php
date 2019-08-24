@@ -14,6 +14,7 @@
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="<?= base_url('assets/vendor/font-awesome-4.7.0/css/font-awesome.min.css'); ?>">
 
 	<title>Hello, world!</title>
 
@@ -29,7 +30,7 @@
 						<input type="file" class="form-control-file myFile" id="myFile" name="files[]">
 					</div>
 					<div class="form-group">
-						<label for="exampleFormControlFile1">Example file input 2</label>
+						<label for="exampleFormControlFile1">Example file input 2</label><i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Tooltip on top"></i>
 						<input type="file" class="form-control-file myFile" id="myFile" name="files[]">
 					</div>
 					<input class="btn btn-primary" type="submit" name="upload" value="upload">
@@ -50,6 +51,10 @@
 				alert('terlalu besar')
 			}
 		});
+
+		$(function() {
+			$('[data-toggle="tooltip"]').tooltip()
+		})
 	</script>
 </body>
 

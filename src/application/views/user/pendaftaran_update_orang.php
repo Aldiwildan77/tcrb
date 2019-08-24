@@ -30,9 +30,8 @@
 					<h5 class="font-weight-bold">Pemain <?= $i + 1 ?></h5>
 					<div class="form-row">
 						<div class="form-group col-lg-6">
-							<label for="pemain<?= $i + 1 ?>">Nama Pemain</label>
+							<label for="pemain<?= $i + 1 ?>">Nama Pemain</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Gelar diberi tanda kurung"></i>
 							<input type="text" class="form-control" id="pemain<?= $i + 1 ?>" name="pemain[]" aria-describedby="namaPemain" placeholder="Masukkan nama pemain" value="<?= $pemain[$i]['nama'] ?>" required>
-							<small id="pemain<?= $i + 1 ?>" class="form-text text-muted">Gelar diberi tanda kurung</small>
 						</div>
 						<div class="form-group col-lg-6">
 							<label for="instansi<?= $i + 1 ?>">Asal instansi</label>
@@ -57,23 +56,20 @@
 							<input type="text" class="form-control" id="nim<?= $i + 1 ?>" name="nim[]" aria-describedby="nim" placeholder="Masukkan nim/nis" value="<?= $pemain[$i]['nim'] ?>" required>
 						</div>
 						<div class="form-group col-lg-4">
-							<label for="fakultas<?= $i + 1 ?>">Fakultas</label>
+							<label for="fakultas<?= $i + 1 ?>">Fakultas</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="Untuk Pelajar SMA diisi dengan jurusan yang diambil"></i>
 							<input type="text" class="form-control" id="fakultas<?= $i + 1 ?>" name="fakultas[]" aria-describedby="fakultas" placeholder="Masukkan fakultas" value="<?= $pemain[$i]['jurusan'] ?>" required>
-							<small id="fakultas<?= $i + 1 ?>" class="form-text text-muted">Untuk Pelajar SMA diisi dengan jurusan yang diambil</small>
 						</div>
 					</div>
 					<div class="form-row">
 						<div class="form-group col-lg-6">
-							<label for="foto_diri<?= $i + 1 ?>">Upload foto diri</label>
+							<label for="foto_diri<?= $i + 1 ?>">Upload foto diri</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
 							<input type="file" class="form-control-file" id="foto_diri<?= $i + 1 ?>" name="foto_diri[]" accept="image/*" required>
-							<small id="foto_diri<?= $i + 1 ?>" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
-							<img src="<?= base_url('players/foto/') . $pemain[$i]['foto_diri'] ?>" alt="foto <?= $pemain[$i]['nama'] ?>" width="200">
+							<img src="<?= base_url('players/foto/') . $pemain[$i]['foto_diri'] ?>" class="mt-1" alt="foto <?= $pemain[$i]['nama'] ?>" width="200">
 						</div>
 						<div class="form-group col-lg-6">
-							<label for="foto_kartu<?= $i + 1 ?>">Upload foto kartu pelajar</label>
+							<label for="foto_kartu<?= $i + 1 ?>">Upload foto kartu pelajar</label> <i class="far fa-question-circle" data-toggle="tooltip" data-placement="top" title="File berupa 1 foto dan maksimal berukuran 1MB"></i>
 							<input type="file" class="form-control-file" id="foto_kartu<?= $i + 1 ?>" name="foto_kartu[]" accept="image/*" required>
-							<small id="foto_kartu<?= $i + 1 ?>" class="form-text text-muted">File berupa 1 foto dan maksimal berukuran 1MB</small>
-							<img src="<?= base_url('players/foto/') . $pemain[$i]['foto_kartu_pelajar'] ?>" alt="foto <?= $pemain[$i]['nama'] ?>" width="200">
+							<img src="<?= base_url('players/foto/') . $pemain[$i]['foto_kartu_pelajar'] ?>" class="mt-1" alt="foto <?= $pemain[$i]['nama'] ?>" width="200">
 						</div>
 					</div>
 					<div class="form-row">

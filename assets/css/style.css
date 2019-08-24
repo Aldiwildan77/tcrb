@@ -427,6 +427,10 @@ a.tombol-user {
 	background: #B0EEFD
 }
 
+.tooltip-inner {
+  background-color: #6c757d !important;
+}
+
 /* END Halaman User */
 
 /* START Halaman Pembayaran User */
