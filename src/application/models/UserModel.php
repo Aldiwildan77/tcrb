@@ -137,12 +137,35 @@ class UserModel extends CI_Model
 	public function getDataPendaftaranReguPemain($userId)
 	{
 		return $this->db->get_where('pl_beregu', ['user_id' => $userId])->result_array();
-	}
-	public function getDataPendaftaranReguOfficial()
+  }
+  
+  public function getJumlahReguOfficial($userId){
+    $this->db->select('o.nama');
+    $this->db->from('regu r');
+    $this->db->where('r.user_id', $userId);
+    $this->db->join('official o', 'o.regu_id = r.id');
+    $this->db->where('o.kategori_id is not null');
+    return $this->db->get()->result_array();
+  }
+
+	public function getDataPendaftaranReguOfficial($userId)
 	{
-		$this->db->select('o.kategori_id, o.nama, o.jenis_kelamin, o.sebagai, o.alergi');
-		$this->db->from('official o');
-		$this->db->join('regu r', 'r.id = o.regu_id');
+		$this->db->select('k.nama as namaPaket, o.kategori_id, o.nama, o.jenis_kelamin, o.sebagai, o.alergi');
+    $this->db->from('official o');
+    $this->db->join('regu r', 'r.id = o.regu_id', 'left');
+    $this->db->join('kategori k', 'o.kategori_id = k.id', 'left');
+    $this->db->where('r.user_id', $userId);
+		return $this->db->get()->result_array();
+  }
+  
+	public function getDataPendaftaranReguOfficialNotNull($userId)
+	{
+		$this->db->select('k.nama as namaPaket, o.kategori_id, o.nama, o.jenis_kelamin, o.sebagai, o.alergi');
+    $this->db->from('official o');
+    $this->db->where('o.kategori_id is not null');
+    $this->db->join('regu r', 'r.id = o.regu_id', 'left');
+    $this->db->join('kategori k', 'o.kategori_id = k.id', 'left');
+    $this->db->where('r.user_id', $userId);
 		return $this->db->get()->result_array();
 	}
 

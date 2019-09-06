@@ -71,14 +71,14 @@
 							<th scope="row"><?= $i + 1 ?></th>
 							<td><?= $pemain[$i]['nama_pemain'] ?></td>
 							<td><?= $pemain[$i]['nama_kategori'] ?></td>
-							<td class="text-right"><?= $pemain[$i]['harga'] ?></td>
+							<td class="text-right"><?= number_format($pemain[$i]['harga'], 0, ',', '.') ?></td>
 						</tr>
 						<?php endfor; ?>
 						<tr>
-							<th scope="row"> </th>
+							<td class="bg-light"> </td>
 							<td class="bg-light"> </td>
 							<td class="bg-light" style="text-align:right;">Total : </td>
-							<td class="bg-dark text-white text-right"><?= $totalHarga ?></td>
+							<td class="bg-dark text-white text-right"><?= number_format($totalHarga, 0, ',', '.') ?></td>
 						</tr>
 					</tbody>
 				</table>
@@ -113,6 +113,26 @@
 		<!-- Tabel beregu -->
 		<div class="row mx-auto">
 			<div class="table-responsive">
+      <table class="table table-striped table-borderless table-sm">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">No</th>
+							<th scope="col">Nama Official</th>
+							<th scope="col">Kategori Official</th>
+						</tr>
+					</thead>
+					<tbody>
+            <?php if(isset($official)):?>
+						<?php for ($i = 0; $i < sizeof($official); $i++) : ?>
+						<tr>
+							<th scope="row"><?= $i + 1 ?></th>
+							<td><?= $official[$i]['nama'] ?></td>
+							<td><?= $official[$i]['namaPaket'] ?></td>
+            </tr>			
+            <?php endfor; ?>
+            <?php endif; ?>
+					</tbody>
+				</table>
 				<table class="table table-striped table-borderless table-sm">
 					<thead class="thead-dark">
 						<tr>
@@ -130,7 +150,7 @@
 							<td rowspan="4"><?= $regu[$i]['nama'] ?></td>
 							<td rowspan="4"><?= $regu[$i]['namaPaket'] ?></td>
 							<td><?= $pemain[$p]['nama'] ?></td>
-							<td class="text-right" rowspan="4"><?= $regu[$i]['total'] ?></td>
+							<td class="text-right" rowspan="4"><?= number_format($regu[$i]['total'], 0, ',', '.') ?></td>
 						</tr>
 						<?php $temp = $p + 4; ?>
 						<?php for ($j = $p + 1; $j < $temp; $j++) : ?>
@@ -145,10 +165,11 @@
 							<td class="bg-light"> </td>
 							<td class="bg-light"> </td>
 							<td class="bg-light" style="text-align:right;">Total : </td>
-							<td class="bg-dark text-white text-right"> <?= $totalHarga['total'] ?></td>
+							<td class="bg-dark text-white text-right"> <?= number_format($totalHarga['total'], 0, ',', '.') ?></td>
 						</tr>
 					</tbody>
-				</table>
+        </table>
+
 			</div>
 		</div>
 		<div class="row">

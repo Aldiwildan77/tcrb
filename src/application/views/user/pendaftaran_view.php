@@ -18,7 +18,7 @@
 							<div class="col-12">
 								<!-- Perorangan -->
 								<h4 class="text-center mt-2 mb-2">FORM PENDAFTARAN PERORANGAN</h4>
-								<form action="<?= base_url('user/pendaftaran-proses-orang') ?>" method="post" enctype="multipart/form-data" id="formPerorangan">
+								<form onsubmit="return confirm('Setelah melakukan pendaftaran, anda tidak dapat mengganti jumlah pemain / regu. Namun anda masih dapat mengganti data diri pemain / regu')"action="<?= base_url('user/pendaftaran-proses-orang') ?>" method="post" enctype="multipart/form-data" id="formPerorangan">
 									<div class="row mb-3">
 										<div class="col-12">
 											<div class="row no-gutters justify-content-center">
@@ -29,7 +29,7 @@
 													<button type="button" id="tambah-perorangan" class="btn btn-sm btn-info btn-block">Tambah pemain</button>
 												</div>
 												<div class="col col-auto col-lg col-md col-sm col-xs mx-1">
-													<button class="btn btn-sm btn-success btn-block">Submit</button>
+													<button id="submit-form" class="btn btn-sm btn-success btn-block">Submit</button>
 												</div>
 											</div>
 										</div>

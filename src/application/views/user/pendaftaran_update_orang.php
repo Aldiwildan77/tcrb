@@ -1,11 +1,6 @@
 <div class="col-lg-8 offset-lg-1 user pt-5">
 	<div class="row">
 		<div class="col-12">
-			<h3 class="text-center"><b>Pilih Kategori Pendaftaran</b></h3>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-12">
 			<!-- Perorangan -->
 			<h4 class="text-center mt-2 mb-2">FORM PENDAFTARAN PERORANGAN</h4>
 			<form action="<?= base_url('user/pendaftaran-proses-orang') ?>" method="post" enctype="multipart/form-data" id="formPerorangan">
@@ -14,9 +9,6 @@
 						<div class="row no-gutters justify-content-center">
 							<div class="col col-auto col-lg col-md col-sm col-xs mx-1">
 								<button type="button" class="btn btn-sm btn-warning text-white btn-block" data-toggle="modal" data-target="#modalPerorangan">Lihat harga</button>
-							</div>
-							<div class="col col-auto col-lg col-md col-sm col-xs mx-1">
-								<button type="button" id="tambah-perorangan" class="btn btn-sm btn-info btn-block">Tambah pemain</button>
 							</div>
 							<div class="col col-auto col-lg col-md col-sm col-xs mx-1">
 								<button class="btn btn-sm btn-success btn-block">Submit</button>

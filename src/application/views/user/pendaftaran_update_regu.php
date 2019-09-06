@@ -11,9 +11,6 @@
 								<button type="button" class="btn btn-sm btn-warning text-white btn-block" data-toggle="modal" data-target="#modalBeregu">Lihat harga</button>
 							</div>
 							<div class="col col-auto col-lg col-md col-sm col-xs mx-1">
-								<button type="button" id="tambah-regu" class="btn btn-sm btn-info btn-block">Tambah regu</button>
-							</div>
-							<div class="col col-auto col-lg col-md col-sm col-xs mx-1">
 								<button class="btn btn-sm btn-success btn-block">Submit</button>
 							</div>
 						</div>
@@ -129,16 +126,16 @@
 									<label for="jk_official1_1">Jenis Kelamin</label>
 									<?php for ($l = $k; $l < $b; $l++) : ?>
 									<select id="jk_official<?= $l + 1 ?>_<?= $i ?>" class="form-control" name="jk_official<?= $l + 1 ?>[]">
-										<?php if (!empty($official[$l]['jenis_kelamin'])) : ?>
-										<?php foreach ($jenis_kelamin as $key => $value) : ?>
-										<?php if ($official[$l]['jenis_kelamin'] == $key) : ?>
-										<option value="<?= $key ?>" selected><?= $value ?></option>
-										<?php else : ?>
-										<option value="<?= $key ?>"><?= $value ?></option>
-										<?php endif; ?>
-										<?php endforeach ?>
-										<?php else : ?>
-										<option>Tidak ada official <?= $l + 1 ?></option>
+                  <?php foreach ($jenis_kelamin as $key => $value) : ?>
+                  <?php if ($official[$l]['jenis_kelamin'] == $key) : ?>
+                        <option value="<?= $key ?>" selected><?= $value ?></option>
+                      <?php else : ?>
+                      <option value="<?= $key ?>"><?= $value ?></option>
+                      <?php endif; ?>
+                      <?php endforeach ?>
+                      <?php //else : ?>
+                      <?php if (empty($official[$l]['jenis_kelamin'])) : ?>
+                      <option selected>Tidak ada official <?= $l + 1 ?></option>
 										<?php endif; ?>
 									</select>
 									<?php endfor; ?>
@@ -166,14 +163,17 @@
 										<?php else : ?>
 										<option value="<?= $key ?>"><?= $value ?></option>
 										<?php endif; ?>
-										<?php endforeach ?>
+                    <?php endforeach ?>
+                    <?php if (empty($official[$k]['kategori_id'])) : ?>
+                      <option selected>Tidak ada official</option>
+										<?php endif; ?>
 									</select>
 								</div>
 							</div>
 							<hr>
 						</div>
-						<?php endfor; ?>
 						<?php $k = $b ?>
+						<?php endfor; ?>
 					</div>
 				</div>
 			</form>

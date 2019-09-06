@@ -113,6 +113,8 @@ class UserController extends CI_Controller
 			]);
 			$data['full'] = $this->_checkProfileFull($data['user']);
 
+      $data['sebagai'] = ['Pelatih', 'Manajer', 'Pemain'];
+
 			$this->load->view('templates/header', $data);
 			$this->load->view('templates/aside_user', $data);
 			$this->load->view('user/edit_view', $data);
@@ -229,7 +231,7 @@ class UserController extends CI_Controller
 			case 'regu':
 				$data['regu'] = $this->UserModel->getDataPendaftaranRegu($id);
 				$data['pemain'] = $this->UserModel->getDataPendaftaranReguPemain($id);
-				$data['official'] = $this->UserModel->getDataPendaftaranReguOfficial($id);
+        $data['official'] = $this->UserModel->getDataPendaftaranReguOfficial($id);
 				$this->load->view('user/pendaftaran_update_regu', $data);
 				break;
 			default:
@@ -344,7 +346,12 @@ class UserController extends CI_Controller
 		})</script>");
 		redirect('user/pembayaran');
 		// should redirect to pembayaran with carrying pemain + pem_orang data's
-	}
+  }
+  
+  public function prosesUpdatePendaftaranPerorangan()
+  {
+
+  }
 
 	private function _generateNamaFoto($arr = [], $i, $suffix)
 	{
@@ -461,13 +468,15 @@ class UserController extends CI_Controller
 					case 'regu':
 					$data['regu'] = $this->UserModel->getDataPembayaranBeregu($id);
 					$data['pemain'] = $this->UserModel->getDataPendaftaranReguPemain($id);
-					$data['official'] = $this->UserModel->getDataPendaftaranReguOfficial($id);
+          $data['jumlahOfficial'] = $this->UserModel->getJumlahReguOfficial($id);
+          // print_r($data['jumlahOfficial']);
+          // return;
+          if(sizeof($data['jumlahOfficial']) > 0){
+            $data['official'] = $this->UserModel->getDataPendaftaranReguOfficialNotNull($id);
+          }
 					$data['totalHarga'] = $this->UserModel->getTotalBayarRegu($id);
 					$data['p'] = 0;
-					// print_r($data['regu']);
-					// return;
 					break;
-
 				default:
 					# code...
 					break;

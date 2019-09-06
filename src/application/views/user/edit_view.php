@@ -30,11 +30,14 @@
 			      <label for="role" class="col-sm-3 col-form-label"><b>Sebagai</b></label>
 			      <div class="col-sm-9">
 			        <select class="form-control" id="role" name="role">
-			          <option value="Pelatih">Pelatih</option>
-			          <option value="Manajer">Manajer</option>
-			          <option value="Pemain">Pemain</option>
+			          <?php foreach ($sebagai as $row) : ?>
+			            <?php if ($row == $user['role']) : ?>
+			              <option value="<?= $row ?>" selected><?= $row ?></option>
+			            <?php else : ?>
+			              <option value="<?= $row ?>"><?= $row ?></option>
+			            <?php endif; ?>
+			          <?php endforeach; ?>
 			        </select>
-			        <!-- <input type="text" class="form-control" name="role" id="role" placeholder="Masukkan keterangan posisi anda" value="<?= $user['role']; ?>" required> -->
 			        <small class="form-text text-danger"><?= form_error('role'); ?></small>
 			      </div>
 			    </div>

@@ -546,10 +546,31 @@ $(".user").on('change', 'input', function () {
 	}
 });
 
-$('#kategori1').change(function (e) {
-	console.log('halo')
-})
+// $('#kategori1').change(function (e) {
+// 	console.log('halo')
+// })
 
 $(document).ready(function () {
 	$('[data-toggle="tooltip"]').tooltip()
 });
+
+// $('.form-pendafatan').submit(function(e){
+//   e.preventDefault()
+//   console.log('sukses dong')
+//   return false
+//   let form = $(this).parent('form')
+//   Swal.fire({
+//     title: 'Apakah anda yakin?',
+//     text: "Setelah menekan tombol submit, anda tidak dapat mengganti jumlah pemain. Namun anda masih dapat mengganti data diri pemain yang ada",
+//     type: 'warning',
+//     showCancelButton: true,
+//     confirmButtonColor: '#3085d6',
+//     cancelButtonColor: '#d33',
+//     confirmButtonText: 'Ya',
+//     cancelButtonText: 'Tidak'
+//   }).then((result) => {
+//     if (result.value) {
+//       console.log('berhasil')
+//     }
+//   })
+// }

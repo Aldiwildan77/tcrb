@@ -31,7 +31,7 @@
 				</div>
 				<hr>
 				<div class="row mt-3 mb-3 mx-1">
-					<div class="col-lg-3"><b>Role</b></div>
+					<div class="col-lg-3"><b>Sebagai</b></div>
 					<div class="col-lg-6"><?= $user['role'] ?></div>
 				</div>
 				<hr>
