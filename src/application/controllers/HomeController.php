@@ -125,6 +125,14 @@ class HomeController extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
+  function tataCara()
+  {
+    $data['title'] = 'Tata Cara Pendaftaran TCRB';
+		$this->load->view('templates/header', $data);
+		$this->load->view('home/tata_cara_view');
+		$this->load->view('templates/footer');
+  }
+
 	function line()
 	{
 		redirect('https://line.me/R/ti/p/@trm9176m');

@@ -94,6 +94,7 @@
 				<li class="mx-2 p-2"><a href="<?= base_url('home') ?>">Home</a></li>
 				<li class="mx-2 p-2"><a href="#" onclick="return comingSoon()">Pairing</a></li>
 				<li class="mx-2 p-2"><a href="<?= base_url('dokumentasi') ?>">Dokumentasi</a></li>
+				<li class="mx-2 p-2"><a href="<?= base_url('tata-cara-pendaftaran') ?>">Tata Cara</a></li>
 				<?php if ($this->session->userdata('isAdmin')) : ?>
 				<a class="btn btn-outline-primary text-white" href="<?= base_url('admin/home'); ?>">Go To Panel</a>
 				<?php elseif ($this->session->userdata('username') == null) : ?>
