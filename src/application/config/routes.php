@@ -50,6 +50,7 @@ $route['absensi/regu/(:any)'] = 'AbsensiController/validateReguTokenWithPembayar
 
 // Admin
 $route['admin'] = 'HomeController/adminBayarLogin';
+$route['admin/jumlah-pendaftar'] = 'HomeController/lihatJumlahPendaftar';
 $route['admin/home'] = 'AdminController';
 $route['admin/keluar'] = 'AdminController/logout';
 

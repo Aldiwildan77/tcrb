@@ -22,5 +22,30 @@ class AdminModel extends CI_Model
 	public function getAllDataPendaftaranPerorangan()
 	{
 		return $this->db->get('pl_perorangan')->result_array();
-	}
+  }
+  
+  public function getAllDataUser()
+  {
+    return $this->db->get('user')->result_array();
+  }
+
+  public function getAllDataPemainPeroranganRapid()
+  {
+    return $this->db->where('kategori_id', '1')->or_where('kategori_id', '2')->get('pl_perorangan')->result_array();
+  }
+
+  public function getAllDataPemainPeroranganBlitz()
+  {
+    return $this->db->where('kategori_id', '3')->or_where('kategori_id', '4')->get('pl_perorangan')->result_array();
+  }
+
+  public function getAllDataReguRapid()
+  {
+    return $this->db->where('kategori_id', '5')->or_where('kategori_id', '6')->or_where('kategori_id', '7')->get('regu')->result_array();
+  }
+
+  public function getAllDataReguBlitz()
+  {
+    return $this->db->where('kategori_id', '8')->get('regu')->result_array();
+  }
 }
