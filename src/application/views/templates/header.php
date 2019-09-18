@@ -98,7 +98,7 @@
 				<?php if ($this->session->userdata('isAdmin')) : ?>
 				<a class="btn btn-outline-primary text-white" href="<?= base_url('admin/home'); ?>">Go To Panel</a>
 				<?php elseif ($this->session->userdata('username') == null) : ?>
-				<a class="btn btn-outline-primary text-white" onclick="return comingSoon()">Masuk</a>
+				<a class="btn btn-outline-primary text-white" href="<?= base_url('masuk');?>"">Masuk</a>
 				<?php else : ?>
 				<div class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle text-white btn btn-outline-primary" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
