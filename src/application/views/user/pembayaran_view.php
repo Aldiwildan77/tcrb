@@ -97,7 +97,7 @@
 					<p>Upload bukti bayar</p>
 					<div class="input-group mb-3">
 						<div class="custom-file">
-							<input type="file" class="custom-file-input" id="buktiBayar" name="buktiBayar">
+							<input type="file" class="custom-file-input" id="buktiBayar" name="buktiBayar" accept="image/*">
 							<label class="custom-file-label" for="buktiBayar" aria-describedby="buktiBayar">Choose file</label>
 						</div>
 						<div class="input-group-append">
@@ -164,7 +164,7 @@
 					<p>Upload bukti bayar</p>
 					<div class="input-group mb-3">
 						<div class="custom-file">
-							<input type="file" class="custom-file-input" id="buktiBayar" name="buktiBayar">
+							<input type="file" class="custom-file-input" id="buktiBayar" name="buktiBayar" accept="image/*">
 							<label class="custom-file-label" for="buktiBayar" aria-describedby="buktiBayar">Choose file</label>
 						</div>
 						<div class="input-group-append">

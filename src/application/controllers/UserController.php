@@ -240,27 +240,17 @@ class UserController extends CI_Controller
 	}
 
 	// FUNCTION UNTUK TESTING UPLOAD FILE
-	// public function upload()
-	// {
+	public function upload()
+	{
+		$check = $this->input->post('check');
+		if ( $check != null) {
+			print_r($check);
+			return;
+		} else {
 
-	// 	if ($this->input->post('upload') != null) {
-	// 		$size = sizeof($_FILES['files']['name']);
-	// 		// echo $size;
-	// 		for ($i = 0; $i < $size; $i++) {
-	// 			$arr = [
-	// 				'name' => $_FILES['files']['name'][$i],
-	// 				'type' => $_FILES['files']['type'][$i],
-	// 				'tmp_name' => $_FILES['files']['tmp_name'][$i],
-	// 				'error' => $_FILES['files']['error'][$i],
-	// 				'size' => $_FILES['files']['size'][$i],
-	// 			];
-	// 			$this->doUpload($arr, "file-ke-$i.jpg");
-	// 		}
-	// 	} else {
-
-	// 		$this->load->view('user/upload');
-	// 	}
-	// }
+			$this->load->view('user/upload');
+		}
+	}
 
 	public function aturArrayUpload($inputName, $i)
 	{
