@@ -130,10 +130,13 @@
 			</div>
 		</div>
 
-		<div class="gsponsor">
-			<div class="row justify-content-center">
-				<img src="<?= base_url('assets/img/white.jpg'); ?>" alt="">
-			</div>
+    <div class="row justify-content-center">
+			<img src="<?= base_url('assets/img/sponsor/bjti-port.png'); ?>" alt="" class="gsponsor">
+			<img src="<?= base_url('assets/img/sponsor/bu-khowik.jpg'); ?>" alt="" class="gsponsor">
+			<img src="<?= base_url('assets/img/sponsor/griya-brawijaya.png'); ?>" alt="" class="gsponsor">
+			<img src="<?= base_url('assets/img/sponsor/scua.png'); ?>" alt="" class="gsponsor">
+			<img src="<?= base_url('assets/img/sponsor/zindgani-a.png'); ?>" alt="" class="gsponsor">
+			<img src="<?= base_url('assets/img/sponsor/zindgani-b.png'); ?>" alt="" class="gsponsor">
 		</div>
 
 		<div class="row">
@@ -142,13 +145,11 @@
 			</div>
 		</div>
 
-		<div class="gmedpar">
-			<div class="row justify-content-center">
-				<img src="<?= base_url('assets/img/medpar/ubsos.jpg'); ?>" alt="">
-				<img src="<?= base_url('assets/img/medpar/smansasi-prestasi.jpg'); ?>" alt="">
-        <img src="<?= base_url('assets/img/medpar/draft-sms-mahasiswa.jpg'); ?>" alt="">
-        <img src="<?= base_url('assets/img/medpar/rri-malang.jpg'); ?>" alt="">
-			</div>
+		<div class="row justify-content-center">
+			<img src="<?= base_url('assets/img/medpar/ubsos.jpg'); ?>" alt="" class="gmedpar">
+			<img src="<?= base_url('assets/img/medpar/smansasi-prestasi.jpg'); ?>" alt="" class="gmedpar">
+			<img src="<?= base_url('assets/img/medpar/draft-sms-mahasiswa.jpg'); ?>" alt="" class="gmedpar">
+			<img src="<?= base_url('assets/img/medpar/rri-malang.jpg'); ?>" alt="" class="gmedpar">
 		</div>
 
 	</div>
