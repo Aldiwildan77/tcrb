@@ -94,10 +94,11 @@
 				<li class="mx-2 p-2"><a href="<?= base_url('home') ?>">Home</a></li>
 				<li class="mx-2 p-2"><a href="#" onclick="return comingSoon()">Pairing</a></li>
 				<li class="mx-2 p-2"><a href="<?= base_url('dokumentasi') ?>">Dokumentasi</a></li>
+				<li class="mx-2 p-2"><a href="<?= base_url('tata-cara-pendaftaran') ?>">Tata Cara</a></li>
 				<?php if ($this->session->userdata('isAdmin')) : ?>
 				<a class="btn btn-outline-primary text-white" href="<?= base_url('admin/home'); ?>">Go To Panel</a>
 				<?php elseif ($this->session->userdata('username') == null) : ?>
-				<a class="btn btn-outline-primary text-white" onclick="return comingSoon()">Masuk</a>
+				<a class="btn btn-outline-primary text-white" href="<?= base_url('masuk');?>"">Masuk</a>
 				<?php else : ?>
 				<div class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle text-white btn btn-outline-primary" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

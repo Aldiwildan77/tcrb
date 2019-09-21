@@ -51,3 +51,13 @@
 		</div>
 	</div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<script>Swal.fire({
+  title: '<strong>Info</strong>',
+  type: 'info',
+  html:
+    'Silahkan baca tata cara pendaftaran pada link berikut ini.<br>' +
+    '<a href="https://tcrb.ub.ac.id/tata-cara-pendaftaran" target="_blank">Tata Cara Pendaftaran</a> ',
+  confirmButtonText:'Saya sudah mengerti'
+})</script>

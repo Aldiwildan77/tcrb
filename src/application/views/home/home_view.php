@@ -146,7 +146,8 @@
 			<div class="row justify-content-center">
 				<img src="<?= base_url('assets/img/medpar/ubsos.jpg'); ?>" alt="">
 				<img src="<?= base_url('assets/img/medpar/smansasi-prestasi.jpg'); ?>" alt="">
-				<img src="<?= base_url('assets/img/medpar/draft-sms-mahasiswa.jpg'); ?>" alt="">
+        <img src="<?= base_url('assets/img/medpar/draft-sms-mahasiswa.jpg'); ?>" alt="">
+        <img src="<?= base_url('assets/img/medpar/rri-malang.jpg'); ?>" alt="">
 			</div>
 		</div>
 

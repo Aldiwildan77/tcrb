@@ -5,7 +5,8 @@ class HomeController extends CI_Controller
 {
 	public function __construct()
 	{
-		parent::__construct();
+    parent::__construct();
+    $this->load->model('AdminModel');
 	}
 
 	public function index()
@@ -72,7 +73,7 @@ class HomeController extends CI_Controller
 			// return;
 			if ($password == $checkPassword) {
 				$userdata = array(
-					'name_admin' => 'adminBayar',
+					'namaAdmin' => 'adminBayar',
 					'isAdmin' => true
 				);
 
@@ -85,7 +86,17 @@ class HomeController extends CI_Controller
 				redirect('admin');
 			}
 		}
-	}
+  }
+  
+  public function lihatJumlahPendaftar()
+  {
+    $data['user'] = $this->AdminModel->getAllDataUser();
+    $data['peroranganRapid'] = $this->AdminModel->getAllDataPemainPeroranganRapid();
+    $data['peroranganBlitz'] = $this->AdminModel->getAllDataPemainPeroranganBlitz();
+    $data['reguRapid'] = $this->AdminModel->getAllDataReguRapid();
+    $data['reguBlitz'] = $this->AdminModel->getAllDataReguBlitz();
+    $this->load->view('admin/lihat_jumlah_pendaftar', $data);
+  }
 
 	private function _loadInstagramPhotos()
 	{
@@ -124,6 +135,14 @@ class HomeController extends CI_Controller
 		$this->load->view('home/dokumentasi_view');
 		$this->load->view('templates/footer');
 	}
+
+  function tataCara()
+  {
+    $data['title'] = 'Tata Cara Pendaftaran TCRB';
+		$this->load->view('templates/header', $data);
+		$this->load->view('home/tata_cara_view');
+		$this->load->view('templates/footer');
+  }
 
 	function line()
 	{

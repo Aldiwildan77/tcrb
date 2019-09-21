@@ -7,7 +7,7 @@ class AdminController extends CI_Controller
 	{
 		parent::__construct();
 
-		if ($this->session->userdata('name_admin') == null) {
+		if ($this->session->userdata('namaAdmin') == null) {
 			redirect('admin');
 		}
 

@@ -216,10 +216,12 @@ $('#tambah-perorangan').click(function (e) { //tambah perorangan
 		'<label for="kategori' + urutanPerorangan + '">Kategori pertandingan</label>' +
 		'<select id="kategori' + urutanPerorangan + '" class="form-control" name="kategori[]" required>' +
 		'<option selected disabled>Pilih salah satu</option>' +
-		'<option value="1">Presale 1 Cepat</option>' +
-		'<option value="2">Presale 2 Cepat</option>' +
-		'<option value="3">Presale 1 Kilat</option>' +
-		'<option value="4">Presale 2 Kilat</option>' +
+    '<option value="1">Presale 1 Rapid</option>'+
+    '<option value="3">Presale 1 Blitz</option>'+
+    '<option value="13">Presale 1 Rapid + Paket B Perorangan/Official</option>'+
+    '<option value="14">Presale 1 Rapid + Paket D Perorangan/Official</option>'+
+    '<option value="15">Presale 1 Blitz + Paket B Perorangan/Official</option>'+
+    '<option value="16">Presale 1 Blitz + Paket D Perorangan/Official</option>'+
 		'</select>' +
 		'</div>' +
 		'<div class="form-group col-lg-6">' +
@@ -270,10 +272,10 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 					<label for="kategoriRegu`+ urutanBeregu + `">Kategori pertandingan</label>
 					<select id="kategoriRegu`+ urutanBeregu + `" class="form-control" name="kategoriRegu[]" required>
 						<option selected disabled>Pilih salah satu</option>
-						<option value="5">Beregu Cepat Paket A</option>
-						<option value="6">Beregu Cepat Paket B</option>
-						<option value="7">Beregu Cepat Paket C</option>
-						<option value="8">Beregu Kilat</option>
+						<option value="5">Paket A Beregu Rapid</option>
+						<option value="6">Paket B Beregu Rapid</option>
+						<option value="7">Paket C Beregu Rapid</option>
+						<option value="8">Paket Blitz</option>
 					</select>
 				</div>
 			</div>
@@ -480,8 +482,10 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 					<label for="paket_official_`+ urutanBeregu + `">Pilih paket</label>
 						<select id="paket_official_`+ urutanBeregu + `" class="form-control" name="paket_official[]">
 							<option selected disabled>Pilih salah satu</option>
-							<option value="9">Paket A</option>
-							<option value="10">Paket B</option>
+							<option value="9">Paket A Perorangan/Official 2 orang</option>
+							<option value="10">Paket B Perorangan/Official 1 orang</option>
+							<option value="11">Paket C Perorangan/Official 2 orang</option>
+							<option value="12">Paket D Perorangan/Official 1 orang</option>
 						</select>
 					</div>
 				</div>
@@ -528,28 +532,49 @@ $('.user').on('change', 'input[type=file]', function () {
 });
 
 // mencegah user secara tidak sengaja merefresh halaman saat ngisi form pendaftaran
-$(document).ready(function () {
-	needToConfirm = false;
-	window.onbeforeunload = askConfirm;
-});
-function askConfirm() {
-	if (needToConfirm) {
-		return "Your unsaved data will be lost.";
-	}
-}
-$(".user").on('change', 'input', function () {
-	let res = $(this).val()
-	if (res == '') {
-		needToConfirm = false;
-	} else {
-		needToConfirm = true;
-	}
-});
+// $(document).ready(function () {
+// 	needToConfirm = false;
+// 	window.onbeforeunload = askConfirm;
+// });
+// function askConfirm() {
+// 	if (needToConfirm) {
+// 		return "Your unsaved data will be lost.";
+// 	}
+// }
+// $(".user").on('change', 'input', function () {
+// 	let res = $(this).val()
+// 	if (res == '') {
+// 		needToConfirm = false;
+// 	} else {
+// 		needToConfirm = true;
+// 	}
+// });
 
-$('#kategori1').change(function (e) {
-	console.log('halo')
-})
+// $('#kategori1').change(function (e) {
+// 	console.log('halo')
+// })
 
 $(document).ready(function () {
 	$('[data-toggle="tooltip"]').tooltip()
 });
+
+// $('.form-pendafatan').submit(function(e){
+//   e.preventDefault()
+//   console.log('sukses dong')
+//   return false
+//   let form = $(this).parent('form')
+//   Swal.fire({
+//     title: 'Apakah anda yakin?',
+//     text: "Setelah menekan tombol submit, anda tidak dapat mengganti jumlah pemain. Namun anda masih dapat mengganti data diri pemain yang ada",
+//     type: 'warning',
+//     showCancelButton: true,
+//     confirmButtonColor: '#3085d6',
+//     cancelButtonColor: '#d33',
+//     confirmButtonText: 'Ya',
+//     cancelButtonText: 'Tidak'
+//   }).then((result) => {
+//     if (result.value) {
+//       console.log('berhasil')
+//     }
+//   })
+// }
