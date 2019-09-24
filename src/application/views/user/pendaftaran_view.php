@@ -1,4 +1,4 @@
-			<div class="col-lg-8 offset-lg-1 user pt-5">
+<div class="col-lg-8 offset-lg-1 user pt-5">
 			  <div class="row">
 			    <div class="col-12">
 			      <h3 class="text-center"><b>Pilih Kategori Pendaftaran</b></h3>
@@ -80,12 +80,13 @@
 			                  <label for="kategori1">Kategori pertandingan</label>
 			                  <select id="kategori1" class="form-control" name="kategori[]" required>
 			                    <option selected disabled>Pilih salah satu</option>
-			                    <option value="<?= $kategori[0]['id'] ?>"><?= $kategori[0]['nama'] ?></option>
-			                    <option value="<?= $kategori[2]['id'] ?>"><?= $kategori[2]['nama'] ?></option>
-			                    <option value="<?= $kategori[12]['id'] ?>"><?= $kategori[12]['nama'] ?></option>
-			                    <option value="<?= $kategori[13]['id'] ?>"><?= $kategori[13]['nama'] ?></option>
-			                    <option value="<?= $kategori[14]['id'] ?>"><?= $kategori[14]['nama'] ?></option>
-			                    <option value="<?= $kategori[15]['id'] ?>"><?= $kategori[15]['nama'] ?></option>
+			                    <option value="<?= $kategori[1]['id'] ?>"><?= $kategori[1]['nama'] ?></option>
+			                    <option value="<?= $kategori[3]['id'] ?>"><?= $kategori[3]['nama'] ?></option>
+			                    <option value="<?= $kategori[16]['id'] ?>"><?= $kategori[16]['nama'] ?></option>
+			                    <option value="<?= $kategori[17]['id'] ?>"><?= $kategori[17]['nama'] ?></option>
+			                    <option value="<?= $kategori[18]['id'] ?>"><?= $kategori[18]['nama'] ?></option>
+			                    <option value="<?= $kategori[19]['id'] ?>"><?= $kategori[19]['nama'] ?></option>
+
 			                  </select>
 			                </div>
 			              </div>

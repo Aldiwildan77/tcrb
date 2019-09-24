@@ -23,7 +23,7 @@ class AdminModel extends CI_Model
 	{
 		return $this->db->get('pl_perorangan')->result_array();
   }
-  
+
   public function getAllDataUser()
   {
     return $this->db->get('user')->result_array();
@@ -31,12 +31,24 @@ class AdminModel extends CI_Model
 
   public function getAllDataPemainPeroranganRapid()
   {
-    return $this->db->where('kategori_id', '1')->or_where('kategori_id', '2')->get('pl_perorangan')->result_array();
+    return $this->db->where('kategori_id', '1')
+    ->or_where('kategori_id', '2')
+    ->or_where('kategori_id', '13')
+    ->or_where('kategori_id', '14')
+    ->or_where('kategori_id', '17')
+    ->or_where('kategori_id', '18')
+    ->get('pl_perorangan')->result_array();
   }
 
   public function getAllDataPemainPeroranganBlitz()
   {
-    return $this->db->where('kategori_id', '3')->or_where('kategori_id', '4')->get('pl_perorangan')->result_array();
+    return $this->db->where('kategori_id', '3')
+    ->or_where('kategori_id', '4')
+    ->or_where('kategori_id', '15')
+    ->or_where('kategori_id', '16')
+    ->or_where('kategori_id', '19')
+    ->or_where('kategori_id', '20')
+    ->get('pl_perorangan')->result_array();
   }
 
   public function getAllDataReguRapid()
