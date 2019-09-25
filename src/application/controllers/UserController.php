@@ -346,7 +346,7 @@ class UserController extends CI_Controller
 
     if($pemainExist != null){
       $pemainID = $this->UserModel->getPemainIDbyUserID($this->session->userdata('id'));
-      for ($i=0; $i < sizeof($pemainID); $i++) { 
+      for ($i=0; $i < sizeof($pemainID); $i++) {
         $pemain[$i]['id'] = $pemainID[$i]['id'];
       }
       $this->UserModel->updatePerorangan($pemain);
@@ -493,7 +493,7 @@ class UserController extends CI_Controller
       // return;
       $count = 0;
       for ($i = 0; $i < sizeof($reguLength); $i++) {
-        for ($j=1; $j < 3; $j++) { 
+        for ($j=1; $j < 3; $j++) {
           $updateOfficial[$count]['kategori_id'] = $official[$i][$j-1]['kategori_id'];
           $updateOfficial[$count]['nama'] = $official[$i][$j-1]['nama'];
           $updateOfficial[$count]['sebagai'] = $official[$i][$j-1]['sebagai'];
@@ -509,7 +509,7 @@ class UserController extends CI_Controller
       $this->UserModel->insertOfficial($official);
     }
     // return;
-    
+
     if($reguExist == null){
       $officialData = $this->UserModel->getOfficialData();
       for ($i = 0; $i < sizeof($reguLength); $i++) {
@@ -518,7 +518,7 @@ class UserController extends CI_Controller
         $data[$i]['official_group'] = $officialData[$i]['official_group'];
         $data[$i]['total'] = $this->UserModel->getTotalHargaBeregu($reguId[$i]['id'], $officialData[$i]['id'])['harga'];
         $data[$i]['token'] = md5('tcrb2019' . $data[$i]['regu_id'] . $data[$i]['user_id']);
-  
+
         $this->UserModel->insertPembayaranRegu($data[$i]);
       }
     }

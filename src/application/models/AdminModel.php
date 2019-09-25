@@ -23,7 +23,7 @@ class AdminModel extends CI_Model
 	{
 		return $this->db->get('pl_perorangan')->result_array();
   }
-  
+
   public function getAllDataUser()
   {
     return $this->db->get('user')->result_array();
