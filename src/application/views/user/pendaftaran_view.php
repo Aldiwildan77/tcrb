@@ -86,7 +86,6 @@
 			                    <option value="<?= $kategori[17]['id'] ?>"><?= $kategori[17]['nama'] ?></option>
 			                    <option value="<?= $kategori[18]['id'] ?>"><?= $kategori[18]['nama'] ?></option>
 			                    <option value="<?= $kategori[19]['id'] ?>"><?= $kategori[19]['nama'] ?></option>
-
 			                  </select>
 			                </div>
 			              </div>

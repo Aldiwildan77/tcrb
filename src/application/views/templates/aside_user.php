@@ -18,6 +18,14 @@
 							<h5 class="text-center">Profil</h5>
 						</div>
 					</div>
+        </a>
+        <hr>
+				<a class="tombol-user" href="<?= base_url('uploads/GUIDE-BOOK-TCRB-VII-2019.pdf') ?>" target="_blank">
+					<div class="row pt-2 pb-1 row-tbl-user">
+						<div class="col-lg-12">
+							<h5 class="text-center">Guide Book</h5>
+						</div>
+					</div>
 				</a>
 				<hr>
 				<?php if ($full) : ?>

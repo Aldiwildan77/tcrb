@@ -24,10 +24,13 @@ class AbsensiController extends CI_Controller
 	public function validateOrangTokenWithPembayaran($token)
 	{
 		$data['title'] = 'Validasi Perorangan';
-		['status_bayar' => $data['status'], 'user_id' => $userId, 'nama_lengkap' => $nama] = $this->UserModel->getDataPembayaranWithPerorangan($token);
+    $result = $this->UserModel->getDataPembayaranWithPerorangan($token);
+    $data['status'] = $result['status_bayar'];
+    $userId = $result['user_id'];
+    $nama = $result['nama_lengkap'];
 
 		$this->session->set_flashdata('validate', "$userId - $nama");
-		$data['status'] = $data['status'] == 1 ? 'success' : 'error';
+		$data['status'] = $data['status'] == 2 ? 'success' : 'error';
 		$data['kategori'] = 'Perorangan';
 
 		$this->load->view('templates/header', $data);
@@ -38,10 +41,13 @@ class AbsensiController extends CI_Controller
 	public function validateReguTokenWithPembayaran($token)
 	{
 		$data['title'] = 'Validasi Regu';
-		['status_bayar' => $data['status'], 'regu_id' => $reguId, 'nama' => $nama] = $this->UserModel->getDataPembayaranWithRegu($token);
+    $result = $this->UserModel->getDataPembayaranWithRegu($token);
+    $data['status'] = $result['status_bayar'];
+    $reguId = $result['regu_id'];
+    $nama = $result['nama'];
 
 		$this->session->set_flashdata('validate', "$reguId - $nama");
-		$data['status'] = $data['status'] == 1 ? 'success' : 'error';
+		$data['status'] = $data['status'] == 2 ? 'success' : 'error';
 		$data['kategori'] = 'Beregu';
 
 		$this->load->view('templates/header', $data);

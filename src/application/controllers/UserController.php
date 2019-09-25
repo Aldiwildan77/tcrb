@@ -1,7 +1,8 @@
 <?php
 
-use Endroid\QrCode\ErrorCorrectionLevel;
-use Endroid\QrCode\QrCode;
+// use Endroid\QrCode\ErrorCorrectionLevel;
+// use Endroid\QrCode\QrCode;
+// use Endroid\QrCode\Response\QrCodeResponse;
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -344,9 +345,9 @@ class UserController extends CI_Controller
       $this->doUpload($arrFotoKartu, $pemain[$i]['foto_kartu_pelajar'], $this->fotoPath);
     }
 
-    if($pemainExist != null){
+    if ($pemainExist != null) {
       $pemainID = $this->UserModel->getPemainIDbyUserID($this->session->userdata('id'));
-      for ($i=0; $i < sizeof($pemainID); $i++) {
+      for ($i = 0; $i < sizeof($pemainID); $i++) {
         $pemain[$i]['id'] = $pemainID[$i]['id'];
       }
       $this->UserModel->updatePerorangan($pemain);
@@ -354,7 +355,7 @@ class UserController extends CI_Controller
       $this->UserModel->insertPerorangan($pemain);
     }
 
-    if($pemainExist == null){
+    if ($pemainExist == null) {
       $data = array(
         'user_id' => $this->session->userdata('id'),
         'total' => $this->UserModel->getTotalHargaPerorangan(),
@@ -363,7 +364,7 @@ class UserController extends CI_Controller
       $this->UserModel->insertPembayaranPerorangan($data);
     }
 
-    if($pemainExist != null){
+    if ($pemainExist != null) {
       $this->session->set_flashdata('message-user', "<script>Swal.fire({
         type: 'success',
         title: 'Berhasil',
@@ -454,7 +455,7 @@ class UserController extends CI_Controller
       $pemainID = $this->UserModel->getPemainReguIDbyUserID($this->session->userdata('id'));
       $count = 0;
       for ($i = 0; $i < sizeof($reguLength); $i++) {
-        for ($j=1; $j < 5; $j++) {
+        for ($j = 1; $j < 5; $j++) {
           $updatePemain[$count]['nama'] = $pemain[$i][$j - 1]['nama'];
           $updatePemain[$count]['nim'] = $pemain[$i][$j - 1]['nim'];
           $updatePemain[$count]['jenis_kelamin'] = $pemain[$i][$j - 1]['jenis_kelamin'];
@@ -487,17 +488,17 @@ class UserController extends CI_Controller
       }
     }
 
-    if($reguExist != null){
+    if ($reguExist != null) {
       $officialID = $this->UserModel->getOfficialIDbyUserID($this->session->userdata('id'));
       // print_r($this->input->post('official1'));
       // return;
       $count = 0;
       for ($i = 0; $i < sizeof($reguLength); $i++) {
-        for ($j=1; $j < 3; $j++) {
-          $updateOfficial[$count]['kategori_id'] = $official[$i][$j-1]['kategori_id'];
-          $updateOfficial[$count]['nama'] = $official[$i][$j-1]['nama'];
-          $updateOfficial[$count]['sebagai'] = $official[$i][$j-1]['sebagai'];
-          $updateOfficial[$count]['jenis_kelamin'] = $official[$i][$j-1]['jenis_kelamin'];
+        for ($j = 1; $j < 3; $j++) {
+          $updateOfficial[$count]['kategori_id'] = $official[$i][$j - 1]['kategori_id'];
+          $updateOfficial[$count]['nama'] = $official[$i][$j - 1]['nama'];
+          $updateOfficial[$count]['sebagai'] = $official[$i][$j - 1]['sebagai'];
+          $updateOfficial[$count]['jenis_kelamin'] = $official[$i][$j - 1]['jenis_kelamin'];
           $updateOfficial[$count]['id'] = $officialID[$count]['id'];
           $count++;
         }
@@ -510,7 +511,7 @@ class UserController extends CI_Controller
     }
     // return;
 
-    if($reguExist == null){
+    if ($reguExist == null) {
       $officialData = $this->UserModel->getOfficialData();
       for ($i = 0; $i < sizeof($reguLength); $i++) {
         $data[$i]['user_id'] = $this->session->userdata('id');
@@ -524,7 +525,7 @@ class UserController extends CI_Controller
     }
 
     // return;
-    if($reguExist != null){
+    if ($reguExist != null) {
       $this->session->set_flashdata('message-user', "<script>Swal.fire({
         type: 'success',
         title: 'Berhasil',
@@ -555,6 +556,7 @@ class UserController extends CI_Controller
       $data['user'] = $this->UserModel->getDataUser([
         'username' => $this->session->userdata['username']
       ]);
+
       $data['full'] = $this->_checkProfileFull($data['user']);
 
       $username = $data['user']['username'];
@@ -625,7 +627,7 @@ class UserController extends CI_Controller
       $this->load->library('upload');
       $this->upload->initialize($config);
       if ($this->upload->do_upload('buktiBayar')) {
-        $arrUpdate = ['bukti_bayar' => "$username.jpg", 'status_bayar' => 1];
+        $arrUpdate = ['bukti_bayar' => "$username.jpg", 'status_bayar' => 1, 'tanggal_bayar' => date("Y-m-d")];
         $this->UserModel->updatePembayaran($check, $arrUpdate, $id);
         $this->session->set_flashdata('message-user', "<script>Swal.fire({
 					type: 'success',
@@ -643,7 +645,7 @@ class UserController extends CI_Controller
       'username' => $this->session->userdata['username']
     ])['email'];
 
-    $token = $this->_generateQrCode();
+    $token = $this->_generateQrCode('adsa');
 
     /*
 		 * hmm, lemme check this first, i think it will reproduce the same token ?
@@ -662,28 +664,108 @@ class UserController extends CI_Controller
     $this->email->send();
   }
 
-  private function _generateQrCode()
+  private function _generateQrCode($check)
   {
-    $username = $this->session->userdata('username');
-
-    $check = $this->UserModel->checkPembayaranOrang($username) ? "orang" : ($this->UserModel->checkPembayaranRegu($username) ? "regu" : false);
-    if (!$check) return false;
 
     $where = array('user_id' => $this->session->userdata('id'));
     $token = $this->UserModel->getDataPembayaran($check, $where)['token'];
 
-    $qr = new QrCode();
-    $qr->setText(base_url("/absensi/$check/$token"));
-    $qr->setSize(200);
-    $qr->setErrorCorrectionLevel(new ErrorCorrectionLevel(ErrorCorrectionLevel::HIGH));
-    $qr->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0));
-    $qr->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0));
-    $qr->setLogoPath(FCPATH . '/assets/img/logo.png');
-    $qr->setLogoSize(45, 45);
+    // $qr = new QrCode();
+    // $qr->setText(base_url("/absensi/$check/$token"));
+    // $qr->setSize(200);
+    // $qr->setErrorCorrectionLevel(new ErrorCorrectionLevel(ErrorCorrectionLevel::HIGH));
+    // $qr->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0));
+    // $qr->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0));
+    // $qr->setLogoPath(FCPATH . '/assets/img/logo.png');
+    // $qr->setLogoSize(45, 45);
 
     // header('Content-Type: ' . $qr->getContentType());
-    $qr->writeFile(FCPATH . "/qrcode/$token.png");
+    // echo $qr->writeString();
+    // $qr->writeFile(FCPATH . "/qrcode/$token.png");
 
-    return $token;
+    // return $token;
+    // $response = new QrCodeResponse($qr);
+    // return $response;
+  }
+
+  public function generatePDF(){
+    $username = $this->session->userdata('username');
+    $check = $this->UserModel->checkPembayaranOrang($username) ? "orang" : ($this->UserModel->checkPembayaranRegu($username) ? "regu" : false);
+    $where = array('user_id' => $this->session->userdata('id'));
+    $token = $this->UserModel->getDataPembayaran($check, $where)['token'];
+    $data['user'] = $this->UserModel->getDataUser([
+      'username' => $username
+    ]);
+    $id = $data['user']['id'];
+    if($check == "orang"){
+      $data['pemain'] = $this->UserModel->getDataPembayaranPerorangan($id);
+      $data['totalHarga'] = $this->UserModel->getTotalHargaPerorangan($id);
+      $data['status'] = $this->UserModel->getStatusPembayaranPerorangan($id);
+
+      $this->generatePDFPerorangan($username, $check, $token, $data);
+    } else {
+      $data['regu'] = $this->UserModel->getDataPembayaranBeregu($id);
+      $data['pemain'] = $this->UserModel->getDataPendaftaranReguPemain($id);
+      $data['jumlahOfficial'] = $this->UserModel->getJumlahReguOfficial($id);
+      // print_r($data['jumlahOfficial']);
+      // return;
+      if (sizeof($data['jumlahOfficial']) > 0) {
+        $data['official'] = $this->UserModel->getDataPendaftaranReguOfficialNotNull($id);
+      }
+
+    }
+  }
+
+  public function generatePDFPerorangan($username, $check, $token, $data){
+    require_once APPPATH . "/third_party/FPDF/fpdf.php";
+    require_once APPPATH . "/third_party/FPDF/qr-code/qrcode.class.php";
+    
+    $pdf = new FPDF('P', 'cm', 'A4');
+    $pdf->AddPage();
+    $pdf->SetFont('Arial', 'B', 12);    
+    $pdf->Image(base_url('assets/img/pdf/perorangan.png'),0,0,21);
+
+    $pdf->setXY(7.1, 4.95);
+    $pdf->write(0, $data['user']['nama_lengkap']);
+    $pdf->setXY(7.1, 5.65);
+    $pdf->write(0, $data['user']['instansi']);
+    $pdf->setXY(7.1, 6.45);
+    $pdf->write(0, $data['user']['no_telepon']);
+    $pdf->setXY(7.1, 7.25);
+    $pdf->write(0, $data['status']['tanggal_bayar']);
+
+    // QRCode
+    $qr = new QRcode(base_url("absensi/$check/$token"), "H");
+    $qr->displayFPDF($pdf, 15.55, 4.45, 3.15);
+  
+    // Colors, line width and bold font
+    $pdf->SetFillColor(100, 100, 100);
+    $pdf->SetTextColor(0);
+    $pdf->SetDrawColor(0, 0, 0);
+    $pdf->SetLineWidth(.03);
+    $pdf->SetFont('', 'B', 11);
+    // Header
+    $header = ['No', 'Nama Pemain', 'Kategori'];
+    $w = array(1, 7.5, 8);
+    $pdf->setXY(2.3, 10.8);
+    for ($i = 0; $i < count($header); $i++)
+      $pdf->Cell($w[$i], 0.8, $header[$i], 1, 0, 'C', true);
+    $pdf->Ln();
+    $pdf->SetTextColor(0);
+    $pdf->SetFont('', '', 10);
+    // Data
+    $hT = 11.6;
+    $i = 1;
+    foreach ($data['pemain'] as $row) {
+      $pdf->SetXY(2.3,  $hT);
+      $pdf->Cell($w[0], 1.5, $i++, 1, 0, 'L');
+      $pdf->SetXY(2.3 + $w[0],  $hT);
+      $pdf->Cell($w[1], 1.5, $row['nama_pemain'], 1, 0, 'L');
+      $pdf->SetXY(2.3 + $w[0] + $w[1],  $hT);
+      $pdf->Cell($w[2], 1.5, $row['nama_kategori'], 1, 0, 'L');
+      $pdf->Ln();
+      $hT += 1.5;
+    }    
+    $pdf->Output('I', "Bukti-Pendaftaran-TCRB-$username.pdf");
   }
 }

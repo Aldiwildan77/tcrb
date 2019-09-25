@@ -38,10 +38,10 @@
               <td colspan="3"><?= $user['instansi'] ?></td>
               <th>Tanggal Pembayaran</th>
               <?php if ($check == 'regu') : ?>
-              <td><?=$regu['updatedAt']?></td>
+              <td><?=$regu[0]['tanggal_bayar']?></td>
               
               <?php elseif ($check == 'orang') : ?>
-              <td><?=$status['updatedAt']?></td>
+              <td><?=$status['tanggal_bayar']?></td>
               <?php endif; ?>
             </tr>
             <tr>
@@ -57,132 +57,6 @@
       </div>
     <?php endif; ?>
 
-<<<<<<< HEAD
-		<?php if ($check == 'orang') : ?>
-		<!-- Tabel perorangan -->
-		<div class="row mx-auto">
-			<div class="table-responsive">
-				<table class="table table-striped table-borderless table-sm">
-					<thead class="thead-dark">
-						<tr>
-							<th scope="col">No</th>
-							<th scope="col">Nama</th>
-							<th scope="col">Kategori</th>
-							<th scope="col" class="text-right">Harga(IDR)</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php for ($i = 0; $i < sizeof($pemain); $i++) : ?>
-						<tr>
-							<th scope="row"><?= $i + 1 ?></th>
-							<td><?= $pemain[$i]['nama_pemain'] ?></td>
-							<td><?= $pemain[$i]['nama_kategori'] ?></td>
-							<td class="text-right"><?= $pemain[$i]['harga'] ?></td>
-						</tr>
-						<?php endfor; ?>
-						<tr>
-							<th scope="row"> </th>
-							<td class="bg-light"> </td>
-							<td class="bg-light" style="text-align:right;">Total : </td>
-							<td class="bg-dark text-white text-right"><?= $totalHarga ?></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<?php if ($status['status_bayar'] == 2) : ?>
-				<div class="text-center">
-					<button type="button" class="text-center btn btn-info btn-lg mt-2" style="border-radius:25px;">Cetak Struk</button>
-				</div>
-				<?php elseif ($status['status_bayar'] == 1) : ?>
-				<h3 class="text-center">Pembayaran anda masih dalam proses review.</h3>
-				<?php elseif ($status['status_bayar'] == 0) : ?>
-				<form action="<?= base_url('user/pembayaran') ?>" method="post" enctype="multipart/form-data">
-					<p>Upload bukti bayar</p>
-					<div class="input-group mb-3">
-						<div class="custom-file">
-							<input type="file" class="custom-file-input" id="buktiBayar" name="buktiBayar" accept="image/*">
-							<label class="custom-file-label" for="buktiBayar" aria-describedby="buktiBayar">Choose file</label>
-						</div>
-						<div class="input-group-append">
-							<button type="submit" class="input-group-text">Upload</button>
-						</div>
-					</div>
-					<small class="form-text text-danger"><?= form_error('buktiBayar'); ?></small>
-				</form>
-				<?php endif; ?>
-			</div>
-		</div>
-		<?php elseif ($check == 'regu') : ?>
-		<!-- Tabel beregu -->
-		<div class="row mx-auto">
-			<div class="table-responsive">
-				<table class="table table-striped table-borderless table-sm">
-					<thead class="thead-dark">
-						<tr>
-							<th scope="col">No</th>
-							<th scope="col">Nama Regu</th>
-							<th scope="col">Kategori Regu</th>
-							<th scope="col">Nama Pemain</th>
-							<th class="text-right" scope="col">Harga(IDR)</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php for ($i = 0; $i < sizeof($regu); $i++) : ?>
-						<tr>
-							<th rowspan="4" scope="row"><?= $i + 1 ?></th>
-							<td rowspan="4"><?= $regu[$i]['nama'] ?></td>
-							<td rowspan="4"><?= $regu[$i]['namaPaket'] ?></td>
-							<td><?= $pemain[$p]['nama'] ?></td>
-							<td class="text-right" rowspan="4"><?= $regu[$i]['total'] ?></td>
-						</tr>
-						<?php $temp = $p + 4; ?>
-						<?php for ($j = $p + 1; $j < $temp; $j++) : ?>
-						<tr>
-							<td><?= $pemain[$j]['nama'] ?></td>
-						</tr>
-						<?php endfor; ?>
-						<?php $p = $p + 4; ?>
-						<?php endfor; ?>
-						<tr>
-							<td class="bg-light"> </td>
-							<td class="bg-light"> </td>
-							<td class="bg-light"> </td>
-							<td class="bg-light" style="text-align:right;">Total : </td>
-							<td class="bg-dark text-white text-right"> <?= $totalHarga['total'] ?></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<?php if ($regu[0]['status_bayar'] == 2) : ?>
-				<div class="text-center">
-					<button type="button" class="text-center btn btn-info btn-lg mt-2" style="border-radius:25px;">Cetak Struk</button>
-				</div>
-				<?php elseif ($regu[0]['status_bayar'] == 1) : ?>
-				<h3 class="text-center">Pembayaran anda masih dalam proses review.</h3>
-				<?php elseif ($regu[0]['status_bayar'] == 0) : ?>
-				<form action="<?= base_url('user/pembayaran') ?>" method="post" enctype="multipart/form-data">
-					<p>Upload bukti bayar</p>
-					<div class="input-group mb-3">
-						<div class="custom-file">
-							<input type="file" class="custom-file-input" id="buktiBayar" name="buktiBayar" accept="image/*">
-							<label class="custom-file-label" for="buktiBayar" aria-describedby="buktiBayar">Choose file</label>
-						</div>
-						<div class="input-group-append">
-							<button type="submit" class="input-group-text">Upload</button>
-						</div>
-					</div>
-					<small class="form-text text-danger"><?= form_error('buktiBayar'); ?></small>
-				</form>
-				<?php endif; ?>
-			</div>
-		</div>
-=======
     <?php if ($check == 'orang') : ?>
       <!-- Tabel perorangan -->
       <div class="row mx-auto">
@@ -300,7 +174,6 @@
               </tr>
             </tbody>
           </table>
->>>>>>> 4c763a708f883f908ff230f585fe46ad182e684a
 
         </div>
       </div>
