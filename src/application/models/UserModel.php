@@ -83,7 +83,7 @@ class UserModel extends CI_Model
 			$this->db->insert_batch('pl_beregu', $data[$i]);
 		}
   }
-  
+
   public function checkUserPemain($id)
   {
     return $this->db->get_where('pl_perorangan', ['user_id' => $id])->result_array();
@@ -110,7 +110,7 @@ class UserModel extends CI_Model
   {
     return $this->db->get_where('pl_beregu', ['user_id' => $id])->result_array();
   }
-  
+
   public function getOfficialIDbyUserID($id)
   {
     return $this->db->select('o.id')
@@ -123,12 +123,12 @@ class UserModel extends CI_Model
   {
     $this->db->update_batch('regu', $data, 'id');
   }
-  
+
   public function updatePemainRegu($data)
   {
     $this->db->update_batch('pl_beregu', $data, 'id');
   }
-  
+
   public function updateOfficial($data)
   {
     $this->db->update_batch('official', $data, 'id');
@@ -198,7 +198,7 @@ class UserModel extends CI_Model
 	{
 		return $this->db->get_where('pl_beregu', ['user_id' => $userId])->result_array();
   }
-  
+
   public function getJumlahReguOfficial($userId){
     $this->db->select('o.nama');
     $this->db->from('regu r');
@@ -217,7 +217,7 @@ class UserModel extends CI_Model
     $this->db->where('r.user_id', $userId);
 		return $this->db->get()->result_array();
   }
-  
+
 	public function getDataPendaftaranReguOfficialNotNull($userId)
 	{
 		$this->db->select('k.nama as namaPaket, o.kategori_id, o.nama, o.jenis_kelamin, o.sebagai, o.alergi');
@@ -251,7 +251,7 @@ class UserModel extends CI_Model
 
 	public function getDataPembayaranBeregu($userId)
 	{
-		$this->db->select('k.nama as namaPaket, r.nama, pr.total, pr.status_bayar, pr.updatedAt');
+		$this->db->select('k.nama as namaPaket, r.nama, pr.total, pr.status_bayar, pr.tanggal_bayar, pr.updatedAt');
 		$this->db->from('regu r');
 		$this->db->where('r.user_id', $userId);
 		$this->db->join('pem_regu pr', 'pr.regu_id = r.id');

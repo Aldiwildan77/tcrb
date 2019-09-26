@@ -29,7 +29,7 @@ class AbsensiController extends CI_Controller
     $userId = $result['user_id'];
     $nama = $result['nama_lengkap'];
 
-		$this->session->set_flashdata('validate', "$userId - $nama");
+		$this->session->set_flashdata('validate', "Perorangan - $userId - $nama");
 		$data['status'] = $data['status'] == 2 ? 'success' : 'error';
 		$data['kategori'] = 'Perorangan';
 
@@ -46,7 +46,7 @@ class AbsensiController extends CI_Controller
     $reguId = $result['regu_id'];
     $nama = $result['nama'];
 
-		$this->session->set_flashdata('validate', "$reguId - $nama");
+		$this->session->set_flashdata('validate', "Beregu - $reguId - $nama");
 		$data['status'] = $data['status'] == 2 ? 'success' : 'error';
 		$data['kategori'] = 'Beregu';
 

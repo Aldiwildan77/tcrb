@@ -39,7 +39,7 @@
               <th>Tanggal Pembayaran</th>
               <?php if ($check == 'regu') : ?>
               <td><?=$regu[0]['tanggal_bayar']?></td>
-              
+
               <?php elseif ($check == 'orang') : ?>
               <td><?=$status['tanggal_bayar']?></td>
               <?php endif; ?>
@@ -128,12 +128,14 @@
             </thead>
             <tbody>
               <?php if (isset($official)) : ?>
-                <?php for ($i = 0; $i < sizeof($official); $i++) : ?>
+								<?php for ($i = 0; $i < sizeof($official); $i++) : ?>
+								<?php  if($official[$i]['nama'] != null): ?>
                   <tr>
                     <th scope="row"><?= $i + 1 ?></th>
                     <td><?= $official[$i]['nama'] ?></td>
                     <td><?= $official[$i]['namaPaket'] ?></td>
-                  </tr>
+									</tr>
+									<?php endif;?>
                 <?php endfor; ?>
               <?php endif; ?>
             </tbody>
