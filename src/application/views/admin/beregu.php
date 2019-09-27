@@ -45,8 +45,8 @@
                   <td><?= $regu[$count]['instansi'] ?></td>
                   <td><?= $regu[$count]['nama_kategori'] ?></td>
                   <td><a style="cursor: pointer" class="badge badge-warning pemainBtn" data-reguNama="<?= $regu[$count]['nama_regu'] ?>" data-reguid="<?= $regu[$count++]['id'] ?>">Detail pemain</a></td>
-                  <td rowspan="<?= $user[$i]['jumlah'] ?>"><?= $user[$i]['total'] ?></td>                
-                  <td rowspan="<?= $user[$i]['jumlah'] ?>"><a class="pop" style="cursor: pointer"><img src="<?= base_url('bukti-bayar/' . $user[$i]['bukti_bayar']) ?>" alt="" width="100px" height="100px"></a></td>                
+                  <td rowspan="<?= $user[$i]['jumlah'] ?>"><?= $user[$i]['total'] ?></td>
+                  <td rowspan="<?= $user[$i]['jumlah'] ?>"><a class="pop" style="cursor: pointer"><img src="<?= base_url('bukti-bayar/' . $user[$i]['bukti_bayar']) ?>" alt="" width="100px" height="100px"></a></td>
                   <?php if ($user[$i]['status_bayar'] == 0) : ?>
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><b>Belum bayar</b></td>
                   <?php elseif ($user[$i]['status_bayar'] == 1) : ?>
@@ -55,7 +55,7 @@
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><b>Sudah divalidasi</b></td>
                   <?php endif; ?>
                   <?php if ($user[$i]['status_bayar'] == 1) : ?>
-                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><a href="<?= base_url("admin/validasi/regu/" . $user[$i]['user_id']) ?>" class="badge badge-primary">Validasi</a></td>
+                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><a href="<?= base_url("admin/validasi/regu/" . $user[$i]['user_id']) ?>" class="badge badge-primary" onclick="return confirm('Yakin?')">Validasi</a></td>
                   <?php else : ?>
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><a class="badge badge-info">Validasi</a></td>
                   <?php endif; ?>
@@ -139,8 +139,8 @@
     $('.pemainBtn').on('click', function(){
       let url = "<?= base_url('players/foto/'); ?>";
       let reguId = $(this).data('reguid')
-      let pemain = <?= json_encode($pemain); ?>;      
-      let official = <?= json_encode($official); ?>;      
+      let pemain = <?= json_encode($pemain); ?>;
+      let official = <?= json_encode($official); ?>;
       let namaRegu = $(this).data('regunama')
       let renderPemain = ''
       $('#modalNamaRegu').html(namaRegu)
@@ -171,7 +171,7 @@
             <td>${official[i]['alergi']}</td>
             <td>${official[i]['nama_kategori']}</td>
           </tr>`
-        }        
+        }
       }
       if(renderOfficial != null){
         let head = `<table class="table table-bordered"><thead>

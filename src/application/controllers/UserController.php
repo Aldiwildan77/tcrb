@@ -238,12 +238,14 @@ class UserController extends CI_Controller
 		switch ($check) {
 			case 'orang':
 				$data['pemain'] = $this->UserModel->getDataPendaftaranPerorangan($id);
+				$data['status'] = $this->UserModel->getStatusPembayaranPerorangan($id);
 				$this->load->view('user/pendaftaran_update_orang', $data);
 				break;
 			case 'regu':
 				$data['regu'] = $this->UserModel->getDataPendaftaranRegu($id);
 				$data['pemain'] = $this->UserModel->getDataPendaftaranReguPemain($id);
 				$data['official'] = $this->UserModel->getDataPendaftaranReguOfficial($id);
+				$data['status'] = $this->UserModel->getDataPembayaranBeregu($id);
 				// echo json_encode($data['pemain']);
 				// return;
 				$this->load->view('user/pendaftaran_update_regu', $data);

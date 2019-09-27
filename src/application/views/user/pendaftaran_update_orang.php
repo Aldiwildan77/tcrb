@@ -9,10 +9,12 @@
             <div class="row no-gutters justify-content-center">
               <div class="col col-auto col-lg col-md col-sm col-xs mx-1">
                 <button type="button" class="btn btn-sm btn-warning text-white btn-block" data-toggle="modal" data-target="#modalPerorangan">Lihat harga</button>
-              </div>
+							</div>
+							<?php if($status['status_bayar'] == 0): ?>
               <div class="col col-auto col-lg col-md col-sm col-xs mx-1">
                 <button class="btn btn-sm btn-success btn-block">Submit</button>
-              </div>
+							</div>
+							<?php endif; ?>
             </div>
           </div>
         </div>

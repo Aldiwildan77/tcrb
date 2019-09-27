@@ -98,7 +98,7 @@
           <?php elseif ($status['status_bayar'] == 1) : ?>
             <h3 class="text-center">Pembayaran anda masih dalam proses review.</h3>
           <?php elseif ($status['status_bayar'] == 0) : ?>
-            <form action="<?= base_url('user/pembayaran') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('user/pembayaran') ?>" method="post" enctype="multipart/form-data" onsubmit="return confirm('Anda tidak akan bisa mengganti identitas pemain setelah melakukan upload bukti pembayaran. Yakin ingin melanjutkan?')">
               <p>Upload bukti bayar</p>
               <div class="input-group mb-3">
                 <div class="custom-file">
@@ -188,7 +188,7 @@
           <?php elseif ($regu[0]['status_bayar'] == 1) : ?>
             <h3 class="text-center">Pembayaran anda masih dalam proses review.</h3>
           <?php elseif ($regu[0]['status_bayar'] == 0) : ?>
-            <form action="<?= base_url('user/pembayaran') ?>" method="post" enctype="multipart/form-data">
+            <form action="<?= base_url('user/pembayaran') ?>" method="post" enctype="multipart/form-data" onsubmit="return confirm('Anda tidak akan bisa mengganti identitas pemain setelah melakukan upload bukti pembayaran. Yakin ingin melanjutkan?')">
               <p>Upload bukti bayar</p>
               <div class="input-group mb-3">
                 <div class="custom-file">

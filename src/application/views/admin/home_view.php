@@ -28,8 +28,11 @@
             <div class="row mb-3">
               <a href="<?= base_url('admin/regu') ?>" class="btn btn-primary btn-block">Beregu</a>
             </div>
-          </div>  
-        </div>				
+            <div class="row mb-3">
+              <a href="<?= base_url('admin/keluar') ?>" class="btn btn-primary btn-block">Logout</a>
+						</div>
+          </div>
+        </div>
 			</div>
 		</div>
 	</div>

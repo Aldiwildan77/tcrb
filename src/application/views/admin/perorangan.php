@@ -63,7 +63,7 @@
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><b>Sudah divalidasi</b></td>
                   <?php endif; ?>
                   <?php if ($user[$i]['status_bayar'] == 1) : ?>
-                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><a href="<?= base_url("admin/validasi/orang/" . $user[$i]['user_id']) ?>" class="badge badge-primary">Validasi</a></td>
+                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><a href="<?= base_url("admin/validasi/orang/" . $user[$i]['user_id']) ?>" class="badge badge-primary" onclick="return confirm('Yakin?')">Validasi</a></td>
                   <?php else : ?>
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><a class="badge badge-info">Validasi</a></td>
                   <?php endif; ?>
