@@ -21,7 +21,7 @@ class UserController extends CI_Controller
 			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
 				Silahkan masuk terlebih dahulu
 				</div>');
-			redirect('masuk?r=' . $this->uri->segment(1, null));
+			redirect('masuk?r=' . $this->uri->segment(1, null) . '/' . $this->uri->segment(2, null));
 		}
 	}
 
@@ -715,8 +715,6 @@ class UserController extends CI_Controller
 			$data['regu'] = $this->UserModel->getDataPembayaranBeregu($id);
 			$data['pemain'] = $this->UserModel->getDataPendaftaranReguPemain($id);
 			$data['jumlahOfficial'] = $this->UserModel->getJumlahReguOfficial($id);
-			// print_r($data['jumlahOfficial']);
-			// return;
 			if (sizeof($data['jumlahOfficial']) > 0) {
 				$data['official'] = $this->UserModel->getDataPendaftaranReguOfficialNotNull($id);
 			}

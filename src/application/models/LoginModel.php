@@ -88,6 +88,6 @@ class LoginModel extends CI_Model
 		$this->db->delete('recovery', ['recovery_code' => $data['recoveryCode']]);
 		$this->db->where(['username' => $data['username']]);
 		$result = $this->db->update('user', ['password' => $data['password']]);
-		return $this->db->affected_rows != 0 ? true : false;
+		return $this->db->affected_rows() != 0 ? true : false;
 	}
 }

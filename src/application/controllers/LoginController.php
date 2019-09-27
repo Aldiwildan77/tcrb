@@ -24,6 +24,9 @@ class LoginController extends CI_Controller
 
 	public function index()
 	{
+    if(isset($_GET['r'])){
+      $this->session->set_userdata(['redirect' => $_GET['r']]);
+    }
 		$this->form_validation->set_message('required', 'Kolom {field} wajib diisi.');
 		$this->form_validation->set_rules('input', 'Username', 'required|trim');
 		$this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]');
@@ -46,7 +49,7 @@ class LoginController extends CI_Controller
 				'password' => $password
 			];
 			if ($this->LoginModel->login($data)) {
-				$data = $this->LoginModel->login($data);
+        $data = $this->LoginModel->login($data);
 				if ($this->LoginModel->checkStatusAktif(['id' => $data['id']])) {
 					$array = [
 						'id' => $data['id'],
@@ -54,8 +57,8 @@ class LoginController extends CI_Controller
 						'fullname' => $data['nama_lengkap']
 					];
 					$this->session->set_userdata($array);
-					if (isset($_GET['r'])) {
-						redirect($_GET['r']);
+					if ($this->session->has_userdata('redirect')) {
+						redirect($this->session->userdata('redirect'));
 					} else {
 						redirect('user');
 					}

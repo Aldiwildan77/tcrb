@@ -55,7 +55,7 @@ class HomeController extends CI_Controller
 
 	public function adminBayarLogin()
 	{
-		if ($this->session->userdata('name_admin') == 'adminBayar') {
+		if ($this->session->userdata('namaAdmin') == 'adminBayar') {
 			redirect('admin/home');
 		}
 

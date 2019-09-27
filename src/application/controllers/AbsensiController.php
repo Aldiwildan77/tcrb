@@ -42,11 +42,19 @@ class AbsensiController extends CI_Controller
 	{
 		$data['title'] = 'Validasi Regu';
     $result = $this->UserModel->getDataPembayaranWithRegu($token);
+    $userId = $result['user_id'];
     $data['status'] = $result['status_bayar'];
-    $reguId = $result['regu_id'];
-    $nama = $result['nama'];
-
-		$this->session->set_flashdata('validate', "Beregu - $reguId - $nama");
+    $nama = $result['nama_lengkap'];
+    $regu = $this->UserModel->getDataReguByUserId($userId);
+    // echo json_encode($regu);
+    // return;
+    $this->session->set_flashdata('validate', "Beregu - $userId - $nama");
+    $data['regu'] = '<ul style="list-style-type:none">';
+    foreach($regu as $row){
+      $data['regu'] .= "<li>- ". $row['nama']."</li>";
+    }
+    $data['regu'] .= '<ul>';
+    $this->session->set_flashdata('regu', $data['regu']);
 		$data['status'] = $data['status'] == 2 ? 'success' : 'error';
 		$data['kategori'] = 'Beregu';
 

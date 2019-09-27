@@ -91,7 +91,8 @@
 
 		<div class="collapse navbar-collapse text-center" id="navbarCollapse">
 			<ul class="navbar-nav ml-auto navbar-list">
-				<li class="mx-2 p-2"><a href="<?= base_url('home') ?>">Home</a></li>
+        <li class="mx-2 p-2"><a href="<?= base_url('home') ?>">Home</a></li>
+        <li class="mx-2 p-2"><a href="<?= base_url('uploads/GUIDE-BOOK-TCRB-VII-2019.pdf') ?>" target="_blank">Guide Book</a></li>
 				<li class="mx-2 p-2"><a href="#" onclick="return comingSoon()">Pairing</a></li>
 				<li class="mx-2 p-2"><a href="<?= base_url('dokumentasi') ?>">Dokumentasi</a></li>
 				<li class="mx-2 p-2"><a href="<?= base_url('tata-cara-pendaftaran') ?>">Tata Cara</a></li>

@@ -6,7 +6,7 @@
 	Swal.fire({
 		type: "<?= $status ?>",
 		title: "<h5 class='font-weight-bold' style='font-size: 20px'><?= $this->session->flashdata('validate'); ?></h5>",
-		text: `Registrasi Ulang ${kategori} ${check.trim()}`
+		html: `Registrasi Ulang ${kategori} ${check.trim()}<?= $this->session->flashdata('regu') ?>`
 	}).then(res => {
 		window.location.href = "<?= base_url(); ?>"
 	})

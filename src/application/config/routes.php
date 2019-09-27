@@ -31,7 +31,7 @@ $route['user/pendaftaran-proses-orang'] = 'UserController/prosesPendaftaranPeror
 $route['user/pendaftaran-proses-regu'] = 'UserController/prosesPendaftaranBeregu';
 $route['user/pembayaran'] = 'UserController/pembayaran';
 $route['user/changepass'] = 'UserController/changePassword';
-$route['user/generatePDF'] = 'UserController/generatePDF';
+$route['user/bukti-pendaftaran'] = 'UserController/generatePDF';
 
 // Home
 $route['home'] = 'HomeController';
@@ -53,6 +53,11 @@ $route['absensi/regu/(:any)'] = 'AbsensiController/validateReguTokenWithPembayar
 $route['admin'] = 'HomeController/adminBayarLogin';
 $route['admin/jumlah-pendaftar'] = 'HomeController/lihatJumlahPendaftar';
 $route['admin/home'] = 'AdminController';
+$route['admin/orang'] = 'AdminController/perorangan';
+$route['admin/regu'] = 'AdminController/beregu';
+$route['admin/user'] = 'AdminController/user';
+$route['admin/validasi/orang/(:any)'] = 'AdminController/validasiPembayaranPerorangan/$1';
+$route['admin/validasi/regu/(:any)'] = 'AdminController/validasiPembayaranBeregu/$1';
 $route['admin/keluar'] = 'AdminController/logout';
 
 $route['default_controller'] = 'HomeController';

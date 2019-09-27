@@ -59,11 +59,20 @@ class UserModel extends CI_Model
 	public function getDataPembayaranWithRegu($token)
 	{
 		$this->db->select('*');
-		$this->db->from('pem_regu pr');
-		$this->db->join('regu r', 'pr.regu_id = r.id');
+    $this->db->from('pem_regu pr');
+    $this->db->join('user u', 'u.id = pr.user_id');
+		// $this->db->join('regu r', 'pr.regu_id = r.id');
 		$this->db->where('pr.token', $token);
 		return $this->db->get()->row_array();
 	}
+
+  public function getDataReguByUserId($id){
+    $this->db->select('*');
+    $this->db->from('pem_regu pr');
+    $this->db->join('regu r', 'r.id = pr.regu_id');
+    $this->db->where('pr.user_id', $id);
+    return $this->db->get()->result_array();
+  }
 
 	public function insertRegu($data)
 	{
