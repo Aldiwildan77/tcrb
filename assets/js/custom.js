@@ -216,12 +216,12 @@ $('#tambah-perorangan').click(function (e) { //tambah perorangan
 		'<label for="kategori' + urutanPerorangan + '">Kategori pertandingan</label>' +
 		'<select id="kategori' + urutanPerorangan + '" class="form-control" name="kategori[]" required>' +
 		'<option selected disabled>Pilih salah satu</option>' +
-    '<option value="1">Presale 1 Rapid</option>'+
-    '<option value="3">Presale 1 Blitz</option>'+
-    '<option value="13">Presale 1 Rapid + Paket B Perorangan/Official</option>'+
-    '<option value="14">Presale 1 Rapid + Paket D Perorangan/Official</option>'+
-    '<option value="15">Presale 1 Blitz + Paket B Perorangan/Official</option>'+
-    '<option value="16">Presale 1 Blitz + Paket D Perorangan/Official</option>'+
+    '<option value="2">Presale 2 Rapid</option>'+
+    '<option value="3">Presale 2 Blitz</option>'+
+    '<option value="17">Presale 2 Rapid + Paket B Perorangan/Official</option>'+
+    '<option value="18">Presale 2 Rapid + Paket D Perorangan/Official</option>'+
+    '<option value="19">Presale 2 Blitz + Paket B Perorangan/Official</option>'+
+    '<option value="20">Presale 2 Blitz + Paket D Perorangan/Official</option>'+
 		'</select>' +
 		'</div>' +
 		'<div class="form-group col-lg-6">' +
