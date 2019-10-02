@@ -4,10 +4,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['form'] = 'ComingSoon/form';
 $route['hasil'] = 'ComingSoon/hasilForm';
 
-// Tata cara pendaftaran TCRB
-$route['tata-cara-pendaftaran'] = 'HomeController/tataCara';
-
-
 //Login
 $route['masuk'] = 'LoginController';
 $route['keluar'] = 'UserController/logout';
@@ -36,6 +32,9 @@ $route['user/bukti-pendaftaran'] = 'UserController/generatePDF';
 // Home
 $route['home'] = 'HomeController';
 $route['dokumentasi'] = 'HomeController/dokumentasi';
+$route['tata-cara-pendaftaran'] = 'HomeController/tataCara';
+$route['twibbon'] = 'HomeController/twibbon';
+$route['twibbon-manual'] = 'HomeController/twibbonManual';
 
 // Sosmed
 $route['line'] = 'HomeController/line';

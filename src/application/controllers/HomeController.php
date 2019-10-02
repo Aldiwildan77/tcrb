@@ -138,10 +138,15 @@ class HomeController extends CI_Controller
 
   function tataCara()
   {
-    $data['title'] = 'Tata Cara Pendaftaran TCRB';
+    $data['title'] = 'Tata Cara Pendaftaran';
 		$this->load->view('templates/header', $data);
 		$this->load->view('home/tata_cara_view');
 		$this->load->view('templates/footer');
+  }
+
+  function twibbon(){
+    $data['title'] = 'Twibbon';
+    $this->load->view('home/twibbon', $data); 
   }
 
 	function line()
@@ -153,8 +158,13 @@ class HomeController extends CI_Controller
 	{
 		redirect('https://www.instagram.com/tcrb_ub/');
 	}
-	function youtube()
+  
+  function youtube()
 	{
 		redirect('https://www.youtube.com/channel/UCq-pgI0KWAISOnfwG-YkOFQ');
-	}
+  }
+  
+  function twibbonManual(){
+    redirect('https://drive.google.com/file/d/1-2Nwn75sLWO54hN4eWeyKORpty8GXAOh/view?usp=sharing');
+  }
 }
