@@ -93,7 +93,7 @@
         <div class="col-12">
           <?php if ($status['status_bayar'] == 2) : ?>
             <div class="text-center">
-              <button type="button" class="text-center btn btn-info btn-lg mt-2" style="border-radius:25px;">Cetak Struk</button>
+              <a href="<?= base_url('user/bukti-pendaftaran') ?>" class="text-center btn btn-info btn-lg mt-2" style="border-radius:25px;">Cetak Struk</a>
             </div>
           <?php elseif ($status['status_bayar'] == 1) : ?>
             <h3 class="text-center">Pembayaran anda masih dalam proses review.</h3>
@@ -183,7 +183,7 @@
         <div class="col-12">
           <?php if ($regu[0]['status_bayar'] == 2) : ?>
             <div class="text-center">
-              <button type="button" class="text-center btn btn-info btn-lg mt-2" style="border-radius:25px;">Cetak Struk</button>
+              <a href="<?= base_url('user/bukti-pendaftaran') ?>" class="text-center btn btn-info btn-lg mt-2" style="border-radius:25px;">Cetak Struk</a>
             </div>
           <?php elseif ($regu[0]['status_bayar'] == 1) : ?>
             <h3 class="text-center">Pembayaran anda masih dalam proses review.</h3>

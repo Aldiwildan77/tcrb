@@ -140,15 +140,24 @@
       </div>
 
       <div class="col-md-4 text-center mb-4">
-        <div class="uploader">
-          <canvas id="imageCanvas" class="image-canvas"></canvas>
-          <div class="profile-pic-wrap">
-            <div id="demo-basic"></div>
+        <div class="row">
+          <div class="col-12">
+            <div class="uploader">
+              <canvas id="imageCanvas" class="image-canvas"></canvas>
+              <div class="profile-pic-wrap">
+                <div id="demo-basic"></div>
+              </div>
+              <div class="download-button">
+                <input type="file" name="file" id="imageLoader" class="inputfile" accept="image/*" />
+                <label for="imageLoader">Pilih Foto</label>
+                <a class="basic-result button">Preview</a>
+              </div>
+            </div>
           </div>
-          <div class="download-button">
-            <input type="file" name="file" id="imageLoader" class="inputfile" accept="image/*" />
-            <label for="imageLoader">Pilih Foto</label>
-            <a class="basic-result button">Preview</a>
+        </div>
+        <div class="row mt-3">
+          <div class="col-12">
+            <a href="<?= base_url('twibbon-manual') ?>" class="btn btn-primary btn-block text-white" target="_blank">Download Twibbon Manual</a>
           </div>
         </div>
       </div>
