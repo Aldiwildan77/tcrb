@@ -75,7 +75,7 @@ class LoginModel extends CI_Model
 		$expired = $this->db->get_where('recovery', ['recovery_code' => $code])->row_array()['expired'];
 
 		foreach ($allUser as $row) {
-			$check = md5('resettcrbbcc' . $row['password']);
+			$check = md5('resettcrbbcc' . $row['username'] . $row['password']);
 			if ($check == $code && ($expired > $dateFormated)) {
 				return $row;
 			}
@@ -85,9 +85,13 @@ class LoginModel extends CI_Model
 
 	public function updatePassword($data)
 	{
+		$passwordLama = $this->db->get_where('user', ['username' => $data['username']])->row_array()['password'];
 		$this->db->delete('recovery', ['recovery_code' => $data['recoveryCode']]);
 		$this->db->where(['username' => $data['username']]);
 		$result = $this->db->update('user', ['password' => $data['password']]);
+		if ($passwordLama == $data['password']){
+			return true;
+		}
 		return $this->db->affected_rows() != 0 ? true : false;
 	}
 }

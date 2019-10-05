@@ -219,7 +219,7 @@ class LoginController extends CI_Controller
 
 	private function _sendRecoveryEmail($dataUser)
 	{
-		$recoveryCode = md5('resettcrbbcc' . $dataUser['password']);
+		$recoveryCode = md5('resettcrbbcc' . $dataUser['username'] . $dataUser['password']);
 		$this->LoginModel->setRecoveryCode($recoveryCode);
 
 		$data['username'] = $dataUser['username'];
@@ -268,12 +268,12 @@ class LoginController extends CI_Controller
 
 					$status = $this->LoginModel->updatePassword($data);
 					if ($status) {
-						$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-						Terjadi kesalahan saat mengganti password anda. Silahkan menghubungi admin melalui sosial media atau email ittcrbcii@gmail.com
-						</div>');
-					} else {
 						$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
 						Password anda berhasil diganti. Silahkan masuk dengan password baru anda
+						</div>');
+					} else {
+						$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+						Terjadi kesalahan saat mengganti password anda. Silahkan menghubungi admin melalui sosial media atau email ittcrbvii@gmail.com
 						</div>');
 					}
 					redirect('masuk');
