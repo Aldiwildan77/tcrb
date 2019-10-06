@@ -163,7 +163,7 @@ footer .container-fluid {
 	}
 
 	.dokumentasi {
-		margin-top: -10px;
+		margin-top: -210px;
 		font-size: 14px;
 	}
 
@@ -241,6 +241,7 @@ footer .container-fluid {
 	}
 
 	.dokumentasi {
+		margin-top: -70px;
 		font-size: 15px;
 	}
 
@@ -266,10 +267,6 @@ footer .container-fluid {
 @media (min-width: 992px) {
 	.about {
 		margin-top: -100px;
-	}
-
-	.rundown {
-		/* margin-top: -170px; */
 	}
 
 	.jumbotron .judul {
@@ -298,6 +295,7 @@ footer .container-fluid {
 	}
 
 	.dokumentasi {
+		margin-top: 0px;
 		font-size: 14px;
 	}
 
