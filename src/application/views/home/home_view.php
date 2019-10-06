@@ -54,7 +54,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="text-center text-white">
+		<div class="text-center text-white mb-5">
 			<h5 class="mt-4">Tekan tombol dibawah ini untuk melihat lebih banyak</h5>
 			<a href="<?= base_url('dokumentasi') ?>" class="btn btn-outline-warning ">Tampilkan</a>
 		</div>
@@ -62,14 +62,237 @@
 </section>
 <!-- Akhir Dokumentasi -->
 
+<section class="section-page pembatas">
+
+</section>
+
 <!-- Awal Rundown -->
-<section class="section-page rundown text-center" id="rundown">
+<section class="section-page-rundown rundown text-center" id="rundown">
 	<div class="container wow fadeIn" data-wow-offset="102">
 		<div class="row">
 			<div class="col-sm-12">
 				<h2 class="text-center">Rundown Kegiatan</h2>
-				<h1><b>COMING SOON</b></h1>
-				<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis unde sapiente, itaque eligendi perferendis ducimus. Repudiandae culpa quasi magni nostrum reiciendis quo illum libero non, omnis sit, officia neque dolore. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis unde sapiente, itaque eligendi perferendis ducimus. Repudiandae culpa quasi magni nostrum reiciendis quo illum libero non, omnis sit, officia neque dolore.</p> -->
+				<ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">DAY 1</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">DAY 2</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">DAY 3</a>
+					</li>
+				</ul>
+				<div class="tab-content" id="pills-tabContent">
+					<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+						<table class="table table-striped table-sm">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">Waktu</th>
+									<th scope="col">Acara</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">08.00</th>
+									<td>Registrasi ulang Beregu Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">09.00</th>
+									<td>Opening Ceremony</td>
+								</tr>
+								<tr>
+									<th scope="row">10.00</th>
+									<td>Babak 1 Beregu Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">11.05</th>
+									<td>ISHOMA</td>
+								</tr>
+								<tr>
+									<th scope="row">12.30</th>
+									<td>Babak 2 Beregu Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">13.20</th>
+									<td>Babak 3 Beregu Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">14.20</th>
+									<td>Babak 4 Beregu Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">15.05</th>
+									<td>ISHOMA</td>
+								</tr>
+								<tr>
+									<th scope="row">15.45</th>
+									<td>Registrasi ulang Beregu BLitz</td>
+								</tr>
+								<tr>
+									<th scope="row">16.20</th>
+									<td>Babak 1 Beregu Blitz</td>
+								</tr>
+								<tr>
+									<th scope="row">16.40</th>
+									<td>Babak 2 Beregu Blitz</td>
+								</tr>
+								<tr>
+									<th scope="row">17.15</th>
+									<td>Babak 3 Beregu Blitz</td>
+								</tr>
+								<tr>
+									<th scope="row">17.30</th>
+									<td>ISHOMA</td>
+								</tr>
+								<tr>
+									<th scope="row">18.05</th>
+									<td>Babak 4 Beregu Blitz</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+						<table class="table table-striped table-sm">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">Waktu</th>
+									<th scope="col">Acara</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">08.00</th>
+									<td>Babak 5 Beregu Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">09.10</th>
+									<td>Babak 6 Beregu Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">09.55</th>
+									<td>Registrasi Perorangan Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">10.00</th>
+									<td>Briefing Peserta + Pairing Babak 1 Perorangan Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">10.15</th>
+									<td>Babak 1 Perorangan Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">11.00</th>
+									<td>Babak 2 Perorangan Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">11.50</th>
+									<td>ISHOMA</td>
+								</tr>
+								<tr>
+									<th scope="row">12.50</th>
+									<td>Babak 3 Perorangan Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">13.40</th>
+									<td>Babak 4 Perorangan Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">14.30</th>
+									<td>Babak 5 Perorangan Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">15.15</th>
+									<td>ISHOMA</td>
+								</tr>
+								<tr>
+									<th scope="row">15.45</th>
+									<td>Registrasi Perorangan Blitz</td>
+								</tr>
+								<tr>
+									<th scope="row">16.05</th>
+									<td>Babak 1 Perorangan Blitz</td>
+								</tr>
+								<tr>
+									<th scope="row">16.35</th>
+									<td>Babak 2 Perorangan Blitz</td>
+								</tr>
+								<tr>
+									<th scope="row">16.55</th>
+									<td>Babak 3 Perorangan Blitz</td>
+								</tr>
+								<tr>
+									<th scope="row">17.15</th>
+									<td>Babak 4 Perorangan Blitz</td>
+								</tr>
+								<tr>
+									<th scope="row">17.35</th>
+									<td>ISHOMA</td>
+								</tr>
+								<tr>
+									<th scope="row">18.15</th>
+									<td>Babak 5 Perorangan Blitz</td>
+								</tr>
+								<tr>
+									<th scope="row">18.35</th>
+									<td>Babak 6 Perorangan Blitz</td>
+								</tr>
+								<tr>
+									<th scope="row">19.00</th>
+									<td>Babak 7 Perorangan Blitz</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+						<table class="table table-striped table-sm">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">Waktu</th>
+									<th scope="col">Acara</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">08.55</th>
+									<td>Babak 7 Beregu Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">09.45</th>
+									<td>Babal 6 Perorangan Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">10.35</th>
+									<td>Babal 7 Perorangan Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">11.25</th>
+									<td>Babak 5 Beregu Blitz</td>
+								</tr>
+								<tr>
+									<th scope="row">11.40</th>
+									<td>ISHOMA</td>
+								</tr>
+								<tr>
+									<th scope="row">12.35</th>
+									<td>Babak 6 Beregu Blitz</td>
+								</tr>
+								<tr>
+									<th scope="row">12.55</th>
+									<td>Babak 7 Beregu Blitz</td>
+								</tr>
+								<tr>
+									<th scope="row">13.10</th>
+									<td>Pembukaan MC</td>
+								</tr>
+								<tr>
+									<th scope="row">13.15</th>
+									<td>Closing Ceremony</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -130,7 +353,7 @@
 			</div>
 		</div>
 
-    <div class="row justify-content-center">
+		<div class="row justify-content-center">
 			<img src="<?= base_url('assets/img/sponsor/bjti-port.png'); ?>" alt="" class="gsponsor">
 			<img src="<?= base_url('assets/img/sponsor/bu-khowik.jpg'); ?>" alt="" class="gsponsor">
 			<img src="<?= base_url('assets/img/sponsor/griya-brawijaya.png'); ?>" alt="" class="gsponsor">
