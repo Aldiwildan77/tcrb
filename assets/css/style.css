@@ -216,7 +216,7 @@ footer .container-fluid {
 	}
 
 	.rundown {
-		/* margin-top: -240px; */
+		margin-top: -240px;
 		font-size: 15px;
 	}
 
@@ -241,11 +241,12 @@ footer .container-fluid {
 	}
 
 	.dokumentasi {
+		/* margin-top: -186px; */
 		font-size: 15px;
 	}
 
 	.rundown {
-		/* margin-top: -200px; */
+		margin-top: -200px;
 		font-size: 15px;
 	}
 
@@ -269,7 +270,7 @@ footer .container-fluid {
 	}
 
 	.rundown {
-		/* margin-top: -170px; */
+		margin-top: -170px;
 	}
 
 	.jumbotron .judul {
@@ -336,7 +337,7 @@ footer .container-fluid {
 
 	.dokumentasi {
 		margin-top: -5px;
-		/* margin-bottom: 75px; */
+		margin-bottom: 75px;
 		font-size: 14px;
 	}
 

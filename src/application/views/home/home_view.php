@@ -103,7 +103,7 @@
 								</tr>
 								<tr>
 									<th scope="row">10.00</th>
-									<td>Babak 1 Beregu Rapid</td>
+									<td style="font-weight:bold;">Babak 1 Beregu Rapid</td>
 								</tr>
 								<tr>
 									<th scope="row">11.05</th>
@@ -111,15 +111,15 @@
 								</tr>
 								<tr>
 									<th scope="row">12.30</th>
-									<td>Babak 2 Beregu Rapid</td>
+									<td style="font-weight:bold;">Babak 2 Beregu Rapid</td>
 								</tr>
 								<tr>
-									<th scope="row">13.20</th>
-									<td>Babak 3 Beregu Rapid</td>
+									<th scope="row">13.15</th>
+									<td style="font-weight:bold;">Babak 3 Beregu Rapid</td>
 								</tr>
 								<tr>
-									<th scope="row">14.20</th>
-									<td>Babak 4 Beregu Rapid</td>
+									<th scope="row">14.15</th>
+									<td style="font-weight:bold;">Babak 4 Beregu Rapid</td>
 								</tr>
 								<tr>
 									<th scope="row">15.05</th>
@@ -127,27 +127,23 @@
 								</tr>
 								<tr>
 									<th scope="row">15.45</th>
-									<td>Registrasi ulang Beregu BLitz</td>
+									<td>Registrasi ulang Beregu Blitz</td>
 								</tr>
 								<tr>
 									<th scope="row">16.20</th>
-									<td>Babak 1 Beregu Blitz</td>
+									<td style="font-weight:bold;">Babak 1 Beregu Blitz</td>
 								</tr>
 								<tr>
 									<th scope="row">16.40</th>
-									<td>Babak 2 Beregu Blitz</td>
+									<td style="font-weight:bold;">Babak 2 Beregu Blitz</td>
+								</tr>
+								<tr>
+									<th scope="row">16.55</th>
+									<td style="font-weight:bold;">Babak 3 Beregu Blitz</td>
 								</tr>
 								<tr>
 									<th scope="row">17.15</th>
-									<td>Babak 3 Beregu Blitz</td>
-								</tr>
-								<tr>
-									<th scope="row">17.30</th>
-									<td>ISHOMA</td>
-								</tr>
-								<tr>
-									<th scope="row">18.05</th>
-									<td>Babak 4 Beregu Blitz</td>
+									<td style="font-weight:bold;">Babak 4 Beregu Blitz</td>
 								</tr>
 							</tbody>
 						</table>
@@ -163,43 +159,39 @@
 							<tbody>
 								<tr>
 									<th scope="row">08.00</th>
-									<td>Babak 5 Beregu Rapid</td>
-								</tr>
-								<tr>
-									<th scope="row">09.10</th>
-									<td>Babak 6 Beregu Rapid</td>
-								</tr>
-								<tr>
-									<th scope="row">09.55</th>
 									<td>Registrasi Perorangan Rapid</td>
 								</tr>
 								<tr>
-									<th scope="row">10.00</th>
-									<td>Briefing Peserta + Pairing Babak 1 Perorangan Rapid</td>
+									<th scope="row">08.15</th>
+									<td style="font-weight:bold;">Babak 5 Beregu Rapid</td>
 								</tr>
 								<tr>
-									<th scope="row">10.15</th>
-									<td>Babak 1 Perorangan Rapid</td>
+									<th scope="row">09.05</th>
+									<td style="font-weight:bold;">Babak 6 Beregu Rapid</td>
+								</tr>
+								<tr>
+									<th scope="row">10.00</th>
+									<td style="font-weight:bold;">Babak 1 Perorangan Rapid</td>
 								</tr>
 								<tr>
 									<th scope="row">11.00</th>
-									<td>Babak 2 Perorangan Rapid</td>
+									<td style="font-weight:bold;">Babak 2 Perorangan Rapid</td>
 								</tr>
 								<tr>
 									<th scope="row">11.50</th>
 									<td>ISHOMA</td>
 								</tr>
 								<tr>
-									<th scope="row">12.50</th>
-									<td>Babak 3 Perorangan Rapid</td>
+									<th scope="row">12.45</th>
+									<td style="font-weight:bold;">Babak 3 Perorangan Rapid</td>
 								</tr>
 								<tr>
-									<th scope="row">13.40</th>
-									<td>Babak 4 Perorangan Rapid</td>
+									<th scope="row">13.35</th>
+									<td style="font-weight:bold;">Babak 4 Perorangan Rapid</td>
 								</tr>
 								<tr>
 									<th scope="row">14.30</th>
-									<td>Babak 5 Perorangan Rapid</td>
+									<td style="font-weight:bold;">Babak 5 Perorangan Rapid</td>
 								</tr>
 								<tr>
 									<th scope="row">15.15</th>
@@ -211,19 +203,19 @@
 								</tr>
 								<tr>
 									<th scope="row">16.05</th>
-									<td>Babak 1 Perorangan Blitz</td>
+									<td style="font-weight:bold;">Babak 1 Perorangan Blitz</td>
 								</tr>
 								<tr>
 									<th scope="row">16.35</th>
-									<td>Babak 2 Perorangan Blitz</td>
+									<td style="font-weight:bold;">Babak 2 Perorangan Blitz</td>
 								</tr>
 								<tr>
 									<th scope="row">16.55</th>
-									<td>Babak 3 Perorangan Blitz</td>
+									<td style="font-weight:bold;">Babak 3 Perorangan Blitz</td>
 								</tr>
 								<tr>
 									<th scope="row">17.15</th>
-									<td>Babak 4 Perorangan Blitz</td>
+									<td style="font-weight:bold;">Babak 4 Perorangan Blitz</td>
 								</tr>
 								<tr>
 									<th scope="row">17.35</th>
@@ -231,15 +223,15 @@
 								</tr>
 								<tr>
 									<th scope="row">18.15</th>
-									<td>Babak 5 Perorangan Blitz</td>
+									<td style="font-weight:bold;">Babak 5 Perorangan Blitz</td>
 								</tr>
 								<tr>
 									<th scope="row">18.35</th>
-									<td>Babak 6 Perorangan Blitz</td>
+									<td style="font-weight:bold;">Babak 6 Perorangan Blitz</td>
 								</tr>
 								<tr>
 									<th scope="row">19.00</th>
-									<td>Babak 7 Perorangan Blitz</td>
+									<td style="font-weight:bold;">Babak 7 Perorangan Blitz</td>
 								</tr>
 							</tbody>
 						</table>
@@ -254,32 +246,32 @@
 							</thead>
 							<tbody>
 								<tr>
-									<th scope="row">08.55</th>
-									<td>Babak 7 Beregu Rapid</td>
+									<th scope="row">08.50</th>
+									<td style="font-weight:bold;">Babak 7 Beregu Rapid</td>
 								</tr>
 								<tr>
-									<th scope="row">09.45</th>
-									<td>Babal 6 Perorangan Rapid</td>
+									<th scope="row">09.40</th>
+									<td style="font-weight:bold;">Babak 6 Perorangan Rapid</td>
 								</tr>
 								<tr>
-									<th scope="row">10.35</th>
-									<td>Babal 7 Perorangan Rapid</td>
+									<th scope="row">10.30</th>
+									<td style="font-weight:bold;">Babak 7 Perorangan Rapid</td>
 								</tr>
 								<tr>
-									<th scope="row">11.25</th>
-									<td>Babak 5 Beregu Blitz</td>
+									<th scope="row">11.20</th>
+									<td style="font-weight:bold;">Babak 5 Beregu Blitz</td>
 								</tr>
 								<tr>
 									<th scope="row">11.40</th>
 									<td>ISHOMA</td>
 								</tr>
 								<tr>
-									<th scope="row">12.35</th>
-									<td>Babak 6 Beregu Blitz</td>
+									<th scope="row">12.30</th>
+									<td style="font-weight:bold;">Babak 6 Beregu Blitz</td>
 								</tr>
 								<tr>
-									<th scope="row">12.55</th>
-									<td>Babak 7 Beregu Blitz</td>
+									<th scope="row">12.50</th>
+									<td style="font-weight:bold;">Babak 7 Beregu Blitz</td>
 								</tr>
 								<tr>
 									<th scope="row">13.10</th>
