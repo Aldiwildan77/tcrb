@@ -68,9 +68,9 @@
 
 <!-- Awal Rundown -->
 <section class="section-page-rundown rundown text-center" id="rundown">
-	<div class="container wow fadeIn" data-wow-offset="102">
-		<div class="row">
-			<div class="col-sm-12">
+	<div class="container-fluid wow fadeIn" data-wow-offset="102">
+		<div class="row justify-content-center">
+			<div class="col-lg-6">
 				<h2 class="text-center">Rundown Kegiatan</h2>
 				<ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
 					<li class="nav-item">
