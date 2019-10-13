@@ -221,7 +221,7 @@
   <script src="<?= base_url('assets/js/jquery-3.3.1.min.js') ?>"></script>
   <script src="<?= base_url('assets/js/popper.min.js') ?>"></script>
   <script src="<?= base_url('assets/js/bootstrap.js') ?>"></script>
-  <script src="<?= base_url('assets/vendor/Croppie-2.6.4/croppie.js') ?>"></script>
+  <script src="<?= base_url('assets/twibbon/js/croppie.js') ?>"></script>
   <script src="<?= base_url('assets/twibbon/js/sweetalert.min.js') ?>"></script>
   <script src="<?= base_url('assets/twibbon/js/load-image.all.min.js') ?>"></script>
   <script src="<?= base_url('assets/twibbon/js/twibbon.js') ?>"></script>

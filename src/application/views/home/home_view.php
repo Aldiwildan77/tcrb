@@ -366,6 +366,9 @@
 			<img src="<?= base_url('assets/img/medpar/smansasi-prestasi.jpg'); ?>" alt="" class="gmedpar">
 			<img src="<?= base_url('assets/img/medpar/draft-sms-mahasiswa.jpg'); ?>" alt="" class="gmedpar">
 			<img src="<?= base_url('assets/img/medpar/rri-malang.jpg'); ?>" alt="" class="gmedpar">
+			<img src="<?= base_url('assets/img/medpar/ubtv.jpg'); ?>" alt="" class="gmedpar">
+			<img src="<?= base_url('assets/img/medpar/info-ub.jpg'); ?>" alt="" class="gmedpar">
+			<img src="<?= base_url('assets/img/medpar/event-apaja.jpg'); ?>" alt="" class="gmedpar">
 		</div>
 
 	</div>

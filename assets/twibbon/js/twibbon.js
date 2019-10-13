@@ -31,7 +31,7 @@ function popupResult(result) {
 function drawFrame() {
   var img = new Image();
   img.crossOrigin = "Anonymous";
-  img.src = 'assets/img/twibbon.png';  
+  img.src = 'assets/img/twibbon19.png';
   img.onload = function() {
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     popupResult({
@@ -122,6 +122,7 @@ $('.basic-result').on('click', function(e) {
   var downloadButton = this;
   basic.croppie('result', {
 		type: 'canvas',
+		size: 'original',
 	}).then(function (resp) {
 		drawProfPict(resp);
 	});
