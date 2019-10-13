@@ -217,7 +217,7 @@ $('#tambah-perorangan').click(function (e) { //tambah perorangan
 		'<select id="kategori' + urutanPerorangan + '" class="form-control" name="kategori[]" required>' +
 		'<option selected disabled>Pilih salah satu</option>' +
     '<option value="2">Presale 2 Rapid</option>'+
-    '<option value="3">Presale 2 Blitz</option>'+
+    '<option value="4">Presale 2 Blitz</option>'+
     '<option value="17">Presale 2 Rapid + Paket B Perorangan/Official</option>'+
     '<option value="18">Presale 2 Rapid + Paket D Perorangan/Official</option>'+
     '<option value="19">Presale 2 Blitz + Paket B Perorangan/Official</option>'+
@@ -275,6 +275,7 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 						<option value="5">Paket A Beregu Rapid</option>
 						<option value="6">Paket B Beregu Rapid</option>
 						<option value="7">Paket C Beregu Rapid</option>
+						<option value="21">Paket D Beregu Rapid</option>
 						<option value="8">Paket Blitz</option>
 					</select>
 				</div>

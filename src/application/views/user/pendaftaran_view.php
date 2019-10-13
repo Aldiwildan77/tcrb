@@ -140,9 +140,11 @@
 			                      <label for="kategoriRegu1">Kategori pertandingan</label>
 			                      <select id="kategoriRegu1" class="form-control" name="kategoriRegu[]" required>
 			                        <option selected disabled>Pilih salah satu</option>
-			                        <?php for ($i = 4; $i < 8; $i++) : ?>
+			                        <?php for ($i = 4; $i < 7; $i++) : ?>
 			                          <option value="<?= $kategori[$i]['id'] ?>"><?= $kategori[$i]['nama'] ?></option>
-			                        <?php endfor; ?>
+															<?php endfor; ?>
+															<option value="<?= $kategori[20]['id'] ?>"><?= $kategori[20]['nama'] ?></option>
+															<option value="<?= $kategori[7]['id'] ?>"><?= $kategori[7]['nama'] ?></option>
 			                      </select>
 			                    </div>
 			                  </div>
@@ -477,6 +479,15 @@
 			              </tr>
 			              <tr>
 			                <th scope="row">4</th>
+			                <td>Paket D Beregu Rapid
+			                  <ul>
+			                    <li>Pendaftaran</li>
+			                  </ul>
+			                </td>
+			                <td class="text-right">Rp 300.000</td>
+			              </tr>
+			              <tr>
+			                <th scope="row">5</th>
 			                <td>Paket Blitz
 			                  <ul>
 			                    <li>Pendaftaran</li>
@@ -485,7 +496,7 @@
 			                <td class="text-right">Rp 120.000</td>
 			              </tr>
 			              <tr>
-			                <th scope="row">5</th>
+			                <th scope="row">6</th>
 			                <td>Paket A Perorangan/Official 2 orang
 			                  <ul>
 			                    <li>Penginapan</li>
@@ -495,7 +506,7 @@
 			                <td class="text-right">Rp 710.000</td>
 			              </tr>
 			              <tr>
-			                <th scope="row">6</th>
+			                <th scope="row">7</th>
 			                <td>Paket B Perorangan/Official 1 orang
 			                  <ul>
 			                    <li>Penginapan</li>
@@ -505,7 +516,7 @@
 			                <td class="text-right">Rp 355.000</td>
 			              </tr>
 			              <tr>
-			                <th scope="row">7</th>
+			                <th scope="row">8</th>
 			                <td>Paket C Perorangan/Official 2 orang
 			                  <ul>
 			                    <li>Makan Siang (3x)</li>
@@ -514,7 +525,7 @@
 			                <td class="text-right">Rp 100.000</td>
 			              </tr>
 			              <tr>
-			                <th scope="row">6</th>
+			                <th scope="row">9</th>
 			                <td>Paket D Perorangan/Official 1 orang
 			                  <ul>
 			                    <li>Makan Siang (3x)</li>
