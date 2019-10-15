@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div class="container mt-3">
+  <div class="container-fluid mt-3">
     <div class="row">
       <div class="col-lg-12">
         <h3 class="text-center">Perorangan</h3>
