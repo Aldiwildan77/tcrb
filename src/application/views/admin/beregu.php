@@ -44,20 +44,21 @@
                   <td><?= $regu[$count]['nama_regu'] ?></td>
                   <td><?= $regu[$count]['instansi'] ?></td>
                   <td><?= $regu[$count]['nama_kategori'] ?></td>
-                  <td><a style="cursor: pointer" class="badge badge-warning pemainBtn" data-reguNama="<?= $regu[$count]['nama_regu'] ?>" data-reguid="<?= $regu[$count++]['id'] ?>">Detail pemain</a></td>
+                  <td><a style="cursor: pointer" class="badge badge-info pemainBtn text-white" data-reguNama="<?= $regu[$count]['nama_regu'] ?>" data-reguid="<?= $regu[$count++]['id'] ?>">Detail pemain</a></td>
                   <td rowspan="<?= $user[$i]['jumlah'] ?>"><?= $user[$i]['total'] ?></td>
                   <td rowspan="<?= $user[$i]['jumlah'] ?>"><a class="pop" style="cursor: pointer"><img src="<?= base_url('bukti-bayar/' . $user[$i]['bukti_bayar']) ?>" alt="" width="100px" height="100px"></a></td>
                   <?php if ($user[$i]['status_bayar'] == 0) : ?>
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><b>Belum bayar</b></td>
+                    <td rowspan="<?= $user[$i]['jumlah'] ?>"></td>
                   <?php elseif ($user[$i]['status_bayar'] == 1) : ?>
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><b>Belum divalidasi</b></td>
-                  <?php else : ?>
-                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><b>Sudah divalidasi</b></td>
-                  <?php endif; ?>
-                  <?php if ($user[$i]['status_bayar'] == 1) : ?>
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><a href="<?= base_url("admin/validasi/regu/" . $user[$i]['user_id']) ?>" class="badge badge-primary" onclick="return confirm('Yakin?')">Validasi</a></td>
                   <?php else : ?>
-                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><a class="badge badge-info">Validasi</a></td>
+                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><b>Sudah divalidasi</b></td>
+                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><a class="badge badge-success text-white">Tervalidasi</a></td>
+                  <?php endif; ?>
+                  <!-- <?php if ($user[$i]['status_bayar'] == 1) : ?>
+                  <?php else : ?> -->
                   <?php endif; ?>
                 </tr>
                 <?php for ($j = 1; $j < $user[$i]['jumlah']; $j++) : ?>
@@ -124,8 +125,8 @@
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="<?= base_url('assets/js/jquery-3.3.1.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/popper.min.js') ?>"></script>
-<script src="<?= base_url('assets/js/bootstrap.js') ?>"></script>
+  <script src="<?= base_url('assets/js/popper.min.js') ?>"></script>
+  <script src="<?= base_url('assets/js/bootstrap.js') ?>"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <?= $this->session->flashdata('message') ?>
   <script>
