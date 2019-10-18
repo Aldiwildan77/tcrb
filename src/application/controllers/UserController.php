@@ -208,6 +208,7 @@ class UserController extends CI_Controller
 			'5' => 'Paket A Beregu Rapid',
 			'6' => 'Paket B Beregu Rapid',
 			'7' => 'Paket C Beregu Rapid',
+			'21' => 'Paket D Beregu Rapid',
 			'8' => 'Paket Blitz'
 		];
 		$data['kategoriPemain'] = [
