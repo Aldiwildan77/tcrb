@@ -1,8 +1,8 @@
 <?php
 
-// use Endroid\QrCode\ErrorCorrectionLevel;
-// use Endroid\QrCode\QrCode;
-// use Endroid\QrCode\Response\QrCodeResponse;
+use Endroid\QrCode\ErrorCorrectionLevel;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Response\QrCodeResponse;
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -665,6 +665,24 @@ class UserController extends CI_Controller
 		$cid = $this->email->attachment_cid(FCPATH . "/qrcode/$token.png");
 		$this->email->message('<img src="cid:' . $cid . '"/>');
 		$this->email->send();
+	}
+
+	public function generateQrCode(){
+
+		$check = $this->input->post('check');
+		$token = $this->input->post('token');
+
+		$qr = new QrCode();
+		$qr->setText("tcrb.ub.ac.id/qr?data=$check/$token");
+		$qr->setSize(200);
+		$qr->setErrorCorrectionLevel(new ErrorCorrectionLevel(ErrorCorrectionLevel::HIGH));
+		$qr->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0));
+		$qr->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0));
+		$qr->setLogoPath(FCPATH . '/assets/img/logo.png');
+		$qr->setLogoSize(45, 45);
+
+		header('Content-Type: ' . $qr->getContentType());
+		echo $qr->writeString();
 	}
 
 	private function _generateQrCode($check)

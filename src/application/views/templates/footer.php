@@ -30,10 +30,12 @@
 <!-- Akhir footer -->
 
 <script src="<?= base_url('assets/js/jquery-3.3.1.min.js') ?>"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="<?= base_url('assets/js/popper.min.js') ?>"></script>
 <script src="<?= base_url('assets/js/bootstrap.js') ?>"></script>
 <script src="<?= base_url('assets/vendor/OwlCarousel2-2.3.4/src/js/owl.carousel.js') ?>"></script>
 <script src="<?= base_url('assets/vendor/OwlCarousel2-2.3.4/src/js/owl.autoplay.js') ?>"></script>
+<script src="<?= base_url('assets/js/api-client.js') ?>"></script>
 <script src="<?= base_url('assets/js/custom.js') ?>"></script>
 <script src="<?= base_url('assets/js/custom-file-input.js') ?>"></script>
 <?=$this->session->flashdata('message')?>
