@@ -56,10 +56,7 @@
 	</script>
 
 	<!-- WOW JS -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
-	<script>
-		new WOW().init();
-	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js">new WOW().init();</script>
 
 	<!--Start of Tawk.to Script-->
 	<script type="text/javascript">

@@ -27,9 +27,26 @@ $('#instagramModal').on('show.bs.modal', function (event) {
 	let btn = $(event.relatedTarget)
 
 	let cond = btn.data('link')
-	$('.instagram-media').attr('data-instgrm-permalink', cond)
-	$('.instagram-media').attr('src', cond + "embed/captioned/")
+	let width = btn.data('width')
+	// $('.instagram-media').attr('data-instgrm-permalink', cond)
+	// $('.instagram-media').attr('src', cond + "embed/captioned/")
+	// $('.instagram-media div a').attr('href', cond )
+	$.ajax({
+		url: `https://api.instagram.com/oembed/?url=${cond};maxwidth=${width}`,
+		dataType: 'json',
+		success: function(data) {
+			console.log("loadad")
+			$('.instagram-media').html(data.html)
+		}
+	});
+
+	$('p.insta-caption a').attr('href', cond)
+	$('p.insta-caption a').text(btn.data('caption'))
 	console.log(cond)
+})
+
+$('#instagramModal').on('hidden.bs.modal', function (event) {
+	$('.instagram-media').html('')
 })
 
 // owl carousel home
@@ -578,10 +595,3 @@ $(document).ready(function () {
 //     }
 //   })
 // }
-
-$(document).ready(function () {
-	axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=5519345197.72654b6.ef2159a15d30446088c7f9a8c0596a55&count=9`)
-		.then(result => {
-			console.log(result)
-		}).catch(error => console.log(error));
-})
