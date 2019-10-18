@@ -2,7 +2,7 @@ $(document).ready(async function () {
 	// use this js synchronously
 
 	let instagram = await loadInstagramApi()
-	if(!instagram) return false;
+	if (!instagram) return false;
 
 	await instagram.forEach((element, index) => {
 		let instagramHTML = $(`img.instafoto[data-loop=${index}]`)
@@ -18,7 +18,7 @@ $(document).ready(async function () {
 const loadInstagramApi = () => {
 	return new Promise(async (resolve, reject) => {
 		try {
-			let { data: { data : result }} = await axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=5519345197.72654b6.ef2159a15d30446088c7f9a8c0596a55&count=9`)
+			let { data: { data: result } } = await axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=5519345197.72654b6.ef2159a15d30446088c7f9a8c0596a55&count=9`)
 			if (!result) {
 				console.log("Nothing data has been loaded")
 				reject(false)
@@ -42,10 +42,56 @@ const loadInstagramApi = () => {
 	})
 }
 
-const loadQrCode = ({}, params) => {
+const loadQrCode = ({ }, params) => {
 
 }
 
-const generatePdf = ({},params) => {
+const generatePdfPerorangan = (username, token, rawData) => {
+	const url = window.location.origin + '/tcrb/'
+	let data = jQuery.parseJSON(rawData)
+	// console.log(data)
+	// return
+	// console.log(data['user']['nama_lengkap'])
+	var doc = new jsPDF('p', 'mm', 'a4', true)
 
+	var img = new Image()
+	img.src = url + 'assets/img/pdf/perorangan.png'
+	doc.addFont('Arial', 'Arial', 'normal');
+	doc.setFont('Arial', 'Bold')
+	doc.setFontSize(12)
+	doc.addImage(img, 'PNG', 0, 0, 210, 297, undefined, 'FAST')
+	doc.text(data['user']['nama_lengkap'], 71, 49.5)
+	doc.text(data['user']['instansi'], 71, 56.5)
+	// img.src = url + 'generate-qr'
+
+	// doc.autoTable({
+	// 	theme: 'plain',
+	// 	headStyles: {
+	// 		fillColor: [100, 100, 100],
+	// 		lineWidth: 0.3,
+	// 		lineColor: 0
+	// 	},
+	// 	startY: 50,
+	// 	head: [['No', 'Nama', 'Alamat']],
+	// 	bodyStyles: {
+	// 		fillColor: [255, 255, 255],
+	// 		lineWidth: 0.3,
+	// 		lineColor: 0
+	// 	},
+	// 	body: [
+	// 		['1', 'Fakhri', 'Malang'],
+	// 		['2', 'Dia', 'Malang juga']
+	// 	]
+	// })
+	// doc.save("Bukti-Pendaftaran-TCRB-" + username + ".pdf")
+	var string = doc.output('datauristring')
+	var embed = "<embed width='100%' height='100%' src='" + string + "'/>"
+	var x = window.open();
+	x.document.open();
+	x.document.write(embed);
+	x.document.close();
 }
+
+// function generatePdf(username){
+// 	console.log(username)
+// }

@@ -27,7 +27,7 @@ $route['user/pendaftaran-proses-orang'] = 'UserController/prosesPendaftaranPeror
 $route['user/pendaftaran-proses-regu'] = 'UserController/prosesPendaftaranBeregu';
 $route['user/pembayaran'] = 'UserController/pembayaran';
 $route['user/changepass'] = 'UserController/changePassword';
-$route['user/bukti-pendaftaran'] = 'UserController/generatePDF';
+$route['user/bukti-pendaftaran'] = 'UserController/halamanGeneratePDF';
 $route['generate-qr'] = 'UserController/generateQrCode';
 
 // Home
