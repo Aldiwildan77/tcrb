@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 $active_group = 'default';
 $query_builder = TRUE;
@@ -10,6 +10,9 @@ $db['default'] = array(
 	'username' => ENVIRONMENT === 'production' ? getenv('DB_USER') : 'root',
 	'password' => ENVIRONMENT === 'production' ? getenv('DB_PASSWORD') : '',
 	'database' => ENVIRONMENT === 'production' ? getenv('DB_NAME') : 'tcrb',
+	// 'username' => ENVIRONMENT === 'production' ? getenv('DB_USER') : 'tcrb',
+	// 'password' => ENVIRONMENT === 'production' ? getenv('DB_PASSWORD') : 'fkvgxgndba',
+	// 'database' => ENVIRONMENT === 'production' ? getenv('DB_NAME') : 'db_tcrb',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

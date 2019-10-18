@@ -740,7 +740,7 @@ class UserController extends CI_Controller
 		$pdf = new FPDF('P', 'cm', 'A4');
 		$pdf->AddPage();
 		$pdf->SetFont('Arial', 'B', 12);
-		$pdf->Image(base_url('assets/img/pdf/perorangan.png'), 0, 0, 21);
+		$pdf->Image(file_get_contents(base_url('assets/img/pdf/perorangan.png')), 0, 0, 21);
 
 		$pdf->setXY(7.1, 4.95);
 		$pdf->write(0, $data['user']['nama_lengkap']);

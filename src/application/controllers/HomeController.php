@@ -87,7 +87,7 @@ class HomeController extends CI_Controller
 			}
 		}
   }
-  
+
   public function lihatJumlahPendaftar()
   {
     $data['user'] = $this->AdminModel->getAllDataUser();
@@ -102,6 +102,12 @@ class HomeController extends CI_Controller
 	{
 		$token = getenv('INSTA_TOKEN'); # token
 		$count = 9; # total post
+
+		// $curl = curl_init();
+		// curl_setopt($curl, CURLOPT_URL, "https://api.instagram.com/v1/users/self/media/recent/?access_token=$token&count=$count");
+		// curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+		// $rawResult = curl_exec($curl);
+    // curl_close($curl);
 
 		$rawResult = file_get_contents("https://api.instagram.com/v1/users/self/media/recent/?access_token=$token&count=$count");
 		$result = json_decode($rawResult, true);
@@ -146,7 +152,7 @@ class HomeController extends CI_Controller
 
   function twibbon(){
     $data['title'] = 'Twibbon';
-    $this->load->view('home/twibbon', $data); 
+    $this->load->view('home/twibbon', $data);
   }
 
 	function line()
@@ -158,12 +164,12 @@ class HomeController extends CI_Controller
 	{
 		redirect('https://www.instagram.com/tcrb_ub/');
 	}
-  
+
   function youtube()
 	{
 		redirect('https://www.youtube.com/channel/UCq-pgI0KWAISOnfwG-YkOFQ');
   }
-  
+
   function twibbonManual(){
     redirect('https://drive.google.com/file/d/1-2Nwn75sLWO54hN4eWeyKORpty8GXAOh/view?usp=sharing');
   }
