@@ -667,19 +667,67 @@ class UserController extends CI_Controller
 		$this->email->send();
 	}
 
+	public function halamanGeneratePDF(){
+		$username = $this->session->userdata('username');
+		$check = $this->UserModel->checkPembayaranOrang($username) ? "orang" : ($this->UserModel->checkPembayaranRegu($username) ? "regu" : false);
+		$where = array('user_id' => $this->session->userdata('id'));
+		$token = $this->UserModel->getDataPembayaran($check, $where)['token'];
+		$data['data']['user'] = $this->UserModel->getDataUser([
+			'username' => $username
+		]);
+		$id = $data['data']['user']['id'];
+		if ($check == "orang") {
+			$data['data']['pemain'] = $this->UserModel->getDataPembayaranPerorangan($id);
+			$data['data']['totalHarga'] = $this->UserModel->getTotalHargaPerorangan($id);
+			$data['data']['status'] = $this->UserModel->getStatusPembayaranPerorangan($id);
+			if($data['data']['status']['status_bayar'] != 2){
+				$this->session->set_flashdata('message-user', "<script>Swal.fire({
+					type: 'error',
+					title: 'Error',
+					text: 'Pembayaran Anda belum lunas atau belum divalidasi oleh Admin',
+				})</script>");
+				redirect('user/pembayaran');
+			}
+		} else {
+			$data['data']['regu'] = $this->UserModel->getDataPembayaranBeregu($id);
+			$data['data']['pemain'] = $this->UserModel->getDataPendaftaranReguPemain($id);
+			$data['data']['jumlahOfficial'] = $this->UserModel->getJumlahReguOfficial($id);
+			if (sizeof($data['data']['jumlahOfficial']) > 0) {
+				$data['data']['official'] = $this->UserModel->getDataPendaftaranReguOfficialNotNull($id);
+			}
+			if($data['data']['regu'][0]['status_bayar'] != 2){
+				$this->session->set_flashdata('message-user', "<script>Swal.fire({
+					type: 'error',
+					title: 'Error',
+					text: 'Pembayaran Anda belum lunas atau belum divalidasi oleh Admin',
+				})</script>");
+				redirect('user/pembayaran');
+			}
+		}
+		$data['username'] = $username;
+		$data['check'] = $check;
+		$data['token'] = $token;
+		// print_r($data['token']);
+		// return;
+		$this->load->view('user/generate_pdf', $data);
+	}
+
 	public function generateQrCode(){
 
-		$check = $this->input->post('check');
-		$token = $this->input->post('token');
+		// $check = $this->input->post('check');
+		// $token = $this->input->post('token');
+		$check = "orang";
+		$token = "aks123ldob2dkljbq1";
 
 		$qr = new QrCode();
-		$qr->setText("tcrb.ub.ac.id/qr?data=$check/$token");
+		$qr->setText("https://tcrb.ub.ac.id/qr?data=$check/$token");
 		$qr->setSize(200);
 		$qr->setErrorCorrectionLevel(new ErrorCorrectionLevel(ErrorCorrectionLevel::HIGH));
 		$qr->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0));
 		$qr->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0));
 		$qr->setLogoPath(FCPATH . '/assets/img/logo.png');
 		$qr->setLogoSize(45, 45);
+		$qr->setMargin(-2);
 
 		header('Content-Type: ' . $qr->getContentType());
 		echo $qr->writeString();
@@ -759,8 +807,7 @@ class UserController extends CI_Controller
 		$pdf = new FPDF('P', 'cm', 'A4');
 		$pdf->AddPage();
 		$pdf->SetFont('Arial', 'B', 12);
-		// $pdf->Image(base_url('assets/img/pdf/perorangan.png'), 0, 0, 21);
-		$pdf->Image('http://2.bp.blogspot.com/-8V4fVBaat6A/VILX1Mx86sI/AAAAAAAABZ8/T0nWpiXVTu8/s1600/situsku.png', 0, 0, 21);
+		$pdf->Image(base_url('assets/img/pdf/perorangan.png'), 0, 0, 21);
 
 		$pdf->setXY(7.1, 4.95);
 		$pdf->write(0, $data['user']['nama_lengkap']);

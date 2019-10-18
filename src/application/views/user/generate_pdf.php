@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.css'); ?>">
+	<title>Generate PDF</title>
+
+	<style>
+		.kotak {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			resize: both;
+			overflow: auto;
+		}
+
+		.loading {
+			resize: both;
+			overflow: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="vh-100 kotak">
+				<div class="loading">
+					<img src="<?= base_url('assets/img/spinner.gif') ?>" alt="Loading image">
+					<p class="text-center"><b>Generating pdf...</b></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="<?= base_url('assets/js/jspdf.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/jspdf.plugin.autotable.js') ?>"></script>
+	<script src="<?= base_url('assets/js/jquery-3.3.1.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/api-client.js') ?>"></script>
+	<?php if ($check == 'orang') : ?>
+		<script>
+			$(document).ready(function() {
+				generatePdfPerorangan("<?= $username ?>", "<?= $token ?>", '<?= json_encode($data); ?>')
+			})
+		</script>
+	<?php else : ?>
+		<script>
+			$(document).ready(function() {
+				generatePdfBeregu("<?= $username ?>");
+			})
+		</script>
+	<?php endif; ?>
+</body>
+
+</html>
