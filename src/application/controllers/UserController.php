@@ -678,6 +678,7 @@ class UserController extends CI_Controller
 		$qr->setErrorCorrectionLevel(new ErrorCorrectionLevel(ErrorCorrectionLevel::HIGH));
 		$qr->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0));
 		$qr->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0));
+		$qr->setMargin(-1);
 		$qr->setLogoPath(FCPATH . '/assets/img/logo.png');
 		$qr->setLogoSize(45, 45);
 
