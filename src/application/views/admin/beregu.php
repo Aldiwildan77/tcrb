@@ -49,16 +49,17 @@
                   <td rowspan="<?= $user[$i]['jumlah'] ?>"><a class="pop" style="cursor: pointer"><img src="<?= base_url('bukti-bayar/' . $user[$i]['bukti_bayar']) ?>" alt="" width="100px" height="100px"></a></td>
                   <?php if ($user[$i]['status_bayar'] == 0) : ?>
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><b>Belum bayar</b></td>
-                    <td rowspan="<?= $user[$i]['jumlah'] ?>"></td>
                   <?php elseif ($user[$i]['status_bayar'] == 1) : ?>
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><b>Belum divalidasi</b></td>
-                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><a href="<?= base_url("admin/validasi/regu/" . $user[$i]['user_id']) ?>" class="badge badge-primary" onclick="return confirm('Yakin?')">Validasi</a></td>
                   <?php else : ?>
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><b>Sudah divalidasi</b></td>
-                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><a class="badge badge-success text-white">Tervalidasi</a></td>
                   <?php endif; ?>
-                  <!-- <?php if ($user[$i]['status_bayar'] == 1) : ?>
-                  <?php else : ?> -->
+                  <?php if ($user[$i]['status_bayar'] == 0) : ?>
+                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><a class="badge badge-info text-white">Belum bayar</a></td>
+                  <?php elseif ($user[$i]['status_bayar'] == 1) : ?>
+                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><a href="<?= base_url("admin/validasi/regu/" . $user[$i]['user_id']) ?>" class="badge badge-primary" onclick="return confirm('Yakin?')">Validasi</a></td>
+                  <?php else : ?>
+                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><a class="badge badge-success text-white">Tervalidasi</a></td>
                   <?php endif; ?>
                 </tr>
                 <?php for ($j = 1; $j < $user[$i]['jumlah']; $j++) : ?>
@@ -81,8 +82,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
-              class="sr-only">Close</span></button>
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
           <img src="" class="imagepreview" style="width: 100%;">
         </div>
       </div>
@@ -93,8 +93,7 @@
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         <div class="modal-body">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
-              class="sr-only">Close</span></button>
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
           <h3>Regu : <span id="modalNamaRegu"></span></h3>
           <div class="table-responsive">
             <table class="table table-bordered">
@@ -144,12 +143,13 @@
       let official = <?= json_encode($official); ?>;
       let namaRegu = $(this).data('regunama')
       let renderPemain = ''
+      let no = 1
       $('#modalNamaRegu').html(namaRegu)
       for (let i = 0; i < pemain.length; i++) {
         if(pemain[i]['regu_id'] == reguId){
           renderPemain +=
           `<tr>
-            <td>${i + 1}</td>
+            <td>${no++}</td>
             <td>${pemain[i]['nama']}</td>
             <td>${pemain[i]['nim']}</td>
             <td>${pemain[i]['jenis_kelamin']}</td>
