@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-lg-12">
         <h3 class="text-center">Perorangan</h3>
-        <a href="<?= base_url('admin/home') ?>" class="btn btn-primary btn-sm mb-1">Kembali</a>
+        <a href="<?= base_url('admin/home') ?>" class="btn btn-dark btn-sm mb-1">Kembali</a>
         <?= $this->session->flashdata('message') ?>
         <div class="table-responsive">
           <table class="table table-bordered" id="example1">
@@ -57,18 +57,14 @@
                   <td rowspan="<?= $user[$i]['jumlah'] ?>"><a class="pop" style="cursor: pointer"><img src="<?= base_url('bukti-bayar/' . $user[$i]['bukti_bayar']) ?>" alt="" width="100px" height="100px"></a></td>
                   <?php if ($user[$i]['status_bayar'] == 0) : ?>
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><b>Belum bayar</b></td>
-                  <?php elseif ($user[$i]['status_bayar'] == 1) : ?>
-                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><b>Belum divalidasi</b></td>
-                  <?php else : ?>
-                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><b>Sudah divalidasi</b></td>
-                  <?php endif; ?>
-                  <?php if ($user[$i]['status_bayar'] == 0) : ?>
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><a class="badge badge-info text-white">Belum bayar</a></td>
                   <?php elseif ($user[$i]['status_bayar'] == 1) : ?>
+                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><b>Belum divalidasi</b></td>                    
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><a href="<?= base_url("admin/validasi/orang/" . $user[$i]['user_id']) ?>" class="badge badge-primary" onclick="return confirm('Yakin?')">Validasi</a></td>
                   <?php else : ?>
+                    <td rowspan="<?= $user[$i]['jumlah'] ?>"><b>Sudah divalidasi</b></td>
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><a class="badge badge-success text-white">Tervalidasi</a></td>
-                  <?php endif; ?>
+                  <?php endif; ?>                  
                 </tr>
                 <?php for ($j = 1; $j < $user[$i]['jumlah']; $j++) : ?>
                   <tr>

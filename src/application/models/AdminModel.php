@@ -1,115 +1,195 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class AdminModel extends CI_Model
+class AdminController extends CI_Controller
 {
-	public function __construct()
-	{
-		parent::__construct();
-	}
-
-	public function getAllDataPendaftaranUserPerorangan()
-	{
-		return $this->db->select('pem.id, u.id as user_id, u.username, count(*) as jumlah, pem.total, pem.bukti_bayar, pem.status_bayar')
-			->from('pl_perorangan p')
-			->join('user u', 'u.id = p.user_id')
-			->join('pem_orang pem', 'pem.user_id = u.id')
-      ->group_by('p.user_id')
-      ->order_by('p.id', 'asc')
-			->get()
-			->result_array();
-	}
-
-	public function getAllDataPendaftaranPerorangan()
-	{
-    return $this->db->select('p.nama as nama_pemain, p.nim, p.jenis_kelamin, p.instansi, p.jurusan, p.foto_diri, p.foto_kartu_pelajar, k.nama as nama_kategori')
-    ->join('kategori k', 'k.id = p.kategori_id')
-    ->order_by('p.id', 'asc')
-    ->get('pl_perorangan p')->result_array();
-  }  
-
-  public function getAllDataUser()
+  public function __construct()
   {
-    return $this->db->get('user')->result_array();
+    parent::__construct();
+
+    if ($this->session->userdata('namaAdmin') == null) {
+      redirect('admin');
+    }
+
+    if ($this->session->userdata('id')) {
+      redirect('');
+    }
+
+    $this->load->model('AdminModel');
   }
 
-  public function getAllDataPemainPeroranganRapid()
+  public function index()
   {
-    return $this->db->where('kategori_id', '1')
-    ->or_where('kategori_id', '2')
-    ->or_where('kategori_id', '13')
-    ->or_where('kategori_id', '14')
-    ->or_where('kategori_id', '17')
-    ->or_where('kategori_id', '18')
-    ->get('pl_perorangan')->result_array();
+    $this->load->view('admin/home_view');
   }
 
-  public function getAllDataPemainPeroranganBlitz()
+  public function perorangan()
   {
-    return $this->db->where('kategori_id', '3')
-    ->or_where('kategori_id', '4')
-    ->or_where('kategori_id', '15')
-    ->or_where('kategori_id', '16')
-    ->or_where('kategori_id', '19')
-    ->or_where('kategori_id', '20')
-    ->get('pl_perorangan')->result_array();
+    $rapid = 0;
+    $blitz = 0;
+
+    $arrPerorangan = [
+      ['Belum bayar', 0],
+      ['Belum divalidasi', 0],
+      ['Sudah divalidasi', 0]
+    ];
+
+
+    $userPerorangan = $this->AdminModel->getAllDataPendaftaranUserPerorangan();
+    $perorangan = $this->AdminModel->getAllDataPendaftaranPerorangan();
+
+    // print_r($beregu);
+    // return;
+    for ($i = 0; $i < sizeof($userPerorangan); $i++) {
+      if ($userPerorangan[$i]['status_bayar'] == 0) {
+        $arrPerorangan[0][1]++;
+      } elseif ($userPerorangan[$i]['status_bayar'] == 1) {
+        $arrPerorangan[1][1]++;
+      } else {
+        $arrPerorangan[2][1]++;
+      }
+    }
+    for ($i = 0; $i < sizeof($perorangan); $i++) {
+      if (in_array($perorangan[$i]['kategori_id'], [1, 2, 13, 14, 17, 18])) {
+        $rapid++;
+      } elseif (in_array($perorangan[$i]['kategori_id'], [3, 4, 15, 16, 19, 20])) {
+        $blitz++;
+      }
+    }
+    // print_r($peroranganBlitz);
+    // return;
+
+    // $arrBeregu = [
+    //   ['Belum bayar', 0],
+    //   ['Belum divalidasi', 0],
+    //   ['Sudah divalidasi', 0]
+    // ];
+    // $beregu = $this->AdminModel->getAllDataPendaftaranUserBeregu();
+    // for ($i = 0; $i < sizeof($beregu); $i++) {
+    //   if ($beregu[$i]['status_bayar'] == 0) {
+    //     $arrBeregu[0][1]++;
+    //   } elseif ($beregu[$i]['status_bayar'] == 1) {
+    //     $arrBeregu[1][1]++;
+    //   } else {
+    //     $arrBeregu[2][1]++;
+    //   }
+    // }
+    $data['arrPerorangan'] = $arrPerorangan;
+    $data['rapid'] = $rapid;
+    $data['blitz'] = $blitz;
+    $this->load->view('admin/perorangan/index', $data);
   }
 
-  public function getAllDataReguRapid()
+  public function peroranganSemua()
   {
-    return $this->db->where('kategori_id', '5')->or_where('kategori_id', '6')->or_where('kategori_id', '7')->get('regu')->result_array();
+    $data['user'] = $this->AdminModel->getAllDataPendaftaranUserPerorangan();
+    $data['pemain'] = $this->AdminModel->getAllDataPendaftaranPerorangan();
+    $data['count'] = 0;
+    $this->load->view('admin/perorangan/semua', $data);
   }
 
-  public function getAllDataReguBlitz()
+  public function perorangan0()
   {
-    return $this->db->where('kategori_id', '8')->get('regu')->result_array();
+    $data['user'] = $this->AdminModel->getAllDataPendaftaranUserPerorangan();
+    $data['pemain'] = $this->AdminModel->getAllDataPendaftaranPerorangan();
+    $data['count'] = 0;
+    $data['no'] = 1;
+    $this->load->view('admin/perorangan/0', $data);
   }
 
-  public function getDataUserUntukEmailByIdPendaftaran($suffix, $uId){
-    $this->db->select("u.nama_lengkap, u.username, u.email");
-    $this->db->join("user u", "u.id = p.user_id");
-    $this->db->from("pem_$suffix p");
-    $this->db->where('u.id', $uId);
-    return $this->db->get()->row_array();
+  public function perorangan1()
+  {
+    $data['user'] = $this->AdminModel->getAllDataPendaftaranUserPerorangan();
+    $data['pemain'] = $this->AdminModel->getAllDataPendaftaranPerorangan();
+    $data['count'] = 0;
+    $data['no'] = 1;
+    $this->load->view('admin/perorangan/1', $data);
   }
 
-  public function validasiPembayaranPerorangan($id){
-    $this->db->where('user_id', $id);
-    $this->db->update('pem_orang', ['status_bayar' => 2]);
-    return $this->db->affected_rows() != 0 ? true : false;
+  public function perorangan2()
+  {
+    $data['user'] = $this->AdminModel->getAllDataPendaftaranUserPerorangan();
+    $data['pemain'] = $this->AdminModel->getAllDataPendaftaranPerorangan();
+    $data['count'] = 0;
+    $data['no'] = 1;
+    $this->load->view('admin/perorangan/2', $data);
   }
 
-  public function getAllDataPendaftaranUserBeregu(){
-    return $this->db->select('pem.id, u.id as user_id, u.username, count(*) as jumlah, sum(pem.total) as total, pem.bukti_bayar, pem.status_bayar')
-    ->from('regu r')
-    ->join('user u', 'u.id = r.user_id')
-    ->join('pem_regu pem', 'pem.regu_id = r.id')
-    ->group_by('r.user_id')
-    ->order_by('r.id', 'asc')
-    ->get()
-    ->result_array();
+  public function beregu()
+  {
+    $data['user'] = $this->AdminModel->getAllDataPendaftaranUserBeregu();
+    $data['regu'] = $this->AdminModel->getAllDataPendaftaranRegu();
+    $data['pemain'] = $this->AdminModel->getAllDataPendataranPemainRegu();
+    $data['official'] = $this->AdminModel->getAllDataPendaftaranOfficialRegu();
+    $data['count'] = 0;
+
+    $this->load->view('admin/beregu', $data);
   }
 
-  public function getAllDataPendaftaranRegu(){
-    return $this->db->select('r.id, r.nama as nama_regu, r.instansi, k.nama as nama_kategori')
-    ->join('kategori k', 'k.id = r.kategori_id')
-    ->order_by('r.id', 'asc')
-    ->get('regu r')->result_array();
+  public function user()
+  {
+    $data['user'] = $this->AdminModel->getAllDataUser();
+
+    $this->load->view('admin/user', $data);
   }
 
-  public function getAllDataPendataranPemainRegu(){
-    return $this->db->get('pl_beregu')->result_array();
+  public function logout()
+  {
+    $this->session->sess_destroy();
+    redirect('admin');
   }
 
-  public function getAllDataPendaftaranOfficialRegu(){
-    return $this->db->select('o.regu_id, o.nama as nama_official, o.jenis_kelamin, o.sebagai, o.alergi, k.nama as nama_kategori')
-    ->join('kategori k', 'k.id = o.kategori_id')
-    ->get('official o')->result_array();
+  public function validasiPembayaranPerorangan($id)
+  {
+    $data['user'] = $this->AdminModel->getDataUserUntukEmailByIdPendaftaran('orang', $id);
+    $data['link'] = base_url('user/bukti-pendaftaran');
+    $data['check'] = 'perorangan';
+    if ($this->AdminModel->validasiPembayaranPerorangan($id)) {
+      if ($this->_kirimEmail($data)) {
+        $this->session->set_flashdata('message', "<script>Swal.fire({
+					type: 'success',
+					title: 'Berhasil',
+					html: 'Pembayaran kategori perorangan dengan username <b>" . $data['user']['username'] . "</b>',
+				})</script>");
+        redirect('admin/orang');
+      }
+    }
   }
 
-  public function validasiPembayaranBeregu($id){
-    $this->db->where('user_id', $id);
-    $this->db->update('pem_regu', ['status_bayar' => 2]);
-    return $this->db->affected_rows() != 0 ? true : false;
+  public function validasiPembayaranBeregu($id)
+  {
+    $data['user'] = $this->AdminModel->getDataUserUntukEmailByIdPendaftaran('regu', $id);
+    $data['link'] = base_url('user/bukti-pendaftaran');
+    $data['check'] = 'beregu';
+    if ($this->AdminModel->validasiPembayaranBeregu($id)) {
+      if ($this->_kirimEmail($data)) {
+        $this->session->set_flashdata('message', "<script>Swal.fire({
+					type: 'success',
+					title: 'Berhasil',
+					html: 'Pembayaran kategori beregu dengan username <b>" . $data['user']['username'] . "</b>',
+				})</script>");
+        redirect('admin/regu');
+      }
+    }
+  }
+
+  private function recoveryConfig()
+  {
+    require_once 'src/application/helpers/Email.php';
+    $mail = new Email();
+
+    return $mail->getConfig();
+  }
+
+  private function _kirimEmail($data)
+  {
+    $msg = $this->load->view('templates/payment_accepted', $data, true);
+
+    $this->load->library('email', $this->recoveryConfig());
+    $this->email->from($this->recoveryConfig()['smtp_user'], 'Turnamen Catur Raja Brawijaya');
+    $this->email->to($data['user']['email']);
+    $this->email->subject('Pembayaran Diterima TCRB');
+    $this->email->message($msg);
+    return $this->email->send() ? true : false;
   }
 }
