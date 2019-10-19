@@ -47,6 +47,9 @@
                   <tr>
                     <th rowspan="<?= $user[$i]['jumlah'] ?>"><?= $no++ ?></th>
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><?= $user[$i]['username'] ?></td>
+                    <?php while ($pemain[$count]['user_id'] != $user[$i]['user_id']) : ?>
+                      <?php $count++ ?>
+                    <?php endwhile; ?>
                     <td><?= $pemain[$count]['nama_pemain'] ?></td>
                     <td><?= $pemain[$count]['nim'] ?></td>
                     <td><?= $pemain[$count]['jenis_kelamin'] ?></td>
@@ -61,7 +64,9 @@
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><a href="<?= base_url("admin/validasi/orang/" . $user[$i]['user_id']) ?>" class="badge badge-primary" onclick="return confirm('Yakin?')">Validasi</a></td>
                   </tr>
                   <?php for ($j = 1; $j < $user[$i]['jumlah']; $j++) : ?>
-                    <?php if($user[$i]['user_id'] == $pemain[$count]['user_id']): ?>
+                    <?php while ($pemain[$count]['user_id'] != $user[$i]['user_id']) : ?>
+                      <?php $count++ ?>
+                    <?php endwhile; ?>
                     <tr>
                       <td><?= $pemain[$count]['nama_pemain'] ?></td>
                       <td><?= $pemain[$count]['nim'] ?></td>
@@ -70,10 +75,8 @@
                       <td><?= $pemain[$count]['jurusan'] ?></td>
                       <td><a class="pop" style="cursor: pointer"><img src="<?= base_url('players/foto/' . $pemain[$count]['foto_diri']) ?>" alt="" width="100px" height="100px"></a></td>
                       <td><a class="pop" style="cursor: pointer"><img src="<?= base_url('players/foto/' . $pemain[$count]['foto_kartu_pelajar']) ?>" alt="" width="100px" height="100px"></a></td>
-                      <td><?= $pemain[$count]['nama_kategori'] ?></td>
+                      <td><?= $pemain[$count++]['nama_kategori'] ?></td>
                     </tr>
-                    <?php $count++ ?>
-                    <?php endif;?>
                   <?php endfor; ?>
                 <?php endif; ?>
               <?php endfor; ?>

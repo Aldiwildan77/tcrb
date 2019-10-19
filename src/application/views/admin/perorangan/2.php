@@ -45,6 +45,9 @@
                   <tr>
                     <th rowspan="<?= $user[$i]['jumlah'] ?>"><?= $no++ ?></th>
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><?= $user[$i]['username'] ?></td>
+                    <?php while ($pemain[$count]['user_id'] != $user[$i]['user_id']) : ?>
+                      <?php $count++ ?>
+                    <?php endwhile; ?>
                     <td><?= $pemain[$count]['nama_pemain'] ?></td>
                     <td><?= $pemain[$count]['nim'] ?></td>
                     <td><?= $pemain[$count]['jenis_kelamin'] ?></td>
@@ -57,6 +60,9 @@
                     <td rowspan="<?= $user[$i]['jumlah'] ?>"><b>Sudah divalidasi</b></td>
                   </tr>
                   <?php for ($j = 1; $j < $user[$i]['jumlah']; $j++) : ?>
+                    <?php while ($pemain[$count]['user_id'] != $user[$i]['user_id']) : ?>
+                      <?php $count++ ?>
+                    <?php endwhile; ?>
                     <tr>
                       <td><?= $pemain[$count]['nama_pemain'] ?></td>
                       <td><?= $pemain[$count]['nim'] ?></td>

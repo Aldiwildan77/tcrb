@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Perorangan</title>
+  <title>Beregu</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -14,7 +14,7 @@
   <div class="container mt-3">
     <div class="row">
       <div class="col-12">
-        <h3 class="text-center mb-3">Perorangan</h3>
+        <h3 class="text-center mb-3">Beregu</h3>
         <a href="<?= base_url('admin/home') ?>" class="btn btn-dark btn-sm mb-1">Kembali</a>
         <table class="table table-bordered">
           <thead>
@@ -26,9 +26,9 @@
           </thead>
           <tbody>
             <tr>
-              <td style="width: 33.33%" class="text-center"><?= $arrPerorangan[0][1] ?></td>
-              <td style="width: 33.33%" class="text-center"><?= $arrPerorangan[1][1] ?></td>
-              <td style="width: 33.33%" class="text-center"><?= $arrPerorangan[2][1] ?></td>
+              <td style="width: 33.33%" class="text-center"><?= $arrBeregu[0][1] ?></td>
+              <td style="width: 33.33%" class="text-center"><?= $arrBeregu[1][1] ?></td>
+              <td style="width: 33.33%" class="text-center"><?= $arrBeregu[2][1] ?></td>
             </tr>
         </table>
         <table class="table table-bordered">
@@ -47,17 +47,8 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-3 mb-1">
-        <a href="<?= base_url('admin/orang/semua') ?>" class="btn btn-primary btn-sm btn-block">Tampilkan semua</a>
-      </div>
-      <div class="col-lg-3 mb-1">
-        <a href="<?= base_url('admin/orang/0') ?>" class="btn btn-primary btn-sm btn-block">Belum bayar</a>
-      </div>
-      <div class="col-lg-3 mb-1">
-        <a href="<?= base_url('admin/orang/1') ?>" class="btn btn-primary btn-sm btn-block">Belum divalidasi</a>
-      </div>
-      <div class="col-lg-3 mb-1">
-        <a href="<?= base_url('admin/orang/2') ?>" class="btn btn-primary btn-sm btn-block">Sudah divalidasi</a>
+      <div class="col-lg-12 mb-1">
+        <a href="<?= base_url('admin/regu/semua') ?>" class="btn btn-primary btn-sm btn-block">Tampilkan semua</a>
       </div>
     </div>
   </div>

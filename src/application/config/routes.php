@@ -59,6 +59,7 @@ $route['admin/orang/0'] = 'AdminController/perorangan0';
 $route['admin/orang/1'] = 'AdminController/perorangan1';
 $route['admin/orang/2'] = 'AdminController/perorangan2';
 $route['admin/regu'] = 'AdminController/beregu';
+$route['admin/regu/semua'] = 'AdminController/bereguSemua';
 $route['admin/user'] = 'AdminController/user';
 $route['admin/validasi/orang/(:any)'] = 'AdminController/validasiPembayaranPerorangan/$1';
 $route['admin/validasi/regu/(:any)'] = 'AdminController/validasiPembayaranBeregu/$1';

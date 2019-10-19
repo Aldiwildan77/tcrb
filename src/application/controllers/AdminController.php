@@ -38,8 +38,6 @@ class AdminController extends CI_Controller
     $userPerorangan = $this->AdminModel->getAllDataPendaftaranUserPerorangan();
     $perorangan = $this->AdminModel->getAllDataPendaftaranPerorangan();
 
-    // print_r($beregu);
-    // return;
     for ($i = 0; $i < sizeof($userPerorangan); $i++) {
       if ($userPerorangan[$i]['status_bayar'] == 0) {
         $arrPerorangan[0][1]++;
@@ -59,21 +57,6 @@ class AdminController extends CI_Controller
     // print_r($peroranganBlitz);
     // return;
 
-    // $arrBeregu = [
-    //   ['Belum bayar', 0],
-    //   ['Belum divalidasi', 0],
-    //   ['Sudah divalidasi', 0]
-    // ];
-    // $beregu = $this->AdminModel->getAllDataPendaftaranUserBeregu();
-    // for ($i = 0; $i < sizeof($beregu); $i++) {
-    //   if ($beregu[$i]['status_bayar'] == 0) {
-    //     $arrBeregu[0][1]++;
-    //   } elseif ($beregu[$i]['status_bayar'] == 1) {
-    //     $arrBeregu[1][1]++;
-    //   } else {
-    //     $arrBeregu[2][1]++;
-    //   }
-    // }
     $data['arrPerorangan'] = $arrPerorangan;
     $data['rapid'] = $rapid;
     $data['blitz'] = $blitz;
@@ -94,6 +77,8 @@ class AdminController extends CI_Controller
     $data['pemain'] = $this->AdminModel->getAllDataPendaftaranPerorangan();
     $data['count'] = 0;
     $data['no'] = 1;
+    // print_r($data['user']);
+    // return;
     $this->load->view('admin/perorangan/0', $data);
   }
 
@@ -117,13 +102,51 @@ class AdminController extends CI_Controller
 
   public function beregu()
   {
+    $rapid = 0;
+    $blitz = 0;
+    $arrBeregu = [
+      ['Belum bayar', 0],
+      ['Belum divalidasi', 0],
+      ['Sudah divalidasi', 0]
+    ];
+    $userBeregu = $this->AdminModel->getAllDataPendaftaranUserBeregu();
+    $beregu = $this->AdminModel->getAllDataPendaftaranRegu();
+    for ($i = 0; $i < sizeof($userBeregu); $i++) {
+      if ($userBeregu[$i]['status_bayar'] == 0) {
+        $arrBeregu[0][1]++;
+      } elseif ($userBeregu[$i]['status_bayar'] == 1) {
+        $arrBeregu[1][1]++;
+      } else {
+        $arrBeregu[2][1]++;
+      }
+    }
+
+    for ($i = 0; $i < sizeof($beregu); $i++) {
+      if (in_array($beregu[$i]['kategori_id'], [5, 6, 7, 21])) {
+        $rapid++;
+      } elseif (in_array($beregu[$i]['kategori_id'], [8])) {
+        $blitz++;
+      }
+    }
+
+    // print_r($userBeregu);
+    // return;
+    $data['arrBeregu'] = $arrBeregu;
+    $data['rapid'] = $rapid;
+    $data['blitz'] = $blitz;
+
+    $this->load->view('admin/beregu/index', $data);
+  }
+
+  public function bereguSemua()
+  {
     $data['user'] = $this->AdminModel->getAllDataPendaftaranUserBeregu();
     $data['regu'] = $this->AdminModel->getAllDataPendaftaranRegu();
     $data['pemain'] = $this->AdminModel->getAllDataPendataranPemainRegu();
     $data['official'] = $this->AdminModel->getAllDataPendaftaranOfficialRegu();
     $data['count'] = 0;
 
-    $this->load->view('admin/beregu', $data);
+    $this->load->view('admin/beregu/semua', $data);
   }
 
   public function user()

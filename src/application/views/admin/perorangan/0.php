@@ -63,8 +63,6 @@
                     <?php while ($pemain[$count]['user_id'] != $user[$i]['user_id']) : ?>
                       <?php $count++ ?>
                     <?php endwhile; ?>
-                    <?php //if ($user[$i]['user_id'] == $pemain[$count]['user_id']) : 
-                          ?>
                     <tr>
                       <td><?= $pemain[$count]['nama_pemain'] ?></td>
                       <td><?= $pemain[$count]['nim'] ?></td>
@@ -75,9 +73,6 @@
                       <td><a class="pop" style="cursor: pointer"><img src="<?= base_url('players/foto/' . $pemain[$count]['foto_kartu_pelajar']) ?>" alt="" width="100px" height="100px"></a></td>
                       <td><?= $pemain[$count++]['nama_kategori'] ?></td>
                     </tr>
-                    <?php $count++ ?>
-                    <?php //endif; 
-                          ?>
                   <?php endfor; ?>
                 <?php endif; ?>
               <?php endfor; ?>

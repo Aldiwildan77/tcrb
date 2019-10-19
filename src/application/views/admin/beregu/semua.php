@@ -44,7 +44,7 @@
                   <td><?= $regu[$count]['nama_regu'] ?></td>
                   <td><?= $regu[$count]['instansi'] ?></td>
                   <td><?= $regu[$count]['nama_kategori'] ?></td>
-                  <td><a style="cursor: pointer" class="badge badge-info pemainBtn text-white" data-reguNama="<?= $regu[$count]['nama_regu'] ?>" data-reguid="<?= $regu[$count++]['id'] ?>">Detail pemain</a></td>
+                  <td><a style="cursor: pointer" class="badge badge-warning pemainBtn" data-reguNama="<?= $regu[$count]['nama_regu'] ?>" data-reguid="<?= $regu[$count++]['id'] ?>">Detail pemain</a></td>
                   <td rowspan="<?= $user[$i]['jumlah'] ?>"><?= $user[$i]['total'] ?></td>
                   <td rowspan="<?= $user[$i]['jumlah'] ?>"><a class="pop" style="cursor: pointer"><img src="<?= base_url('bukti-bayar/' . $user[$i]['bukti_bayar']) ?>" alt="" width="100px" height="100px"></a></td>
                   <?php if ($user[$i]['status_bayar'] == 0) : ?>
