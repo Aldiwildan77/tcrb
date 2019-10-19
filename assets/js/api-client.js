@@ -56,8 +56,9 @@ const generatePdfPerorangan = (username, token, rawData) => {
 
 	var img = new Image()
 	img.src = url + 'assets/img/pdf/perorangan.png'
-	doc.addFont('Arial', 'Arial', 'normal');
-	doc.setFont('Arial', 'Bold')
+	doc.addFileToVFS('../fonts/Arial.ttf', 'Arial');
+	doc.addFont('Arial', 'Arial', '');
+	doc.setFont('Arial', 'normal')
 	doc.setFontSize(12)
 	doc.addImage(img, 'PNG', 0, 0, 210, 297, undefined, 'FAST')
 	doc.text(data['user']['nama_lengkap'], 71, 49.5)

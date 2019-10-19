@@ -21,6 +21,11 @@
 			resize: both;
 			overflow: auto;
 		}
+
+		@font-face {
+			font-family: Arial;
+			src: url(../fonts/Arial.ttf);
+		}
 	</style>
 </head>
 
