@@ -1,6 +1,23 @@
 $(document).ready(async function () {
 	// use this js synchronously
 
+	const url = window.location.origin + '/tcrb/'
+
+	loadQrCode("orang", "120ask0sa9021k").then((response) => {
+		// console.log(response)
+		console.log(response)
+		let data = response.data
+		let b64Response = btoa(data);
+		console.log(b64Response)
+
+		let image = new Image()
+		image.src = `data:image/svg+xml;base64,${b64Response}`
+		$(".qr-test").html(image)
+
+	}).catch(error => {
+		console.log(error)
+	})
+
 	let instagram = await loadInstagramApi()
 	if (!instagram) return false;
 
@@ -12,7 +29,6 @@ $(document).ready(async function () {
 		instagramHTML.attr('data-width', element.width)
 
 	});
-
 })
 
 const loadInstagramApi = () => {
@@ -30,7 +46,7 @@ const loadInstagramApi = () => {
 					"width": currResult.images.standard_resolution.width,
 					// "heigh": currResult.images.standard_resolution.height,
 					"link": currResult.link,
-					"caption": currResult.caption.text
+					"caption": currResult.caption
 				}
 			})
 
@@ -42,8 +58,15 @@ const loadInstagramApi = () => {
 	})
 }
 
-const loadQrCode = ({ }, params) => {
-
+const loadQrCode = (check, token) => {
+	return axios.get("http://localhost/tcrb/generate-qr/", {
+		check,
+		token
+	}, {
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
 }
 
 const generatePdfPerorangan = (username, token, rawData) => {

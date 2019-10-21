@@ -714,10 +714,10 @@ class UserController extends CI_Controller
 
 	public function generateQrCode(){
 
-		// $check = $this->input->post('check');
-		// $token = $this->input->post('token');
-		$check = "orang";
-		$token = "aks123ldob2dkljbq1";
+		$check = $this->input->get('check');
+		$token = $this->input->get('token');
+		// $check = "orang";
+		// $token = "aks123ldob2dkljbq1";
 
 		$qr = new QrCode();
 		$qr->setText("https://tcrb.ub.ac.id/qr?data=$check/$token");
@@ -725,10 +725,9 @@ class UserController extends CI_Controller
 		$qr->setErrorCorrectionLevel(new ErrorCorrectionLevel(ErrorCorrectionLevel::HIGH));
 		$qr->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0));
 		$qr->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0));
-		$qr->setMargin(-1);
+		$qr->setMargin(-2);
 		$qr->setLogoPath(FCPATH . '/assets/img/logo.png');
 		$qr->setLogoSize(45, 45);
-		$qr->setMargin(-2);
 
 		header('Content-Type: ' . $qr->getContentType());
 		echo $qr->writeString();

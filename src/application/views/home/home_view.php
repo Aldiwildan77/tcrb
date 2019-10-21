@@ -290,6 +290,7 @@
 	</div>
 </section>
 <!-- Akhir Rundown -->
+<div class="qr-test"></div>
 
 <!-- Awal Denah -->
 <section class="section-page denah text-center" id="denah">

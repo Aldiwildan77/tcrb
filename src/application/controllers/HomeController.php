@@ -12,10 +12,10 @@ class HomeController extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'Home';
-		$output['instagram'] = $this->_loadInstagramPhotos();
+		// $output['instagram'] = $this->_loadInstagramPhotos();
 
 		$this->load->view('templates/header', $data);
-		$this->load->view('home/home_view', $output);
+		$this->load->view('home/home_view');
 		$this->load->view('templates/footer');
 	}
 
