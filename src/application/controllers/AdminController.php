@@ -22,27 +22,137 @@ class AdminController extends CI_Controller
   {
     $this->load->view('admin/home_view');
   }
-  
-  public function perorangan(){
+
+  public function perorangan()
+  {
+    $rapid = 0;
+    $blitz = 0;
+
+    $arrPerorangan = [
+      ['Belum bayar', 0],
+      ['Belum divalidasi', 0],
+      ['Sudah divalidasi', 0]
+    ];
+
+
+    $userPerorangan = $this->AdminModel->getAllDataPendaftaranUserPerorangan();
+    $perorangan = $this->AdminModel->getAllDataPendaftaranPerorangan();
+
+    for ($i = 0; $i < sizeof($userPerorangan); $i++) {
+      if ($userPerorangan[$i]['status_bayar'] == 0) {
+        $arrPerorangan[0][1]++;
+      } elseif ($userPerorangan[$i]['status_bayar'] == 1) {
+        $arrPerorangan[1][1]++;
+      } else {
+        $arrPerorangan[2][1]++;
+      }
+    }
+    for ($i = 0; $i < sizeof($perorangan); $i++) {
+      if (in_array($perorangan[$i]['kategori_id'], [1, 2, 13, 14, 17, 18])) {
+        $rapid++;
+      } elseif (in_array($perorangan[$i]['kategori_id'], [3, 4, 15, 16, 19, 20])) {
+        $blitz++;
+      }
+    }
+    // print_r($peroranganBlitz);
+    // return;
+
+    $data['arrPerorangan'] = $arrPerorangan;
+    $data['rapid'] = $rapid;
+    $data['blitz'] = $blitz;
+    $this->load->view('admin/perorangan/index', $data);
+  }
+
+  public function peroranganSemua()
+  {
     $data['user'] = $this->AdminModel->getAllDataPendaftaranUserPerorangan();
     $data['pemain'] = $this->AdminModel->getAllDataPendaftaranPerorangan();
     $data['count'] = 0;
-    $this->load->view('admin/perorangan', $data);
+    $this->load->view('admin/perorangan/semua', $data);
   }
-  
-  public function beregu(){
+
+  public function perorangan0()
+  {
+    $data['user'] = $this->AdminModel->getAllDataPendaftaranUserPerorangan();
+    $data['pemain'] = $this->AdminModel->getAllDataPendaftaranPerorangan();
+    $data['count'] = 0;
+    $data['no'] = 1;
+    // print_r($data['user']);
+    // return;
+    $this->load->view('admin/perorangan/0', $data);
+  }
+
+  public function perorangan1()
+  {
+    $data['user'] = $this->AdminModel->getAllDataPendaftaranUserPerorangan();
+    $data['pemain'] = $this->AdminModel->getAllDataPendaftaranPerorangan();
+    $data['count'] = 0;
+    $data['no'] = 1;
+    $this->load->view('admin/perorangan/1', $data);
+  }
+
+  public function perorangan2()
+  {
+    $data['user'] = $this->AdminModel->getAllDataPendaftaranUserPerorangan();
+    $data['pemain'] = $this->AdminModel->getAllDataPendaftaranPerorangan();
+    $data['count'] = 0;
+    $data['no'] = 1;
+    $this->load->view('admin/perorangan/2', $data);
+  }
+
+  public function beregu()
+  {
+    $rapid = 0;
+    $blitz = 0;
+    $arrBeregu = [
+      ['Belum bayar', 0],
+      ['Belum divalidasi', 0],
+      ['Sudah divalidasi', 0]
+    ];
+    $userBeregu = $this->AdminModel->getAllDataPendaftaranUserBeregu();
+    $beregu = $this->AdminModel->getAllDataPendaftaranRegu();
+    for ($i = 0; $i < sizeof($userBeregu); $i++) {
+      if ($userBeregu[$i]['status_bayar'] == 0) {
+        $arrBeregu[0][1]++;
+      } elseif ($userBeregu[$i]['status_bayar'] == 1) {
+        $arrBeregu[1][1]++;
+      } else {
+        $arrBeregu[2][1]++;
+      }
+    }
+
+    for ($i = 0; $i < sizeof($beregu); $i++) {
+      if (in_array($beregu[$i]['kategori_id'], [5, 6, 7, 21])) {
+        $rapid++;
+      } elseif (in_array($beregu[$i]['kategori_id'], [8])) {
+        $blitz++;
+      }
+    }
+
+    // print_r($userBeregu);
+    // return;
+    $data['arrBeregu'] = $arrBeregu;
+    $data['rapid'] = $rapid;
+    $data['blitz'] = $blitz;
+
+    $this->load->view('admin/beregu/index', $data);
+  }
+
+  public function bereguSemua()
+  {
     $data['user'] = $this->AdminModel->getAllDataPendaftaranUserBeregu();
     $data['regu'] = $this->AdminModel->getAllDataPendaftaranRegu();
     $data['pemain'] = $this->AdminModel->getAllDataPendataranPemainRegu();
     $data['official'] = $this->AdminModel->getAllDataPendaftaranOfficialRegu();
     $data['count'] = 0;
 
-    $this->load->view('admin/beregu', $data);
+    $this->load->view('admin/beregu/semua', $data);
   }
 
-  public function user(){
+  public function user()
+  {
     $data['user'] = $this->AdminModel->getAllDataUser();
-    
+
     $this->load->view('admin/user', $data);
   }
 
