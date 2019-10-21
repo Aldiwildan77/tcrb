@@ -33,7 +33,7 @@
 <body>
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="vh-100 kotak">
+			<div class="vh-100 kotak" data-url="<?= base_url();?>">
 				<div class="loading">
 					<img src="<?= base_url('assets/img/spinner.gif') ?>" alt="Loading image">
 					<p class="text-center"><b>Proses pembuatan pdf...</b></p>
@@ -42,6 +42,7 @@
 		</div>
 	</div>
 	<!-- <script src="<?= base_url('assets/js/jspdf.min.js') ?>"></script> -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://unpkg.com/jspdf@latest/dist/jspdf.debug.js"></script>
 	<script src="<?= base_url('assets/js/jspdf.plugin.autotable.js') ?>"></script>
 	<script src="<?= base_url('assets/js/jquery-3.3.1.min.js') ?>"></script>

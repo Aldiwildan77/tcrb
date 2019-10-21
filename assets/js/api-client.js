@@ -1,22 +1,5 @@
-$(document).ready(async function () {
+$(document).ready(async function (e) {
 	// use this js synchronously
-
-	const url = window.location.origin + '/tcrb/'
-
-	loadQrCode("orang", "120ask0sa9021k").then(({data}) => {
-		// console.log(response)
-		// console.log(response)
-		// let data = response.data
-		// let b64Response = btoa(data);
-		// console.log(b64Response)
-
-		// let image = new Image()
-		// image.src = `data:image/svg+xml;base64,${b64Response}`
-		$(".qr-test").html(data)
-
-	}).catch(error => {
-		console.log(error)
-	})
 
 	let instagram = await loadInstagramApi()
 	if (!instagram) return false;
@@ -29,7 +12,10 @@ $(document).ready(async function () {
 		instagramHTML.attr('data-width', element.width)
 
 	});
+
 })
+
+var url = $(".kotak").data('url')
 
 const loadInstagramApi = () => {
 	return new Promise(async (resolve, reject) => {
@@ -57,29 +43,19 @@ const loadInstagramApi = () => {
 	})
 }
 
-const loadQrCode = (check, token) => {
-	return axios.get("http://localhost/tcrb/generate-qr/", {
-		check,
-		token
-	}, {
-		headers: {
-			'Content-Type': 'application/json'
-		}
-	})
-}
-
 const generatePdfPerorangan = (username, token, rawData) => {
-	const url = window.location.origin + '/tcrb/'
 	let data = jQuery.parseJSON(rawData)
 	var doc = new jsPDF('p', 'mm', 'a4', true)
 
-	var img = new Image()
+	let img = new Image()
 	img.src = url + 'assets/img/pdf/perorangan.png'
 	doc.addFileToVFS('../fonts/Arial.ttf', 'Arial');
 	doc.addFont('Arial', 'arial', 'normal');
 	doc.setFont('arial', 'normal')
 	doc.setFontSize(12)
 	doc.addImage(img, 'PNG', 0, 0, 210, 297, undefined, 'FAST')
+	img.src = `http://localhost/tcrb/generate-qr/?check=orang&token=${token}`
+	doc.addImage(img, 'PNG', 155.5, 44.5, 31.5, 31.5, undefined, 'FAST')
 	doc.text(data['user']['nama_lengkap'], 72, 50.5)
 	doc.text(data['user']['instansi'], 72, 57.5)
 	doc.text(data['user']['no_telepon'], 72, 65.5)
@@ -109,7 +85,13 @@ const generatePdfPerorangan = (username, token, rawData) => {
 		tableWidth: 165,
 		body: pemain
 	})
-	doc.save("Bukti-Pendaftaran-TCRB-" + username + ".pdf")
+	// doc.save("Bukti-Pendaftaran-TCRB-" + username + ".pdf")
+	var string = doc.output('datauristring')
+	var embed = "<embed width='100%' height='100%' src='" + string + "'/>"
+	var x = window.open();
+	x.document.open();
+	x.document.write(embed);
+	x.document.close();
 	$('.loading').html('<h3 class="text-center">PDF selesai dibuat</h3>');
 	Swal.fire({
 		type: 'success',
@@ -119,7 +101,6 @@ const generatePdfPerorangan = (username, token, rawData) => {
 }
 
 const generatePdfBeregu = (username, token, rawData) => {
-	const url = window.location.origin + '/tcrb/'
 	let data = jQuery.parseJSON(rawData)
 	var doc = new jsPDF('p', 'mm', 'a4', true)
 
@@ -130,6 +111,8 @@ const generatePdfBeregu = (username, token, rawData) => {
 	doc.setFont('arial', 'normal')
 	doc.setFontSize(12)
 	doc.addImage(img, 'PNG', 0, 0, 210, 297, undefined, 'FAST')
+	img.src = `http://localhost/tcrb/generate-qr/?check=regu&token=${token}`
+	doc.addImage(img, 'PNG', 155.5, 44.5, 31.5, 31.5, undefined, 'FAST')
 	doc.text(data['user']['nama_lengkap'], 72, 50.5)
 	doc.text(data['user']['instansi'], 72, 57.5)
 	doc.text(data['user']['no_telepon'], 72, 65.5)
@@ -197,7 +180,3 @@ const generatePdfBeregu = (username, token, rawData) => {
 		text: 'PDF telah selesai dibuat'
 	})
 }
-
-// function generatePdf(username){
-// 	console.log(username)
-// }
