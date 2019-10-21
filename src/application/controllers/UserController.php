@@ -716,8 +716,6 @@ class UserController extends CI_Controller
 
 		$check = $this->input->get('check');
 		$token = $this->input->get('token');
-		// $check = "orang";
-		// $token = "aks123ldob2dkljbq1";
 
 		$qr = new QrCode();
 		$qr->setText("https://tcrb.ub.ac.id/qr?data=$check/$token");

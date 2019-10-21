@@ -3,16 +3,16 @@ $(document).ready(async function () {
 
 	const url = window.location.origin + '/tcrb/'
 
-	loadQrCode("orang", "120ask0sa9021k").then((response) => {
+	loadQrCode("orang", "120ask0sa9021k").then(({data}) => {
 		// console.log(response)
-		console.log(response)
-		let data = response.data
-		let b64Response = btoa(data);
-		console.log(b64Response)
+		// console.log(response)
+		// let data = response.data
+		// let b64Response = btoa(data);
+		// console.log(b64Response)
 
-		let image = new Image()
-		image.src = `data:image/svg+xml;base64,${b64Response}`
-		$(".qr-test").html(image)
+		// let image = new Image()
+		// image.src = `data:image/svg+xml;base64,${b64Response}`
+		$(".qr-test").html(data)
 
 	}).catch(error => {
 		console.log(error)
@@ -44,7 +44,6 @@ const loadInstagramApi = () => {
 				return {
 					"url": currResult.images.standard_resolution.url,
 					"width": currResult.images.standard_resolution.width,
-					// "heigh": currResult.images.standard_resolution.height,
 					"link": currResult.link,
 					"caption": currResult.caption
 				}
@@ -85,7 +84,6 @@ const generatePdfPerorangan = (username, token, rawData) => {
 	doc.text(data['user']['instansi'], 72, 57.5)
 	doc.text(data['user']['no_telepon'], 72, 65.5)
 	doc.text(data['status']['tanggal_bayar'], 72, 73.5)
-	// img.src = url + 'generate-qr'
 	let pemain = []
 	for (let index = 0; index < data['pemain'].length; index++) {
 		let row = [index + 1, data['pemain'][index]['nama_pemain'], data['pemain'][index]['nama_kategori']]
@@ -112,12 +110,6 @@ const generatePdfPerorangan = (username, token, rawData) => {
 		body: pemain
 	})
 	doc.save("Bukti-Pendaftaran-TCRB-" + username + ".pdf")
-	// var string = doc.output('datauristring')
-	// var embed = "<embed width='100%' height='100%' src='" + string + "'/>"
-	// var x = window.open();
-	// x.document.open();
-	// x.document.write(embed);
-	// x.document.close();
 	$('.loading').html('<h3 class="text-center">PDF selesai dibuat</h3>');
 	Swal.fire({
 		type: 'success',
@@ -142,7 +134,6 @@ const generatePdfBeregu = (username, token, rawData) => {
 	doc.text(data['user']['instansi'], 72, 57.5)
 	doc.text(data['user']['no_telepon'], 72, 65.5)
 	doc.text(data['regu'][0]['tanggal_bayar'], 72, 73.5)
-	// img.src = url + 'generate-qr'
 	let regu = []
 	for (let index = 0; index < data['regu'].length; index++) {
 		let row = [index + 1, data['regu'][index]['nama'], data['regu'][index]['namaPaket']]
@@ -199,12 +190,6 @@ const generatePdfBeregu = (username, token, rawData) => {
 	}
 
 	doc.save("Bukti-Pendaftaran-TCRB-" + username + ".pdf")
-	// var string = doc.output('datauristring')
-	// var embed = "<embed width='100%' height='100%' src='" + string + "'/>"
-	// var x = window.open();
-	// x.document.open();
-	// x.document.write(embed);
-	// x.document.close();
 	$('.loading').html('<h3 class="text-center">PDF selesai dibuat</h3>');
 	Swal.fire({
 		type: 'success',
