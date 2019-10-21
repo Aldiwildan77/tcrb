@@ -183,7 +183,7 @@
         <div class="col-12">
           <?php if ($regu[0]['status_bayar'] == 2) : ?>
             <div class="text-center">
-              <!-- <a href="<?= base_url('user/bukti-pendaftaran') ?>" class="text-center btn btn-info btn-lg mt-2" style="border-radius:25px;">Cetak Struk</a> -->
+              <a href="<?= base_url('user/bukti-pendaftaran') ?>" class="text-center btn btn-info btn-lg mt-2" style="border-radius:25px;">Cetak Struk</a>
             </div>
           <?php elseif ($regu[0]['status_bayar'] == 1) : ?>
             <h3 class="text-center">Pembayaran anda masih dalam proses review.</h3>
@@ -218,8 +218,6 @@
 </div>
 </div>
 <?= $this->session->flashdata('message-user') ?>
-
-
 
 <!-- untuk aside 3 div,   -->
 </div>

@@ -1,9 +1,5 @@
 <?php
 
-use Endroid\QrCode\ErrorCorrectionLevel;
-use Endroid\QrCode\QrCode;
-use Endroid\QrCode\Response\QrCodeResponse;
-
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class UserController extends CI_Controller
@@ -642,31 +638,6 @@ class UserController extends CI_Controller
 		}
 	}
 
-	public function sendAbsensiMail()
-	{
-		$email = $this->UserModel->getDataUser([
-			'username' => $this->session->userdata['username']
-		])['email'];
-
-		$token = $this->_generateQrCode('adsa');
-
-		/*
-		 * hmm, lemme check this first, i think it will reproduce the same token ?
-		 * so we must change this method's logic first
-		 * okay, but can you read the function when this token has been inserted into database, please ?
-		 * ...
-		 */
-
-		$this->load->library('email', $this->mailConfig());
-		$this->email->from($this->mailConfig()['smtp_user'], 'Turnamen Catur Raja Brawijaya');
-		$this->email->to($email);
-		$this->email->subject('Kode Registrasi Ulang');
-		$this->email->attach(FCPATH . "/qrcode/$token.png");
-		$cid = $this->email->attachment_cid(FCPATH . "/qrcode/$token.png");
-		$this->email->message('<img src="cid:' . $cid . '"/>');
-		$this->email->send();
-	}
-
 	public function halamanGeneratePDF(){
 		$username = $this->session->userdata('username');
 		$check = $this->UserModel->checkPembayaranOrang($username) ? "orang" : ($this->UserModel->checkPembayaranRegu($username) ? "regu" : false);
@@ -710,49 +681,6 @@ class UserController extends CI_Controller
 		// print_r($data['token']);
 		// return;
 		$this->load->view('user/generate_pdf', $data);
-	}
-
-	public function generateQrCode(){
-
-		$check = $this->input->get('check');
-		$token = $this->input->get('token');
-
-		$qr = new QrCode();
-		$qr->setText("https://tcrb.ub.ac.id/qr?data=$check/$token");
-		$qr->setSize(200);
-		$qr->setErrorCorrectionLevel(new ErrorCorrectionLevel(ErrorCorrectionLevel::HIGH));
-		$qr->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0));
-		$qr->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0));
-		$qr->setMargin(-2);
-		$qr->setLogoPath(FCPATH . '/assets/img/logo.png');
-		$qr->setLogoSize(45, 45);
-
-		header('Content-Type: ' . $qr->getContentType());
-		echo $qr->writeString();
-	}
-
-	private function _generateQrCode($check)
-	{
-
-		$where = array('user_id' => $this->session->userdata('id'));
-		$token = $this->UserModel->getDataPembayaran($check, $where)['token'];
-
-		// $qr = new QrCode();
-		// $qr->setText(base_url("/absensi/$check/$token"));
-		// $qr->setSize(200);
-		// $qr->setErrorCorrectionLevel(new ErrorCorrectionLevel(ErrorCorrectionLevel::HIGH));
-		// $qr->setForegroundColor(array('r' => 0, 'g' => 0, 'b' => 0, 'a' => 0));
-		// $qr->setBackgroundColor(array('r' => 255, 'g' => 255, 'b' => 255, 'a' => 0));
-		// $qr->setLogoPath(FCPATH . '/assets/img/logo.png');
-		// $qr->setLogoSize(45, 45);
-
-		// header('Content-Type: ' . $qr->getContentType());
-		// echo $qr->writeString();
-		// $qr->writeFile(FCPATH . "/qrcode/$token.png");
-
-		// return $token;
-		// $response = new QrCodeResponse($qr);
-		// return $response;
 	}
 
 	public function generatePDF()

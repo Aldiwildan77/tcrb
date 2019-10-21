@@ -54,7 +54,8 @@ const generatePdfPerorangan = (username, token, rawData) => {
 	doc.setFont('arial', 'normal')
 	doc.setFontSize(12)
 	doc.addImage(img, 'PNG', 0, 0, 210, 297, undefined, 'FAST')
-	img.src = `${url}generate-qr/?check=orang&token=${token}`
+	img.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tcrb.ub.ac.id/absensi/orang/${token}`
+	console.log("lewat")
 	doc.addImage(img, 'PNG', 155.5, 44.5, 31.5, 31.5, undefined, 'FAST')
 	doc.text(data['user']['nama_lengkap'], 72, 50.5)
 	doc.text(data['user']['instansi'], 72, 57.5)
@@ -106,7 +107,7 @@ const generatePdfBeregu = (username, token, rawData) => {
 	doc.setFont('arial', 'normal')
 	doc.setFontSize(12)
 	doc.addImage(img, 'PNG', 0, 0, 210, 297, undefined, 'FAST')
-	img.src = `${url}tcrb/generate-qr/?check=regu&token=${token}`
+	img.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://tcrb.ub.ac.id/absensi/regu/${token}`
 	doc.addImage(img, 'PNG', 155.5, 44.5, 31.5, 31.5, undefined, 'FAST')
 	doc.text(data['user']['nama_lengkap'], 72, 50.5)
 	doc.text(data['user']['instansi'], 72, 57.5)
@@ -168,6 +169,7 @@ const generatePdfBeregu = (username, token, rawData) => {
 	}
 
 	doc.save("Bukti-Pendaftaran-TCRB-" + username + ".pdf")
+
 	$('.loading').html('<h3 class="text-center">PDF selesai dibuat</h3>');
 	Swal.fire({
 		type: 'success',
