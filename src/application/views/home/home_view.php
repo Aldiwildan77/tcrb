@@ -353,6 +353,8 @@
 			<img src="<?= base_url('assets/img/sponsor/zindgani-a.png'); ?>" alt="" class="gsponsor">
 			<img src="<?= base_url('assets/img/sponsor/zindgani-b.png'); ?>" alt="" class="gsponsor">
 			<img src="<?= base_url('assets/img/sponsor/dza-pratama.jpg'); ?>" alt="" class="gsponsor">
+			<img src="<?= base_url('assets/img/sponsor/soluzymedia.jpg'); ?>" alt="" class="gsponsor">
+			<img src="<?= base_url('assets/img/sponsor/rental-ht-malang.jpg'); ?>" alt="" class="gsponsor">
 		</div>
 
 		<div class="row">
