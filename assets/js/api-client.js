@@ -54,7 +54,7 @@ const generatePdfPerorangan = (username, token, rawData) => {
 	doc.setFont('arial', 'normal')
 	doc.setFontSize(12)
 	doc.addImage(img, 'PNG', 0, 0, 210, 297, undefined, 'FAST')
-	img.src = `http://localhost/tcrb/generate-qr/?check=orang&token=${token}`
+	img.src = `${url}/generate-qr/?check=orang&token=${token}`
 	doc.addImage(img, 'PNG', 155.5, 44.5, 31.5, 31.5, undefined, 'FAST')
 	doc.text(data['user']['nama_lengkap'], 72, 50.5)
 	doc.text(data['user']['instansi'], 72, 57.5)
@@ -85,13 +85,8 @@ const generatePdfPerorangan = (username, token, rawData) => {
 		tableWidth: 165,
 		body: pemain
 	})
-	// doc.save("Bukti-Pendaftaran-TCRB-" + username + ".pdf")
-	var string = doc.output('datauristring')
-	var embed = "<embed width='100%' height='100%' src='" + string + "'/>"
-	var x = window.open();
-	x.document.open();
-	x.document.write(embed);
-	x.document.close();
+	doc.save("Bukti-Pendaftaran-TCRB-" + username + ".pdf")
+
 	$('.loading').html('<h3 class="text-center">PDF selesai dibuat</h3>');
 	Swal.fire({
 		type: 'success',
