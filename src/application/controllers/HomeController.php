@@ -153,6 +153,11 @@ class HomeController extends CI_Controller
   function twibbon(){
     $data['title'] = 'Twibbon';
     $this->load->view('home/twibbon', $data);
+	}
+
+  function panitia(){
+    $data['title'] = 'Pengenalan Panitia';
+    $this->load->view('home/panitia', $data);
   }
 
 	function line()
