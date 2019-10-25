@@ -28,6 +28,7 @@ $route['user/pendaftaran-proses-regu'] = 'UserController/prosesPendaftaranBeregu
 $route['user/pembayaran'] = 'UserController/pembayaran';
 $route['user/changepass'] = 'UserController/changePassword';
 $route['user/bukti-pendaftaran'] = 'UserController/halamanGeneratePDF';
+// $route['user/bukti-pendaftaran'] = 'UserController/generatePDF';
 // $route['generate-qr/(:any)/(:any)'] = 'UserController/generateQrCode/$1/$2';
 $route['generate-qr'] = 'UserController/generateQrCode';
 
@@ -37,7 +38,6 @@ $route['dokumentasi'] = 'HomeController/dokumentasi';
 $route['tata-cara-pendaftaran'] = 'HomeController/tataCara';
 $route['twibbon'] = 'HomeController/twibbon';
 $route['twibbon-manual'] = 'HomeController/twibbonManual';
-$route['panitia'] = 'HomeController/panitia';
 
 // Sosmed
 $route['line'] = 'HomeController/line';
@@ -60,6 +60,8 @@ $route['admin/orang/semua'] = 'AdminController/peroranganSemua';
 $route['admin/orang/0'] = 'AdminController/perorangan0';
 $route['admin/orang/1'] = 'AdminController/perorangan1';
 $route['admin/orang/2'] = 'AdminController/perorangan2';
+$route['admin/orang/pemain-rapid'] = 'AdminController/pemainRapid';
+$route['admin/orang/pemain-blitz'] = 'AdminController/pemainBlitz';
 $route['admin/regu'] = 'AdminController/beregu';
 $route['admin/regu/semua'] = 'AdminController/bereguSemua';
 $route['admin/user'] = 'AdminController/user';

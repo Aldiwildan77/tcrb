@@ -215,4 +215,18 @@ class AdminController extends CI_Controller
     $this->email->message($msg);
     return $this->email->send() ? true : false;
   }
+
+  public function pemainRapid(){
+    $data['pemain'] = $this->AdminModel->getAllDataPemainPeroranganRapidLunas();
+    $data['kategori'] = 'Rapid';
+
+    $this->load->view('admin/perorangan/pemain', $data);
+  }
+
+  public function pemainBlitz(){
+    $data['pemain'] = $this->AdminModel->getAllDataPemainPeroranganBlitzLunas();
+    $data['kategori'] = 'Blitz';
+
+    $this->load->view('admin/perorangan/pemain', $data);
+  }
 }
