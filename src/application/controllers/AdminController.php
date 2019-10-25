@@ -229,4 +229,13 @@ class AdminController extends CI_Controller
 
     $this->load->view('admin/perorangan/pemain', $data);
   }
+
+  public function pemainBereguRapid(){
+    $data['pemain'] = $this->AdminModel->getAllDataPemainBereguRapidLunas();    
+    $data['kategori'] = 'Blitz';
+    print_r($data['pemain']);
+    return;
+
+    $this->load->view('admin/perorangan/pemain', $data);
+  }
 }
