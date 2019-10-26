@@ -116,27 +116,19 @@
 
 	<div class="container">
 		<div class="row my-5">
-			<div class="col-7 mx-auto">
+			<div class="col-lg-6 mx-auto">
 
 				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 					<div class="carousel-inner">
 
 						<div class="carousel-item active">
-							<img src="<?= base_url("assets/panitia/img/Inti.png"); ?>" class="d-block" alt="...">
+							<img src="<?= base_url("assets/panitia/img/Inti.png"); ?>" class="d-block w-100" alt="...">
 						</div>
 
-						<?php 
-						$listPanitia = ["Kapel", "Wakapel", "Benpel", "Acara-s", 
-						"Acara", "DDM-s", "DDM", "Sponsor-s", "Sponsor", "Perkap-s", 
-						"Perkap", "Medko-s", "Medko", "Kestari-s", "Kestari", "IT-s", 
-						"IT", "Humas", "SC-s", "SC", "PH-s", "PH"];
-
-						foreach ($listPanitia as $list) : ?>
-
+						<?php foreach ($listPanitia as $list) : ?>
 							<div class="carousel-item">
-								<img src="<?= base_url("assets/panitia/img/$list.png"); ?>" class="d-block" alt="...">
+								<img src="<?= base_url("assets/panitia/img/$list.png"); ?>" class="d-block w-100" alt="...">
 							</div>
-
 						<?php endforeach; ?>
 
 					</div>

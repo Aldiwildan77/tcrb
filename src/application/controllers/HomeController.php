@@ -156,7 +156,13 @@ class HomeController extends CI_Controller
 	}
 
   function panitia(){
-    $data['title'] = 'Pengenalan Panitia';
+		$data['title'] = 'Pengenalan Panitia';
+		$data['listPanitia'] = [
+			"Kapel", "Wakapel", "Benpel", "Acara-s",
+			"Acara", "DDM-s", "DDM", "Sponsor-s", "Sponsor", "Perkap-s",
+			"Perkap", "Medko-s", "Medko", "Kestari-s", "Kestari", "IT-s",
+			"IT", "Humas-s", "Humas", "SC-s", "SC", "PH-s", "PH"
+		];
     $this->load->view('home/panitia', $data);
   }
 
