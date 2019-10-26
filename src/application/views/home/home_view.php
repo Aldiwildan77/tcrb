@@ -304,7 +304,7 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-10 panel">
 				<div id="maps">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.4442936481173!2d112.61582953466001!3d-7.952953786621118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e788279dca18c77%3A0xb6fff151836a4dec!2sSamantha+Krida!5e0!3m2!1sen!2sid!4v1564125723895!5m2!1sen!2sid" class="w-100 h-100" frameborder="0" style="border:0" allowfullscreen></iframe>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.466371476715!2d112.6115856153839!3d-7.9506619814154575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e788276d2a6fc31%3A0x37b5542693f0d99e!2sFaculty%20of%20Law%20Universitas%20Brawijaya!5e0!3m2!1sen!2sid!4v1572068443508!5m2!1sen!2sid" class="w-100 h-100" frameborder="0" style="border:0" allowfullscreen></iframe>
 				</div>
 			</div>
 		</div>
