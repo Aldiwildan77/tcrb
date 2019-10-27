@@ -234,9 +234,7 @@ $('#tambah-perorangan').click(function (e) { //tambah perorangan
 		'<option selected disabled>Pilih salah satu</option>' +
 		'<option value="2">Presale 2 Rapid</option>' +
 		'<option value="4">Presale 2 Blitz</option>' +
-		'<option value="17">Presale 2 Rapid + Paket B Perorangan/Official</option>' +
 		'<option value="18">Presale 2 Rapid + Paket D Perorangan/Official</option>' +
-		'<option value="19">Presale 2 Blitz + Paket B Perorangan/Official</option>' +
 		'<option value="20">Presale 2 Blitz + Paket D Perorangan/Official</option>' +
 		'</select>' +
 		'</div>' +
@@ -288,8 +286,6 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 					<label for="kategoriRegu` + urutanBeregu + `">Kategori pertandingan</label>
 					<select id="kategoriRegu` + urutanBeregu + `" class="form-control" name="kategoriRegu[]" required>
 						<option selected disabled>Pilih salah satu</option>
-						<option value="5">Paket A Beregu Rapid</option>
-						<option value="6">Paket B Beregu Rapid</option>
 						<option value="7">Paket C Beregu Rapid</option>
 						<option value="21">Paket D Beregu Rapid</option>
 						<option value="8">Paket Blitz</option>
@@ -499,8 +495,6 @@ $('#tambah-regu').click(function (e) { //tambah beregu
 					<label for="paket_official_` + urutanBeregu + `">Pilih paket</label>
 						<select id="paket_official_` + urutanBeregu + `" class="form-control" name="paket_official[]">
 							<option selected disabled>Pilih salah satu</option>
-							<option value="9">Paket A Perorangan/Official 2 orang</option>
-							<option value="10">Paket B Perorangan/Official 1 orang</option>
 							<option value="11">Paket C Perorangan/Official 2 orang</option>
 							<option value="12">Paket D Perorangan/Official 1 orang</option>
 						</select>

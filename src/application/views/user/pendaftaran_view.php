@@ -82,9 +82,7 @@
 			                    <option selected disabled>Pilih salah satu</option>
 			                    <option value="<?= $kategori[1]['id'] ?>"><?= $kategori[1]['nama'] ?></option>
 			                    <option value="<?= $kategori[3]['id'] ?>"><?= $kategori[3]['nama'] ?></option>
-			                    <option value="<?= $kategori[16]['id'] ?>"><?= $kategori[16]['nama'] ?></option>
 			                    <option value="<?= $kategori[17]['id'] ?>"><?= $kategori[17]['nama'] ?></option>
-			                    <option value="<?= $kategori[18]['id'] ?>"><?= $kategori[18]['nama'] ?></option>
 			                    <option value="<?= $kategori[19]['id'] ?>"><?= $kategori[19]['nama'] ?></option>
 			                  </select>
 			                </div>
@@ -140,9 +138,7 @@
 			                      <label for="kategoriRegu1">Kategori pertandingan</label>
 			                      <select id="kategoriRegu1" class="form-control" name="kategoriRegu[]" required>
 			                        <option selected disabled>Pilih salah satu</option>
-			                        <?php for ($i = 4; $i < 7; $i++) : ?>
-			                          <option value="<?= $kategori[$i]['id'] ?>"><?= $kategori[$i]['nama'] ?></option>
-															<?php endfor; ?>
+															<option value="<?= $kategori[6]['id'] ?>"><?= $kategori[6]['nama'] ?></option>
 															<option value="<?= $kategori[20]['id'] ?>"><?= $kategori[20]['nama'] ?></option>
 															<option value="<?= $kategori[7]['id'] ?>"><?= $kategori[7]['nama'] ?></option>
 			                      </select>
@@ -348,7 +344,7 @@
 			                      <label for="paket_official_1">Pilih paket</label>
 			                      <select id="paket_official_1" class="form-control" name="paket_official[]">
 			                        <option selected disabled>Pilih salah satu</option>
-			                        <?php for ($i = 8; $i < 12; $i++) : ?>
+			                        <?php for ($i = 10; $i < 12; $i++) : ?>
 			                          <option value="<?= $kategori[$i]['id'] ?>"><?= $kategori[$i]['nama'] ?></option>
 			                        <?php endfor; ?>
 			                      </select>
