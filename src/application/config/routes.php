@@ -39,6 +39,7 @@ $route['tata-cara-pendaftaran'] = 'HomeController/tataCara';
 $route['twibbon'] = 'HomeController/twibbon';
 $route['twibbon-manual'] = 'HomeController/twibbonManual';
 $route['panitia'] = 'HomeController/panitia';
+$route['pairing'] = 'HomeController/pairing';
 
 // Sosmed
 $route['line'] = 'HomeController/line';

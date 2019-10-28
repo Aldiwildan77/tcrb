@@ -166,6 +166,13 @@ class HomeController extends CI_Controller
     $this->load->view('home/panitia', $data);
   }
 
+  function pairing(){
+    $data['title'] = 'Pairing';
+    $this->load->view('templates/header', $data);
+    $this->load->view('home/pairing');
+    $this->load->view('templates/footer', $data);
+  }
+
 	function line()
 	{
 		redirect('https://line.me/R/ti/p/@trm9176m');
